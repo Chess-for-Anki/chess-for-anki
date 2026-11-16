@@ -18,7 +18,7 @@ LEGACY_FIELDS = ["Title", "PlayerColor", "MovesPGN", "Book Notes",
                  "Personal Notes", "MovesFEN", "StartFEN"]
 # Retain the retired analysis field for compatibility with existing notes.
 # It is never read or rendered by the card template.
-OPTIONAL_FIELDS = ["Brilliant Moves", "Position Evaluation"]
+OPTIONAL_FIELDS = ["Brilliant Moves", "Position Evaluation", "Previous Move"]
 FIELDS = LEGACY_FIELDS + OPTIONAL_FIELDS
 
 
@@ -160,6 +160,7 @@ def _build_front() -> str:
     notation_js = _web("notation.js")
     speech_js = _web("speech.js")
     brilliant_js = _web("brilliant.js")
+    previous_js = _web("previous_move.js")
     css = _web("card_style.css")
     front = _web("card_front.html")
     from pathlib import Path
@@ -191,6 +192,7 @@ def _build_front() -> str:
         f"<script>{notation_js}</script>\n"
         f"<script>{speech_js}</script>\n"
         f"<script>{brilliant_js}</script>\n"
+        f"<script>{previous_js}</script>\n"
         f"<script>var CFA_COMMENTARY={commentary};</script>\n"
         f"<script>var CFA_NARRATION={narration};</script>\n"
         f"{front}"
@@ -386,8 +388,17 @@ def backfill_moves_fen(col):
 
 def create_note(col, title: str, player_color: str, moves: list,
                 start_fen: str = "", book_notes: str = "", personal_notes: str = "",
-                brilliant_moves="", position_evaluation=""):
+                brilliant_moves="", position_evaluation="", previous_move="",
+                legacy_setup=False):
     stored_start_fen = simplify_start_fen(start_fen) or ""
+    previous_text=""
+    if previous_move:
+        from . import previous_move as previous
+        context=previous.loads(previous_move,stored_start_fen) if isinstance(previous_move,str) else previous.validate(previous_move,stored_start_fen)
+        previous_text=previous.dumps(context,stored_start_fen)
+    initial='rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w'
+    if stored_start_fen and ' '.join(stored_start_fen.split()[:2])!=initial and not previous_text and not legacy_setup:
+        raise ValueError('Custom-position cards require the previous move and preceding position. Set them before saving.')
     brilliant_text = ""
     if brilliant_moves is not None and brilliant_moves != "":
         from . import brilliant
@@ -414,4 +425,5 @@ def create_note(col, title: str, player_color: str, moves: list,
     note["Personal Notes"] = personal_notes or ""
     note["Brilliant Moves"] = brilliant_text
     note["Position Evaluation"] = evaluation_text
+    note["Previous Move"] = previous_text
     return note

@@ -1,0 +1,3966 @@
+[
+  {
+    "id": "57a9fbf2b8c12cfd",
+    "title": "Italian Game - prepare the centre · White",
+    "side": "white",
+    "start": "",
+    "moves": [
+      "e4",
+      "e5",
+      "Nf3",
+      "Nc6",
+      "Bc4",
+      "Bc5",
+      "d3",
+      "Nf6",
+      "O-O",
+      "d6",
+      "c3",
+      "O-O",
+      "Re1",
+      "a6",
+      "Bb3",
+      "Ba7",
+      "Nbd2",
+      "h6",
+      "Nf1",
+      "Be6"
+    ],
+    "uci": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "b8c6",
+      "f1c4",
+      "f8c5",
+      "d2d3",
+      "g8f6",
+      "e1g1",
+      "d7d6",
+      "c2c3",
+      "e8g8",
+      "f1e1",
+      "a7a6",
+      "c4b3",
+      "c5a7",
+      "b1d2",
+      "h7h6",
+      "d2f1",
+      "c8e6"
+    ],
+    "fens": [
+      "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+      "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3",
+      "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+      "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+      "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/3P1N2/PPP2PPP/RNBQK2R b KQkq - 0 4",
+      "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/3P1N2/PPP2PPP/RNBQK2R w KQkq - 1 5",
+      "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq - 2 5",
+      "r1bqk2r/ppp2ppp/2np1n2/2b1p3/2B1P3/3P1N2/PPP2PPP/RNBQ1RK1 w kq - 0 6",
+      "r1bqk2r/ppp2ppp/2np1n2/2b1p3/2B1P3/2PP1N2/PP3PPP/RNBQ1RK1 b kq - 0 6",
+      "r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1P3/2PP1N2/PP3PPP/RNBQ1RK1 w - - 1 7",
+      "r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1P3/2PP1N2/PP3PPP/RNBQR1K1 b - - 2 7",
+      "r1bq1rk1/1pp2ppp/p1np1n2/2b1p3/2B1P3/2PP1N2/PP3PPP/RNBQR1K1 w - - 0 8",
+      "r1bq1rk1/1pp2ppp/p1np1n2/2b1p3/4P3/1BPP1N2/PP3PPP/RNBQR1K1 b - - 1 8",
+      "r1bq1rk1/bpp2ppp/p1np1n2/4p3/4P3/1BPP1N2/PP3PPP/RNBQR1K1 w - - 2 9",
+      "r1bq1rk1/bpp2ppp/p1np1n2/4p3/4P3/1BPP1N2/PP1N1PPP/R1BQR1K1 b - - 3 9",
+      "r1bq1rk1/bpp2pp1/p1np1n1p/4p3/4P3/1BPP1N2/PP1N1PPP/R1BQR1K1 w - - 0 10",
+      "r1bq1rk1/bpp2pp1/p1np1n1p/4p3/4P3/1BPP1N2/PP3PPP/R1BQRNK1 b - - 1 10",
+      "r2q1rk1/bpp2pp1/p1npbn1p/4p3/4P3/1BPP1N2/PP3PPP/R1BQRNK1 w - - 2 11"
+    ],
+    "notes": "<p>Develop, castle and support the centre before choosing a pawn break. White has arranged the pieces to prepare d4 or improve the knight; Black has completed development and can contest the same central squares.</p><p>Opening lesson: this is one illustrative continuation, not a forced line or a complete repertoire. The stopping point introduces a middlegame plan; chess has no single universal move that ends the opening.</p><p>Explanations prepared for Chess for Anki. The move sequence describes chess facts.</p><div class=\"cfa-commentary-data\" hidden>{&quot;language&quot;: &quot;en&quot;, &quot;start_fen&quot;: &quot;&quot;, &quot;moves&quot;: [&quot;e4&quot;, &quot;e5&quot;, &quot;Nf3&quot;, &quot;Nc6&quot;, &quot;Bc4&quot;, &quot;Bc5&quot;, &quot;d3&quot;, &quot;Nf6&quot;, &quot;O-O&quot;, &quot;d6&quot;, &quot;c3&quot;, &quot;O-O&quot;, &quot;Re1&quot;, &quot;a6&quot;, &quot;Bb3&quot;, &quot;Ba7&quot;, &quot;Nbd2&quot;, &quot;h6&quot;, &quot;Nf1&quot;, &quot;Be6&quot;], &quot;notes&quot;: [{&quot;san&quot;: &quot;e4&quot;, &quot;text&quot;: &quot;White occupies e4, gaining central space and opening lines for the bishop and queen.&quot;}, {&quot;san&quot;: &quot;e5&quot;, &quot;text&quot;: &quot;Black occupies e5 and contests the centre with a pawn of its own.&quot;}, {&quot;san&quot;: &quot;Nf3&quot;, &quot;text&quot;: &quot;White develops the knight to f3 and attacks the pawn on e5.&quot;}, {&quot;san&quot;: &quot;Nc6&quot;, &quot;text&quot;: &quot;Black develops the knight to c6 and protects e5.&quot;}, {&quot;san&quot;: &quot;Bc4&quot;, &quot;text&quot;: &quot;White develops the bishop to c4, where it looks along the diagonal toward f7. This does not by itself create a forced attack.&quot;}, {&quot;san&quot;: &quot;Bc5&quot;, &quot;text&quot;: &quot;Black develops the bishop to c5, bringing a piece into play on an active diagonal.&quot;}, {&quot;san&quot;: &quot;d3&quot;, &quot;text&quot;: &quot;White supports e4 with d3 and opens the diagonal for the bishop on c1.&quot;}, {&quot;san&quot;: &quot;Nf6&quot;, &quot;text&quot;: &quot;Black develops the knight to f6 and puts pressure on e4.&quot;}, {&quot;san&quot;: &quot;O-O&quot;, &quot;text&quot;: &quot;White castles kingside, moving the king away from the centre and bringing the rook closer to the central files.&quot;}, {&quot;san&quot;: &quot;d6&quot;, &quot;text&quot;: &quot;Black supports e5 with d6 and opens the other bishop&#x27;s diagonal.&quot;}, {&quot;san&quot;: &quot;c3&quot;, &quot;text&quot;: &quot;White plays c3 to support a possible d4 advance. The pawn move also changes the squares available to the queenside knight.&quot;}, {&quot;san&quot;: &quot;O-O&quot;, &quot;text&quot;: &quot;Black castles kingside. Both kings are now sheltered while the central pawns remain in place.&quot;}, {&quot;san&quot;: &quot;Re1&quot;, &quot;text&quot;: &quot;White brings the rook to e1 to support e4 and prepare central play.&quot;}, {&quot;san&quot;: &quot;a6&quot;, &quot;text&quot;: &quot;Black advances the a-pawn, gaining a little space and making a7 available as a retreat square for the bishop.&quot;}, {&quot;san&quot;: &quot;Bb3&quot;, &quot;text&quot;: &quot;White moves the bishop to b3, keeping its diagonal toward the centre and Black&#x27;s kingside.&quot;}, {&quot;san&quot;: &quot;Ba7&quot;, &quot;text&quot;: &quot;Black retreats the bishop to a7, retaining the diagonal toward f2.&quot;}, {&quot;san&quot;: &quot;Nbd2&quot;, &quot;text&quot;: &quot;White develops the queenside knight to d2, where it supports e4 and can be rerouted.&quot;}, {&quot;san&quot;: &quot;h6&quot;, &quot;text&quot;: &quot;Black plays h6, controlling g5 and giving the king a possible escape square later.&quot;}, {&quot;san&quot;: &quot;Nf1&quot;, &quot;text&quot;: &quot;White reroutes the knight to f1. From there it can go toward g3 or e3 after checking the position.&quot;}, {&quot;san&quot;: &quot;Be6&quot;, &quot;text&quot;: &quot;Black develops the remaining bishop to e6. This is a useful stopping point for the lesson: both sides now choose a middlegame plan, rather than follow a single forced continuation.&quot;}]}</div>",
+    "commentary": {
+      "language": "en",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bc4",
+        "Bc5",
+        "d3",
+        "Nf6",
+        "O-O",
+        "d6",
+        "c3",
+        "O-O",
+        "Re1",
+        "a6",
+        "Bb3",
+        "Ba7",
+        "Nbd2",
+        "h6",
+        "Nf1",
+        "Be6"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White occupies e4, gaining central space and opening lines for the bishop and queen."
+        },
+        {
+          "san": "e5",
+          "text": "Black occupies e5 and contests the centre with a pawn of its own."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops the knight to f3 and attacks the pawn on e5."
+        },
+        {
+          "san": "Nc6",
+          "text": "Black develops the knight to c6 and protects e5."
+        },
+        {
+          "san": "Bc4",
+          "text": "White develops the bishop to c4, where it looks along the diagonal toward f7. This does not by itself create a forced attack."
+        },
+        {
+          "san": "Bc5",
+          "text": "Black develops the bishop to c5, bringing a piece into play on an active diagonal."
+        },
+        {
+          "san": "d3",
+          "text": "White supports e4 with d3 and opens the diagonal for the bishop on c1."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops the knight to f6 and puts pressure on e4."
+        },
+        {
+          "san": "O-O",
+          "text": "White castles kingside, moving the king away from the centre and bringing the rook closer to the central files."
+        },
+        {
+          "san": "d6",
+          "text": "Black supports e5 with d6 and opens the other bishop's diagonal."
+        },
+        {
+          "san": "c3",
+          "text": "White plays c3 to support a possible d4 advance. The pawn move also changes the squares available to the queenside knight."
+        },
+        {
+          "san": "O-O",
+          "text": "Black castles kingside. Both kings are now sheltered while the central pawns remain in place."
+        },
+        {
+          "san": "Re1",
+          "text": "White brings the rook to e1 to support e4 and prepare central play."
+        },
+        {
+          "san": "a6",
+          "text": "Black advances the a-pawn, gaining a little space and making a7 available as a retreat square for the bishop."
+        },
+        {
+          "san": "Bb3",
+          "text": "White moves the bishop to b3, keeping its diagonal toward the centre and Black's kingside."
+        },
+        {
+          "san": "Ba7",
+          "text": "Black retreats the bishop to a7, retaining the diagonal toward f2."
+        },
+        {
+          "san": "Nbd2",
+          "text": "White develops the queenside knight to d2, where it supports e4 and can be rerouted."
+        },
+        {
+          "san": "h6",
+          "text": "Black plays h6, controlling g5 and giving the king a possible escape square later."
+        },
+        {
+          "san": "Nf1",
+          "text": "White reroutes the knight to f1. From there it can go toward g3 or e3 after checking the position."
+        },
+        {
+          "san": "Be6",
+          "text": "Black develops the remaining bishop to e6. This is a useful stopping point for the lesson: both sides now choose a middlegame plan, rather than follow a single forced continuation."
+        }
+      ]
+    },
+    "tags": [
+      "cfa_free_sample",
+      "cfa_opening",
+      "italian"
+    ],
+    "group": "01 - Opening lessons::White",
+    "pack": "free-sample",
+    "kind": "repertoire",
+    "plan": "Develop, castle and support the centre before choosing a pawn break. White has arranged the pieces to prepare d4 or improve the knight; Black has completed development and can contest the same central squares.",
+    "verification": {
+      "legal": true,
+      "plies": 20,
+      "scope": "Teaching transition after development and castling; no engine during review.",
+      "final_position_engine_check": {
+        "engine": "Stockfish 19",
+        "nodes_requested": 500000,
+        "actual_nodes": 500176,
+        "depth": 19,
+        "final_position_check": "No forced mate found; absolute White score at most 150 cp at this search budget.",
+        "scope": "Final position only; all SAN and FEN replay checked separately; not proof of best moves."
+      }
+    }
+  },
+  {
+    "id": "f6e2b931104a27c7",
+    "title": "Italian Game - prepare the centre · Black",
+    "side": "black",
+    "start": "",
+    "moves": [
+      "e4",
+      "e5",
+      "Nf3",
+      "Nc6",
+      "Bc4",
+      "Bc5",
+      "d3",
+      "Nf6",
+      "O-O",
+      "d6",
+      "c3",
+      "O-O",
+      "Re1",
+      "a6",
+      "Bb3",
+      "Ba7",
+      "Nbd2",
+      "h6",
+      "Nf1",
+      "Be6"
+    ],
+    "uci": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "b8c6",
+      "f1c4",
+      "f8c5",
+      "d2d3",
+      "g8f6",
+      "e1g1",
+      "d7d6",
+      "c2c3",
+      "e8g8",
+      "f1e1",
+      "a7a6",
+      "c4b3",
+      "c5a7",
+      "b1d2",
+      "h7h6",
+      "d2f1",
+      "c8e6"
+    ],
+    "fens": [
+      "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+      "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3",
+      "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+      "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+      "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/3P1N2/PPP2PPP/RNBQK2R b KQkq - 0 4",
+      "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/3P1N2/PPP2PPP/RNBQK2R w KQkq - 1 5",
+      "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq - 2 5",
+      "r1bqk2r/ppp2ppp/2np1n2/2b1p3/2B1P3/3P1N2/PPP2PPP/RNBQ1RK1 w kq - 0 6",
+      "r1bqk2r/ppp2ppp/2np1n2/2b1p3/2B1P3/2PP1N2/PP3PPP/RNBQ1RK1 b kq - 0 6",
+      "r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1P3/2PP1N2/PP3PPP/RNBQ1RK1 w - - 1 7",
+      "r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1P3/2PP1N2/PP3PPP/RNBQR1K1 b - - 2 7",
+      "r1bq1rk1/1pp2ppp/p1np1n2/2b1p3/2B1P3/2PP1N2/PP3PPP/RNBQR1K1 w - - 0 8",
+      "r1bq1rk1/1pp2ppp/p1np1n2/2b1p3/4P3/1BPP1N2/PP3PPP/RNBQR1K1 b - - 1 8",
+      "r1bq1rk1/bpp2ppp/p1np1n2/4p3/4P3/1BPP1N2/PP3PPP/RNBQR1K1 w - - 2 9",
+      "r1bq1rk1/bpp2ppp/p1np1n2/4p3/4P3/1BPP1N2/PP1N1PPP/R1BQR1K1 b - - 3 9",
+      "r1bq1rk1/bpp2pp1/p1np1n1p/4p3/4P3/1BPP1N2/PP1N1PPP/R1BQR1K1 w - - 0 10",
+      "r1bq1rk1/bpp2pp1/p1np1n1p/4p3/4P3/1BPP1N2/PP3PPP/R1BQRNK1 b - - 1 10",
+      "r2q1rk1/bpp2pp1/p1npbn1p/4p3/4P3/1BPP1N2/PP3PPP/R1BQRNK1 w - - 2 11"
+    ],
+    "notes": "<p>Develop, castle and support the centre before choosing a pawn break. White has arranged the pieces to prepare d4 or improve the knight; Black has completed development and can contest the same central squares.</p><p>Opening lesson: this is one illustrative continuation, not a forced line or a complete repertoire. The stopping point introduces a middlegame plan; chess has no single universal move that ends the opening.</p><p>Explanations prepared for Chess for Anki. The move sequence describes chess facts.</p><div class=\"cfa-commentary-data\" hidden>{&quot;language&quot;: &quot;en&quot;, &quot;start_fen&quot;: &quot;&quot;, &quot;moves&quot;: [&quot;e4&quot;, &quot;e5&quot;, &quot;Nf3&quot;, &quot;Nc6&quot;, &quot;Bc4&quot;, &quot;Bc5&quot;, &quot;d3&quot;, &quot;Nf6&quot;, &quot;O-O&quot;, &quot;d6&quot;, &quot;c3&quot;, &quot;O-O&quot;, &quot;Re1&quot;, &quot;a6&quot;, &quot;Bb3&quot;, &quot;Ba7&quot;, &quot;Nbd2&quot;, &quot;h6&quot;, &quot;Nf1&quot;, &quot;Be6&quot;], &quot;notes&quot;: [{&quot;san&quot;: &quot;e4&quot;, &quot;text&quot;: &quot;White occupies e4, gaining central space and opening lines for the bishop and queen.&quot;}, {&quot;san&quot;: &quot;e5&quot;, &quot;text&quot;: &quot;Black occupies e5 and contests the centre with a pawn of its own.&quot;}, {&quot;san&quot;: &quot;Nf3&quot;, &quot;text&quot;: &quot;White develops the knight to f3 and attacks the pawn on e5.&quot;}, {&quot;san&quot;: &quot;Nc6&quot;, &quot;text&quot;: &quot;Black develops the knight to c6 and protects e5.&quot;}, {&quot;san&quot;: &quot;Bc4&quot;, &quot;text&quot;: &quot;White develops the bishop to c4, where it looks along the diagonal toward f7. This does not by itself create a forced attack.&quot;}, {&quot;san&quot;: &quot;Bc5&quot;, &quot;text&quot;: &quot;Black develops the bishop to c5, bringing a piece into play on an active diagonal.&quot;}, {&quot;san&quot;: &quot;d3&quot;, &quot;text&quot;: &quot;White supports e4 with d3 and opens the diagonal for the bishop on c1.&quot;}, {&quot;san&quot;: &quot;Nf6&quot;, &quot;text&quot;: &quot;Black develops the knight to f6 and puts pressure on e4.&quot;}, {&quot;san&quot;: &quot;O-O&quot;, &quot;text&quot;: &quot;White castles kingside, moving the king away from the centre and bringing the rook closer to the central files.&quot;}, {&quot;san&quot;: &quot;d6&quot;, &quot;text&quot;: &quot;Black supports e5 with d6 and opens the other bishop&#x27;s diagonal.&quot;}, {&quot;san&quot;: &quot;c3&quot;, &quot;text&quot;: &quot;White plays c3 to support a possible d4 advance. The pawn move also changes the squares available to the queenside knight.&quot;}, {&quot;san&quot;: &quot;O-O&quot;, &quot;text&quot;: &quot;Black castles kingside. Both kings are now sheltered while the central pawns remain in place.&quot;}, {&quot;san&quot;: &quot;Re1&quot;, &quot;text&quot;: &quot;White brings the rook to e1 to support e4 and prepare central play.&quot;}, {&quot;san&quot;: &quot;a6&quot;, &quot;text&quot;: &quot;Black advances the a-pawn, gaining a little space and making a7 available as a retreat square for the bishop.&quot;}, {&quot;san&quot;: &quot;Bb3&quot;, &quot;text&quot;: &quot;White moves the bishop to b3, keeping its diagonal toward the centre and Black&#x27;s kingside.&quot;}, {&quot;san&quot;: &quot;Ba7&quot;, &quot;text&quot;: &quot;Black retreats the bishop to a7, retaining the diagonal toward f2.&quot;}, {&quot;san&quot;: &quot;Nbd2&quot;, &quot;text&quot;: &quot;White develops the queenside knight to d2, where it supports e4 and can be rerouted.&quot;}, {&quot;san&quot;: &quot;h6&quot;, &quot;text&quot;: &quot;Black plays h6, controlling g5 and giving the king a possible escape square later.&quot;}, {&quot;san&quot;: &quot;Nf1&quot;, &quot;text&quot;: &quot;White reroutes the knight to f1. From there it can go toward g3 or e3 after checking the position.&quot;}, {&quot;san&quot;: &quot;Be6&quot;, &quot;text&quot;: &quot;Black develops the remaining bishop to e6. This is a useful stopping point for the lesson: both sides now choose a middlegame plan, rather than follow a single forced continuation.&quot;}]}</div>",
+    "commentary": {
+      "language": "en",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bc4",
+        "Bc5",
+        "d3",
+        "Nf6",
+        "O-O",
+        "d6",
+        "c3",
+        "O-O",
+        "Re1",
+        "a6",
+        "Bb3",
+        "Ba7",
+        "Nbd2",
+        "h6",
+        "Nf1",
+        "Be6"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White occupies e4, gaining central space and opening lines for the bishop and queen."
+        },
+        {
+          "san": "e5",
+          "text": "Black occupies e5 and contests the centre with a pawn of its own."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops the knight to f3 and attacks the pawn on e5."
+        },
+        {
+          "san": "Nc6",
+          "text": "Black develops the knight to c6 and protects e5."
+        },
+        {
+          "san": "Bc4",
+          "text": "White develops the bishop to c4, where it looks along the diagonal toward f7. This does not by itself create a forced attack."
+        },
+        {
+          "san": "Bc5",
+          "text": "Black develops the bishop to c5, bringing a piece into play on an active diagonal."
+        },
+        {
+          "san": "d3",
+          "text": "White supports e4 with d3 and opens the diagonal for the bishop on c1."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops the knight to f6 and puts pressure on e4."
+        },
+        {
+          "san": "O-O",
+          "text": "White castles kingside, moving the king away from the centre and bringing the rook closer to the central files."
+        },
+        {
+          "san": "d6",
+          "text": "Black supports e5 with d6 and opens the other bishop's diagonal."
+        },
+        {
+          "san": "c3",
+          "text": "White plays c3 to support a possible d4 advance. The pawn move also changes the squares available to the queenside knight."
+        },
+        {
+          "san": "O-O",
+          "text": "Black castles kingside. Both kings are now sheltered while the central pawns remain in place."
+        },
+        {
+          "san": "Re1",
+          "text": "White brings the rook to e1 to support e4 and prepare central play."
+        },
+        {
+          "san": "a6",
+          "text": "Black advances the a-pawn, gaining a little space and making a7 available as a retreat square for the bishop."
+        },
+        {
+          "san": "Bb3",
+          "text": "White moves the bishop to b3, keeping its diagonal toward the centre and Black's kingside."
+        },
+        {
+          "san": "Ba7",
+          "text": "Black retreats the bishop to a7, retaining the diagonal toward f2."
+        },
+        {
+          "san": "Nbd2",
+          "text": "White develops the queenside knight to d2, where it supports e4 and can be rerouted."
+        },
+        {
+          "san": "h6",
+          "text": "Black plays h6, controlling g5 and giving the king a possible escape square later."
+        },
+        {
+          "san": "Nf1",
+          "text": "White reroutes the knight to f1. From there it can go toward g3 or e3 after checking the position."
+        },
+        {
+          "san": "Be6",
+          "text": "Black develops the remaining bishop to e6. This is a useful stopping point for the lesson: both sides now choose a middlegame plan, rather than follow a single forced continuation."
+        }
+      ]
+    },
+    "tags": [
+      "cfa_free_sample",
+      "cfa_opening",
+      "italian"
+    ],
+    "group": "01 - Opening lessons::Black",
+    "pack": "free-sample",
+    "kind": "repertoire",
+    "plan": "Develop, castle and support the centre before choosing a pawn break. White has arranged the pieces to prepare d4 or improve the knight; Black has completed development and can contest the same central squares.",
+    "verification": {
+      "legal": true,
+      "plies": 20,
+      "scope": "Teaching transition after development and castling; no engine during review.",
+      "final_position_engine_check": {
+        "engine": "Stockfish 19",
+        "nodes_requested": 500000,
+        "actual_nodes": 500176,
+        "depth": 19,
+        "final_position_check": "No forced mate found; absolute White score at most 150 cp at this search budget.",
+        "scope": "Final position only; all SAN and FEN replay checked separately; not proof of best moves."
+      }
+    }
+  },
+  {
+    "id": "f47de248c201506b",
+    "title": "Queen's Gambit Declined - complete development · White",
+    "side": "white",
+    "start": "",
+    "moves": [
+      "d4",
+      "d5",
+      "c4",
+      "e6",
+      "Nc3",
+      "Nf6",
+      "Nf3",
+      "Be7",
+      "Bg5",
+      "O-O",
+      "e3",
+      "h6",
+      "Bh4",
+      "b6",
+      "cxd5",
+      "Nxd5",
+      "Bxe7",
+      "Qxe7",
+      "Nxd5",
+      "exd5",
+      "Bd3",
+      "Bb7",
+      "O-O"
+    ],
+    "uci": [
+      "d2d4",
+      "d7d5",
+      "c2c4",
+      "e7e6",
+      "b1c3",
+      "g8f6",
+      "g1f3",
+      "f8e7",
+      "c1g5",
+      "e8g8",
+      "e2e3",
+      "h7h6",
+      "g5h4",
+      "b7b6",
+      "c4d5",
+      "f6d5",
+      "h4e7",
+      "d8e7",
+      "c3d5",
+      "e6d5",
+      "f1d3",
+      "c8b7",
+      "e1g1"
+    ],
+    "fens": [
+      "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq - 0 1",
+      "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2",
+      "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq - 0 2",
+      "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3",
+      "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 1 3",
+      "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 2 4",
+      "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq - 3 4",
+      "rnbqk2r/ppp1bppp/4pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 4 5",
+      "rnbqk2r/ppp1bppp/4pn2/3p2B1/2PP4/2N2N2/PP2PPPP/R2QKB1R b KQkq - 5 5",
+      "rnbq1rk1/ppp1bppp/4pn2/3p2B1/2PP4/2N2N2/PP2PPPP/R2QKB1R w KQ - 6 6",
+      "rnbq1rk1/ppp1bppp/4pn2/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R b KQ - 0 6",
+      "rnbq1rk1/ppp1bpp1/4pn1p/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 7",
+      "rnbq1rk1/ppp1bpp1/4pn1p/3p4/2PP3B/2N1PN2/PP3PPP/R2QKB1R b KQ - 1 7",
+      "rnbq1rk1/p1p1bpp1/1p2pn1p/3p4/2PP3B/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 8",
+      "rnbq1rk1/p1p1bpp1/1p2pn1p/3P4/3P3B/2N1PN2/PP3PPP/R2QKB1R b KQ - 0 8",
+      "rnbq1rk1/p1p1bpp1/1p2p2p/3n4/3P3B/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 9",
+      "rnbq1rk1/p1p1Bpp1/1p2p2p/3n4/3P4/2N1PN2/PP3PPP/R2QKB1R b KQ - 0 9",
+      "rnb2rk1/p1p1qpp1/1p2p2p/3n4/3P4/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 10",
+      "rnb2rk1/p1p1qpp1/1p2p2p/3N4/3P4/4PN2/PP3PPP/R2QKB1R b KQ - 0 10",
+      "rnb2rk1/p1p1qpp1/1p5p/3p4/3P4/4PN2/PP3PPP/R2QKB1R w KQ - 0 11",
+      "rnb2rk1/p1p1qpp1/1p5p/3p4/3P4/3BPN2/PP3PPP/R2QK2R b KQ - 1 11",
+      "rn3rk1/pbp1qpp1/1p5p/3p4/3P4/3BPN2/PP3PPP/R2QK2R w KQ - 2 12",
+      "rn3rk1/pbp1qpp1/1p5p/3p4/3P4/3BPN2/PP3PPP/R2Q1RK1 b - - 3 12"
+    ],
+    "notes": "<p>Contest the centre with c4, develop without exposing the king and compare the central pawn structure after exchanges. The final position is a transition to plans involving the c-file and central activity, not a universal end to the opening.</p><p>Opening lesson: this is one illustrative continuation, not a forced line or a complete repertoire. The stopping point introduces a middlegame plan; chess has no single universal move that ends the opening.</p><p>Explanations prepared for Chess for Anki. The move sequence describes chess facts.</p><div class=\"cfa-commentary-data\" hidden>{&quot;language&quot;: &quot;en&quot;, &quot;start_fen&quot;: &quot;&quot;, &quot;moves&quot;: [&quot;d4&quot;, &quot;d5&quot;, &quot;c4&quot;, &quot;e6&quot;, &quot;Nc3&quot;, &quot;Nf6&quot;, &quot;Nf3&quot;, &quot;Be7&quot;, &quot;Bg5&quot;, &quot;O-O&quot;, &quot;e3&quot;, &quot;h6&quot;, &quot;Bh4&quot;, &quot;b6&quot;, &quot;cxd5&quot;, &quot;Nxd5&quot;, &quot;Bxe7&quot;, &quot;Qxe7&quot;, &quot;Nxd5&quot;, &quot;exd5&quot;, &quot;Bd3&quot;, &quot;Bb7&quot;, &quot;O-O&quot;], &quot;notes&quot;: [{&quot;san&quot;: &quot;d4&quot;, &quot;text&quot;: &quot;White places a pawn on d4, taking central space and opening the bishop&#x27;s diagonal.&quot;}, {&quot;san&quot;: &quot;d5&quot;, &quot;text&quot;: &quot;Black occupies d5 and prevents White from taking the entire centre without a challenge.&quot;}, {&quot;san&quot;: &quot;c4&quot;, &quot;text&quot;: &quot;White attacks d5 with the c-pawn. The pawn exchange is a way to influence the centre.&quot;}, {&quot;san&quot;: &quot;e6&quot;, &quot;text&quot;: &quot;Black supports d5 with e6 instead of taking c4. This is the Queen&#x27;s Gambit Declined.&quot;}, {&quot;san&quot;: &quot;Nc3&quot;, &quot;text&quot;: &quot;White develops the knight to c3 and adds pressure to d5.&quot;}, {&quot;san&quot;: &quot;Nf6&quot;, &quot;text&quot;: &quot;Black develops the knight to f6, supporting d5 and preparing to castle.&quot;}, {&quot;san&quot;: &quot;Nf3&quot;, &quot;text&quot;: &quot;White develops the other knight and protects the pawn on d4.&quot;}, {&quot;san&quot;: &quot;Be7&quot;, &quot;text&quot;: &quot;Black brings the bishop to e7 and clears the way for kingside castling.&quot;}, {&quot;san&quot;: &quot;Bg5&quot;, &quot;text&quot;: &quot;White develops the bishop actively to g5. The bishop on e7 means there is no direct pin of the knight to the queen here.&quot;}, {&quot;san&quot;: &quot;O-O&quot;, &quot;text&quot;: &quot;Black castles kingside, placing the king behind its pawns.&quot;}, {&quot;san&quot;: &quot;e3&quot;, &quot;text&quot;: &quot;White supports d4 with e3 and opens the diagonal for the bishop on f1.&quot;}, {&quot;san&quot;: &quot;h6&quot;, &quot;text&quot;: &quot;Black asks the bishop on g5 to decide whether to retreat or exchange.&quot;}, {&quot;san&quot;: &quot;Bh4&quot;, &quot;text&quot;: &quot;White keeps the bishop with Bh4. The bishop remains aimed along the kingside diagonal.&quot;}, {&quot;san&quot;: &quot;b6&quot;, &quot;text&quot;: &quot;Black prepares to develop the bishop to b7, where it can influence the central diagonal.&quot;}, {&quot;san&quot;: &quot;cxd5&quot;, &quot;text&quot;: &quot;White exchanges the c-pawn for the pawn on d5, beginning to clarify the centre.&quot;}, {&quot;san&quot;: &quot;Nxd5&quot;, &quot;text&quot;: &quot;Black recaptures with the knight, putting a piece on the central square d5.&quot;}, {&quot;san&quot;: &quot;Bxe7&quot;, &quot;text&quot;: &quot;White exchanges the bishop for Black&#x27;s bishop on e7.&quot;}, {&quot;san&quot;: &quot;Qxe7&quot;, &quot;text&quot;: &quot;Black recaptures with the queen and keeps the material balance.&quot;}, {&quot;san&quot;: &quot;Nxd5&quot;, &quot;text&quot;: &quot;White exchanges the knight on c3 for the knight on d5.&quot;}, {&quot;san&quot;: &quot;exd5&quot;, &quot;text&quot;: &quot;Black recaptures with the e-pawn. The pawn structure now gives both sides a new set of central plans.&quot;}, {&quot;san&quot;: &quot;Bd3&quot;, &quot;text&quot;: &quot;White develops the bishop to d3, aiming toward Black&#x27;s kingside and preparing to castle.&quot;}, {&quot;san&quot;: &quot;Bb7&quot;, &quot;text&quot;: &quot;Black completes bishop development on b7, directing it toward the centre.&quot;}, {&quot;san&quot;: &quot;O-O&quot;, &quot;text&quot;: &quot;White castles kingside. The remaining choices concern middlegame plans and piece activity; other playable opening continuations also exist.&quot;}]}</div>",
+    "commentary": {
+      "language": "en",
+      "start_fen": "",
+      "moves": [
+        "d4",
+        "d5",
+        "c4",
+        "e6",
+        "Nc3",
+        "Nf6",
+        "Nf3",
+        "Be7",
+        "Bg5",
+        "O-O",
+        "e3",
+        "h6",
+        "Bh4",
+        "b6",
+        "cxd5",
+        "Nxd5",
+        "Bxe7",
+        "Qxe7",
+        "Nxd5",
+        "exd5",
+        "Bd3",
+        "Bb7",
+        "O-O"
+      ],
+      "notes": [
+        {
+          "san": "d4",
+          "text": "White places a pawn on d4, taking central space and opening the bishop's diagonal."
+        },
+        {
+          "san": "d5",
+          "text": "Black occupies d5 and prevents White from taking the entire centre without a challenge."
+        },
+        {
+          "san": "c4",
+          "text": "White attacks d5 with the c-pawn. The pawn exchange is a way to influence the centre."
+        },
+        {
+          "san": "e6",
+          "text": "Black supports d5 with e6 instead of taking c4. This is the Queen's Gambit Declined."
+        },
+        {
+          "san": "Nc3",
+          "text": "White develops the knight to c3 and adds pressure to d5."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops the knight to f6, supporting d5 and preparing to castle."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops the other knight and protects the pawn on d4."
+        },
+        {
+          "san": "Be7",
+          "text": "Black brings the bishop to e7 and clears the way for kingside castling."
+        },
+        {
+          "san": "Bg5",
+          "text": "White develops the bishop actively to g5. The bishop on e7 means there is no direct pin of the knight to the queen here."
+        },
+        {
+          "san": "O-O",
+          "text": "Black castles kingside, placing the king behind its pawns."
+        },
+        {
+          "san": "e3",
+          "text": "White supports d4 with e3 and opens the diagonal for the bishop on f1."
+        },
+        {
+          "san": "h6",
+          "text": "Black asks the bishop on g5 to decide whether to retreat or exchange."
+        },
+        {
+          "san": "Bh4",
+          "text": "White keeps the bishop with Bh4. The bishop remains aimed along the kingside diagonal."
+        },
+        {
+          "san": "b6",
+          "text": "Black prepares to develop the bishop to b7, where it can influence the central diagonal."
+        },
+        {
+          "san": "cxd5",
+          "text": "White exchanges the c-pawn for the pawn on d5, beginning to clarify the centre."
+        },
+        {
+          "san": "Nxd5",
+          "text": "Black recaptures with the knight, putting a piece on the central square d5."
+        },
+        {
+          "san": "Bxe7",
+          "text": "White exchanges the bishop for Black's bishop on e7."
+        },
+        {
+          "san": "Qxe7",
+          "text": "Black recaptures with the queen and keeps the material balance."
+        },
+        {
+          "san": "Nxd5",
+          "text": "White exchanges the knight on c3 for the knight on d5."
+        },
+        {
+          "san": "exd5",
+          "text": "Black recaptures with the e-pawn. The pawn structure now gives both sides a new set of central plans."
+        },
+        {
+          "san": "Bd3",
+          "text": "White develops the bishop to d3, aiming toward Black's kingside and preparing to castle."
+        },
+        {
+          "san": "Bb7",
+          "text": "Black completes bishop development on b7, directing it toward the centre."
+        },
+        {
+          "san": "O-O",
+          "text": "White castles kingside. The remaining choices concern middlegame plans and piece activity; other playable opening continuations also exist."
+        }
+      ]
+    },
+    "tags": [
+      "cfa_free_sample",
+      "cfa_opening",
+      "queens-gambit"
+    ],
+    "group": "01 - Opening lessons::White",
+    "pack": "free-sample",
+    "kind": "repertoire",
+    "plan": "Contest the centre with c4, develop without exposing the king and compare the central pawn structure after exchanges. The final position is a transition to plans involving the c-file and central activity, not a universal end to the opening.",
+    "verification": {
+      "legal": true,
+      "plies": 23,
+      "scope": "Teaching transition after development and castling; no engine during review.",
+      "final_position_engine_check": {
+        "engine": "Stockfish 19",
+        "nodes_requested": 500000,
+        "actual_nodes": 500309,
+        "depth": 20,
+        "final_position_check": "No forced mate found; absolute White score at most 150 cp at this search budget.",
+        "scope": "Final position only; all SAN and FEN replay checked separately; not proof of best moves."
+      }
+    }
+  },
+  {
+    "id": "67a702978cec54ad",
+    "title": "Queen's Gambit Declined - complete development · Black",
+    "side": "black",
+    "start": "",
+    "moves": [
+      "d4",
+      "d5",
+      "c4",
+      "e6",
+      "Nc3",
+      "Nf6",
+      "Nf3",
+      "Be7",
+      "Bg5",
+      "O-O",
+      "e3",
+      "h6",
+      "Bh4",
+      "b6",
+      "cxd5",
+      "Nxd5",
+      "Bxe7",
+      "Qxe7",
+      "Nxd5",
+      "exd5",
+      "Bd3",
+      "Bb7",
+      "O-O"
+    ],
+    "uci": [
+      "d2d4",
+      "d7d5",
+      "c2c4",
+      "e7e6",
+      "b1c3",
+      "g8f6",
+      "g1f3",
+      "f8e7",
+      "c1g5",
+      "e8g8",
+      "e2e3",
+      "h7h6",
+      "g5h4",
+      "b7b6",
+      "c4d5",
+      "f6d5",
+      "h4e7",
+      "d8e7",
+      "c3d5",
+      "e6d5",
+      "f1d3",
+      "c8b7",
+      "e1g1"
+    ],
+    "fens": [
+      "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq - 0 1",
+      "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2",
+      "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq - 0 2",
+      "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3",
+      "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 1 3",
+      "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 2 4",
+      "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq - 3 4",
+      "rnbqk2r/ppp1bppp/4pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 4 5",
+      "rnbqk2r/ppp1bppp/4pn2/3p2B1/2PP4/2N2N2/PP2PPPP/R2QKB1R b KQkq - 5 5",
+      "rnbq1rk1/ppp1bppp/4pn2/3p2B1/2PP4/2N2N2/PP2PPPP/R2QKB1R w KQ - 6 6",
+      "rnbq1rk1/ppp1bppp/4pn2/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R b KQ - 0 6",
+      "rnbq1rk1/ppp1bpp1/4pn1p/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 7",
+      "rnbq1rk1/ppp1bpp1/4pn1p/3p4/2PP3B/2N1PN2/PP3PPP/R2QKB1R b KQ - 1 7",
+      "rnbq1rk1/p1p1bpp1/1p2pn1p/3p4/2PP3B/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 8",
+      "rnbq1rk1/p1p1bpp1/1p2pn1p/3P4/3P3B/2N1PN2/PP3PPP/R2QKB1R b KQ - 0 8",
+      "rnbq1rk1/p1p1bpp1/1p2p2p/3n4/3P3B/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 9",
+      "rnbq1rk1/p1p1Bpp1/1p2p2p/3n4/3P4/2N1PN2/PP3PPP/R2QKB1R b KQ - 0 9",
+      "rnb2rk1/p1p1qpp1/1p2p2p/3n4/3P4/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 10",
+      "rnb2rk1/p1p1qpp1/1p2p2p/3N4/3P4/4PN2/PP3PPP/R2QKB1R b KQ - 0 10",
+      "rnb2rk1/p1p1qpp1/1p5p/3p4/3P4/4PN2/PP3PPP/R2QKB1R w KQ - 0 11",
+      "rnb2rk1/p1p1qpp1/1p5p/3p4/3P4/3BPN2/PP3PPP/R2QK2R b KQ - 1 11",
+      "rn3rk1/pbp1qpp1/1p5p/3p4/3P4/3BPN2/PP3PPP/R2QK2R w KQ - 2 12",
+      "rn3rk1/pbp1qpp1/1p5p/3p4/3P4/3BPN2/PP3PPP/R2Q1RK1 b - - 3 12"
+    ],
+    "notes": "<p>Contest the centre with c4, develop without exposing the king and compare the central pawn structure after exchanges. The final position is a transition to plans involving the c-file and central activity, not a universal end to the opening.</p><p>Opening lesson: this is one illustrative continuation, not a forced line or a complete repertoire. The stopping point introduces a middlegame plan; chess has no single universal move that ends the opening.</p><p>Explanations prepared for Chess for Anki. The move sequence describes chess facts.</p><div class=\"cfa-commentary-data\" hidden>{&quot;language&quot;: &quot;en&quot;, &quot;start_fen&quot;: &quot;&quot;, &quot;moves&quot;: [&quot;d4&quot;, &quot;d5&quot;, &quot;c4&quot;, &quot;e6&quot;, &quot;Nc3&quot;, &quot;Nf6&quot;, &quot;Nf3&quot;, &quot;Be7&quot;, &quot;Bg5&quot;, &quot;O-O&quot;, &quot;e3&quot;, &quot;h6&quot;, &quot;Bh4&quot;, &quot;b6&quot;, &quot;cxd5&quot;, &quot;Nxd5&quot;, &quot;Bxe7&quot;, &quot;Qxe7&quot;, &quot;Nxd5&quot;, &quot;exd5&quot;, &quot;Bd3&quot;, &quot;Bb7&quot;, &quot;O-O&quot;], &quot;notes&quot;: [{&quot;san&quot;: &quot;d4&quot;, &quot;text&quot;: &quot;White places a pawn on d4, taking central space and opening the bishop&#x27;s diagonal.&quot;}, {&quot;san&quot;: &quot;d5&quot;, &quot;text&quot;: &quot;Black occupies d5 and prevents White from taking the entire centre without a challenge.&quot;}, {&quot;san&quot;: &quot;c4&quot;, &quot;text&quot;: &quot;White attacks d5 with the c-pawn. The pawn exchange is a way to influence the centre.&quot;}, {&quot;san&quot;: &quot;e6&quot;, &quot;text&quot;: &quot;Black supports d5 with e6 instead of taking c4. This is the Queen&#x27;s Gambit Declined.&quot;}, {&quot;san&quot;: &quot;Nc3&quot;, &quot;text&quot;: &quot;White develops the knight to c3 and adds pressure to d5.&quot;}, {&quot;san&quot;: &quot;Nf6&quot;, &quot;text&quot;: &quot;Black develops the knight to f6, supporting d5 and preparing to castle.&quot;}, {&quot;san&quot;: &quot;Nf3&quot;, &quot;text&quot;: &quot;White develops the other knight and protects the pawn on d4.&quot;}, {&quot;san&quot;: &quot;Be7&quot;, &quot;text&quot;: &quot;Black brings the bishop to e7 and clears the way for kingside castling.&quot;}, {&quot;san&quot;: &quot;Bg5&quot;, &quot;text&quot;: &quot;White develops the bishop actively to g5. The bishop on e7 means there is no direct pin of the knight to the queen here.&quot;}, {&quot;san&quot;: &quot;O-O&quot;, &quot;text&quot;: &quot;Black castles kingside, placing the king behind its pawns.&quot;}, {&quot;san&quot;: &quot;e3&quot;, &quot;text&quot;: &quot;White supports d4 with e3 and opens the diagonal for the bishop on f1.&quot;}, {&quot;san&quot;: &quot;h6&quot;, &quot;text&quot;: &quot;Black asks the bishop on g5 to decide whether to retreat or exchange.&quot;}, {&quot;san&quot;: &quot;Bh4&quot;, &quot;text&quot;: &quot;White keeps the bishop with Bh4. The bishop remains aimed along the kingside diagonal.&quot;}, {&quot;san&quot;: &quot;b6&quot;, &quot;text&quot;: &quot;Black prepares to develop the bishop to b7, where it can influence the central diagonal.&quot;}, {&quot;san&quot;: &quot;cxd5&quot;, &quot;text&quot;: &quot;White exchanges the c-pawn for the pawn on d5, beginning to clarify the centre.&quot;}, {&quot;san&quot;: &quot;Nxd5&quot;, &quot;text&quot;: &quot;Black recaptures with the knight, putting a piece on the central square d5.&quot;}, {&quot;san&quot;: &quot;Bxe7&quot;, &quot;text&quot;: &quot;White exchanges the bishop for Black&#x27;s bishop on e7.&quot;}, {&quot;san&quot;: &quot;Qxe7&quot;, &quot;text&quot;: &quot;Black recaptures with the queen and keeps the material balance.&quot;}, {&quot;san&quot;: &quot;Nxd5&quot;, &quot;text&quot;: &quot;White exchanges the knight on c3 for the knight on d5.&quot;}, {&quot;san&quot;: &quot;exd5&quot;, &quot;text&quot;: &quot;Black recaptures with the e-pawn. The pawn structure now gives both sides a new set of central plans.&quot;}, {&quot;san&quot;: &quot;Bd3&quot;, &quot;text&quot;: &quot;White develops the bishop to d3, aiming toward Black&#x27;s kingside and preparing to castle.&quot;}, {&quot;san&quot;: &quot;Bb7&quot;, &quot;text&quot;: &quot;Black completes bishop development on b7, directing it toward the centre.&quot;}, {&quot;san&quot;: &quot;O-O&quot;, &quot;text&quot;: &quot;White castles kingside. The remaining choices concern middlegame plans and piece activity; other playable opening continuations also exist.&quot;}]}</div>",
+    "commentary": {
+      "language": "en",
+      "start_fen": "",
+      "moves": [
+        "d4",
+        "d5",
+        "c4",
+        "e6",
+        "Nc3",
+        "Nf6",
+        "Nf3",
+        "Be7",
+        "Bg5",
+        "O-O",
+        "e3",
+        "h6",
+        "Bh4",
+        "b6",
+        "cxd5",
+        "Nxd5",
+        "Bxe7",
+        "Qxe7",
+        "Nxd5",
+        "exd5",
+        "Bd3",
+        "Bb7",
+        "O-O"
+      ],
+      "notes": [
+        {
+          "san": "d4",
+          "text": "White places a pawn on d4, taking central space and opening the bishop's diagonal."
+        },
+        {
+          "san": "d5",
+          "text": "Black occupies d5 and prevents White from taking the entire centre without a challenge."
+        },
+        {
+          "san": "c4",
+          "text": "White attacks d5 with the c-pawn. The pawn exchange is a way to influence the centre."
+        },
+        {
+          "san": "e6",
+          "text": "Black supports d5 with e6 instead of taking c4. This is the Queen's Gambit Declined."
+        },
+        {
+          "san": "Nc3",
+          "text": "White develops the knight to c3 and adds pressure to d5."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops the knight to f6, supporting d5 and preparing to castle."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops the other knight and protects the pawn on d4."
+        },
+        {
+          "san": "Be7",
+          "text": "Black brings the bishop to e7 and clears the way for kingside castling."
+        },
+        {
+          "san": "Bg5",
+          "text": "White develops the bishop actively to g5. The bishop on e7 means there is no direct pin of the knight to the queen here."
+        },
+        {
+          "san": "O-O",
+          "text": "Black castles kingside, placing the king behind its pawns."
+        },
+        {
+          "san": "e3",
+          "text": "White supports d4 with e3 and opens the diagonal for the bishop on f1."
+        },
+        {
+          "san": "h6",
+          "text": "Black asks the bishop on g5 to decide whether to retreat or exchange."
+        },
+        {
+          "san": "Bh4",
+          "text": "White keeps the bishop with Bh4. The bishop remains aimed along the kingside diagonal."
+        },
+        {
+          "san": "b6",
+          "text": "Black prepares to develop the bishop to b7, where it can influence the central diagonal."
+        },
+        {
+          "san": "cxd5",
+          "text": "White exchanges the c-pawn for the pawn on d5, beginning to clarify the centre."
+        },
+        {
+          "san": "Nxd5",
+          "text": "Black recaptures with the knight, putting a piece on the central square d5."
+        },
+        {
+          "san": "Bxe7",
+          "text": "White exchanges the bishop for Black's bishop on e7."
+        },
+        {
+          "san": "Qxe7",
+          "text": "Black recaptures with the queen and keeps the material balance."
+        },
+        {
+          "san": "Nxd5",
+          "text": "White exchanges the knight on c3 for the knight on d5."
+        },
+        {
+          "san": "exd5",
+          "text": "Black recaptures with the e-pawn. The pawn structure now gives both sides a new set of central plans."
+        },
+        {
+          "san": "Bd3",
+          "text": "White develops the bishop to d3, aiming toward Black's kingside and preparing to castle."
+        },
+        {
+          "san": "Bb7",
+          "text": "Black completes bishop development on b7, directing it toward the centre."
+        },
+        {
+          "san": "O-O",
+          "text": "White castles kingside. The remaining choices concern middlegame plans and piece activity; other playable opening continuations also exist."
+        }
+      ]
+    },
+    "tags": [
+      "cfa_free_sample",
+      "cfa_opening",
+      "queens-gambit"
+    ],
+    "group": "01 - Opening lessons::Black",
+    "pack": "free-sample",
+    "kind": "repertoire",
+    "plan": "Contest the centre with c4, develop without exposing the king and compare the central pawn structure after exchanges. The final position is a transition to plans involving the c-file and central activity, not a universal end to the opening.",
+    "verification": {
+      "legal": true,
+      "plies": 23,
+      "scope": "Teaching transition after development and castling; no engine during review.",
+      "final_position_engine_check": {
+        "engine": "Stockfish 19",
+        "nodes_requested": 500000,
+        "actual_nodes": 500309,
+        "depth": 20,
+        "final_position_check": "No forced mate found; absolute White score at most 150 cp at this search budget.",
+        "scope": "Final position only; all SAN and FEN replay checked separately; not proof of best moves."
+      }
+    }
+  },
+  {
+    "id": "c59db2d45cc1a198",
+    "title": "Scotch Game - exchange and develop · White",
+    "side": "white",
+    "start": "",
+    "moves": [
+      "e4",
+      "e5",
+      "Nf3",
+      "Nc6",
+      "d4",
+      "exd4",
+      "Nxd4",
+      "Bc5",
+      "Be3",
+      "Qf6",
+      "c3",
+      "Nge7",
+      "Bc4",
+      "Ne5",
+      "Be2",
+      "d6",
+      "O-O",
+      "O-O",
+      "Nd2"
+    ],
+    "uci": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "b8c6",
+      "d2d4",
+      "e5d4",
+      "f3d4",
+      "f8c5",
+      "c1e3",
+      "d8f6",
+      "c2c3",
+      "g8e7",
+      "f1c4",
+      "c6e5",
+      "c4e2",
+      "d7d6",
+      "e1g1",
+      "e8g8",
+      "b1d2"
+    ],
+    "fens": [
+      "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+      "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3",
+      "r1bqkbnr/pppp1ppp/2n5/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 3",
+      "r1bqkbnr/pppp1ppp/2n5/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4",
+      "r1bqkbnr/pppp1ppp/2n5/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4",
+      "r1bqk1nr/pppp1ppp/2n5/2b5/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 1 5",
+      "r1bqk1nr/pppp1ppp/2n5/2b5/3NP3/4B3/PPP2PPP/RN1QKB1R b KQkq - 2 5",
+      "r1b1k1nr/pppp1ppp/2n2q2/2b5/3NP3/4B3/PPP2PPP/RN1QKB1R w KQkq - 3 6",
+      "r1b1k1nr/pppp1ppp/2n2q2/2b5/3NP3/2P1B3/PP3PPP/RN1QKB1R b KQkq - 0 6",
+      "r1b1k2r/ppppnppp/2n2q2/2b5/3NP3/2P1B3/PP3PPP/RN1QKB1R w KQkq - 1 7",
+      "r1b1k2r/ppppnppp/2n2q2/2b5/2BNP3/2P1B3/PP3PPP/RN1QK2R b KQkq - 2 7",
+      "r1b1k2r/ppppnppp/5q2/2b1n3/2BNP3/2P1B3/PP3PPP/RN1QK2R w KQkq - 3 8",
+      "r1b1k2r/ppppnppp/5q2/2b1n3/3NP3/2P1B3/PP2BPPP/RN1QK2R b KQkq - 4 8",
+      "r1b1k2r/ppp1nppp/3p1q2/2b1n3/3NP3/2P1B3/PP2BPPP/RN1QK2R w KQkq - 0 9",
+      "r1b1k2r/ppp1nppp/3p1q2/2b1n3/3NP3/2P1B3/PP2BPPP/RN1Q1RK1 b kq - 1 9",
+      "r1b2rk1/ppp1nppp/3p1q2/2b1n3/3NP3/2P1B3/PP2BPPP/RN1Q1RK1 w - - 2 10",
+      "r1b2rk1/ppp1nppp/3p1q2/2b1n3/3NP3/2P1B3/PP1NBPPP/R2Q1RK1 b - - 3 10"
+    ],
+    "notes": "<p>See how an early central exchange opens lines. Develop pieces while responding to concrete pressure, then reach a position where both kings are castled and the next task is choosing a middlegame plan.</p><p>Opening lesson: this is one illustrative continuation, not a forced line or a complete repertoire. The stopping point introduces a middlegame plan; chess has no single universal move that ends the opening.</p><p>Explanations prepared for Chess for Anki. The move sequence describes chess facts.</p><div class=\"cfa-commentary-data\" hidden>{&quot;language&quot;: &quot;en&quot;, &quot;start_fen&quot;: &quot;&quot;, &quot;moves&quot;: [&quot;e4&quot;, &quot;e5&quot;, &quot;Nf3&quot;, &quot;Nc6&quot;, &quot;d4&quot;, &quot;exd4&quot;, &quot;Nxd4&quot;, &quot;Bc5&quot;, &quot;Be3&quot;, &quot;Qf6&quot;, &quot;c3&quot;, &quot;Nge7&quot;, &quot;Bc4&quot;, &quot;Ne5&quot;, &quot;Be2&quot;, &quot;d6&quot;, &quot;O-O&quot;, &quot;O-O&quot;, &quot;Nd2&quot;], &quot;notes&quot;: [{&quot;san&quot;: &quot;e4&quot;, &quot;text&quot;: &quot;White occupies e4 and opens lines for the bishop and queen.&quot;}, {&quot;san&quot;: &quot;e5&quot;, &quot;text&quot;: &quot;Black meets White in the centre with e5.&quot;}, {&quot;san&quot;: &quot;Nf3&quot;, &quot;text&quot;: &quot;White develops the knight to f3 and attacks e5.&quot;}, {&quot;san&quot;: &quot;Nc6&quot;, &quot;text&quot;: &quot;Black develops the knight to c6 and defends the central pawn.&quot;}, {&quot;san&quot;: &quot;d4&quot;, &quot;text&quot;: &quot;White challenges the centre immediately with d4. This starts the Scotch Game.&quot;}, {&quot;san&quot;: &quot;exd4&quot;, &quot;text&quot;: &quot;Black exchanges the e-pawn for White&#x27;s pawn on d4.&quot;}, {&quot;san&quot;: &quot;Nxd4&quot;, &quot;text&quot;: &quot;White recaptures with the knight and places it in the centre.&quot;}, {&quot;san&quot;: &quot;Bc5&quot;, &quot;text&quot;: &quot;Black develops the bishop to c5, putting pressure on the knight on d4.&quot;}, {&quot;san&quot;: &quot;Be3&quot;, &quot;text&quot;: &quot;White develops the bishop to e3 and gives the knight additional support.&quot;}, {&quot;san&quot;: &quot;Qf6&quot;, &quot;text&quot;: &quot;Black brings the queen to f6, adding pressure along the f-file and toward the centre.&quot;}, {&quot;san&quot;: &quot;c3&quot;, &quot;text&quot;: &quot;White supports d4 with c3 and gives the central knight a more secure base.&quot;}, {&quot;san&quot;: &quot;Nge7&quot;, &quot;text&quot;: &quot;Black develops the knight to e7, keeping the f-pawn free and preparing to castle.&quot;}, {&quot;san&quot;: &quot;Bc4&quot;, &quot;text&quot;: &quot;White develops the bishop to c4, pointing toward the kingside.&quot;}, {&quot;san&quot;: &quot;Ne5&quot;, &quot;text&quot;: &quot;Black brings the queenside knight to e5, gaining central activity and attacking the bishop on c4.&quot;}, {&quot;san&quot;: &quot;Be2&quot;, &quot;text&quot;: &quot;White retreats the bishop to e2, keeping it safe and clearing the way to castle.&quot;}, {&quot;san&quot;: &quot;d6&quot;, &quot;text&quot;: &quot;Black plays d6 to support the centre and open the diagonal for the remaining bishop.&quot;}, {&quot;san&quot;: &quot;O-O&quot;, &quot;text&quot;: &quot;White castles kingside and brings the rook closer to the central files.&quot;}, {&quot;san&quot;: &quot;O-O&quot;, &quot;text&quot;: &quot;Black castles kingside as well. Each side now has a safer king before further central play.&quot;}, {&quot;san&quot;: &quot;Nd2&quot;, &quot;text&quot;: &quot;White develops the last knight to d2. With the kings castled, the next lesson is to compare central breaks and improve the remaining pieces rather than memorize a supposed final opening move.&quot;}]}</div>",
+    "commentary": {
+      "language": "en",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "d4",
+        "exd4",
+        "Nxd4",
+        "Bc5",
+        "Be3",
+        "Qf6",
+        "c3",
+        "Nge7",
+        "Bc4",
+        "Ne5",
+        "Be2",
+        "d6",
+        "O-O",
+        "O-O",
+        "Nd2"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White occupies e4 and opens lines for the bishop and queen."
+        },
+        {
+          "san": "e5",
+          "text": "Black meets White in the centre with e5."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops the knight to f3 and attacks e5."
+        },
+        {
+          "san": "Nc6",
+          "text": "Black develops the knight to c6 and defends the central pawn."
+        },
+        {
+          "san": "d4",
+          "text": "White challenges the centre immediately with d4. This starts the Scotch Game."
+        },
+        {
+          "san": "exd4",
+          "text": "Black exchanges the e-pawn for White's pawn on d4."
+        },
+        {
+          "san": "Nxd4",
+          "text": "White recaptures with the knight and places it in the centre."
+        },
+        {
+          "san": "Bc5",
+          "text": "Black develops the bishop to c5, putting pressure on the knight on d4."
+        },
+        {
+          "san": "Be3",
+          "text": "White develops the bishop to e3 and gives the knight additional support."
+        },
+        {
+          "san": "Qf6",
+          "text": "Black brings the queen to f6, adding pressure along the f-file and toward the centre."
+        },
+        {
+          "san": "c3",
+          "text": "White supports d4 with c3 and gives the central knight a more secure base."
+        },
+        {
+          "san": "Nge7",
+          "text": "Black develops the knight to e7, keeping the f-pawn free and preparing to castle."
+        },
+        {
+          "san": "Bc4",
+          "text": "White develops the bishop to c4, pointing toward the kingside."
+        },
+        {
+          "san": "Ne5",
+          "text": "Black brings the queenside knight to e5, gaining central activity and attacking the bishop on c4."
+        },
+        {
+          "san": "Be2",
+          "text": "White retreats the bishop to e2, keeping it safe and clearing the way to castle."
+        },
+        {
+          "san": "d6",
+          "text": "Black plays d6 to support the centre and open the diagonal for the remaining bishop."
+        },
+        {
+          "san": "O-O",
+          "text": "White castles kingside and brings the rook closer to the central files."
+        },
+        {
+          "san": "O-O",
+          "text": "Black castles kingside as well. Each side now has a safer king before further central play."
+        },
+        {
+          "san": "Nd2",
+          "text": "White develops the last knight to d2. With the kings castled, the next lesson is to compare central breaks and improve the remaining pieces rather than memorize a supposed final opening move."
+        }
+      ]
+    },
+    "tags": [
+      "cfa_free_sample",
+      "cfa_opening",
+      "scotch"
+    ],
+    "group": "01 - Opening lessons::White",
+    "pack": "free-sample",
+    "kind": "repertoire",
+    "plan": "See how an early central exchange opens lines. Develop pieces while responding to concrete pressure, then reach a position where both kings are castled and the next task is choosing a middlegame plan.",
+    "verification": {
+      "legal": true,
+      "plies": 19,
+      "scope": "Teaching transition after development and castling; no engine during review.",
+      "final_position_engine_check": {
+        "engine": "Stockfish 19",
+        "nodes_requested": 500000,
+        "actual_nodes": 500535,
+        "depth": 18,
+        "final_position_check": "No forced mate found; absolute White score at most 150 cp at this search budget.",
+        "scope": "Final position only; all SAN and FEN replay checked separately; not proof of best moves."
+      }
+    }
+  },
+  {
+    "id": "eddf8b2aac0049c5",
+    "title": "Scotch Game - exchange and develop · Black",
+    "side": "black",
+    "start": "",
+    "moves": [
+      "e4",
+      "e5",
+      "Nf3",
+      "Nc6",
+      "d4",
+      "exd4",
+      "Nxd4",
+      "Bc5",
+      "Be3",
+      "Qf6",
+      "c3",
+      "Nge7",
+      "Bc4",
+      "Ne5",
+      "Be2",
+      "d6",
+      "O-O",
+      "O-O",
+      "Nd2"
+    ],
+    "uci": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "b8c6",
+      "d2d4",
+      "e5d4",
+      "f3d4",
+      "f8c5",
+      "c1e3",
+      "d8f6",
+      "c2c3",
+      "g8e7",
+      "f1c4",
+      "c6e5",
+      "c4e2",
+      "d7d6",
+      "e1g1",
+      "e8g8",
+      "b1d2"
+    ],
+    "fens": [
+      "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+      "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3",
+      "r1bqkbnr/pppp1ppp/2n5/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 3",
+      "r1bqkbnr/pppp1ppp/2n5/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4",
+      "r1bqkbnr/pppp1ppp/2n5/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4",
+      "r1bqk1nr/pppp1ppp/2n5/2b5/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 1 5",
+      "r1bqk1nr/pppp1ppp/2n5/2b5/3NP3/4B3/PPP2PPP/RN1QKB1R b KQkq - 2 5",
+      "r1b1k1nr/pppp1ppp/2n2q2/2b5/3NP3/4B3/PPP2PPP/RN1QKB1R w KQkq - 3 6",
+      "r1b1k1nr/pppp1ppp/2n2q2/2b5/3NP3/2P1B3/PP3PPP/RN1QKB1R b KQkq - 0 6",
+      "r1b1k2r/ppppnppp/2n2q2/2b5/3NP3/2P1B3/PP3PPP/RN1QKB1R w KQkq - 1 7",
+      "r1b1k2r/ppppnppp/2n2q2/2b5/2BNP3/2P1B3/PP3PPP/RN1QK2R b KQkq - 2 7",
+      "r1b1k2r/ppppnppp/5q2/2b1n3/2BNP3/2P1B3/PP3PPP/RN1QK2R w KQkq - 3 8",
+      "r1b1k2r/ppppnppp/5q2/2b1n3/3NP3/2P1B3/PP2BPPP/RN1QK2R b KQkq - 4 8",
+      "r1b1k2r/ppp1nppp/3p1q2/2b1n3/3NP3/2P1B3/PP2BPPP/RN1QK2R w KQkq - 0 9",
+      "r1b1k2r/ppp1nppp/3p1q2/2b1n3/3NP3/2P1B3/PP2BPPP/RN1Q1RK1 b kq - 1 9",
+      "r1b2rk1/ppp1nppp/3p1q2/2b1n3/3NP3/2P1B3/PP2BPPP/RN1Q1RK1 w - - 2 10",
+      "r1b2rk1/ppp1nppp/3p1q2/2b1n3/3NP3/2P1B3/PP1NBPPP/R2Q1RK1 b - - 3 10"
+    ],
+    "notes": "<p>See how an early central exchange opens lines. Develop pieces while responding to concrete pressure, then reach a position where both kings are castled and the next task is choosing a middlegame plan.</p><p>Opening lesson: this is one illustrative continuation, not a forced line or a complete repertoire. The stopping point introduces a middlegame plan; chess has no single universal move that ends the opening.</p><p>Explanations prepared for Chess for Anki. The move sequence describes chess facts.</p><div class=\"cfa-commentary-data\" hidden>{&quot;language&quot;: &quot;en&quot;, &quot;start_fen&quot;: &quot;&quot;, &quot;moves&quot;: [&quot;e4&quot;, &quot;e5&quot;, &quot;Nf3&quot;, &quot;Nc6&quot;, &quot;d4&quot;, &quot;exd4&quot;, &quot;Nxd4&quot;, &quot;Bc5&quot;, &quot;Be3&quot;, &quot;Qf6&quot;, &quot;c3&quot;, &quot;Nge7&quot;, &quot;Bc4&quot;, &quot;Ne5&quot;, &quot;Be2&quot;, &quot;d6&quot;, &quot;O-O&quot;, &quot;O-O&quot;, &quot;Nd2&quot;], &quot;notes&quot;: [{&quot;san&quot;: &quot;e4&quot;, &quot;text&quot;: &quot;White occupies e4 and opens lines for the bishop and queen.&quot;}, {&quot;san&quot;: &quot;e5&quot;, &quot;text&quot;: &quot;Black meets White in the centre with e5.&quot;}, {&quot;san&quot;: &quot;Nf3&quot;, &quot;text&quot;: &quot;White develops the knight to f3 and attacks e5.&quot;}, {&quot;san&quot;: &quot;Nc6&quot;, &quot;text&quot;: &quot;Black develops the knight to c6 and defends the central pawn.&quot;}, {&quot;san&quot;: &quot;d4&quot;, &quot;text&quot;: &quot;White challenges the centre immediately with d4. This starts the Scotch Game.&quot;}, {&quot;san&quot;: &quot;exd4&quot;, &quot;text&quot;: &quot;Black exchanges the e-pawn for White&#x27;s pawn on d4.&quot;}, {&quot;san&quot;: &quot;Nxd4&quot;, &quot;text&quot;: &quot;White recaptures with the knight and places it in the centre.&quot;}, {&quot;san&quot;: &quot;Bc5&quot;, &quot;text&quot;: &quot;Black develops the bishop to c5, putting pressure on the knight on d4.&quot;}, {&quot;san&quot;: &quot;Be3&quot;, &quot;text&quot;: &quot;White develops the bishop to e3 and gives the knight additional support.&quot;}, {&quot;san&quot;: &quot;Qf6&quot;, &quot;text&quot;: &quot;Black brings the queen to f6, adding pressure along the f-file and toward the centre.&quot;}, {&quot;san&quot;: &quot;c3&quot;, &quot;text&quot;: &quot;White supports d4 with c3 and gives the central knight a more secure base.&quot;}, {&quot;san&quot;: &quot;Nge7&quot;, &quot;text&quot;: &quot;Black develops the knight to e7, keeping the f-pawn free and preparing to castle.&quot;}, {&quot;san&quot;: &quot;Bc4&quot;, &quot;text&quot;: &quot;White develops the bishop to c4, pointing toward the kingside.&quot;}, {&quot;san&quot;: &quot;Ne5&quot;, &quot;text&quot;: &quot;Black brings the queenside knight to e5, gaining central activity and attacking the bishop on c4.&quot;}, {&quot;san&quot;: &quot;Be2&quot;, &quot;text&quot;: &quot;White retreats the bishop to e2, keeping it safe and clearing the way to castle.&quot;}, {&quot;san&quot;: &quot;d6&quot;, &quot;text&quot;: &quot;Black plays d6 to support the centre and open the diagonal for the remaining bishop.&quot;}, {&quot;san&quot;: &quot;O-O&quot;, &quot;text&quot;: &quot;White castles kingside and brings the rook closer to the central files.&quot;}, {&quot;san&quot;: &quot;O-O&quot;, &quot;text&quot;: &quot;Black castles kingside as well. Each side now has a safer king before further central play.&quot;}, {&quot;san&quot;: &quot;Nd2&quot;, &quot;text&quot;: &quot;White develops the last knight to d2. With the kings castled, the next lesson is to compare central breaks and improve the remaining pieces rather than memorize a supposed final opening move.&quot;}]}</div>",
+    "commentary": {
+      "language": "en",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "d4",
+        "exd4",
+        "Nxd4",
+        "Bc5",
+        "Be3",
+        "Qf6",
+        "c3",
+        "Nge7",
+        "Bc4",
+        "Ne5",
+        "Be2",
+        "d6",
+        "O-O",
+        "O-O",
+        "Nd2"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White occupies e4 and opens lines for the bishop and queen."
+        },
+        {
+          "san": "e5",
+          "text": "Black meets White in the centre with e5."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops the knight to f3 and attacks e5."
+        },
+        {
+          "san": "Nc6",
+          "text": "Black develops the knight to c6 and defends the central pawn."
+        },
+        {
+          "san": "d4",
+          "text": "White challenges the centre immediately with d4. This starts the Scotch Game."
+        },
+        {
+          "san": "exd4",
+          "text": "Black exchanges the e-pawn for White's pawn on d4."
+        },
+        {
+          "san": "Nxd4",
+          "text": "White recaptures with the knight and places it in the centre."
+        },
+        {
+          "san": "Bc5",
+          "text": "Black develops the bishop to c5, putting pressure on the knight on d4."
+        },
+        {
+          "san": "Be3",
+          "text": "White develops the bishop to e3 and gives the knight additional support."
+        },
+        {
+          "san": "Qf6",
+          "text": "Black brings the queen to f6, adding pressure along the f-file and toward the centre."
+        },
+        {
+          "san": "c3",
+          "text": "White supports d4 with c3 and gives the central knight a more secure base."
+        },
+        {
+          "san": "Nge7",
+          "text": "Black develops the knight to e7, keeping the f-pawn free and preparing to castle."
+        },
+        {
+          "san": "Bc4",
+          "text": "White develops the bishop to c4, pointing toward the kingside."
+        },
+        {
+          "san": "Ne5",
+          "text": "Black brings the queenside knight to e5, gaining central activity and attacking the bishop on c4."
+        },
+        {
+          "san": "Be2",
+          "text": "White retreats the bishop to e2, keeping it safe and clearing the way to castle."
+        },
+        {
+          "san": "d6",
+          "text": "Black plays d6 to support the centre and open the diagonal for the remaining bishop."
+        },
+        {
+          "san": "O-O",
+          "text": "White castles kingside and brings the rook closer to the central files."
+        },
+        {
+          "san": "O-O",
+          "text": "Black castles kingside as well. Each side now has a safer king before further central play."
+        },
+        {
+          "san": "Nd2",
+          "text": "White develops the last knight to d2. With the kings castled, the next lesson is to compare central breaks and improve the remaining pieces rather than memorize a supposed final opening move."
+        }
+      ]
+    },
+    "tags": [
+      "cfa_free_sample",
+      "cfa_opening",
+      "scotch"
+    ],
+    "group": "01 - Opening lessons::Black",
+    "pack": "free-sample",
+    "kind": "repertoire",
+    "plan": "See how an early central exchange opens lines. Develop pieces while responding to concrete pressure, then reach a position where both kings are castled and the next task is choosing a middlegame plan.",
+    "verification": {
+      "legal": true,
+      "plies": 19,
+      "scope": "Teaching transition after development and castling; no engine during review.",
+      "final_position_engine_check": {
+        "engine": "Stockfish 19",
+        "nodes_requested": 500000,
+        "actual_nodes": 500535,
+        "depth": 18,
+        "final_position_check": "No forced mate found; absolute White score at most 150 cp at this search budget.",
+        "scope": "Final position only; all SAN and FEN replay checked separately; not proof of best moves."
+      }
+    }
+  },
+  {
+    "id": "21031cb9466ec498",
+    "title": "London System - develop with a plan · White",
+    "side": "white",
+    "start": "",
+    "moves": [
+      "d4",
+      "d5",
+      "Nf3",
+      "Nf6",
+      "Bf4",
+      "e6",
+      "e3",
+      "c5",
+      "c3",
+      "Nc6",
+      "Nbd2",
+      "Bd6",
+      "Bg3",
+      "O-O",
+      "Bd3",
+      "b6",
+      "Qe2",
+      "Bb7",
+      "O-O"
+    ],
+    "uci": [
+      "d2d4",
+      "d7d5",
+      "g1f3",
+      "g8f6",
+      "c1f4",
+      "e7e6",
+      "e2e3",
+      "c7c5",
+      "c2c3",
+      "b8c6",
+      "b1d2",
+      "f8d6",
+      "f4g3",
+      "e8g8",
+      "f1d3",
+      "b7b6",
+      "d1e2",
+      "c8b7",
+      "e1g1"
+    ],
+    "fens": [
+      "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq - 0 1",
+      "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2",
+      "rnbqkbnr/ppp1pppp/8/3p4/3P4/5N2/PPP1PPPP/RNBQKB1R b KQkq - 1 2",
+      "rnbqkb1r/ppp1pppp/5n2/3p4/3P4/5N2/PPP1PPPP/RNBQKB1R w KQkq - 2 3",
+      "rnbqkb1r/ppp1pppp/5n2/3p4/3P1B2/5N2/PPP1PPPP/RN1QKB1R b KQkq - 3 3",
+      "rnbqkb1r/ppp2ppp/4pn2/3p4/3P1B2/5N2/PPP1PPPP/RN1QKB1R w KQkq - 0 4",
+      "rnbqkb1r/ppp2ppp/4pn2/3p4/3P1B2/4PN2/PPP2PPP/RN1QKB1R b KQkq - 0 4",
+      "rnbqkb1r/pp3ppp/4pn2/2pp4/3P1B2/4PN2/PPP2PPP/RN1QKB1R w KQkq - 0 5",
+      "rnbqkb1r/pp3ppp/4pn2/2pp4/3P1B2/2P1PN2/PP3PPP/RN1QKB1R b KQkq - 0 5",
+      "r1bqkb1r/pp3ppp/2n1pn2/2pp4/3P1B2/2P1PN2/PP3PPP/RN1QKB1R w KQkq - 1 6",
+      "r1bqkb1r/pp3ppp/2n1pn2/2pp4/3P1B2/2P1PN2/PP1N1PPP/R2QKB1R b KQkq - 2 6",
+      "r1bqk2r/pp3ppp/2nbpn2/2pp4/3P1B2/2P1PN2/PP1N1PPP/R2QKB1R w KQkq - 3 7",
+      "r1bqk2r/pp3ppp/2nbpn2/2pp4/3P4/2P1PNB1/PP1N1PPP/R2QKB1R b KQkq - 4 7",
+      "r1bq1rk1/pp3ppp/2nbpn2/2pp4/3P4/2P1PNB1/PP1N1PPP/R2QKB1R w KQ - 5 8",
+      "r1bq1rk1/pp3ppp/2nbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R b KQ - 6 8",
+      "r1bq1rk1/p4ppp/1pnbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R w KQ - 0 9",
+      "r1bq1rk1/p4ppp/1pnbpn2/2pp4/3P4/2PBPNB1/PP1NQPPP/R3K2R b KQ - 1 9",
+      "r2q1rk1/pb3ppp/1pnbpn2/2pp4/3P4/2PBPNB1/PP1NQPPP/R3K2R w KQ - 2 10",
+      "r2q1rk1/pb3ppp/1pnbpn2/2pp4/3P4/2PBPNB1/PP1NQPPP/R4RK1 b - - 3 10"
+    ],
+    "notes": "<p>Develop the dark-squared bishop before playing e3, build support for d4 and finish development. This setup is a useful pattern, but the opponent&#x27;s moves must still guide the plan.</p><p>Opening lesson: this is one illustrative continuation, not a forced line or a complete repertoire. The stopping point introduces a middlegame plan; chess has no single universal move that ends the opening.</p><p>Explanations prepared for Chess for Anki. The move sequence describes chess facts.</p><div class=\"cfa-commentary-data\" hidden>{&quot;language&quot;: &quot;en&quot;, &quot;start_fen&quot;: &quot;&quot;, &quot;moves&quot;: [&quot;d4&quot;, &quot;d5&quot;, &quot;Nf3&quot;, &quot;Nf6&quot;, &quot;Bf4&quot;, &quot;e6&quot;, &quot;e3&quot;, &quot;c5&quot;, &quot;c3&quot;, &quot;Nc6&quot;, &quot;Nbd2&quot;, &quot;Bd6&quot;, &quot;Bg3&quot;, &quot;O-O&quot;, &quot;Bd3&quot;, &quot;b6&quot;, &quot;Qe2&quot;, &quot;Bb7&quot;, &quot;O-O&quot;], &quot;notes&quot;: [{&quot;san&quot;: &quot;d4&quot;, &quot;text&quot;: &quot;White occupies d4 and takes central space.&quot;}, {&quot;san&quot;: &quot;d5&quot;, &quot;text&quot;: &quot;Black occupies d5 and contests the centre.&quot;}, {&quot;san&quot;: &quot;Nf3&quot;, &quot;text&quot;: &quot;White develops the kingside knight, supporting d4 and preparing to castle.&quot;}, {&quot;san&quot;: &quot;Nf6&quot;, &quot;text&quot;: &quot;Black develops the kingside knight to f6 and supports d5.&quot;}, {&quot;san&quot;: &quot;Bf4&quot;, &quot;text&quot;: &quot;White develops the bishop to f4 before placing the e-pawn on e3.&quot;}, {&quot;san&quot;: &quot;e6&quot;, &quot;text&quot;: &quot;Black supports d5 with e6 and opens the diagonal for the bishop on f8.&quot;}, {&quot;san&quot;: &quot;e3&quot;, &quot;text&quot;: &quot;White supports d4 with e3 and opens the light-squared bishop&#x27;s diagonal.&quot;}, {&quot;san&quot;: &quot;c5&quot;, &quot;text&quot;: &quot;Black challenges d4 with c5. A familiar setup still requires attention to the opponent&#x27;s central play.&quot;}, {&quot;san&quot;: &quot;c3&quot;, &quot;text&quot;: &quot;White adds support to d4 with c3, building a compact central structure.&quot;}, {&quot;san&quot;: &quot;Nc6&quot;, &quot;text&quot;: &quot;Black develops the queenside knight to c6 and increases pressure on the centre.&quot;}, {&quot;san&quot;: &quot;Nbd2&quot;, &quot;text&quot;: &quot;White develops the other knight to d2. It helps control e4 and leaves the c-pawn in place.&quot;}, {&quot;san&quot;: &quot;Bd6&quot;, &quot;text&quot;: &quot;Black develops the bishop to d6, offering an exchange of the active bishop on f4.&quot;}, {&quot;san&quot;: &quot;Bg3&quot;, &quot;text&quot;: &quot;White keeps that bishop by retreating to g3.&quot;}, {&quot;san&quot;: &quot;O-O&quot;, &quot;text&quot;: &quot;Black castles kingside and moves the king away from the central tension.&quot;}, {&quot;san&quot;: &quot;Bd3&quot;, &quot;text&quot;: &quot;White develops the bishop to d3 and points it toward Black&#x27;s kingside.&quot;}, {&quot;san&quot;: &quot;b6&quot;, &quot;text&quot;: &quot;Black prepares a home for the remaining bishop on b7.&quot;}, {&quot;san&quot;: &quot;Qe2&quot;, &quot;text&quot;: &quot;White brings the queen to e2, adding support to e4 and preparing to connect the rooks by castling.&quot;}, {&quot;san&quot;: &quot;Bb7&quot;, &quot;text&quot;: &quot;Black develops the bishop to b7, where it looks toward the centre.&quot;}, {&quot;san&quot;: &quot;O-O&quot;, &quot;text&quot;: &quot;White castles kingside. The basic setup is in place; deciding whether to prepare e4 or improve a piece now depends on the position.&quot;}]}</div>",
+    "commentary": {
+      "language": "en",
+      "start_fen": "",
+      "moves": [
+        "d4",
+        "d5",
+        "Nf3",
+        "Nf6",
+        "Bf4",
+        "e6",
+        "e3",
+        "c5",
+        "c3",
+        "Nc6",
+        "Nbd2",
+        "Bd6",
+        "Bg3",
+        "O-O",
+        "Bd3",
+        "b6",
+        "Qe2",
+        "Bb7",
+        "O-O"
+      ],
+      "notes": [
+        {
+          "san": "d4",
+          "text": "White occupies d4 and takes central space."
+        },
+        {
+          "san": "d5",
+          "text": "Black occupies d5 and contests the centre."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops the kingside knight, supporting d4 and preparing to castle."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops the kingside knight to f6 and supports d5."
+        },
+        {
+          "san": "Bf4",
+          "text": "White develops the bishop to f4 before placing the e-pawn on e3."
+        },
+        {
+          "san": "e6",
+          "text": "Black supports d5 with e6 and opens the diagonal for the bishop on f8."
+        },
+        {
+          "san": "e3",
+          "text": "White supports d4 with e3 and opens the light-squared bishop's diagonal."
+        },
+        {
+          "san": "c5",
+          "text": "Black challenges d4 with c5. A familiar setup still requires attention to the opponent's central play."
+        },
+        {
+          "san": "c3",
+          "text": "White adds support to d4 with c3, building a compact central structure."
+        },
+        {
+          "san": "Nc6",
+          "text": "Black develops the queenside knight to c6 and increases pressure on the centre."
+        },
+        {
+          "san": "Nbd2",
+          "text": "White develops the other knight to d2. It helps control e4 and leaves the c-pawn in place."
+        },
+        {
+          "san": "Bd6",
+          "text": "Black develops the bishop to d6, offering an exchange of the active bishop on f4."
+        },
+        {
+          "san": "Bg3",
+          "text": "White keeps that bishop by retreating to g3."
+        },
+        {
+          "san": "O-O",
+          "text": "Black castles kingside and moves the king away from the central tension."
+        },
+        {
+          "san": "Bd3",
+          "text": "White develops the bishop to d3 and points it toward Black's kingside."
+        },
+        {
+          "san": "b6",
+          "text": "Black prepares a home for the remaining bishop on b7."
+        },
+        {
+          "san": "Qe2",
+          "text": "White brings the queen to e2, adding support to e4 and preparing to connect the rooks by castling."
+        },
+        {
+          "san": "Bb7",
+          "text": "Black develops the bishop to b7, where it looks toward the centre."
+        },
+        {
+          "san": "O-O",
+          "text": "White castles kingside. The basic setup is in place; deciding whether to prepare e4 or improve a piece now depends on the position."
+        }
+      ]
+    },
+    "tags": [
+      "cfa_free_sample",
+      "cfa_opening",
+      "london"
+    ],
+    "group": "01 - Opening lessons::White",
+    "pack": "free-sample",
+    "kind": "repertoire",
+    "plan": "Develop the dark-squared bishop before playing e3, build support for d4 and finish development. This setup is a useful pattern, but the opponent's moves must still guide the plan.",
+    "verification": {
+      "legal": true,
+      "plies": 19,
+      "scope": "Teaching transition after development and castling; no engine during review.",
+      "final_position_engine_check": {
+        "engine": "Stockfish 19",
+        "nodes_requested": 500000,
+        "actual_nodes": 500333,
+        "depth": 19,
+        "final_position_check": "No forced mate found; absolute White score at most 150 cp at this search budget.",
+        "scope": "Final position only; all SAN and FEN replay checked separately; not proof of best moves."
+      }
+    }
+  },
+  {
+    "id": "46a7fa3ac1bffdfd",
+    "title": "London System - develop with a plan · Black",
+    "side": "black",
+    "start": "",
+    "moves": [
+      "d4",
+      "d5",
+      "Nf3",
+      "Nf6",
+      "Bf4",
+      "e6",
+      "e3",
+      "c5",
+      "c3",
+      "Nc6",
+      "Nbd2",
+      "Bd6",
+      "Bg3",
+      "O-O",
+      "Bd3",
+      "b6",
+      "Qe2",
+      "Bb7",
+      "O-O"
+    ],
+    "uci": [
+      "d2d4",
+      "d7d5",
+      "g1f3",
+      "g8f6",
+      "c1f4",
+      "e7e6",
+      "e2e3",
+      "c7c5",
+      "c2c3",
+      "b8c6",
+      "b1d2",
+      "f8d6",
+      "f4g3",
+      "e8g8",
+      "f1d3",
+      "b7b6",
+      "d1e2",
+      "c8b7",
+      "e1g1"
+    ],
+    "fens": [
+      "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq - 0 1",
+      "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2",
+      "rnbqkbnr/ppp1pppp/8/3p4/3P4/5N2/PPP1PPPP/RNBQKB1R b KQkq - 1 2",
+      "rnbqkb1r/ppp1pppp/5n2/3p4/3P4/5N2/PPP1PPPP/RNBQKB1R w KQkq - 2 3",
+      "rnbqkb1r/ppp1pppp/5n2/3p4/3P1B2/5N2/PPP1PPPP/RN1QKB1R b KQkq - 3 3",
+      "rnbqkb1r/ppp2ppp/4pn2/3p4/3P1B2/5N2/PPP1PPPP/RN1QKB1R w KQkq - 0 4",
+      "rnbqkb1r/ppp2ppp/4pn2/3p4/3P1B2/4PN2/PPP2PPP/RN1QKB1R b KQkq - 0 4",
+      "rnbqkb1r/pp3ppp/4pn2/2pp4/3P1B2/4PN2/PPP2PPP/RN1QKB1R w KQkq - 0 5",
+      "rnbqkb1r/pp3ppp/4pn2/2pp4/3P1B2/2P1PN2/PP3PPP/RN1QKB1R b KQkq - 0 5",
+      "r1bqkb1r/pp3ppp/2n1pn2/2pp4/3P1B2/2P1PN2/PP3PPP/RN1QKB1R w KQkq - 1 6",
+      "r1bqkb1r/pp3ppp/2n1pn2/2pp4/3P1B2/2P1PN2/PP1N1PPP/R2QKB1R b KQkq - 2 6",
+      "r1bqk2r/pp3ppp/2nbpn2/2pp4/3P1B2/2P1PN2/PP1N1PPP/R2QKB1R w KQkq - 3 7",
+      "r1bqk2r/pp3ppp/2nbpn2/2pp4/3P4/2P1PNB1/PP1N1PPP/R2QKB1R b KQkq - 4 7",
+      "r1bq1rk1/pp3ppp/2nbpn2/2pp4/3P4/2P1PNB1/PP1N1PPP/R2QKB1R w KQ - 5 8",
+      "r1bq1rk1/pp3ppp/2nbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R b KQ - 6 8",
+      "r1bq1rk1/p4ppp/1pnbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R w KQ - 0 9",
+      "r1bq1rk1/p4ppp/1pnbpn2/2pp4/3P4/2PBPNB1/PP1NQPPP/R3K2R b KQ - 1 9",
+      "r2q1rk1/pb3ppp/1pnbpn2/2pp4/3P4/2PBPNB1/PP1NQPPP/R3K2R w KQ - 2 10",
+      "r2q1rk1/pb3ppp/1pnbpn2/2pp4/3P4/2PBPNB1/PP1NQPPP/R4RK1 b - - 3 10"
+    ],
+    "notes": "<p>Develop the dark-squared bishop before playing e3, build support for d4 and finish development. This setup is a useful pattern, but the opponent&#x27;s moves must still guide the plan.</p><p>Opening lesson: this is one illustrative continuation, not a forced line or a complete repertoire. The stopping point introduces a middlegame plan; chess has no single universal move that ends the opening.</p><p>Explanations prepared for Chess for Anki. The move sequence describes chess facts.</p><div class=\"cfa-commentary-data\" hidden>{&quot;language&quot;: &quot;en&quot;, &quot;start_fen&quot;: &quot;&quot;, &quot;moves&quot;: [&quot;d4&quot;, &quot;d5&quot;, &quot;Nf3&quot;, &quot;Nf6&quot;, &quot;Bf4&quot;, &quot;e6&quot;, &quot;e3&quot;, &quot;c5&quot;, &quot;c3&quot;, &quot;Nc6&quot;, &quot;Nbd2&quot;, &quot;Bd6&quot;, &quot;Bg3&quot;, &quot;O-O&quot;, &quot;Bd3&quot;, &quot;b6&quot;, &quot;Qe2&quot;, &quot;Bb7&quot;, &quot;O-O&quot;], &quot;notes&quot;: [{&quot;san&quot;: &quot;d4&quot;, &quot;text&quot;: &quot;White occupies d4 and takes central space.&quot;}, {&quot;san&quot;: &quot;d5&quot;, &quot;text&quot;: &quot;Black occupies d5 and contests the centre.&quot;}, {&quot;san&quot;: &quot;Nf3&quot;, &quot;text&quot;: &quot;White develops the kingside knight, supporting d4 and preparing to castle.&quot;}, {&quot;san&quot;: &quot;Nf6&quot;, &quot;text&quot;: &quot;Black develops the kingside knight to f6 and supports d5.&quot;}, {&quot;san&quot;: &quot;Bf4&quot;, &quot;text&quot;: &quot;White develops the bishop to f4 before placing the e-pawn on e3.&quot;}, {&quot;san&quot;: &quot;e6&quot;, &quot;text&quot;: &quot;Black supports d5 with e6 and opens the diagonal for the bishop on f8.&quot;}, {&quot;san&quot;: &quot;e3&quot;, &quot;text&quot;: &quot;White supports d4 with e3 and opens the light-squared bishop&#x27;s diagonal.&quot;}, {&quot;san&quot;: &quot;c5&quot;, &quot;text&quot;: &quot;Black challenges d4 with c5. A familiar setup still requires attention to the opponent&#x27;s central play.&quot;}, {&quot;san&quot;: &quot;c3&quot;, &quot;text&quot;: &quot;White adds support to d4 with c3, building a compact central structure.&quot;}, {&quot;san&quot;: &quot;Nc6&quot;, &quot;text&quot;: &quot;Black develops the queenside knight to c6 and increases pressure on the centre.&quot;}, {&quot;san&quot;: &quot;Nbd2&quot;, &quot;text&quot;: &quot;White develops the other knight to d2. It helps control e4 and leaves the c-pawn in place.&quot;}, {&quot;san&quot;: &quot;Bd6&quot;, &quot;text&quot;: &quot;Black develops the bishop to d6, offering an exchange of the active bishop on f4.&quot;}, {&quot;san&quot;: &quot;Bg3&quot;, &quot;text&quot;: &quot;White keeps that bishop by retreating to g3.&quot;}, {&quot;san&quot;: &quot;O-O&quot;, &quot;text&quot;: &quot;Black castles kingside and moves the king away from the central tension.&quot;}, {&quot;san&quot;: &quot;Bd3&quot;, &quot;text&quot;: &quot;White develops the bishop to d3 and points it toward Black&#x27;s kingside.&quot;}, {&quot;san&quot;: &quot;b6&quot;, &quot;text&quot;: &quot;Black prepares a home for the remaining bishop on b7.&quot;}, {&quot;san&quot;: &quot;Qe2&quot;, &quot;text&quot;: &quot;White brings the queen to e2, adding support to e4 and preparing to connect the rooks by castling.&quot;}, {&quot;san&quot;: &quot;Bb7&quot;, &quot;text&quot;: &quot;Black develops the bishop to b7, where it looks toward the centre.&quot;}, {&quot;san&quot;: &quot;O-O&quot;, &quot;text&quot;: &quot;White castles kingside. The basic setup is in place; deciding whether to prepare e4 or improve a piece now depends on the position.&quot;}]}</div>",
+    "commentary": {
+      "language": "en",
+      "start_fen": "",
+      "moves": [
+        "d4",
+        "d5",
+        "Nf3",
+        "Nf6",
+        "Bf4",
+        "e6",
+        "e3",
+        "c5",
+        "c3",
+        "Nc6",
+        "Nbd2",
+        "Bd6",
+        "Bg3",
+        "O-O",
+        "Bd3",
+        "b6",
+        "Qe2",
+        "Bb7",
+        "O-O"
+      ],
+      "notes": [
+        {
+          "san": "d4",
+          "text": "White occupies d4 and takes central space."
+        },
+        {
+          "san": "d5",
+          "text": "Black occupies d5 and contests the centre."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops the kingside knight, supporting d4 and preparing to castle."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops the kingside knight to f6 and supports d5."
+        },
+        {
+          "san": "Bf4",
+          "text": "White develops the bishop to f4 before placing the e-pawn on e3."
+        },
+        {
+          "san": "e6",
+          "text": "Black supports d5 with e6 and opens the diagonal for the bishop on f8."
+        },
+        {
+          "san": "e3",
+          "text": "White supports d4 with e3 and opens the light-squared bishop's diagonal."
+        },
+        {
+          "san": "c5",
+          "text": "Black challenges d4 with c5. A familiar setup still requires attention to the opponent's central play."
+        },
+        {
+          "san": "c3",
+          "text": "White adds support to d4 with c3, building a compact central structure."
+        },
+        {
+          "san": "Nc6",
+          "text": "Black develops the queenside knight to c6 and increases pressure on the centre."
+        },
+        {
+          "san": "Nbd2",
+          "text": "White develops the other knight to d2. It helps control e4 and leaves the c-pawn in place."
+        },
+        {
+          "san": "Bd6",
+          "text": "Black develops the bishop to d6, offering an exchange of the active bishop on f4."
+        },
+        {
+          "san": "Bg3",
+          "text": "White keeps that bishop by retreating to g3."
+        },
+        {
+          "san": "O-O",
+          "text": "Black castles kingside and moves the king away from the central tension."
+        },
+        {
+          "san": "Bd3",
+          "text": "White develops the bishop to d3 and points it toward Black's kingside."
+        },
+        {
+          "san": "b6",
+          "text": "Black prepares a home for the remaining bishop on b7."
+        },
+        {
+          "san": "Qe2",
+          "text": "White brings the queen to e2, adding support to e4 and preparing to connect the rooks by castling."
+        },
+        {
+          "san": "Bb7",
+          "text": "Black develops the bishop to b7, where it looks toward the centre."
+        },
+        {
+          "san": "O-O",
+          "text": "White castles kingside. The basic setup is in place; deciding whether to prepare e4 or improve a piece now depends on the position."
+        }
+      ]
+    },
+    "tags": [
+      "cfa_free_sample",
+      "cfa_opening",
+      "london"
+    ],
+    "group": "01 - Opening lessons::Black",
+    "pack": "free-sample",
+    "kind": "repertoire",
+    "plan": "Develop the dark-squared bishop before playing e3, build support for d4 and finish development. This setup is a useful pattern, but the opponent's moves must still guide the plan.",
+    "verification": {
+      "legal": true,
+      "plies": 19,
+      "scope": "Teaching transition after development and castling; no engine during review.",
+      "final_position_engine_check": {
+        "engine": "Stockfish 19",
+        "nodes_requested": 500000,
+        "actual_nodes": 500333,
+        "depth": 19,
+        "final_position_check": "No forced mate found; absolute White score at most 150 cp at this search budget.",
+        "scope": "Final position only; all SAN and FEN replay checked separately; not proof of best moves."
+      }
+    }
+  },
+  {
+    "id": "9f6fc04fe93b6cdd",
+    "title": "Sicilian Defence - open central files · White",
+    "side": "white",
+    "start": "",
+    "moves": [
+      "e4",
+      "c5",
+      "Nf3",
+      "d6",
+      "d4",
+      "cxd4",
+      "Nxd4",
+      "Nf6",
+      "Nc3",
+      "Nc6",
+      "Be2",
+      "e6",
+      "O-O",
+      "Be7",
+      "Be3",
+      "O-O",
+      "f4",
+      "a6",
+      "Kh1",
+      "Qc7",
+      "Qe1"
+    ],
+    "uci": [
+      "e2e4",
+      "c7c5",
+      "g1f3",
+      "d7d6",
+      "d2d4",
+      "c5d4",
+      "f3d4",
+      "g8f6",
+      "b1c3",
+      "b8c6",
+      "f1e2",
+      "e7e6",
+      "e1g1",
+      "f8e7",
+      "c1e3",
+      "e8g8",
+      "f2f4",
+      "a7a6",
+      "g1h1",
+      "d8c7",
+      "d1e1"
+    ],
+    "fens": [
+      "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+      "rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+      "rnbqkbnr/pp2pppp/3p4/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 3",
+      "rnbqkbnr/pp2pppp/3p4/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4",
+      "rnbqkbnr/pp2pppp/3p4/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4",
+      "rnbqkb1r/pp2pppp/3p1n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 1 5",
+      "rnbqkb1r/pp2pppp/3p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq - 2 5",
+      "r1bqkb1r/pp2pppp/2np1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 3 6",
+      "r1bqkb1r/pp2pppp/2np1n2/8/3NP3/2N5/PPP1BPPP/R1BQK2R b KQkq - 4 6",
+      "r1bqkb1r/pp3ppp/2nppn2/8/3NP3/2N5/PPP1BPPP/R1BQK2R w KQkq - 0 7",
+      "r1bqkb1r/pp3ppp/2nppn2/8/3NP3/2N5/PPP1BPPP/R1BQ1RK1 b kq - 1 7",
+      "r1bqk2r/pp2bppp/2nppn2/8/3NP3/2N5/PPP1BPPP/R1BQ1RK1 w kq - 2 8",
+      "r1bqk2r/pp2bppp/2nppn2/8/3NP3/2N1B3/PPP1BPPP/R2Q1RK1 b kq - 3 8",
+      "r1bq1rk1/pp2bppp/2nppn2/8/3NP3/2N1B3/PPP1BPPP/R2Q1RK1 w - - 4 9",
+      "r1bq1rk1/pp2bppp/2nppn2/8/3NPP2/2N1B3/PPP1B1PP/R2Q1RK1 b - - 0 9",
+      "r1bq1rk1/1p2bppp/p1nppn2/8/3NPP2/2N1B3/PPP1B1PP/R2Q1RK1 w - - 0 10",
+      "r1bq1rk1/1p2bppp/p1nppn2/8/3NPP2/2N1B3/PPP1B1PP/R2Q1R1K b - - 1 10",
+      "r1b2rk1/1pq1bppp/p1nppn2/8/3NPP2/2N1B3/PPP1B1PP/R2Q1R1K w - - 2 11",
+      "r1b2rk1/1pq1bppp/p1nppn2/8/3NPP2/2N1B3/PPP1B1PP/R3QR1K b - - 3 11"
+    ],
+    "notes": "<p>Exchange a flank pawn for a central pawn, develop quickly and compare the resulting open files. Both sides reach a middlegame structure with different sources of play; the line is an example rather than a complete repertoire.</p><p>Opening lesson: this is one illustrative continuation, not a forced line or a complete repertoire. The stopping point introduces a middlegame plan; chess has no single universal move that ends the opening.</p><p>Explanations prepared for Chess for Anki. The move sequence describes chess facts.</p><div class=\"cfa-commentary-data\" hidden>{&quot;language&quot;: &quot;en&quot;, &quot;start_fen&quot;: &quot;&quot;, &quot;moves&quot;: [&quot;e4&quot;, &quot;c5&quot;, &quot;Nf3&quot;, &quot;d6&quot;, &quot;d4&quot;, &quot;cxd4&quot;, &quot;Nxd4&quot;, &quot;Nf6&quot;, &quot;Nc3&quot;, &quot;Nc6&quot;, &quot;Be2&quot;, &quot;e6&quot;, &quot;O-O&quot;, &quot;Be7&quot;, &quot;Be3&quot;, &quot;O-O&quot;, &quot;f4&quot;, &quot;a6&quot;, &quot;Kh1&quot;, &quot;Qc7&quot;, &quot;Qe1&quot;], &quot;notes&quot;: [{&quot;san&quot;: &quot;e4&quot;, &quot;text&quot;: &quot;White occupies e4, taking central space and opening lines for the pieces.&quot;}, {&quot;san&quot;: &quot;c5&quot;, &quot;text&quot;: &quot;Black plays c5, controlling d4 from the flank and entering the Sicilian Defence.&quot;}, {&quot;san&quot;: &quot;Nf3&quot;, &quot;text&quot;: &quot;White develops the knight to f3 and prepares a central d4 advance.&quot;}, {&quot;san&quot;: &quot;d6&quot;, &quot;text&quot;: &quot;Black supports the central squares with d6 and opens the bishop&#x27;s diagonal.&quot;}, {&quot;san&quot;: &quot;d4&quot;, &quot;text&quot;: &quot;White challenges the centre with d4.&quot;}, {&quot;san&quot;: &quot;cxd4&quot;, &quot;text&quot;: &quot;Black exchanges the c-pawn for the pawn on d4, opening the c-file.&quot;}, {&quot;san&quot;: &quot;Nxd4&quot;, &quot;text&quot;: &quot;White recaptures with the knight, placing it actively in the centre.&quot;}, {&quot;san&quot;: &quot;Nf6&quot;, &quot;text&quot;: &quot;Black develops the knight to f6 and attacks e4.&quot;}, {&quot;san&quot;: &quot;Nc3&quot;, &quot;text&quot;: &quot;White develops the knight to c3 and defends e4.&quot;}, {&quot;san&quot;: &quot;Nc6&quot;, &quot;text&quot;: &quot;Black develops the queenside knight to c6 and increases central influence.&quot;}, {&quot;san&quot;: &quot;Be2&quot;, &quot;text&quot;: &quot;White develops the bishop to e2 and prepares to castle.&quot;}, {&quot;san&quot;: &quot;e6&quot;, &quot;text&quot;: &quot;Black supports d5 with e6 and opens the diagonal for the bishop on f8.&quot;}, {&quot;san&quot;: &quot;O-O&quot;, &quot;text&quot;: &quot;White castles kingside, sheltering the king before further central action.&quot;}, {&quot;san&quot;: &quot;Be7&quot;, &quot;text&quot;: &quot;Black develops the bishop to e7 and prepares to castle too.&quot;}, {&quot;san&quot;: &quot;Be3&quot;, &quot;text&quot;: &quot;White develops the bishop to e3, supporting the centre and coordinating the pieces.&quot;}, {&quot;san&quot;: &quot;O-O&quot;, &quot;text&quot;: &quot;Black castles kingside. Both sides have brought the king to safety.&quot;}, {&quot;san&quot;: &quot;f4&quot;, &quot;text&quot;: &quot;White advances the f-pawn to gain space and support e5. Pawn advances also leave squares behind, so further play must be calculated.&quot;}, {&quot;san&quot;: &quot;a6&quot;, &quot;text&quot;: &quot;Black controls b5 with a6 and prepares possible queenside expansion.&quot;}, {&quot;san&quot;: &quot;Kh1&quot;, &quot;text&quot;: &quot;White moves the king to h1, leaving the diagonal toward b6 and making room for future rook coordination.&quot;}, {&quot;san&quot;: &quot;Qc7&quot;, &quot;text&quot;: &quot;Black places the queen on c7, where it supports central and queenside play.&quot;}, {&quot;san&quot;: &quot;Qe1&quot;, &quot;text&quot;: &quot;White moves the queen to e1, connecting the pieces and keeping several plans available. This is a teaching transition to the middlegame, not a claim that the opening has one exact finishing point.&quot;}]}</div>",
+    "commentary": {
+      "language": "en",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "c5",
+        "Nf3",
+        "d6",
+        "d4",
+        "cxd4",
+        "Nxd4",
+        "Nf6",
+        "Nc3",
+        "Nc6",
+        "Be2",
+        "e6",
+        "O-O",
+        "Be7",
+        "Be3",
+        "O-O",
+        "f4",
+        "a6",
+        "Kh1",
+        "Qc7",
+        "Qe1"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White occupies e4, taking central space and opening lines for the pieces."
+        },
+        {
+          "san": "c5",
+          "text": "Black plays c5, controlling d4 from the flank and entering the Sicilian Defence."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops the knight to f3 and prepares a central d4 advance."
+        },
+        {
+          "san": "d6",
+          "text": "Black supports the central squares with d6 and opens the bishop's diagonal."
+        },
+        {
+          "san": "d4",
+          "text": "White challenges the centre with d4."
+        },
+        {
+          "san": "cxd4",
+          "text": "Black exchanges the c-pawn for the pawn on d4, opening the c-file."
+        },
+        {
+          "san": "Nxd4",
+          "text": "White recaptures with the knight, placing it actively in the centre."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops the knight to f6 and attacks e4."
+        },
+        {
+          "san": "Nc3",
+          "text": "White develops the knight to c3 and defends e4."
+        },
+        {
+          "san": "Nc6",
+          "text": "Black develops the queenside knight to c6 and increases central influence."
+        },
+        {
+          "san": "Be2",
+          "text": "White develops the bishop to e2 and prepares to castle."
+        },
+        {
+          "san": "e6",
+          "text": "Black supports d5 with e6 and opens the diagonal for the bishop on f8."
+        },
+        {
+          "san": "O-O",
+          "text": "White castles kingside, sheltering the king before further central action."
+        },
+        {
+          "san": "Be7",
+          "text": "Black develops the bishop to e7 and prepares to castle too."
+        },
+        {
+          "san": "Be3",
+          "text": "White develops the bishop to e3, supporting the centre and coordinating the pieces."
+        },
+        {
+          "san": "O-O",
+          "text": "Black castles kingside. Both sides have brought the king to safety."
+        },
+        {
+          "san": "f4",
+          "text": "White advances the f-pawn to gain space and support e5. Pawn advances also leave squares behind, so further play must be calculated."
+        },
+        {
+          "san": "a6",
+          "text": "Black controls b5 with a6 and prepares possible queenside expansion."
+        },
+        {
+          "san": "Kh1",
+          "text": "White moves the king to h1, leaving the diagonal toward b6 and making room for future rook coordination."
+        },
+        {
+          "san": "Qc7",
+          "text": "Black places the queen on c7, where it supports central and queenside play."
+        },
+        {
+          "san": "Qe1",
+          "text": "White moves the queen to e1, connecting the pieces and keeping several plans available. This is a teaching transition to the middlegame, not a claim that the opening has one exact finishing point."
+        }
+      ]
+    },
+    "tags": [
+      "cfa_free_sample",
+      "cfa_opening",
+      "sicilian-classical"
+    ],
+    "group": "01 - Opening lessons::White",
+    "pack": "free-sample",
+    "kind": "repertoire",
+    "plan": "Exchange a flank pawn for a central pawn, develop quickly and compare the resulting open files. Both sides reach a middlegame structure with different sources of play; the line is an example rather than a complete repertoire.",
+    "verification": {
+      "legal": true,
+      "plies": 21,
+      "scope": "Teaching transition after development and castling; no engine during review.",
+      "final_position_engine_check": {
+        "engine": "Stockfish 19",
+        "nodes_requested": 500000,
+        "actual_nodes": 500027,
+        "depth": 19,
+        "final_position_check": "No forced mate found; absolute White score at most 150 cp at this search budget.",
+        "scope": "Final position only; all SAN and FEN replay checked separately; not proof of best moves."
+      }
+    }
+  },
+  {
+    "id": "d7a29091b2b947a1",
+    "title": "Sicilian Defence - open central files · Black",
+    "side": "black",
+    "start": "",
+    "moves": [
+      "e4",
+      "c5",
+      "Nf3",
+      "d6",
+      "d4",
+      "cxd4",
+      "Nxd4",
+      "Nf6",
+      "Nc3",
+      "Nc6",
+      "Be2",
+      "e6",
+      "O-O",
+      "Be7",
+      "Be3",
+      "O-O",
+      "f4",
+      "a6",
+      "Kh1",
+      "Qc7",
+      "Qe1"
+    ],
+    "uci": [
+      "e2e4",
+      "c7c5",
+      "g1f3",
+      "d7d6",
+      "d2d4",
+      "c5d4",
+      "f3d4",
+      "g8f6",
+      "b1c3",
+      "b8c6",
+      "f1e2",
+      "e7e6",
+      "e1g1",
+      "f8e7",
+      "c1e3",
+      "e8g8",
+      "f2f4",
+      "a7a6",
+      "g1h1",
+      "d8c7",
+      "d1e1"
+    ],
+    "fens": [
+      "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+      "rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+      "rnbqkbnr/pp2pppp/3p4/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 3",
+      "rnbqkbnr/pp2pppp/3p4/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4",
+      "rnbqkbnr/pp2pppp/3p4/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4",
+      "rnbqkb1r/pp2pppp/3p1n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 1 5",
+      "rnbqkb1r/pp2pppp/3p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq - 2 5",
+      "r1bqkb1r/pp2pppp/2np1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 3 6",
+      "r1bqkb1r/pp2pppp/2np1n2/8/3NP3/2N5/PPP1BPPP/R1BQK2R b KQkq - 4 6",
+      "r1bqkb1r/pp3ppp/2nppn2/8/3NP3/2N5/PPP1BPPP/R1BQK2R w KQkq - 0 7",
+      "r1bqkb1r/pp3ppp/2nppn2/8/3NP3/2N5/PPP1BPPP/R1BQ1RK1 b kq - 1 7",
+      "r1bqk2r/pp2bppp/2nppn2/8/3NP3/2N5/PPP1BPPP/R1BQ1RK1 w kq - 2 8",
+      "r1bqk2r/pp2bppp/2nppn2/8/3NP3/2N1B3/PPP1BPPP/R2Q1RK1 b kq - 3 8",
+      "r1bq1rk1/pp2bppp/2nppn2/8/3NP3/2N1B3/PPP1BPPP/R2Q1RK1 w - - 4 9",
+      "r1bq1rk1/pp2bppp/2nppn2/8/3NPP2/2N1B3/PPP1B1PP/R2Q1RK1 b - - 0 9",
+      "r1bq1rk1/1p2bppp/p1nppn2/8/3NPP2/2N1B3/PPP1B1PP/R2Q1RK1 w - - 0 10",
+      "r1bq1rk1/1p2bppp/p1nppn2/8/3NPP2/2N1B3/PPP1B1PP/R2Q1R1K b - - 1 10",
+      "r1b2rk1/1pq1bppp/p1nppn2/8/3NPP2/2N1B3/PPP1B1PP/R2Q1R1K w - - 2 11",
+      "r1b2rk1/1pq1bppp/p1nppn2/8/3NPP2/2N1B3/PPP1B1PP/R3QR1K b - - 3 11"
+    ],
+    "notes": "<p>Exchange a flank pawn for a central pawn, develop quickly and compare the resulting open files. Both sides reach a middlegame structure with different sources of play; the line is an example rather than a complete repertoire.</p><p>Opening lesson: this is one illustrative continuation, not a forced line or a complete repertoire. The stopping point introduces a middlegame plan; chess has no single universal move that ends the opening.</p><p>Explanations prepared for Chess for Anki. The move sequence describes chess facts.</p><div class=\"cfa-commentary-data\" hidden>{&quot;language&quot;: &quot;en&quot;, &quot;start_fen&quot;: &quot;&quot;, &quot;moves&quot;: [&quot;e4&quot;, &quot;c5&quot;, &quot;Nf3&quot;, &quot;d6&quot;, &quot;d4&quot;, &quot;cxd4&quot;, &quot;Nxd4&quot;, &quot;Nf6&quot;, &quot;Nc3&quot;, &quot;Nc6&quot;, &quot;Be2&quot;, &quot;e6&quot;, &quot;O-O&quot;, &quot;Be7&quot;, &quot;Be3&quot;, &quot;O-O&quot;, &quot;f4&quot;, &quot;a6&quot;, &quot;Kh1&quot;, &quot;Qc7&quot;, &quot;Qe1&quot;], &quot;notes&quot;: [{&quot;san&quot;: &quot;e4&quot;, &quot;text&quot;: &quot;White occupies e4, taking central space and opening lines for the pieces.&quot;}, {&quot;san&quot;: &quot;c5&quot;, &quot;text&quot;: &quot;Black plays c5, controlling d4 from the flank and entering the Sicilian Defence.&quot;}, {&quot;san&quot;: &quot;Nf3&quot;, &quot;text&quot;: &quot;White develops the knight to f3 and prepares a central d4 advance.&quot;}, {&quot;san&quot;: &quot;d6&quot;, &quot;text&quot;: &quot;Black supports the central squares with d6 and opens the bishop&#x27;s diagonal.&quot;}, {&quot;san&quot;: &quot;d4&quot;, &quot;text&quot;: &quot;White challenges the centre with d4.&quot;}, {&quot;san&quot;: &quot;cxd4&quot;, &quot;text&quot;: &quot;Black exchanges the c-pawn for the pawn on d4, opening the c-file.&quot;}, {&quot;san&quot;: &quot;Nxd4&quot;, &quot;text&quot;: &quot;White recaptures with the knight, placing it actively in the centre.&quot;}, {&quot;san&quot;: &quot;Nf6&quot;, &quot;text&quot;: &quot;Black develops the knight to f6 and attacks e4.&quot;}, {&quot;san&quot;: &quot;Nc3&quot;, &quot;text&quot;: &quot;White develops the knight to c3 and defends e4.&quot;}, {&quot;san&quot;: &quot;Nc6&quot;, &quot;text&quot;: &quot;Black develops the queenside knight to c6 and increases central influence.&quot;}, {&quot;san&quot;: &quot;Be2&quot;, &quot;text&quot;: &quot;White develops the bishop to e2 and prepares to castle.&quot;}, {&quot;san&quot;: &quot;e6&quot;, &quot;text&quot;: &quot;Black supports d5 with e6 and opens the diagonal for the bishop on f8.&quot;}, {&quot;san&quot;: &quot;O-O&quot;, &quot;text&quot;: &quot;White castles kingside, sheltering the king before further central action.&quot;}, {&quot;san&quot;: &quot;Be7&quot;, &quot;text&quot;: &quot;Black develops the bishop to e7 and prepares to castle too.&quot;}, {&quot;san&quot;: &quot;Be3&quot;, &quot;text&quot;: &quot;White develops the bishop to e3, supporting the centre and coordinating the pieces.&quot;}, {&quot;san&quot;: &quot;O-O&quot;, &quot;text&quot;: &quot;Black castles kingside. Both sides have brought the king to safety.&quot;}, {&quot;san&quot;: &quot;f4&quot;, &quot;text&quot;: &quot;White advances the f-pawn to gain space and support e5. Pawn advances also leave squares behind, so further play must be calculated.&quot;}, {&quot;san&quot;: &quot;a6&quot;, &quot;text&quot;: &quot;Black controls b5 with a6 and prepares possible queenside expansion.&quot;}, {&quot;san&quot;: &quot;Kh1&quot;, &quot;text&quot;: &quot;White moves the king to h1, leaving the diagonal toward b6 and making room for future rook coordination.&quot;}, {&quot;san&quot;: &quot;Qc7&quot;, &quot;text&quot;: &quot;Black places the queen on c7, where it supports central and queenside play.&quot;}, {&quot;san&quot;: &quot;Qe1&quot;, &quot;text&quot;: &quot;White moves the queen to e1, connecting the pieces and keeping several plans available. This is a teaching transition to the middlegame, not a claim that the opening has one exact finishing point.&quot;}]}</div>",
+    "commentary": {
+      "language": "en",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "c5",
+        "Nf3",
+        "d6",
+        "d4",
+        "cxd4",
+        "Nxd4",
+        "Nf6",
+        "Nc3",
+        "Nc6",
+        "Be2",
+        "e6",
+        "O-O",
+        "Be7",
+        "Be3",
+        "O-O",
+        "f4",
+        "a6",
+        "Kh1",
+        "Qc7",
+        "Qe1"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White occupies e4, taking central space and opening lines for the pieces."
+        },
+        {
+          "san": "c5",
+          "text": "Black plays c5, controlling d4 from the flank and entering the Sicilian Defence."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops the knight to f3 and prepares a central d4 advance."
+        },
+        {
+          "san": "d6",
+          "text": "Black supports the central squares with d6 and opens the bishop's diagonal."
+        },
+        {
+          "san": "d4",
+          "text": "White challenges the centre with d4."
+        },
+        {
+          "san": "cxd4",
+          "text": "Black exchanges the c-pawn for the pawn on d4, opening the c-file."
+        },
+        {
+          "san": "Nxd4",
+          "text": "White recaptures with the knight, placing it actively in the centre."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops the knight to f6 and attacks e4."
+        },
+        {
+          "san": "Nc3",
+          "text": "White develops the knight to c3 and defends e4."
+        },
+        {
+          "san": "Nc6",
+          "text": "Black develops the queenside knight to c6 and increases central influence."
+        },
+        {
+          "san": "Be2",
+          "text": "White develops the bishop to e2 and prepares to castle."
+        },
+        {
+          "san": "e6",
+          "text": "Black supports d5 with e6 and opens the diagonal for the bishop on f8."
+        },
+        {
+          "san": "O-O",
+          "text": "White castles kingside, sheltering the king before further central action."
+        },
+        {
+          "san": "Be7",
+          "text": "Black develops the bishop to e7 and prepares to castle too."
+        },
+        {
+          "san": "Be3",
+          "text": "White develops the bishop to e3, supporting the centre and coordinating the pieces."
+        },
+        {
+          "san": "O-O",
+          "text": "Black castles kingside. Both sides have brought the king to safety."
+        },
+        {
+          "san": "f4",
+          "text": "White advances the f-pawn to gain space and support e5. Pawn advances also leave squares behind, so further play must be calculated."
+        },
+        {
+          "san": "a6",
+          "text": "Black controls b5 with a6 and prepares possible queenside expansion."
+        },
+        {
+          "san": "Kh1",
+          "text": "White moves the king to h1, leaving the diagonal toward b6 and making room for future rook coordination."
+        },
+        {
+          "san": "Qc7",
+          "text": "Black places the queen on c7, where it supports central and queenside play."
+        },
+        {
+          "san": "Qe1",
+          "text": "White moves the queen to e1, connecting the pieces and keeping several plans available. This is a teaching transition to the middlegame, not a claim that the opening has one exact finishing point."
+        }
+      ]
+    },
+    "tags": [
+      "cfa_free_sample",
+      "cfa_opening",
+      "sicilian-classical"
+    ],
+    "group": "01 - Opening lessons::Black",
+    "pack": "free-sample",
+    "kind": "repertoire",
+    "plan": "Exchange a flank pawn for a central pawn, develop quickly and compare the resulting open files. Both sides reach a middlegame structure with different sources of play; the line is an example rather than a complete repertoire.",
+    "verification": {
+      "legal": true,
+      "plies": 21,
+      "scope": "Teaching transition after development and castling; no engine during review.",
+      "final_position_engine_check": {
+        "engine": "Stockfish 19",
+        "nodes_requested": 500000,
+        "actual_nodes": 500027,
+        "depth": 19,
+        "final_position_check": "No forced mate found; absolute White score at most 150 cp at this search budget.",
+        "scope": "Final position only; all SAN and FEN replay checked separately; not proof of best moves."
+      }
+    }
+  },
+  {
+    "id": "brilliancy-001",
+    "title": "Find the forcing finish · White",
+    "side": "white",
+    "start": "4kb1r/p2n1ppp/4q3/4p1B1/4P3/1Q6/PPP2PPP/2KR4 w k - 0 16",
+    "moves": [
+      "Qb8+",
+      "Nxb8",
+      "Rd8#"
+    ],
+    "uci": [
+      "b3b8",
+      "d7b8",
+      "d1d8"
+    ],
+    "fens": [
+      "1Q2kb1r/p2n1ppp/4q3/4p1B1/4P3/8/PPP2PPP/2KR4 b k - 1 16",
+      "1n2kb1r/p4ppp/4q3/4p1B1/4P3/8/PPP2PPP/2KR4 w k - 0 17",
+      "1n1Rkb1r/p4ppp/4q3/4p1B1/4P3/8/PPP2PPP/2K5 b k - 1 17"
+    ],
+    "notes": "<p>Offer the queen with check to draw the knight away from d7. The rook can then reach d8, where the bishop protects it.</p><p>Historical move record. Exercise commentary and curation prepared for Chess for Anki. The brilliant marker is an editorial teaching label.</p><p>Sources: <a href=\"https://www.pgnmentor.com/players/Morphy.zip\">https://www.pgnmentor.com/players/Morphy.zip</a>; <a href=\"https://uscf1-nyc1.aodhosting.com/CL-AND-CR-ALL/CR-ALL/CR1958/CR1958_10.pdf\">https://uscf1-nyc1.aodhosting.com/CL-AND-CR-ALL/CR-ALL/CR1958/CR1958_10.pdf</a></p><div class=\"cfa-commentary-data\" hidden>{&quot;start_fen&quot;: &quot;4kb1r/p2n1ppp/4q3/4p1B1/4P3/1Q6/PPP2PPP/2KR4 w k - 0 16&quot;, &quot;moves&quot;: [&quot;Qb8+&quot;, &quot;Nxb8&quot;, &quot;Rd8#&quot;], &quot;language&quot;: &quot;en&quot;, &quot;notes&quot;: [{&quot;san&quot;: &quot;Qb8+&quot;, &quot;text&quot;: &quot;The queen gives check on b8 and invites the knight to leave d7. Calculate the rook entry before giving up the queen.&quot;}, {&quot;san&quot;: &quot;Nxb8&quot;, &quot;text&quot;: &quot;The knight takes the queen but vacates d7. This removes the last obstruction from the d-file.&quot;}, {&quot;san&quot;: &quot;Rd8#&quot;, &quot;text&quot;: &quot;The rook reaches d8 with mate. The bishop on g5 protects d8, so the king cannot capture the rook.&quot;}]}</div>",
+    "commentary": {
+      "start_fen": "4kb1r/p2n1ppp/4q3/4p1B1/4P3/1Q6/PPP2PPP/2KR4 w k - 0 16",
+      "moves": [
+        "Qb8+",
+        "Nxb8",
+        "Rd8#"
+      ],
+      "language": "en",
+      "notes": [
+        {
+          "san": "Qb8+",
+          "text": "The queen gives check on b8 and invites the knight to leave d7. Calculate the rook entry before giving up the queen."
+        },
+        {
+          "san": "Nxb8",
+          "text": "The knight takes the queen but vacates d7. This removes the last obstruction from the d-file."
+        },
+        {
+          "san": "Rd8#",
+          "text": "The rook reaches d8 with mate. The bishop on g5 protects d8, so the king cannot capture the rook."
+        }
+      ]
+    },
+    "tags": [
+      "cfa_free_sample",
+      "cfa_brilliancy"
+    ],
+    "group": "02 - Brilliancy",
+    "pack": "free-sample",
+    "kind": "brilliancy",
+    "brilliant_moves": {
+      "schema": 1,
+      "plies": [
+        1
+      ]
+    },
+    "previous_move": {
+      "schema": 1,
+      "before_fen": "4kb1r/p2B1ppp/4qn2/4p1B1/4P3/1Q6/PPP2PPP/2KR4 b k - 0 15",
+      "uci": "f6d7",
+      "source": "historical"
+    },
+    "previous_move_provenance": {
+      "source": "historical",
+      "method": "recorded-historical-score-replay",
+      "historical_game": {
+        "white": "Paul Morphy",
+        "black": "Duke of Brunswick and Count Isouard",
+        "year": 1858
+      },
+      "source_urls": [
+        "https://www.pgnmentor.com/players/Morphy.zip",
+        "https://uscf1-nyc1.aodhosting.com/CL-AND-CR-ALL/CR-ALL/CR1958/CR1958_10.pdf"
+      ],
+      "date_venue_caveat": ""
+    },
+    "historical_game": {
+      "white": "Paul Morphy",
+      "black": "Duke of Brunswick and Count Isouard",
+      "year": 1858,
+      "setup_moves_san": [
+        "e4",
+        "e5",
+        "Nf3",
+        "d6",
+        "d4",
+        "Bg4",
+        "dxe5",
+        "Bxf3",
+        "Qxf3",
+        "dxe5",
+        "Bc4",
+        "Nf6",
+        "Qb3",
+        "Qe7",
+        "Nc3",
+        "c6",
+        "Bg5",
+        "b5",
+        "Nxb5",
+        "cxb5",
+        "Bxb5+",
+        "Nbd7",
+        "O-O-O",
+        "Rd8",
+        "Rxd7",
+        "Rxd7",
+        "Rd1",
+        "Qe6",
+        "Bxd7+",
+        "Nxd7"
+      ]
+    },
+    "source_urls": [
+      "https://www.pgnmentor.com/players/Morphy.zip",
+      "https://uscf1-nyc1.aodhosting.com/CL-AND-CR-ALL/CR-ALL/CR1958/CR1958_10.pdf"
+    ],
+    "limitations": "",
+    "verification": {
+      "date": "2026-11-16",
+      "python_chess_version": "1.11.2",
+      "legal": true,
+      "valid_start_fen": true,
+      "chess_logic_result": [
+        true,
+        null,
+        null
+      ],
+      "engine": "Stockfish 19",
+      "Threads": 1,
+      "Hash_MB": 64,
+      "root_nodes_budget": 400000,
+      "chosen_move_nodes_budget": 300000,
+      "final_nodes_budget": 250000,
+      "root_candidates": [
+        {
+          "cp": null,
+          "mate": 2,
+          "depth": 18,
+          "nodes": 400069,
+          "pv_uci": [
+            "b3b8",
+            "d7b8",
+            "d1d8"
+          ]
+        },
+        {
+          "cp": 409,
+          "mate": null,
+          "depth": 18,
+          "nodes": 400069,
+          "pv_uci": [
+            "b3c3",
+            "f7f6",
+            "c3c8",
+            "e8e7",
+            "g5e3",
+            "g7g6",
+            "c8b7",
+            "e7e8",
+            "e3a7",
+            "f8e7",
+            "b7c8",
+            "e7d8"
+          ]
+        }
+      ],
+      "chosen_first_move": {
+        "cp": null,
+        "mate": 2,
+        "depth": 245,
+        "nodes": 735,
+        "pv_uci": [
+          "b3b8",
+          "d7b8",
+          "d1d8"
+        ]
+      },
+      "final_position": {
+        "checkmate": true
+      },
+      "final_checkmate": true,
+      "score_perspective": "learner (legacy root/chosen/final evidence only)"
+    }
+  },
+  {
+    "id": "brilliancy-002",
+    "title": "Keep the initiative · White",
+    "side": "white",
+    "start": "rnb1kb1r/pp3ppp/2p5/4q3/4n3/3Q4/PPPB1PPP/2KR1BNR w kq - 0 9",
+    "moves": [
+      "Qd8+",
+      "Kxd8",
+      "Bg5+",
+      "Kc7",
+      "Bd8#"
+    ],
+    "uci": [
+      "d3d8",
+      "e8d8",
+      "d2g5",
+      "d8c7",
+      "g5d8"
+    ],
+    "fens": [
+      "rnbQkb1r/pp3ppp/2p5/4q3/4n3/8/PPPB1PPP/2KR1BNR b kq - 1 9",
+      "rnbk1b1r/pp3ppp/2p5/4q3/4n3/8/PPPB1PPP/2KR1BNR w - - 0 10",
+      "rnbk1b1r/pp3ppp/2p5/4q1B1/4n3/8/PPP2PPP/2KR1BNR b - - 1 10",
+      "rnb2b1r/ppk2ppp/2p5/4q1B1/4n3/8/PPP2PPP/2KR1BNR w - - 2 11",
+      "rnbB1b1r/ppk2ppp/2p5/4q3/4n3/8/PPP2PPP/2KR1BNR b - - 3 11"
+    ],
+    "notes": "<p>Draw the king onto d8. The bishop move then reveals the rook and gives double check, so the king must move. Finish by sealing the remaining escape.</p><p>After Bg5+, Ke8 is also legal and is met by Rd8#. Contemporary accounts end after Bg5+ with resignation. The last two plies here follow the published mating demonstration, not a claim that they were played on the board.</p><p>Historical move record. Exercise commentary and curation prepared for Chess for Anki. The brilliant marker is an editorial teaching label.</p><p>Sources: <a href=\"https://www.chesshistory.com/winter/extra/retitartakower.html\">https://www.chesshistory.com/winter/extra/retitartakower.html</a></p><div class=\"cfa-commentary-data\" hidden>{&quot;start_fen&quot;: &quot;rnb1kb1r/pp3ppp/2p5/4q3/4n3/3Q4/PPPB1PPP/2KR1BNR w kq - 0 9&quot;, &quot;moves&quot;: [&quot;Qd8+&quot;, &quot;Kxd8&quot;, &quot;Bg5+&quot;, &quot;Kc7&quot;, &quot;Bd8#&quot;], &quot;language&quot;: &quot;en&quot;, &quot;notes&quot;: [{&quot;san&quot;: &quot;Qd8+&quot;, &quot;text&quot;: &quot;The checking queen offer draws the king to d8. The bishop on d2 still blocks the rook, which is why the king can legally accept it.&quot;}, {&quot;san&quot;: &quot;Kxd8&quot;, &quot;text&quot;: &quot;The king takes the queen on d8. White now has a way to attack it with two pieces at once.&quot;}, {&quot;san&quot;: &quot;Bg5+&quot;, &quot;text&quot;: &quot;The bishop leaves d2 and checks along the diagonal to d8, uncovering a rook check on the d-file at the same time. Double check must be answered by a king move.&quot;}, {&quot;san&quot;: &quot;Kc7&quot;, &quot;text&quot;: &quot;The king escapes to c7 in the published mating continuation. Ke8 is the other legal retreat and is answered by Rd8 mate.&quot;}, {&quot;san&quot;: &quot;Bd8#&quot;, &quot;text&quot;: &quot;The bishop returns to d8 with mate, protected along the file by the rook. This demonstrates the finish after the resignation recorded in contemporary accounts.&quot;}]}</div>",
+    "commentary": {
+      "start_fen": "rnb1kb1r/pp3ppp/2p5/4q3/4n3/3Q4/PPPB1PPP/2KR1BNR w kq - 0 9",
+      "moves": [
+        "Qd8+",
+        "Kxd8",
+        "Bg5+",
+        "Kc7",
+        "Bd8#"
+      ],
+      "language": "en",
+      "notes": [
+        {
+          "san": "Qd8+",
+          "text": "The checking queen offer draws the king to d8. The bishop on d2 still blocks the rook, which is why the king can legally accept it."
+        },
+        {
+          "san": "Kxd8",
+          "text": "The king takes the queen on d8. White now has a way to attack it with two pieces at once."
+        },
+        {
+          "san": "Bg5+",
+          "text": "The bishop leaves d2 and checks along the diagonal to d8, uncovering a rook check on the d-file at the same time. Double check must be answered by a king move."
+        },
+        {
+          "san": "Kc7",
+          "text": "The king escapes to c7 in the published mating continuation. Ke8 is the other legal retreat and is answered by Rd8 mate."
+        },
+        {
+          "san": "Bd8#",
+          "text": "The bishop returns to d8 with mate, protected along the file by the rook. This demonstrates the finish after the resignation recorded in contemporary accounts."
+        }
+      ]
+    },
+    "tags": [
+      "cfa_free_sample",
+      "cfa_brilliancy"
+    ],
+    "group": "02 - Brilliancy",
+    "pack": "free-sample",
+    "kind": "brilliancy",
+    "brilliant_moves": {
+      "schema": 1,
+      "plies": [
+        1
+      ]
+    },
+    "previous_move": {
+      "schema": 1,
+      "before_fen": "rnb1kb1r/pp3ppp/2p2n2/4q3/4N3/3Q4/PPPB1PPP/2KR1BNR b kq - 1 8",
+      "uci": "f6e4",
+      "source": "historical"
+    },
+    "previous_move_provenance": {
+      "source": "historical",
+      "method": "recorded-historical-score-replay",
+      "historical_game": {
+        "white": "Richard Reti",
+        "black": "Savielly Tartakower",
+        "year": 1910
+      },
+      "source_urls": [
+        "https://www.chesshistory.com/winter/extra/retitartakower.html"
+      ],
+      "date_venue_caveat": ""
+    },
+    "historical_game": {
+      "white": "Richard Reti",
+      "black": "Savielly Tartakower",
+      "year": 1910,
+      "setup_moves_san": [
+        "e4",
+        "c6",
+        "d4",
+        "d5",
+        "Nc3",
+        "dxe4",
+        "Nxe4",
+        "Nf6",
+        "Qd3",
+        "e5",
+        "dxe5",
+        "Qa5+",
+        "Bd2",
+        "Qxe5",
+        "O-O-O",
+        "Nxe4"
+      ],
+      "recorded_finish": "The contemporary 1910 source ended after 10.Bg5+ with resignation. Later accounts, including Tartakower, give the demonstrated Kc7 Bd8# finish."
+    },
+    "source_urls": [
+      "https://www.chesshistory.com/winter/extra/retitartakower.html"
+    ],
+    "limitations": "After Bg5+, Ke8 is also legal and is met by Rd8#. Contemporary accounts end after Bg5+ with resignation. The last two plies here follow the published mating demonstration, not a claim that they were played on the board.",
+    "verification": {
+      "date": "2026-11-16",
+      "python_chess_version": "1.11.2",
+      "legal": true,
+      "valid_start_fen": true,
+      "chess_logic_result": [
+        true,
+        null,
+        null
+      ],
+      "engine": "Stockfish 19",
+      "Threads": 1,
+      "Hash_MB": 64,
+      "root_nodes_budget": 400000,
+      "chosen_move_nodes_budget": 300000,
+      "final_nodes_budget": 250000,
+      "root_candidates": [
+        {
+          "cp": null,
+          "mate": 3,
+          "depth": 27,
+          "nodes": 400006,
+          "pv_uci": [
+            "d3d8",
+            "e8d8",
+            "d2g5",
+            "d8c7",
+            "g5d8"
+          ]
+        },
+        {
+          "cp": 68,
+          "mate": null,
+          "depth": 26,
+          "nodes": 400006,
+          "pv_uci": [
+            "d1e1",
+            "c8f5",
+            "g2g4",
+            "f5e6",
+            "e1e4",
+            "e5c7",
+            "d3e3",
+            "b8d7",
+            "f1c4",
+            "d7c5",
+            "c4e6",
+            "c5e6"
+          ]
+        }
+      ],
+      "chosen_first_move": {
+        "cp": null,
+        "mate": 3,
+        "depth": 245,
+        "nodes": 11010,
+        "pv_uci": [
+          "d3d8",
+          "e8d8",
+          "d2g5",
+          "d8c7",
+          "g5d8"
+        ]
+      },
+      "final_position": {
+        "checkmate": true
+      },
+      "final_checkmate": true,
+      "score_perspective": "learner (legacy root/chosen/final evidence only)"
+    }
+  },
+  {
+    "id": "brilliancy-003",
+    "title": "Open the final route · Black",
+    "side": "black",
+    "start": "2k1rb1r/ppp3pp/2n2q2/3B1b2/5P2/2P1BQ2/PP1N1P1P/2KR3R b - - 0 14",
+    "moves": [
+      "Qxc3+",
+      "bxc3",
+      "Ba3#"
+    ],
+    "uci": [
+      "f6c3",
+      "b2c3",
+      "f8a3"
+    ],
+    "fens": [
+      "2k1rb1r/ppp3pp/2n5/3B1b2/5P2/2q1BQ2/PP1N1P1P/2KR3R w - - 0 15",
+      "2k1rb1r/ppp3pp/2n5/3B1b2/5P2/2P1BQ2/P2N1P1P/2KR3R b - - 0 15",
+      "2k1r2r/ppp3pp/2n5/3B1b2/5P2/b1P1BQ2/P2N1P1P/2KR3R w - - 1 16"
+    ],
+    "notes": "<p>Force the b-pawn away from b2 with a checking queen sacrifice. The other bishop enters a3; the bishop on f5 and White&#x27;s own pieces close the escape squares.</p><p>The score was published by 1853. The exact playing date and the commonly stated London venue are unestablished in early sources. The year is an approximate catalog label.</p><p>Historical move record. Exercise commentary and curation prepared for Chess for Anki. The brilliant marker is an editorial teaching label.</p><p>Sources: <a href=\"https://www.chesshistory.com/winter/extra/boden.html\">https://www.chesshistory.com/winter/extra/boden.html</a></p><div class=\"cfa-commentary-data\" hidden>{&quot;start_fen&quot;: &quot;2k1rb1r/ppp3pp/2n2q2/3B1b2/5P2/2P1BQ2/PP1N1P1P/2KR3R b - - 0 14&quot;, &quot;moves&quot;: [&quot;Qxc3+&quot;, &quot;bxc3&quot;, &quot;Ba3#&quot;], &quot;language&quot;: &quot;en&quot;, &quot;notes&quot;: [{&quot;san&quot;: &quot;Qxc3+&quot;, &quot;text&quot;: &quot;The queen captures on c3 with check, offering itself to the b-pawn. Removing that pawn from b2 will open the diagonal needed by the other bishop.&quot;}, {&quot;san&quot;: &quot;bxc3&quot;, &quot;text&quot;: &quot;The pawn accepts the queen and leaves b2. The material gain opens a direct route from a3 to the king on c1.&quot;}, {&quot;san&quot;: &quot;Ba3#&quot;, &quot;text&quot;: &quot;The bishop enters a3 with mate. The bishop on f5 covers key escape squares, while White&#x27;s own pieces obstruct the king.&quot;}]}</div>",
+    "commentary": {
+      "start_fen": "2k1rb1r/ppp3pp/2n2q2/3B1b2/5P2/2P1BQ2/PP1N1P1P/2KR3R b - - 0 14",
+      "moves": [
+        "Qxc3+",
+        "bxc3",
+        "Ba3#"
+      ],
+      "language": "en",
+      "notes": [
+        {
+          "san": "Qxc3+",
+          "text": "The queen captures on c3 with check, offering itself to the b-pawn. Removing that pawn from b2 will open the diagonal needed by the other bishop."
+        },
+        {
+          "san": "bxc3",
+          "text": "The pawn accepts the queen and leaves b2. The material gain opens a direct route from a3 to the king on c1."
+        },
+        {
+          "san": "Ba3#",
+          "text": "The bishop enters a3 with mate. The bishop on f5 covers key escape squares, while White's own pieces obstruct the king."
+        }
+      ]
+    },
+    "tags": [
+      "cfa_free_sample",
+      "cfa_brilliancy"
+    ],
+    "group": "02 - Brilliancy",
+    "pack": "free-sample",
+    "kind": "brilliancy",
+    "brilliant_moves": {
+      "schema": 1,
+      "plies": [
+        1
+      ]
+    },
+    "previous_move": {
+      "schema": 1,
+      "before_fen": "2k1rb1r/ppp3pp/2n2q2/3p1b2/2B2P2/2P1BQ2/PP1N1P1P/2KR3R w - - 0 14",
+      "uci": "c4d5",
+      "source": "historical"
+    },
+    "previous_move_provenance": {
+      "source": "historical",
+      "method": "recorded-historical-score-replay",
+      "historical_game": {
+        "white": "R. Schulder",
+        "black": "Samuel Boden",
+        "year": 1853
+      },
+      "source_urls": [
+        "https://www.chesshistory.com/winter/extra/boden.html"
+      ],
+      "date_venue_caveat": "The score was published by 1853. The exact playing date and the commonly stated London venue are unestablished in early sources. The year is an approximate catalog label."
+    },
+    "historical_game": {
+      "white": "R. Schulder",
+      "black": "Samuel Boden",
+      "year": 1853,
+      "setup_moves_san": [
+        "e4",
+        "e5",
+        "Nf3",
+        "d6",
+        "c3",
+        "f5",
+        "Bc4",
+        "Nf6",
+        "d4",
+        "fxe4",
+        "dxe5",
+        "exf3",
+        "exf6",
+        "Qxf6",
+        "gxf3",
+        "Nc6",
+        "f4",
+        "Bd7",
+        "Be3",
+        "O-O-O",
+        "Nd2",
+        "Re8",
+        "Qf3",
+        "Bf5",
+        "O-O-O",
+        "d5",
+        "Bxd5"
+      ]
+    },
+    "source_urls": [
+      "https://www.chesshistory.com/winter/extra/boden.html"
+    ],
+    "limitations": "The score was published by 1853. The exact playing date and the commonly stated London venue are unestablished in early sources. The year is an approximate catalog label.",
+    "verification": {
+      "date": "2026-11-16",
+      "python_chess_version": "1.11.2",
+      "legal": true,
+      "valid_start_fen": true,
+      "chess_logic_result": [
+        true,
+        null,
+        null
+      ],
+      "engine": "Stockfish 19",
+      "Threads": 1,
+      "Hash_MB": 64,
+      "root_nodes_budget": 400000,
+      "chosen_move_nodes_budget": 300000,
+      "final_nodes_budget": 250000,
+      "root_candidates": [
+        {
+          "cp": null,
+          "mate": 2,
+          "depth": 25,
+          "nodes": 400572,
+          "pv_uci": [
+            "f6c3",
+            "b2c3",
+            "f8a3"
+          ]
+        },
+        {
+          "cp": -39,
+          "mate": null,
+          "depth": 24,
+          "nodes": 400572,
+          "pv_uci": [
+            "f8a3",
+            "d2b1",
+            "a3e7",
+            "e3d4",
+            "f6g6",
+            "h1g1",
+            "c6d4",
+            "d5b7",
+            "c8b8",
+            "c3d4",
+            "g6b6",
+            "b7c6"
+          ]
+        }
+      ],
+      "chosen_first_move": {
+        "cp": null,
+        "mate": 2,
+        "depth": 245,
+        "nodes": 735,
+        "pv_uci": [
+          "f6c3",
+          "b2c3",
+          "f8a3"
+        ]
+      },
+      "final_position": {
+        "checkmate": true
+      },
+      "final_checkmate": true,
+      "score_perspective": "learner (legacy root/chosen/final evidence only)"
+    }
+  },
+  {
+    "id": "448317da7c75f970",
+    "title": "Endgame 01 - find a useful move · White",
+    "side": "white",
+    "moves": [
+      "Kd6"
+    ],
+    "uci": [
+      "e6d6"
+    ],
+    "fens": [
+      "4k3/8/3K4/4P3/8/8/8/8 b - - 1 1"
+    ],
+    "start": "4k3/8/4K3/4P3/8/8/8/8 w - - 0 1",
+    "group": "03 - Endgames",
+    "pack": "free-sample",
+    "kind": "endgame",
+    "tags": [
+      "cfa_training",
+      "cfa_endgame-lab",
+      "endgame",
+      "cfa_free_sample"
+    ],
+    "notes": "<p>Preserve the theoretical win. The attacking king has reached the sixth rank ahead of its pawn. Use the king to secure the promotion route. Every legal move with the same tablebase result is accepted. The answer displays one model move, not the only correct move.</p><p>Calculation drill: replay one verified continuation. Inspect alternative replies in the answer notes. No engine runs during review.</p><p>Original teaching text by fernandomec; move sequences describe chess facts.</p><p>Equivalent correct moves: Kd6, Kf6</p><div class=\"cfa-commentary-data\" hidden>{&quot;language&quot;: &quot;en&quot;, &quot;start_fen&quot;: &quot;4k3/8/4K3/4P3/8/8/8/8 w - - 0 1&quot;, &quot;moves&quot;: [&quot;Kd6&quot;], &quot;notes&quot;: [{&quot;san&quot;: &quot;Kd6&quot;, &quot;text&quot;: &quot;White brings the king to d6. In a reduced ending the king can support a passer or restrict the opposing king.&quot;}], &quot;accepted_final&quot;: [&quot;Kd6&quot;, &quot;Kf6&quot;]}</div>",
+    "commentary": {
+      "language": "en",
+      "start_fen": "4k3/8/4K3/4P3/8/8/8/8 w - - 0 1",
+      "moves": [
+        "Kd6"
+      ],
+      "notes": [
+        {
+          "san": "Kd6",
+          "text": "White brings the king to d6. In a reduced ending the king can support a passer or restrict the opposing king."
+        }
+      ],
+      "accepted_final": [
+        "Kd6",
+        "Kf6"
+      ]
+    },
+    "plan": "Preserve the theoretical win. The attacking king has reached the sixth rank ahead of its pawn. Use the king to secure the promotion route. Every legal move with the same tablebase result is accepted. The answer displays one model move, not the only correct move.",
+    "verification": {
+      "method": "Syzygy via Lichess tablebase API",
+      "category": "win",
+      "dtz": 3,
+      "date": "2026-11-14",
+      "accepted_final": [
+        "Kd6",
+        "Kf6"
+      ],
+      "legal": true,
+      "learner_moves": 1,
+      "original_composition": true
+    },
+    "original_pack": "endgame-lab",
+    "original_title": "King in front of the pawn · White",
+    "previous_move": {
+      "schema": 1,
+      "before_fen": "3k4/8/4K3/4P3/8/8/8/8 b - - 0 1",
+      "uci": "d8e8",
+      "source": "constructed"
+    },
+    "previous_move_provenance": {
+      "source": "constructed",
+      "method": "legal-one-ply-retro-construction",
+      "historical_claim": false,
+      "note": "A legal setup move for visual context; no original game history exists for this authored position."
+    }
+  },
+  {
+    "id": "38834b93bf6fdbfb",
+    "title": "Endgame 02 - keep the result · White",
+    "side": "white",
+    "moves": [
+      "Kb5"
+    ],
+    "uci": [
+      "a6b5"
+    ],
+    "fens": [
+      "k7/8/8/PK6/8/8/8/8 b - - 1 1"
+    ],
+    "start": "k7/8/K7/P7/8/8/8/8 w - - 0 1",
+    "group": "03 - Endgames",
+    "pack": "free-sample",
+    "kind": "endgame",
+    "tags": [
+      "cfa_training",
+      "cfa_endgame-lab",
+      "endgame",
+      "cfa_free_sample"
+    ],
+    "notes": "<p>Preserve the theoretical draw. A rook pawn is exceptional: the defending king in the promotion corner can hold a draw. Avoid mistaking space for a forced win. Every legal move with the same tablebase result is accepted. The answer displays one model move, not the only correct move.</p><p>Calculation drill: replay one verified continuation. Inspect alternative replies in the answer notes. No engine runs during review.</p><p>Original teaching text by fernandomec; move sequences describe chess facts.</p><p>Equivalent correct moves: Kb5, Kb6</p><div class=\"cfa-commentary-data\" hidden>{&quot;language&quot;: &quot;en&quot;, &quot;start_fen&quot;: &quot;k7/8/K7/P7/8/8/8/8 w - - 0 1&quot;, &quot;moves&quot;: [&quot;Kb5&quot;], &quot;notes&quot;: [{&quot;san&quot;: &quot;Kb5&quot;, &quot;text&quot;: &quot;White brings the king to b5. In a reduced ending the king can support a passer or restrict the opposing king.&quot;}], &quot;accepted_final&quot;: [&quot;Kb5&quot;, &quot;Kb6&quot;]}</div>",
+    "commentary": {
+      "language": "en",
+      "start_fen": "k7/8/K7/P7/8/8/8/8 w - - 0 1",
+      "moves": [
+        "Kb5"
+      ],
+      "notes": [
+        {
+          "san": "Kb5",
+          "text": "White brings the king to b5. In a reduced ending the king can support a passer or restrict the opposing king."
+        }
+      ],
+      "accepted_final": [
+        "Kb5",
+        "Kb6"
+      ]
+    },
+    "plan": "Preserve the theoretical draw. A rook pawn is exceptional: the defending king in the promotion corner can hold a draw. Avoid mistaking space for a forced win. Every legal move with the same tablebase result is accepted. The answer displays one model move, not the only correct move.",
+    "verification": {
+      "method": "Syzygy via Lichess tablebase API",
+      "category": "draw",
+      "dtz": 0,
+      "date": "2026-11-14",
+      "accepted_final": [
+        "Kb5",
+        "Kb6"
+      ],
+      "legal": true,
+      "learner_moves": 1,
+      "original_composition": true
+    },
+    "original_pack": "endgame-lab",
+    "original_title": "Rook pawn - corner resource · White",
+    "previous_move": {
+      "schema": 1,
+      "before_fen": "1k6/8/K7/P7/8/8/8/8 b - - 0 1",
+      "uci": "b8a8",
+      "source": "constructed"
+    },
+    "previous_move_provenance": {
+      "source": "constructed",
+      "method": "legal-one-ply-retro-construction",
+      "historical_claim": false,
+      "note": "A legal setup move for visual context; no original game history exists for this authored position."
+    }
+  },
+  {
+    "id": "6e70abcb0cc32cc3",
+    "title": "Endgame 03 - choose the route · Black",
+    "side": "black",
+    "moves": [
+      "Kd5"
+    ],
+    "uci": [
+      "e5d5"
+    ],
+    "fens": [
+      "8/8/8/P2k4/8/8/8/7K w - - 1 2"
+    ],
+    "start": "8/8/8/P3k3/8/8/8/7K b - - 0 1",
+    "group": "03 - Endgames",
+    "pack": "free-sample",
+    "kind": "endgame",
+    "tags": [
+      "cfa_training",
+      "cfa_endgame-lab",
+      "endgame",
+      "cfa_free_sample"
+    ],
+    "notes": "<p>Preserve the theoretical draw. Count the pawn moves remaining to promotion and whether the king can enter its square. The side to move matters. Every legal move with the same tablebase result is accepted. The answer displays one model move, not the only correct move.</p><p>Calculation drill: replay one verified continuation. Inspect alternative replies in the answer notes. No engine runs during review.</p><p>Original teaching text by fernandomec; move sequences describe chess facts.</p><p>Equivalent correct moves: Kd5, Kd6</p><div class=\"cfa-commentary-data\" hidden>{&quot;language&quot;: &quot;en&quot;, &quot;start_fen&quot;: &quot;8/8/8/P3k3/8/8/8/7K b - - 0 1&quot;, &quot;moves&quot;: [&quot;Kd5&quot;], &quot;notes&quot;: [{&quot;san&quot;: &quot;Kd5&quot;, &quot;text&quot;: &quot;Black brings the king to d5. In a reduced ending the king can support a passer or restrict the opposing king.&quot;}], &quot;accepted_final&quot;: [&quot;Kd5&quot;, &quot;Kd6&quot;]}</div>",
+    "commentary": {
+      "language": "en",
+      "start_fen": "8/8/8/P3k3/8/8/8/7K b - - 0 1",
+      "moves": [
+        "Kd5"
+      ],
+      "notes": [
+        {
+          "san": "Kd5",
+          "text": "Black brings the king to d5. In a reduced ending the king can support a passer or restrict the opposing king."
+        }
+      ],
+      "accepted_final": [
+        "Kd5",
+        "Kd6"
+      ]
+    },
+    "plan": "Preserve the theoretical draw. Count the pawn moves remaining to promotion and whether the king can enter its square. The side to move matters. Every legal move with the same tablebase result is accepted. The answer displays one model move, not the only correct move.",
+    "verification": {
+      "method": "Syzygy via Lichess tablebase API",
+      "category": "draw",
+      "dtz": 0,
+      "date": "2026-11-14",
+      "accepted_final": [
+        "Kd5",
+        "Kd6"
+      ],
+      "legal": true,
+      "learner_moves": 1,
+      "original_composition": true
+    },
+    "original_pack": "endgame-lab",
+    "original_title": "Rule of the square - catch the passer · Black",
+    "previous_move": {
+      "schema": 1,
+      "before_fen": "8/8/8/4k3/P7/8/8/7K w - - 0 1",
+      "uci": "a4a5",
+      "source": "constructed"
+    },
+    "previous_move_provenance": {
+      "source": "constructed",
+      "method": "legal-one-ply-retro-construction",
+      "historical_claim": false,
+      "note": "A legal setup move for visual context; no original game history exists for this authored position."
+    }
+  },
+  {
+    "id": "fc561e334a724d5e",
+    "title": "Middlegame 01 - compare the candidates · White",
+    "side": "white",
+    "moves": [
+      "Nbd2"
+    ],
+    "uci": [
+      "b1d2"
+    ],
+    "fens": [
+      "r1bq1rk1/bpp2ppp/p1np1n2/4p3/4P3/1BPP1N2/PP1N1PPP/R1BQR1K1 b - - 3 9"
+    ],
+    "start": "r1bq1rk1/bpp2ppp/p1np1n2/4p3/4P3/1BPP1N2/PP3PPP/RNBQR1K1 w - - 2 9",
+    "group": "04 - Middlegame",
+    "pack": "free-sample",
+    "kind": "model-decision",
+    "tags": [
+      "cfa_training",
+      "cfa_middlegame-lab",
+      "model-decision",
+      "cfa_free_sample"
+    ],
+    "notes": "<p>Compare improving a piece with preparing d4. Keep the centre supported and do not start a wing attack before the pieces cooperate. Choose a strong candidate move. The finite engine search accepts all evaluated candidates within 0.35 pawn of its best score; this is a model decision, not proof of a unique best move. The answer shows one model.</p><p>Calculation drill: replay one verified continuation. Inspect alternative replies in the answer notes. No engine runs during review.</p><p>Original teaching text by fernandomec; move sequences describe chess facts.</p><p>Accepted candidate moves: Nbd2, h3, Na3, Bg5, a4, Be3, Qe2, Bd2</p><div class=\"cfa-commentary-data\" hidden>{&quot;language&quot;: &quot;en&quot;, &quot;start_fen&quot;: &quot;r1bq1rk1/bpp2ppp/p1np1n2/4p3/4P3/1BPP1N2/PP3PPP/RNBQR1K1 w - - 2 9&quot;, &quot;moves&quot;: [&quot;Nbd2&quot;], &quot;notes&quot;: [{&quot;san&quot;: &quot;Nbd2&quot;, &quot;text&quot;: &quot;White develops the knight from b1 to d2, bringing another piece into the game.&quot;}], &quot;accepted_final&quot;: [&quot;Nbd2&quot;, &quot;h3&quot;, &quot;Na3&quot;, &quot;Bg5&quot;, &quot;a4&quot;, &quot;Be3&quot;, &quot;Qe2&quot;, &quot;Bd2&quot;]}</div>",
+    "commentary": {
+      "language": "en",
+      "start_fen": "r1bq1rk1/bpp2ppp/p1np1n2/4p3/4P3/1BPP1N2/PP3PPP/RNBQR1K1 w - - 2 9",
+      "moves": [
+        "Nbd2"
+      ],
+      "notes": [
+        {
+          "san": "Nbd2",
+          "text": "White develops the knight from b1 to d2, bringing another piece into the game."
+        }
+      ],
+      "accepted_final": [
+        "Nbd2",
+        "h3",
+        "Na3",
+        "Bg5",
+        "a4",
+        "Be3",
+        "Qe2",
+        "Bd2"
+      ]
+    },
+    "plan": "Compare improving a piece with preparing d4. Keep the centre supported and do not start a wing attack before the pieces cooperate. Choose a strong candidate move. The finite engine search accepts all evaluated candidates within 0.35 pawn of its best score; this is a model decision, not proof of a unique best move. The answer shows one model.",
+    "theme_title": "Open file and central break",
+    "verification": {
+      "engine": "Stockfish 19",
+      "nodes_per_candidate": 120000,
+      "all_legal_candidates": 34,
+      "acceptance_tolerance_cp": 35,
+      "legal": true,
+      "learner_moves": 1,
+      "date": "2026-11-14",
+      "model_score": 32
+    },
+    "candidate_scores": [
+      {
+        "san": "Nbd2",
+        "score_cp": 32,
+        "depth": 15
+      },
+      {
+        "san": "h3",
+        "score_cp": 22,
+        "depth": 16
+      },
+      {
+        "san": "Na3",
+        "score_cp": 12,
+        "depth": 15
+      },
+      {
+        "san": "Bg5",
+        "score_cp": 10,
+        "depth": 17
+      },
+      {
+        "san": "a4",
+        "score_cp": 9,
+        "depth": 14
+      },
+      {
+        "san": "Be3",
+        "score_cp": 5,
+        "depth": 15
+      },
+      {
+        "san": "Qe2",
+        "score_cp": 2,
+        "depth": 15
+      },
+      {
+        "san": "Bd2",
+        "score_cp": -3,
+        "depth": 16
+      },
+      {
+        "san": "Rf1",
+        "score_cp": -4,
+        "depth": 14
+      },
+      {
+        "san": "a3",
+        "score_cp": -11,
+        "depth": 16
+      },
+      {
+        "san": "Bc2",
+        "score_cp": -17,
+        "depth": 16
+      },
+      {
+        "san": "d4",
+        "score_cp": -23,
+        "depth": 15
+      },
+      {
+        "san": "Re2",
+        "score_cp": -29,
+        "depth": 15
+      },
+      {
+        "san": "Ng5",
+        "score_cp": -31,
+        "depth": 14
+      },
+      {
+        "san": "Qc2",
+        "score_cp": -33,
+        "depth": 16
+      },
+      {
+        "san": "Qd2",
+        "score_cp": -37,
+        "depth": 16
+      },
+      {
+        "san": "Kf1",
+        "score_cp": -39,
+        "depth": 14
+      },
+      {
+        "san": "Ba4",
+        "score_cp": -55,
+        "depth": 15
+      },
+      {
+        "san": "Bc4",
+        "score_cp": -74,
+        "depth": 16
+      },
+      {
+        "san": "g3",
+        "score_cp": -81,
+        "depth": 15
+      },
+      {
+        "san": "Bd5",
+        "score_cp": -102,
+        "depth": 17
+      },
+      {
+        "san": "h4",
+        "score_cp": -112,
+        "depth": 17
+      },
+      {
+        "san": "c4",
+        "score_cp": -124,
+        "depth": 15
+      },
+      {
+        "san": "Re3",
+        "score_cp": -238,
+        "depth": 15
+      },
+      {
+        "san": "Nfd2",
+        "score_cp": -256,
+        "depth": 15
+      },
+      {
+        "san": "g4",
+        "score_cp": -425,
+        "depth": 15
+      },
+      {
+        "san": "Kh1",
+        "score_cp": -476,
+        "depth": 16
+      },
+      {
+        "san": "Nxe5",
+        "score_cp": -620,
+        "depth": 16
+      },
+      {
+        "san": "Bf4",
+        "score_cp": -661,
+        "depth": 13
+      },
+      {
+        "san": "Bxf7+",
+        "score_cp": -668,
+        "depth": 15
+      },
+      {
+        "san": "Nh4",
+        "score_cp": -707,
+        "depth": 14
+      },
+      {
+        "san": "Bh6",
+        "score_cp": -745,
+        "depth": 15
+      },
+      {
+        "san": "Nd4",
+        "score_cp": -748,
+        "depth": 15
+      },
+      {
+        "san": "Be6",
+        "score_cp": -779,
+        "depth": 16
+      }
+    ],
+    "original_pack": "middlegame-lab",
+    "original_title": "Middlegame 01A - improve the position · White",
+    "previous_move": {
+      "schema": 1,
+      "before_fen": "r1bq1rk1/1pp2ppp/p1np1n2/2b1p3/4P3/1BPP1N2/PP3PPP/RNBQR1K1 b - - 1 8",
+      "uci": "c5a7",
+      "source": "constructed"
+    },
+    "previous_move_provenance": {
+      "source": "constructed",
+      "method": "authored-opening-seed-replay",
+      "seed_title": "Open file and central break",
+      "mirrored": false,
+      "seed_san": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bc4",
+        "Bc5",
+        "d3",
+        "Nf6",
+        "O-O",
+        "d6",
+        "c3",
+        "O-O",
+        "Re1",
+        "a6",
+        "Bb3",
+        "Ba7"
+      ],
+      "source_file": "scripts/verify_middlegames.py",
+      "historical_claim": false
+    }
+  },
+  {
+    "id": "2ddf62671a5a75e1",
+    "title": "Middlegame 02 - improve the position · Black",
+    "side": "black",
+    "moves": [
+      "b6"
+    ],
+    "uci": [
+      "b7b6"
+    ],
+    "fens": [
+      "r1b2rk1/p3qppp/1pn1p3/8/3P4/2PB1N2/P4PPP/R2Q1RK1 w - - 0 13"
+    ],
+    "start": "r1b2rk1/pp2qppp/2n1p3/8/3P4/2PB1N2/P4PPP/R2Q1RK1 b - - 0 12",
+    "group": "04 - Middlegame",
+    "pack": "free-sample",
+    "kind": "model-decision",
+    "tags": [
+      "cfa_training",
+      "cfa_middlegame-lab",
+      "model-decision",
+      "cfa_free_sample"
+    ],
+    "notes": "<p>White has connected pawns on c3 and d4 and open lines. Black can attack or blockade the centre; the d-pawn is not isolated because the c-pawn remains. Check central activity before defending a pawn passively. Choose a strong candidate move. The finite engine search accepts all evaluated candidates within 0.35 pawn of its best score; this is a model decision, not proof of a unique best move. The answer shows one model.</p><p>Calculation drill: replay one verified continuation. Inspect alternative replies in the answer notes. No engine runs during review.</p><p>Original teaching text by fernandomec; move sequences describe chess facts.</p><p>Accepted candidate moves: b6, Rd8, Nb8, Qa3, Qc7, Qd6, Na5, g6, e5</p><div class=\"cfa-commentary-data\" hidden>{&quot;language&quot;: &quot;en&quot;, &quot;start_fen&quot;: &quot;r1b2rk1/pp2qppp/2n1p3/8/3P4/2PB1N2/P4PPP/R2Q1RK1 b - - 0 12&quot;, &quot;moves&quot;: [&quot;b6&quot;], &quot;notes&quot;: [{&quot;san&quot;: &quot;b6&quot;, &quot;text&quot;: &quot;Black pushes the pawn from b7 to b6. Pawn moves change the structure permanently, so inspect the squares left behind.&quot;}], &quot;accepted_final&quot;: [&quot;b6&quot;, &quot;Rd8&quot;, &quot;Nb8&quot;, &quot;Qa3&quot;, &quot;Qc7&quot;, &quot;Qd6&quot;, &quot;Na5&quot;, &quot;g6&quot;, &quot;e5&quot;]}</div>",
+    "commentary": {
+      "language": "en",
+      "start_fen": "r1b2rk1/pp2qppp/2n1p3/8/3P4/2PB1N2/P4PPP/R2Q1RK1 b - - 0 12",
+      "moves": [
+        "b6"
+      ],
+      "notes": [
+        {
+          "san": "b6",
+          "text": "Black pushes the pawn from b7 to b6. Pawn moves change the structure permanently, so inspect the squares left behind."
+        }
+      ],
+      "accepted_final": [
+        "b6",
+        "Rd8",
+        "Nb8",
+        "Qa3",
+        "Qc7",
+        "Qd6",
+        "Na5",
+        "g6",
+        "e5"
+      ]
+    },
+    "plan": "White has connected pawns on c3 and d4 and open lines. Black can attack or blockade the centre; the d-pawn is not isolated because the c-pawn remains. Check central activity before defending a pawn passively. Choose a strong candidate move. The finite engine search accepts all evaluated candidates within 0.35 pawn of its best score; this is a model decision, not proof of a unique best move. The answer shows one model.",
+    "theme_title": "Connected centre after an exchange",
+    "verification": {
+      "engine": "Stockfish 19",
+      "nodes_per_candidate": 120000,
+      "all_legal_candidates": 33,
+      "acceptance_tolerance_cp": 35,
+      "legal": true,
+      "learner_moves": 1,
+      "date": "2026-11-14",
+      "model_score": -44
+    },
+    "candidate_scores": [
+      {
+        "san": "b6",
+        "score_cp": -44,
+        "depth": 15
+      },
+      {
+        "san": "Rd8",
+        "score_cp": -55,
+        "depth": 13
+      },
+      {
+        "san": "Nb8",
+        "score_cp": -64,
+        "depth": 13
+      },
+      {
+        "san": "Qa3",
+        "score_cp": -66,
+        "depth": 14
+      },
+      {
+        "san": "Qc7",
+        "score_cp": -69,
+        "depth": 14
+      },
+      {
+        "san": "Qd6",
+        "score_cp": -70,
+        "depth": 16
+      },
+      {
+        "san": "Na5",
+        "score_cp": -73,
+        "depth": 15
+      },
+      {
+        "san": "g6",
+        "score_cp": -74,
+        "depth": 16
+      },
+      {
+        "san": "e5",
+        "score_cp": -79,
+        "depth": 14
+      },
+      {
+        "san": "Qf6",
+        "score_cp": -80,
+        "depth": 14
+      },
+      {
+        "san": "Rb8",
+        "score_cp": -85,
+        "depth": 14
+      },
+      {
+        "san": "Qd8",
+        "score_cp": -91,
+        "depth": 13
+      },
+      {
+        "san": "h6",
+        "score_cp": -91,
+        "depth": 15
+      },
+      {
+        "san": "a6",
+        "score_cp": -94,
+        "depth": 15
+      },
+      {
+        "san": "Bd7",
+        "score_cp": -98,
+        "depth": 17
+      },
+      {
+        "san": "Nd8",
+        "score_cp": -111,
+        "depth": 13
+      },
+      {
+        "san": "Qd7",
+        "score_cp": -112,
+        "depth": 14
+      },
+      {
+        "san": "Re8",
+        "score_cp": -131,
+        "depth": 14
+      },
+      {
+        "san": "b5",
+        "score_cp": -131,
+        "depth": 16
+      },
+      {
+        "san": "Kh8",
+        "score_cp": -133,
+        "depth": 14
+      },
+      {
+        "san": "f6",
+        "score_cp": -133,
+        "depth": 15
+      },
+      {
+        "san": "a5",
+        "score_cp": -133,
+        "depth": 14
+      },
+      {
+        "san": "Qe8",
+        "score_cp": -147,
+        "depth": 15
+      },
+      {
+        "san": "f5",
+        "score_cp": -152,
+        "depth": 16
+      },
+      {
+        "san": "h5",
+        "score_cp": -180,
+        "depth": 15
+      },
+      {
+        "san": "g5",
+        "score_cp": -252,
+        "depth": 15
+      },
+      {
+        "san": "Nxd4",
+        "score_cp": -587,
+        "depth": 15
+      },
+      {
+        "san": "Ne5",
+        "score_cp": -681,
+        "depth": 15
+      },
+      {
+        "san": "Nb4",
+        "score_cp": -681,
+        "depth": 16
+      },
+      {
+        "san": "Qc5",
+        "score_cp": -955,
+        "depth": 15
+      },
+      {
+        "san": "Qb4",
+        "score_cp": -960,
+        "depth": 15
+      },
+      {
+        "san": "Qh4",
+        "score_cp": -983,
+        "depth": 14
+      },
+      {
+        "san": "Qg5",
+        "score_cp": -1006,
+        "depth": 16
+      }
+    ],
+    "original_pack": "middlegame-lab",
+    "original_title": "Middlegame 04A - improve the position · Black",
+    "previous_move": {
+      "schema": 1,
+      "before_fen": "r1b2rk1/pp2qppp/2n1p3/8/3P4/2nB1N2/PP3PPP/R2Q1RK1 w - - 0 12",
+      "uci": "b2c3",
+      "source": "constructed"
+    },
+    "previous_move_provenance": {
+      "source": "constructed",
+      "method": "authored-opening-seed-replay",
+      "seed_title": "Connected centre after an exchange",
+      "mirrored": false,
+      "seed_san": [
+        "d4",
+        "d5",
+        "c4",
+        "e6",
+        "Nc3",
+        "Nf6",
+        "Bg5",
+        "Be7",
+        "e3",
+        "O-O",
+        "Nf3",
+        "c5",
+        "cxd5",
+        "Nxd5",
+        "Bxe7",
+        "Qxe7",
+        "Bd3",
+        "Nc6",
+        "O-O",
+        "cxd4",
+        "exd4",
+        "Nxc3",
+        "bxc3"
+      ],
+      "source_file": "scripts/verify_middlegames.py",
+      "historical_claim": false
+    }
+  },
+  {
+    "id": "0f1dac4eaa8b818f",
+    "title": "Middlegame 03 - choose a plan · White",
+    "side": "white",
+    "moves": [
+      "Nd5"
+    ],
+    "uci": [
+      "c3d5"
+    ],
+    "fens": [
+      "rn1q1rk1/1p2bppp/p2pbn2/3Np3/4P3/1N2B3/PPP1BPPP/R2Q1RK1 b - - 7 10"
+    ],
+    "start": "rn1q1rk1/1p2bppp/p2pbn2/4p3/4P3/1NN1B3/PPP1BPPP/R2Q1RK1 w - - 6 10",
+    "group": "04 - Middlegame",
+    "pack": "free-sample",
+    "kind": "model-decision",
+    "tags": [
+      "cfa_training",
+      "cfa_middlegame-lab",
+      "model-decision",
+      "cfa_free_sample"
+    ],
+    "notes": "<p>The d5 square and backward d6 pawn are strategic reference points. Black seeks activity and a central break rather than simply waiting. Choose a strong candidate move. The finite engine search accepts all evaluated candidates within 0.35 pawn of its best score; this is a model decision, not proof of a unique best move. The answer shows one model.</p><p>Calculation drill: replay one verified continuation. Inspect alternative replies in the answer notes. No engine runs during review.</p><p>Original teaching text by fernandomec; move sequences describe chess facts.</p><p>Accepted candidate moves: Nd5, Re1, Qd3, Qd2, Kh1, Bf3, h3, f4, Qe1</p><div class=\"cfa-commentary-data\" hidden>{&quot;language&quot;: &quot;en&quot;, &quot;start_fen&quot;: &quot;rn1q1rk1/1p2bppp/p2pbn2/4p3/4P3/1NN1B3/PPP1BPPP/R2Q1RK1 w - - 6 10&quot;, &quot;moves&quot;: [&quot;Nd5&quot;], &quot;notes&quot;: [{&quot;san&quot;: &quot;Nd5&quot;, &quot;text&quot;: &quot;White moves the knight from c3 to d5, changing its reach and coordinating with the remaining pieces. The moved piece attacks knight on f6, bishop on e7. An attack alone does not mean that a capture wins material.&quot;}], &quot;accepted_final&quot;: [&quot;Nd5&quot;, &quot;Re1&quot;, &quot;Qd3&quot;, &quot;Qd2&quot;, &quot;Kh1&quot;, &quot;Bf3&quot;, &quot;h3&quot;, &quot;f4&quot;, &quot;Qe1&quot;]}</div>",
+    "commentary": {
+      "language": "en",
+      "start_fen": "rn1q1rk1/1p2bppp/p2pbn2/4p3/4P3/1NN1B3/PPP1BPPP/R2Q1RK1 w - - 6 10",
+      "moves": [
+        "Nd5"
+      ],
+      "notes": [
+        {
+          "san": "Nd5",
+          "text": "White moves the knight from c3 to d5, changing its reach and coordinating with the remaining pieces. The moved piece attacks knight on f6, bishop on e7. An attack alone does not mean that a capture wins material."
+        }
+      ],
+      "accepted_final": [
+        "Nd5",
+        "Re1",
+        "Qd3",
+        "Qd2",
+        "Kh1",
+        "Bf3",
+        "h3",
+        "f4",
+        "Qe1"
+      ]
+    },
+    "plan": "The d5 square and backward d6 pawn are strategic reference points. Black seeks activity and a central break rather than simply waiting. Choose a strong candidate move. The finite engine search accepts all evaluated candidates within 0.35 pawn of its best score; this is a model decision, not proof of a unique best move. The answer shows one model.",
+    "theme_title": "Open Sicilian coordination",
+    "verification": {
+      "engine": "Stockfish 19",
+      "nodes_per_candidate": 120000,
+      "all_legal_candidates": 45,
+      "acceptance_tolerance_cp": 35,
+      "legal": true,
+      "learner_moves": 1,
+      "date": "2026-11-14",
+      "model_score": 40
+    },
+    "candidate_scores": [
+      {
+        "san": "Nd5",
+        "score_cp": 40,
+        "depth": 16
+      },
+      {
+        "san": "Re1",
+        "score_cp": 25,
+        "depth": 16
+      },
+      {
+        "san": "Qd3",
+        "score_cp": 22,
+        "depth": 15
+      },
+      {
+        "san": "Qd2",
+        "score_cp": 18,
+        "depth": 16
+      },
+      {
+        "san": "Kh1",
+        "score_cp": 16,
+        "depth": 16
+      },
+      {
+        "san": "Bf3",
+        "score_cp": 14,
+        "depth": 13
+      },
+      {
+        "san": "h3",
+        "score_cp": 11,
+        "depth": 14
+      },
+      {
+        "san": "f4",
+        "score_cp": 8,
+        "depth": 16
+      },
+      {
+        "san": "Qe1",
+        "score_cp": 6,
+        "depth": 15
+      },
+      {
+        "san": "f3",
+        "score_cp": 2,
+        "depth": 14
+      },
+      {
+        "san": "a3",
+        "score_cp": 2,
+        "depth": 16
+      },
+      {
+        "san": "Bd3",
+        "score_cp": 1,
+        "depth": 17
+      },
+      {
+        "san": "Rc1",
+        "score_cp": -3,
+        "depth": 17
+      },
+      {
+        "san": "a4",
+        "score_cp": -6,
+        "depth": 14
+      },
+      {
+        "san": "Nd2",
+        "score_cp": -8,
+        "depth": 15
+      },
+      {
+        "san": "g3",
+        "score_cp": -8,
+        "depth": 16
+      },
+      {
+        "san": "Rb1",
+        "score_cp": -9,
+        "depth": 17
+      },
+      {
+        "san": "Bg5",
+        "score_cp": -12,
+        "depth": 15
+      },
+      {
+        "san": "Nc1",
+        "score_cp": -14,
+        "depth": 15
+      },
+      {
+        "san": "Bd2",
+        "score_cp": -15,
+        "depth": 15
+      },
+      {
+        "san": "Bc1",
+        "score_cp": -19,
+        "depth": 17
+      },
+      {
+        "san": "Qc1",
+        "score_cp": -26,
+        "depth": 13
+      },
+      {
+        "san": "Na4",
+        "score_cp": -28,
+        "depth": 16
+      },
+      {
+        "san": "Qb1",
+        "score_cp": -33,
+        "depth": 14
+      },
+      {
+        "san": "h4",
+        "score_cp": -33,
+        "depth": 14
+      },
+      {
+        "san": "g4",
+        "score_cp": -52,
+        "depth": 14
+      },
+      {
+        "san": "Bh5",
+        "score_cp": -66,
+        "depth": 16
+      },
+      {
+        "san": "Nb1",
+        "score_cp": -192,
+        "depth": 16
+      },
+      {
+        "san": "Nd4",
+        "score_cp": -583,
+        "depth": 15
+      },
+      {
+        "san": "Bd4",
+        "score_cp": -606,
+        "depth": 15
+      },
+      {
+        "san": "Bxa6",
+        "score_cp": -690,
+        "depth": 15
+      },
+      {
+        "san": "Bh6",
+        "score_cp": -694,
+        "depth": 15
+      },
+      {
+        "san": "Na5",
+        "score_cp": -695,
+        "depth": 15
+      },
+      {
+        "san": "Nc5",
+        "score_cp": -700,
+        "depth": 15
+      },
+      {
+        "san": "Bc5",
+        "score_cp": -707,
+        "depth": 15
+      },
+      {
+        "san": "Bf4",
+        "score_cp": -721,
+        "depth": 14
+      },
+      {
+        "san": "Nb5",
+        "score_cp": -738,
+        "depth": 15
+      },
+      {
+        "san": "Bb5",
+        "score_cp": -773,
+        "depth": 14
+      },
+      {
+        "san": "Bb6",
+        "score_cp": -774,
+        "depth": 15
+      },
+      {
+        "san": "Bg4",
+        "score_cp": -777,
+        "depth": 15
+      },
+      {
+        "san": "Ba7",
+        "score_cp": -786,
+        "depth": 14
+      },
+      {
+        "san": "Bc4",
+        "score_cp": -793,
+        "depth": 15
+      },
+      {
+        "san": "Qxd6",
+        "score_cp": -797,
+        "depth": 15
+      },
+      {
+        "san": "Qd5",
+        "score_cp": -885,
+        "depth": 15
+      },
+      {
+        "san": "Qd4",
+        "score_cp": -923,
+        "depth": 14
+      }
+    ],
+    "original_pack": "middlegame-lab",
+    "original_title": "Middlegame 06A - improve the position · White",
+    "previous_move": {
+      "schema": 1,
+      "before_fen": "rnbq1rk1/1p2bppp/p2p1n2/4p3/4P3/1NN1B3/PPP1BPPP/R2Q1RK1 b - - 5 9",
+      "uci": "c8e6",
+      "source": "constructed"
+    },
+    "previous_move_provenance": {
+      "source": "constructed",
+      "method": "authored-opening-seed-replay",
+      "seed_title": "Open Sicilian coordination",
+      "mirrored": false,
+      "seed_san": [
+        "e4",
+        "c5",
+        "Nf3",
+        "d6",
+        "d4",
+        "cxd4",
+        "Nxd4",
+        "Nf6",
+        "Nc3",
+        "a6",
+        "Be2",
+        "e5",
+        "Nb3",
+        "Be7",
+        "O-O",
+        "O-O",
+        "Be3",
+        "Be6"
+      ],
+      "source_file": "scripts/verify_middlegames.py",
+      "historical_claim": false
+    }
+  },
+  {
+    "id": "a40433f46bc8d118",
+    "title": "Tactics 01 - find the continuation · White",
+    "side": "white",
+    "moves": [
+      "Nf6+",
+      "Kf8",
+      "Nxe8"
+    ],
+    "uci": [
+      "d5f6",
+      "g8f8",
+      "f6e8"
+    ],
+    "fens": [
+      "4q1k1/5p1p/5N2/8/8/8/8/R5K1 b - - 1 1",
+      "4qk2/5p1p/5N2/8/8/8/8/R5K1 w - - 2 2",
+      "4Nk2/5p1p/8/8/8/8/8/R5K1 b - - 0 2"
+    ],
+    "start": "4q1k1/5p1p/8/3N4/8/8/8/R5K1 w - - 0 1",
+    "group": "05 - Tactics",
+    "pack": "free-sample",
+    "kind": "calculation",
+    "tags": [
+      "cfa_training",
+      "cfa_calculation-lab",
+      "calculation",
+      "cfa_free_sample"
+    ],
+    "notes": "<p>Use a forcing knight check to win a major piece. After the king moves, take the forked target. Engine alternatives from the start: Rf1 Kf8 Nf4 Qe4 Kh2; evaluation -95. Kf2 Qe5 Rg1+ Kh8 Ne3; evaluation -359. Rd1 Qe2; evaluation -531.</p><p>Calculation drill: replay one verified continuation. Inspect alternative replies in the answer notes. No engine runs during review.</p><p>Original teaching text by fernandomec; move sequences describe chess facts.</p><div class=\"cfa-commentary-data\" hidden>{&quot;language&quot;: &quot;en&quot;, &quot;start_fen&quot;: &quot;4q1k1/5p1p/8/3N4/8/8/8/R5K1 w - - 0 1&quot;, &quot;moves&quot;: [&quot;Nf6+&quot;, &quot;Kf8&quot;, &quot;Nxe8&quot;], &quot;notes&quot;: [{&quot;san&quot;: &quot;Nf6+&quot;, &quot;text&quot;: &quot;White moves the knight from d5 to f6, changing its reach and coordinating with the remaining pieces. The moved piece attacks queen on e8, pawn on h7. An attack alone does not mean that a capture wins material. This gives check, so the opponent must first answer the attack on the king.&quot;}, {&quot;san&quot;: &quot;Kf8&quot;, &quot;text&quot;: &quot;Black brings the king to f8. In a reduced ending the king can support a passer or restrict the opposing king.&quot;}, {&quot;san&quot;: &quot;Nxe8&quot;, &quot;text&quot;: &quot;White captures the queen on e8.&quot;}]}</div>",
+    "commentary": {
+      "language": "en",
+      "start_fen": "4q1k1/5p1p/8/3N4/8/8/8/R5K1 w - - 0 1",
+      "moves": [
+        "Nf6+",
+        "Kf8",
+        "Nxe8"
+      ],
+      "notes": [
+        {
+          "san": "Nf6+",
+          "text": "White moves the knight from d5 to f6, changing its reach and coordinating with the remaining pieces. The moved piece attacks queen on e8, pawn on h7. An attack alone does not mean that a capture wins material. This gives check, so the opponent must first answer the attack on the king."
+        },
+        {
+          "san": "Kf8",
+          "text": "Black brings the king to f8. In a reduced ending the king can support a passer or restrict the opposing king."
+        },
+        {
+          "san": "Nxe8",
+          "text": "White captures the queen on e8."
+        }
+      ]
+    },
+    "plan": "Use a forcing knight check to win a major piece. After the king moves, take the forked target. Engine alternatives from the start: Rf1 Kf8 Nf4 Qe4 Kh2; evaluation -95. Kf2 Qe5 Rg1+ Kh8 Ne3; evaluation -359. Rd1 Qe2; evaluation -531.",
+    "verification": {
+      "engine": "Stockfish 19",
+      "nodes": 600000,
+      "depth": 15,
+      "score": "+542",
+      "legal": true,
+      "learner_moves": 2,
+      "original_composition": true
+    },
+    "candidate_scores": [
+      {
+        "san": "Nf6+",
+        "score": "+542"
+      },
+      {
+        "san": "Rf1",
+        "score": "-95"
+      },
+      {
+        "san": "Kf2",
+        "score": "-359"
+      },
+      {
+        "san": "Rd1",
+        "score": "-531"
+      }
+    ],
+    "theme_title": "Knight fork - king and queen · White",
+    "original_pack": "calculation-lab",
+    "original_title": "Calculation 01A - find the continuation · White",
+    "previous_move": {
+      "schema": 1,
+      "before_fen": "6k1/3q1p1p/8/3N4/8/8/8/R5K1 b - - 0 1",
+      "uci": "d7e8",
+      "source": "constructed"
+    },
+    "previous_move_provenance": {
+      "source": "constructed",
+      "method": "legal-one-ply-retro-construction",
+      "historical_claim": false,
+      "note": "A legal setup move for visual context; no original game history exists for this authored position."
+    }
+  },
+  {
+    "id": "3d2ffeebceeaa9ef",
+    "title": "Tactics 02 - calculate the sequence · Black",
+    "side": "black",
+    "moves": [
+      "Bb4+",
+      "Kd1",
+      "Bxe1"
+    ],
+    "uci": [
+      "c5b4",
+      "d2d1",
+      "b4e1"
+    ],
+    "fens": [
+      "6k1/5ppp/8/8/1b6/8/3K4/4R3 w - - 1 2",
+      "6k1/5ppp/8/8/1b6/8/8/3KR3 b - - 2 2",
+      "6k1/5ppp/8/8/8/8/8/3Kb3 w - - 0 3"
+    ],
+    "start": "6k1/5ppp/8/2b5/8/8/3K4/4R3 b - - 0 1",
+    "group": "05 - Tactics",
+    "pack": "free-sample",
+    "kind": "calculation",
+    "tags": [
+      "cfa_training",
+      "cfa_calculation-lab",
+      "calculation",
+      "cfa_free_sample"
+    ],
+    "notes": "<p>A checking bishop can attack the king and the rook behind it. Verify that the king has no way to save both. Engine alternatives from the start: h4; evaluation +226. g3 Rc1 Bd6 Ke3 Kg7; evaluation +200. Bf8 Kd3 h4 Ke4 g3; evaluation +159.</p><p>Calculation drill: replay one verified continuation. Inspect alternative replies in the answer notes. No engine runs during review.</p><p>Original teaching text by fernandomec; move sequences describe chess facts.</p><div class=\"cfa-commentary-data\" hidden>{&quot;language&quot;: &quot;en&quot;, &quot;start_fen&quot;: &quot;6k1/5ppp/8/2b5/8/8/3K4/4R3 b - - 0 1&quot;, &quot;moves&quot;: [&quot;Bb4+&quot;, &quot;Kd1&quot;, &quot;Bxe1&quot;], &quot;notes&quot;: [{&quot;san&quot;: &quot;Bb4+&quot;, &quot;text&quot;: &quot;Black moves the bishop from c5 to b4, changing its reach and coordinating with the remaining pieces. This gives check, so the opponent must first answer the attack on the king.&quot;}, {&quot;san&quot;: &quot;Kd1&quot;, &quot;text&quot;: &quot;White brings the king to d1. In a reduced ending the king can support a passer or restrict the opposing king.&quot;}, {&quot;san&quot;: &quot;Bxe1&quot;, &quot;text&quot;: &quot;Black captures the rook on e1. White can recapture the bishop with the king, but Black has won a rook for a bishop: a gain of the exchange, not a free rook.&quot;}]}</div>",
+    "commentary": {
+      "language": "en",
+      "start_fen": "6k1/5ppp/8/2b5/8/8/3K4/4R3 b - - 0 1",
+      "moves": [
+        "Bb4+",
+        "Kd1",
+        "Bxe1"
+      ],
+      "notes": [
+        {
+          "san": "Bb4+",
+          "text": "Black moves the bishop from c5 to b4, changing its reach and coordinating with the remaining pieces. This gives check, so the opponent must first answer the attack on the king."
+        },
+        {
+          "san": "Kd1",
+          "text": "White brings the king to d1. In a reduced ending the king can support a passer or restrict the opposing king."
+        },
+        {
+          "san": "Bxe1",
+          "text": "Black captures the rook on e1. White can recapture the bishop with the king, but Black has won a rook for a bishop: a gain of the exchange, not a free rook."
+        }
+      ]
+    },
+    "plan": "A checking bishop can attack the king and the rook behind it. Verify that the king has no way to save both. Engine alternatives from the start: h4; evaluation +226. g3 Rc1 Bd6 Ke3 Kg7; evaluation +200. Bf8 Kd3 h4 Ke4 g3; evaluation +159.",
+    "verification": {
+      "engine": "Stockfish 19",
+      "nodes": 600000,
+      "depth": 17,
+      "score": "+592",
+      "legal": true,
+      "learner_moves": 2,
+      "original_composition": true
+    },
+    "candidate_scores": [
+      {
+        "san": "Bb4+",
+        "score": "+592"
+      },
+      {
+        "san": "h5",
+        "score": "+226"
+      },
+      {
+        "san": "g6",
+        "score": "+200"
+      },
+      {
+        "san": "Bf8",
+        "score": "+159"
+      }
+    ],
+    "theme_title": "Bishop skewer - force the king away - Black perspective · Black",
+    "original_pack": "calculation-lab",
+    "original_title": "Calculation 03B - find the continuation · Black",
+    "previous_move": {
+      "schema": 1,
+      "before_fen": "6k1/5ppp/8/2b5/8/8/3K4/3R4 w - - 0 1",
+      "uci": "d1e1",
+      "source": "constructed"
+    },
+    "previous_move_provenance": {
+      "source": "constructed",
+      "method": "legal-one-ply-retro-construction",
+      "historical_claim": false,
+      "note": "A legal setup move for visual context; no original game history exists for this authored position."
+    }
+  },
+  {
+    "id": "da66792670cc3fcc",
+    "title": "Tactics 03 - inspect the position · White",
+    "side": "white",
+    "moves": [
+      "Rxe8+"
+    ],
+    "uci": [
+      "e1e8"
+    ],
+    "fens": [
+      "4R1k1/5p1p/8/8/2B5/8/5PPP/6K1 b - - 0 1"
+    ],
+    "start": "4q1k1/5p1p/8/8/2B5/8/5PPP/4R1K1 w - - 0 1",
+    "group": "05 - Tactics",
+    "pack": "free-sample",
+    "kind": "calculation",
+    "tags": [
+      "cfa_training",
+      "cfa_calculation-lab",
+      "calculation",
+      "cfa_free_sample"
+    ],
+    "notes": "<p>Check whether the queen is protected before looking for a complex combination. Engine alternatives from the start: Ra1; evaluation +166. Rd1 Qa4 Rd8+ Kg7 Bf1; evaluation 0. Re3 Qa8 Rg3+ Kf8 Rh3; evaluation 0.</p><p>Calculation drill: replay one verified continuation. Inspect alternative replies in the answer notes. No engine runs during review.</p><p>Original teaching text by fernandomec; move sequences describe chess facts.</p><div class=\"cfa-commentary-data\" hidden>{&quot;language&quot;: &quot;en&quot;, &quot;start_fen&quot;: &quot;4q1k1/5p1p/8/8/2B5/8/5PPP/4R1K1 w - - 0 1&quot;, &quot;moves&quot;: [&quot;Rxe8+&quot;], &quot;notes&quot;: [{&quot;san&quot;: &quot;Rxe8+&quot;, &quot;text&quot;: &quot;White captures the queen on e8. This gives check, so the opponent must first answer the attack on the king.&quot;}]}</div>",
+    "commentary": {
+      "language": "en",
+      "start_fen": "4q1k1/5p1p/8/8/2B5/8/5PPP/4R1K1 w - - 0 1",
+      "moves": [
+        "Rxe8+"
+      ],
+      "notes": [
+        {
+          "san": "Rxe8+",
+          "text": "White captures the queen on e8. This gives check, so the opponent must first answer the attack on the king."
+        }
+      ]
+    },
+    "plan": "Check whether the queen is protected before looking for a complex combination. Engine alternatives from the start: Ra1; evaluation +166. Rd1 Qa4 Rd8+ Kg7 Bf1; evaluation 0. Re3 Qa8 Rg3+ Kf8 Rh3; evaluation 0.",
+    "verification": {
+      "engine": "Stockfish 19",
+      "nodes": 600000,
+      "depth": 17,
+      "score": "+827",
+      "legal": true,
+      "learner_moves": 1,
+      "original_composition": true
+    },
+    "candidate_scores": [
+      {
+        "san": "Rxe8+",
+        "score": "+827"
+      },
+      {
+        "san": "Ra1",
+        "score": "+166"
+      },
+      {
+        "san": "Rd1",
+        "score": "0"
+      },
+      {
+        "san": "Re3",
+        "score": "0"
+      }
+    ],
+    "theme_title": "Loose queen - capture with check · White",
+    "original_pack": "calculation-lab",
+    "original_title": "Calculation 05A - find the continuation · White",
+    "previous_move": {
+      "schema": 1,
+      "before_fen": "6k1/3q1p1p/8/8/2B5/8/5PPP/4R1K1 b - - 0 1",
+      "uci": "d7e8",
+      "source": "constructed"
+    },
+    "previous_move_provenance": {
+      "source": "constructed",
+      "method": "legal-one-ply-retro-construction",
+      "historical_claim": false,
+      "note": "A legal setup move for visual context; no original game history exists for this authored position."
+    }
+  }
+]

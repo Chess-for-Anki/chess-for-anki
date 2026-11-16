@@ -1,4 +1,4 @@
-<div id="card-root"><div id="studio-fields" hidden aria-hidden="true"><span id="studio-moves">{{MovesPGN}}</span><span id="studio-side">{{PlayerColor}}</span><span id="studio-fen">{{StartFEN}}</span><span id="studio-brilliant-data">{{Brilliant Moves}}</span></div>
+<div id="card-root"><div id="studio-fields" hidden aria-hidden="true"><span id="studio-moves">{{MovesPGN}}</span><span id="studio-side">{{PlayerColor}}</span><span id="studio-fen">{{StartFEN}}</span><span id="studio-brilliant-data">{{Brilliant Moves}}</span><span id="studio-previous-data">{{text:Previous Move}}</span></div>
   <div class="card-header">
     <div class="opening-title">{{Title}}</div>
     <div class="color-badge" id="color-badge"></div>
@@ -27,6 +27,7 @@
     <div id="studio-brilliant" hidden aria-live="polite"><strong>!! Brilliant!</strong></div>
     <div id="mistake-flash">Different move - follow this line</div>
   </div>
+  <p id="studio-previous-caption" hidden></p>
 
   <div class="move-list-wrap">
     <div id="move-list" class="move-list"></div>
@@ -137,6 +138,7 @@ var studioPristineMarkup = document.getElementById("card-root").outerHTML;
   var roundAssisted=!!window._studioRestartAssisted;
   delete window._studioRestartAssisted;
   var fullMoves=MOVES.slice();
+  var initialPreviousMove=typeof CFA_PREVIOUS_MOVE==='object'?CFA_PREVIOUS_MOVE.parse(document.getElementById('studio-previous-data').textContent,START_FEN,Chess):null;
   var brilliantNode=document.getElementById('studio-brilliant-data');
   var brilliantPlies=typeof CFA_BRILLIANT==='object'?CFA_BRILLIANT.parse(brilliantNode.textContent,fullMoves.length):[];
   document.getElementById('studio-training-label').hidden=!brilliantPlies.length;
@@ -513,7 +515,7 @@ function setupDemo(){
   voiceCommand('stop');
   speak(title+'.');
   if(!START_FEN)speak(levelNames[studioDepth]+' level.');
-  renderBoard(game.fen(),{});
+  renderBoard(game.fen(),{lastMove:initialPreviousMove});
   progressText.textContent='Demo · 0 / '+fullMoves.length+' moves';
   function describePosition(){
     voiceCommand('stop');
@@ -544,7 +546,7 @@ function setupDemo(){
     if(!demoRunning || step===0)return;
     var undone=fullMoves[step-1];
     game=newGameAt(positions[--step]);
-    var lastMove=step?fenDiff(positions[step-1],game.fen()):null;
+    var lastMove=step?fenDiff(positions[step-1],game.fen()):initialPreviousMove;
     renderBoard(game.fen(),{lastMove:lastMove});
     slideMove(game.fen(),undone,true);
     playMoveSound(undone);
@@ -689,6 +691,9 @@ function setupDemo(){
     var selected = opts.selected || null;
     var dests = opts.dests || [];
     var lm = opts.lastMove || null;
+    var previousCaption=document.getElementById('studio-previous-caption');
+    previousCaption.hidden=!(lm && initialPreviousMove && lm===initialPreviousMove);
+    if(!previousCaption.hidden)previousCaption.textContent=(initialPreviousMove.source==='constructed'?'Setup move: ':'Previous move: ')+CFA_NOTATION.san(initialPreviousMove.san,notationLanguage);
     var chkSq = checkSquareOf(fen);
     if (!boardEl) return;
     boardEl.innerHTML = "";
@@ -1396,7 +1401,7 @@ function setupDemo(){
     var game = newGameAt(startFen());
     if (game) { game.load(startFen()); for (var i = 0; i < startStep; i++) if (MOVES[i]) game.move(MOVES[i]); }
     var attemptStep = startStep; expectedHintMove=function(){return MOVES[attemptStep];};
-    var lastMove = null;
+    var lastMove = startStep ? fenDiff(startFen(),fenForStep(startStep)) : initialPreviousMove;
     var alternateFinish = null;
     var concluded = false;
     Mode = {
@@ -1651,7 +1656,7 @@ function setupDemo(){
 
     Mode = {
       getFen: function () { return current.fen; },
-      lastMove: function () { return current.parent ? fenDiff(current.parent.fen, current.fen) : null; },
+      lastMove: function () { return current.parent ? fenDiff(current.parent.fen, current.fen) : initialPreviousMove; },
       onMove: playUserMove
     };
     ActiveDraw = function () {

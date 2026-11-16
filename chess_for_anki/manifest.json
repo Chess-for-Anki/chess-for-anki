@@ -2,7 +2,7 @@
   "package": "chess_for_anki",
   "name": "♟️ Chess for Anki",
   "author": "fernandomec",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "min_point_version": 260904,
   "conflicts": ["228541832", "fernando_chess_studio"]
 }

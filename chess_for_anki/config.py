@@ -28,7 +28,7 @@ DEFAULTS = {
     "narration_rate": 1.5,
     "voice_pack": "system",
     "voice_language": "en-US",
-    "feedback_url": "https://github.com/fernandomec/chess-for-anki-community",
+    "feedback_url": "https://github.com/Chess-for-Anki/chess-for-anki",
     "board_color": "#799459",   # base color = the DARK square
     "board_light": "#eeeccd",          # LIGHT square; "" = derive it from board_color
     "piece_set": "wooden",    # reserved for a later update

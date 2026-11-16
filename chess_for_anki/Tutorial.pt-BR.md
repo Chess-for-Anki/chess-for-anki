@@ -1,73 +1,66 @@
-# ♟️ Chess for Anki · Sua primeira partida
+# Chess for Anki: comece a praticar
 
-Cada cartão treina uma sequência de xadrez, chamada **linha**. Você joga com uma cor, e o tabuleiro responde pela outra. Na Abertura Italiana, por exemplo, você pode praticar o desenvolvimento do bispo e dos cavalos até conseguir lembrar da sequência sem ajuda.
+Cada cartão treina uma sequência salva. Você joga com uma cor; o adversário responde com os próximos lances dessa linha. O objetivo é entender e lembrar a continuação.
 
-## 1. Abra o tabuleiro
+## Instalação e amostra gratuita
 
-1. Se o menu **♟️ Chess for Anki** já aparece no topo do Anki, siga para o próximo passo. Para uma primeira instalação no computador, abra **Tools → Add-ons → Install from file…**, selecione o arquivo `.ankiaddon` e reinicie o Anki.
-2. A instalação começa sem cards ou baralho de xadrez. Na tela inicial, clique em **Baixar deck inicial gratuito (.apkg)** ou **Download free starter deck (.apkg)**, baixe **Chess-for-Anki-Foundations.apkg**, com 30 cartões, e importe pelo menu **Arquivo → Importar** do Anki. O antigo **Chess-for-Anki-Starter.apkg**, com 60 cartões, continua gratuito como download separado nas [versões da comunidade](https://github.com/fernandomec/chess-for-anki-community/releases/tag/v1.4.2-preview). Para montar seu próprio material, escolha **Create my own cards**.
-3. Abra **Chess → 01 - Foundations → 01 - Openings → White** e clique em **Study Now** para praticar com as brancas. Para treinar as pretas, abra **Black**. Na tela do cartão, **Play as White** ou **Play as Black** indica a sua cor.
+A **prévia 1.6.0** e seu pacote estão disponíveis na [release da prévia](https://github.com/Chess-for-Anki/chess-for-anki/releases/tag/v1.6.0-preview).
 
-## 2. Jogue uma linha com as brancas
+1. No Anki desktop, abra **Tools > Add-ons > Install from file**, selecione o `.ankiaddon` e reinicie.
+2. Na tela inicial, escolha **Baixar deck inicial gratuito (.apkg)** ou **Download free starter deck (.apkg)**.
+3. Importe **Chess-for-Anki-Free-Sample.apkg** em **Arquivo > Importar** e abra **Chess - Free Sample**.
 
-Se **Demo on first view** estiver marcada, a primeira exibição começa na posição inicial. Clique em **Next move** para ver um único lance das brancas ou das pretas. **Previous move** retrocede um lance e restaura o tabuleiro e a explicação da posição anterior. A última posição fica na tela até você clicar em **Start practice**. Durante a tentativa, **Show demo** permite rever a linha desde o início. **Resume practice** devolve o tabuleiro à posição em que você estava respondendo.
+Instalar o add-on não cria cartões nem instala gravações naturais.
 
-**Onde configurar.** Na tela de boas-vindas e no primeiro cartão, clique em **Abrir configurações** (ou **Open settings**). Depois, use o menu superior **♟️ Chess for Anki → Settings**. Ali você pode mudar o nível, a demonstração inicial e o som das peças. A opção **Confetti on completion** liga ou desliga os confetes. A mensagem **Congratulations!** aparece ao completar a rodada corretamente.
+A amostra tem **22 cartões**: cinco aberturas para brancas e pretas (10), três Brilliancy, três finais, três meios-jogos e três táticas. As aberturas são Italiana, Gambito da Dama Recusado, Escocesa, Sistema Londres e Defesa Siciliana.
 
-No cartão **Italian - central break · White** do Foundations, experimente estes lances. As letras na borda do tabuleiro indicam as colunas e os números indicam as fileiras. Arraste a peça ou clique primeiro na casa de origem e depois na de destino.
+As linhas chegam a uma transição útil para o meio-jogo. Não existe um lance universal que encerre toda abertura. São exemplos de estudo, sem prometer repertório completo ou respostas forçadas. Foundations e Starter continuam como [downloads gratuitos anteriores](https://github.com/Chess-for-Anki/chess-for-anki/tree/downloads/decks).
 
-| Sua vez | O que fazer | Resposta automática |
-| --- | --- | --- |
-| 1. e4 | Mova o peão de **e2** para **e4**. | O peão preto vai de **e7** para **e5**. |
-| 2. Nf3 | Mova o cavalo de **g1** para **f3**. | O cavalo preto vai de **b8** para **c6**. |
-| 3. Bc4 | Mova o bispo de **f1** para **c4**. | O bispo preto vai de **f8** para **c5**. |
-| 4. c3 | Mova o peão de **c2** para **c3**. | As pretas jogam **Nf6**. A rodada **Noobie** termina. |
+## Veja, entenda e tente
 
-Em outra abertura, a resposta esperada pode ser diferente. O cartão segue a linha gravada. Se você jogar uma alternativa, pode ouvir **“Try a knight”** (“tente um cavalo”), por exemplo. Tente de novo na mesma posição quantas vezes precisar. **Voice on/off** liga ou desliga a narração em inglês. Escolha a velocidade em **Voice speed**, ao lado desse botão, ou em **Settings → Narration speed**. As opções vão de 0,5× a 2×, com 1,5× como padrão. A escolha fica salva neste computador e vale para os anúncios, dicas e explicações. Para ligar ou desligar o som das peças, use **Settings → Piece sounds**.
+Use **Next move** e **Previous move** para avançar e voltar na demonstração. Leia a explicação: o que mudou no centro, no desenvolvimento ou na segurança dos reis?
 
-## 3. Decida quando repetir
+Escolha **Start practice**. Arraste a peça ou clique na origem e no destino. Depois do lance correto, o adversário executa a resposta salva. Uma alternativa legal pode ser boa e ainda ser diferente da linha estudada.
 
-- **Restart** volta ao início da tentativa no mesmo cartão. Use quando quiser praticar de novo agora.
-- **End round** encerra a tentativa e abre a resposta. Se esqueceu a continuação, clique em **Repeat later** no verso. Isso registra **Again** e o Anki agenda outra tentativa de acordo com seu baralho.
-- No verso, use **← / →** ou clique em um lance da notação para rever a posição. As notas em **Idea behind the line**, quando presentes, explicam o plano da sequência.
-- Ao avaliar, escolha **Again** se esqueceu, **Hard** se lembrou com dificuldade, **Good** se lembrou normalmente ou **Easy** se foi fácil.
+- **Show demo:** reveja a explicação.
+- **Resume practice:** retorne à tentativa.
+- **Restart:** tente de novo agora.
+- **End round:** encerre a tentativa e veja a resposta.
+- **Repeat later:** registre Again para revisar depois.
 
-## 4. Entenda os níveis
+Consultar demonstração ou dica torna a tentativa assistida. Avalie sua lembrança independente: Again se esqueceu, Hard se lembrou com dificuldade, Good se lembrou normalmente e Easy se foi imediato.
 
-### Por que jogar esse lance?
+## Posição inicial e último lance
 
-Durante a demonstração, cada clique em **Next move** mostra o objetivo do lance e sua relação com o plano da linha. As explicações em inglês cobrem as 34 sequências distintas da coleção, incluindo as partidas clássicas e os mates.
+Nos exercícios personalizados, o destaque mostra o lance do adversário anterior à solução. **Previous move** identifica contexto registrado ou fornecido pelo autor. **Setup move** identifica preparação legal construída, sem afirmar que aconteceu numa partida.
 
-O padrão é **System voice**, a síntese de voz disponível no dispositivo. Para usar a voz natural Michael, baixe **English-Michael-Voice-Pack.zip**, importe em **♟️ Chess for Anki → Language packs** e selecione a voz. O mesmo menu permite escolher separadamente o texto e a narração. Os idiomas básicos dependem das vozes instaladas no sistema; as gravações naturais dos outros idiomas ainda serão produzidas e revisadas.
+Esse lance não aumenta o tamanho da solução. Os cartões já importados e seu histórico continuam preservados.
 
-### Envie um relato de erro
+## Crie material próprio
 
-Abra **Feedback / Report an issue**, escreva o assunto e descreva o problema. Você pode anexar uma imagem PNG, JPEG ou WebP e conferir a prévia. O formulário converte a imagem para PNG e não gera arquivos ZIP.
+Criação e importação de PGN continuam no núcleo gratuito. Abra **Create cards / Import PGN**, escolha baralho, título e cor. Para começar da posição normal, use **Opening** e informe a linha em **Moveset PGN**, ou monte os lances em **Manual Input**.
 
-Clique em **Review and submit on GitHub**. O navegador abre o relato com o texto preparado; o print fica copiado para colar no editor com Ctrl+V. Revise e envie pelo GitHub. Para textos muito longos, cole primeiro o texto copiado e depois use **Copy screenshot** para colar a imagem. **View reported issues** abre os relatos para leitura e visualização das imagens na própria página. Para publicar o relato, é necessário entrar em uma conta do GitHub. Os relatos são públicos.
+Para um exercício personalizado:
 
-O autor acompanha os relatos pela aba **Issues**. Avisos no GitHub ou por e-mail dependem das preferências de notificações da conta e de **Watch** no repositório. As validações de imagem e texto reduzem riscos, mas não são antivírus nem uma garantia absoluta sobre arquivos enviados diretamente ao GitHub.
+1. Escolha a cor treinada e selecione **Custom**.
+2. Cole em **Starting Position PGN/FEN** um PGN de preparação que termine após o lance do adversário, antes da solução. A posição e o contexto são preenchidos automaticamente.
+3. Para FEN ou **Manual Edit**, informe também a FEN anterior completa e o lance em coordenadas, como `e7e5`. Marque **Constructed setup move** quando for preparação construída.
+4. Escreva a solução separadamente em **Moveset PGN** e clique em **Add**.
 
-| Nível | Até onde você joga |
-| --- | --- |
-| Noobie | 4 lances por cor |
-| Beginner | 8 lances por cor |
-| Intermediate | 12 lances por cor |
-| Advanced | 20 lances por cor |
-| HACKER | Toda a linha gravada |
+Novos exercícios personalizados exigem contexto válido. Uma FEN isolada não revela o lance anterior. Mudar cor ou posição pode apagar contexto incompatível. Compartilhe somente material que você tem direito de distribuir.
 
-O nível escolhido vale para os próximos cartões. Para subir automaticamente, complete **três sequências diferentes** na profundidade do nível atual, sem consultar lances ou usar dicas, e avalie cada uma com **Good** ou **Easy**. Ao revelar um lance com **Next move**, a tentativa conta como assistida. Você pode abrir a demonstração e sair antes do primeiro lance para continuar de memória.
+## Níveis, efeitos e voz
 
-Uma linha curta termina no último lance disponível. Para contar para a promoção, ela precisa ter lances suficientes para o nível. Exercícios de mate com posição inicial personalizada treinam a solução inteira e ficam fora dessa contagem.
+As aberturas usam profundidades de 4, 8, 12, 20 ou todos os lances salvos por lado. Linhas curtas terminam no seu fim real; exercícios personalizados usam a solução inteira. Três linhas diferentes, suficientemente longas, concluídas sem ajuda e avaliadas Good ou Easy promovem o nível.
 
-## 5. Crie um cartão seu
+O halo turquesa e o indicador `!!` destacam um lance selecionado para ensino. Não avaliam automaticamente todos os lances. Em **Settings**, desligue separadamente destaque, partículas ou som. O som também respeita **Piece sounds**. Há controles de velocidade, demonstração e confetes.
 
-1. Abra **♟️ Chess for Anki → Create cards / Import PGN**. Em **Add to Deck**, escolha o baralho. Em **Title**, escreva **Italiana - desenvolvimento das brancas**.
-2. Em **I am playing as…**, marque **White**. Em **Starting Position**, deixe **Opening** para começar com as peças nas casas iniciais.
-3. Cole a linha abaixo em **Moveset PGN**. PGN é o formato de texto que registra os lances de uma partida. Na notação em inglês, **N** indica cavalo e **B** indica bispo.
+A fala básica depende de uma voz instalada no dispositivo. A [voz natural inglesa Michael](https://github.com/Chess-for-Anki/chess-for-anki/releases/download/v1.4.2-preview/English-Michael-Voice-Pack.zip) é opcional e importada em **Language packs**. Frases sem gravação podem usar a voz do sistema. Outros idiomas naturais estão planejados; Hindi ainda precisa de suporte no add-on.
 
-   `1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. Nc3 Nf6`
+## Ajuda e disponibilidade
 
-4. Clique em **Add**. Abra o baralho escolhido para jogar o cartão. Para montar a sequência no tabuleiro, use **Manual Input**, jogue os lances de ambos os lados e confirme com **Set** antes de clicar em **Add**. Para carregar um arquivo `.pgn`, use **Import** na seção **Moveset PGN**.
+[Comunidade oficial](https://github.com/Chess-for-Anki/chess-for-anki) · [Relatar um problema](https://github.com/Chess-for-Anki/chess-for-anki/issues) · [Apoiar o projeto](https://github.com/Chess-for-Anki/chess-for-anki/blob/downloads/SUPPORT.md)
 
-**Para criar um exercício de mate**, escolha **Custom → Manual Edit** em **Starting Position**, monte a posição e confirme com **Set**. Depois insira os lances da solução em **Moveset PGN**. Também é possível colar uma posição em formato FEN, que descreve onde as peças estão e de quem é a vez.
+Pacotes ampliados e PRO estão em preparação, sem checkout ativo. O núcleo gratuito, os materiais já distribuídos e o estudo offline dos cartões importados permanecem disponíveis.
+
+Windows com Anki desktop 26.9.4 é o ambiente testado; esta prévia passou por verificações isoladas de coleção, importação e tabuleiro. A compatibilidade com macOS, Linux e mobile não foi estabelecida. O código e os créditos acompanham a distribuição sob AGPL-3.0.

@@ -19,7 +19,7 @@ The narrator and commentary text are selected independently. `System voice` is t
 
 The official natural English narrator is an external ZIP. Portuguese, Spanish, Russian, Chinese, Japanese, French and German natural recordings are planned, not bundled or claimed as finished.
 
-Download [English-Michael-Voice-Pack.zip](https://github.com/fernandomec/chess-for-anki-community/releases/download/v1.4.2-preview/English-Michael-Voice-Pack.zip) separately from the community release. In Anki, open **Chess for Anki → Language packs**, choose **Import language pack (.zip)**, select the narrator and save. No voice-generation script or external speech model is needed to use the recordings.
+Download [English-Michael-Voice-Pack.zip](https://github.com/Chess-for-Anki/chess-for-anki/releases/download/v1.4.2-preview/English-Michael-Voice-Pack.zip) separately from the community release. In Anki, open **Chess for Anki → Language packs**, choose **Import language pack (.zip)**, select the narrator and save. No voice-generation script or external speech model is needed to use the recordings.
 
 ## Commentary lines
 

@@ -48,7 +48,7 @@ def begin():
     for card in cards:
         commentary=card.get('commentary',{'start_fen':card['start_fen'],'moves':card['moves_san'],'language':'en','notes':[{'san':san,'text':card['solution']} for san in card['moves_san']]})
         notes='<p>'+html.escape(card['solution'])+'</p><div class="cfa-commentary-data" hidden>'+html.escape(json.dumps(commentary))+'</div>'
-        note=note_type.create_note(mw.col,card['title'],card['side'],card['moves_san'],start_fen=card['start_fen'],book_notes=notes,brilliant_moves=card['brilliant_moves'],position_evaluation=card['position_evaluation'])
+        note=note_type.create_note(mw.col,card['title'],card['side'],card['moves_san'],start_fen=card['start_fen'],book_notes=notes,brilliant_moves=card['brilliant_moves'],previous_move=card['previous_move'])
         note.guid='cfa-brilliant-'+card['id']
         mw.col.add_note(note,mw.col.decks.id('Chess::Brilliancy Training'))
         card['cid']=note.card_ids()[0]
@@ -62,10 +62,11 @@ def begin():
     QTimer.singleShot(1400,checked(check_initial))
 
 def check_initial():
-    replay="""(()=>{var cases=CASES,n=0;for(var c of cases){var g=new Chess(c.start_fen);for(var i=0;i<c.moves_san.length;i++){if(!g.move(c.moves_san[i]))return {error:'Illegal replay',id:c.id,ply:i+1};if(g.fen().split(' ').slice(0,3).join(' ')!==c.fens_after_each_ply[i].split(' ').slice(0,3).join(' '))return {error:'Wrong position',id:c.id,ply:i+1};n++;}}return {plies:n,cards:cases.length,squares:document.querySelectorAll('td.sq').length,highlights:document.querySelectorAll('.brilliant-square').length,evaluation:!!document.getElementById('studio-evaluation'),meterExists:!!document.getElementById('studio-evaluation')};})()""".replace('CASES',json.dumps(json.loads((base/'pack.json').read_text(encoding='utf8'))['exercises']))
+    replay="""(()=>{var cases=CASES,n=0;for(var c of cases){var previous=CFA_PREVIOUS_MOVE.parse(JSON.stringify(c.previous_move),c.start_fen,Chess);if(!previous)return {error:'Invalid previous move',id:c.id};var g=new Chess(c.start_fen);for(var i=0;i<c.moves_san.length;i++){if(!g.move(c.moves_san[i]))return {error:'Illegal replay',id:c.id,ply:i+1};if(g.fen().split(' ').slice(0,3).join(' ')!==c.fens_after_each_ply[i].split(' ').slice(0,3).join(' '))return {error:'Wrong position',id:c.id,ply:i+1};n++;}}return {plies:n,cards:cases.length,squares:document.querySelectorAll('td.sq').length,highlights:document.querySelectorAll('.brilliant-square').length,evaluation:!!document.getElementById('studio-evaluation'),meterExists:!!document.getElementById('studio-evaluation'),previousSquares:Array.from(document.querySelectorAll('.sq.lastmove')).map(s=>s.dataset.sq).sort(),previousCaption:document.getElementById('studio-previous-caption').textContent};})()""".replace('CASES',json.dumps(json.loads((base/'pack.json').read_text(encoding='utf8'))['exercises']))
     def next(result):
         assert result and not result.get('error'),result
         assert result['squares']==64 and result['highlights']==0 and result['evaluation'] is False,result
+        assert result['previousSquares']==['d7','f6'] and 'Nxd7' in result['previousCaption'],result
         report['initial']=result
         js("""(()=>{localStorage.setItem('chess-studio-voice','off');var b=document.getElementById('studio-voice');if(b.textContent==='Voice on')b.click();document.getElementById('studio-show-demo').click();document.getElementById('studio-demo-next').click();return {meterExists:!!document.getElementById('studio-evaluation'),highlights:document.querySelectorAll('.brilliant-square').length};})()""",check_demo)
     js(replay,next)
@@ -73,10 +74,11 @@ def check_initial():
 def check_demo(result):
     assert result['highlights']==0,result
     report['demo']=result
-    js("""(()=>{document.getElementById('studio-demo-prev').click();var value=!!document.getElementById('studio-evaluation');document.getElementById('studio-demo-skip').click();return {score:value,history:document.querySelector('#studio-depth-count').textContent};})()""",check_rewind)
+    js("""(()=>{document.getElementById('studio-demo-prev').click();var previousSquares=Array.from(document.querySelectorAll('.sq.lastmove')).map(s=>s.dataset.sq).sort();var value=!!document.getElementById('studio-evaluation');document.getElementById('studio-demo-skip').click();return {score:value,history:document.querySelector('#studio-depth-count').textContent,previousSquares:previousSquares};})()""",check_rewind)
 
 def check_rewind(result):
     assert result['score'] is False,result
+    assert result['previousSquares']==report['initial']['previousSquares'],result
     report['rewind']=result
     wrong_move="""(()=>{function tap(s){var n=document.querySelector('[data-sq="'+s+'"]'),r=n.getBoundingClientRect();n.dispatchEvent(new MouseEvent('mousedown',{bubbles:true,button:0,clientX:r.left+r.width/2,clientY:r.top+r.height/2}));document.dispatchEvent(new MouseEvent('mouseup',{bubbles:true,button:0,clientX:r.left+r.width/2,clientY:r.top+r.height/2}));}tap('b3');tap('b4');return {highlights:document.querySelectorAll('.brilliant-square').length,meterExists:!!document.getElementById('studio-evaluation')};})()"""
     js(wrong_move,check_wrong)
@@ -184,8 +186,8 @@ def finish_unknown(result):
     assert col.db.scalar('select count(*) from revlog')==before_review
     migrated=col.get_note(note.id)
     assert migrated.note_type()['id']==model['id'] and migrated['Title']=='Schema migration QA'
-    assert migrated['Brilliant Moves']=='' and migrated['Position Evaluation']==''
-    report['native_schema_migration']={'suffixed_model_id_preserved':True,'note_id_preserved':True,'card_scheduling_preserved':True,'review_history_preserved':True,'optional_fields_added':2}
+    assert migrated['Brilliant Moves']=='' and migrated['Position Evaluation']=='' and migrated['Previous Move']==''
+    report['native_schema_migration']={'suffixed_model_id_preserved':True,'note_id_preserved':True,'card_scheduling_preserved':True,'review_history_preserved':True,'optional_fields_added':3}
     done()
 
 gui_hooks.profile_did_open.append(lambda:QTimer.singleShot(900,checked(begin)))

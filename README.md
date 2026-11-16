@@ -1,59 +1,64 @@
-# ♟ Chess for Anki
+# Chess for Anki
 
-Practice chess lines on an interactive board, with guided demonstrations, move explanations and spaced repetition in Anki. Maintained by **fernandomec**.
+Practise chess lines on an interactive board, with move explanations, guided demonstrations and spaced repetition in Anki. Maintained by **fernandomec**.
 
-**[Download the free deck (.apkg)](https://github.com/fernandomec/chess-for-anki-community/raw/refs/heads/downloads/decks/Chess-for-Anki-Foundations.apkg)**
+**Version 1.6.0 preview:** previous-move context, Brilliancy Training and a focused 22-card sample. Earlier public downloads remain available.
 
-[Get the add-on](https://github.com/fernandomec/chess-for-anki-community/releases/download/v1.4.2-preview/Chess-for-Anki.ankiaddon) · [All downloads](https://github.com/fernandomec/chess-for-anki-community/releases/tag/v1.4.2-preview) · [Watch the demo](#demo)
+**[Free sample: 22 cards (.apkg)](https://github.com/Chess-for-Anki/chess-for-anki/releases/download/v1.6.0-preview/Chess-for-Anki-Free-Sample.apkg)**
+
+[AnkiWeb deck listing](https://ankiweb.net/shared/info/1810293290). Newly shared decks have AnkiWeb's initial 24-hour visibility delay; the GitHub download is available independently.
+
+[Get the add-on](https://github.com/Chess-for-Anki/chess-for-anki/releases/download/v1.6.0-preview/Chess-for-Anki.ankiaddon) · [Preview release](https://github.com/Chess-for-Anki/chess-for-anki/releases/tag/v1.6.0-preview) · [Watch the demo](#demo)
 
 ## Demo
 
-https://github.com/user-attachments/assets/8fa8f9f9-2239-409a-a14e-0fd47f1d9fbe
+https://github.com/user-attachments/assets/0db0a2d3-e2f1-49db-8d09-c5654f50e2b5
 
-English narration and captions. Use the player controls to turn on sound.
+A real Anki reviewer demonstration: opening plans, a historical combination, the previous move and optional brilliant effects. English narration, captions and piece sounds are included. Turn on sound in the player.
 
-![Chess for Anki](images/practice.png)
+![Interactive chess practice](images/practice.png)
 
 ## Get started
 
-1. Install the add-on in Anki through **Tools > Add-ons > Install from file**, then restart Anki.
-2. Download the free `.apkg` above and import it through **File > Import**. Installing the extension itself does not create cards.
-3. Open a card, step through the demonstration, then practise the line. The opponent replies automatically. Use **Again** or **Repeat later** when you need another attempt.
+1. Install the add-on through **Tools > Add-ons > Install from file**, then restart Anki.
+2. Download the free sample and import it through **File > Import**. Installing the add-on creates no cards or natural voice recordings.
+3. Open **Chess - Free Sample**, choose a lesson, step through the demonstration and start practice. The opponent replies from the saved line.
 
-The **Foundations** deck has 30 cards covering simple opening plans, Scholar's Mate and its defence, basic mates and promotion. The [earlier 60-card starter deck](decks/Chess-for-Anki-Starter.apkg) is also free. Some lines are practised from both sides, so card counts include paired perspectives.
+The sample contains:
 
-[Read the training guide](TRAINING-GUIDE.md) for levels, demonstrations, grading and creating cards from PGN or a custom position.
+- Five opening lessons for both sides: Italian Game, Queen's Gambit Declined, Scotch Game, London System and Sicilian Defence, giving 10 cards.
+- Three Brilliancy exercises, three endgames, three middlegame decisions and three tactics.
 
-## Development preview
+Opening lessons reach a useful transition to middlegame plans. They are illustrative lines, not complete repertoires or forced replies. Paired perspectives count separately.
 
-The `develop` branch prepares version 1.5.1 with curated **Brilliancy Training**, a turquoise `!!` reward after a correct key move, and independent sound/effect settings. The evaluation meter from the earlier preview has been removed.
+[Training guide](TRAINING-GUIDE.md) · [Commented sample PGN](decks/Chess-for-Anki-Free-Sample.pgn) · [Earlier free decks](decks/README.md)
 
-This preview is under local testing. Stable downloads above remain version 1.4.2. The extended training collection and PRO subscriptions are not on sale yet.
+## Practice and create
 
-## Voices and languages
+Drag a piece or click its origin and destination. **Show demo** reopens the explanation; **Restart** retries the attempt. Use **End round > Repeat later** when you need to see the answer and review again.
 
-The add-on uses an available device voice by default. The optional [English Michael voice pack](https://github.com/fernandomec/chess-for-anki-community/releases/download/v1.4.2-preview/English-Michael-Voice-Pack.zip) adds recorded narration and explanations for the free collections. Import it from the add-on's language pack screen. Playback speed is adjustable.
+Curated brilliant moves can show a turquoise `!!` highlight, sound and particles. Disable these effects in Settings. They are teaching annotations, not live engine judgments.
 
-Other natural voice packs are not yet available. Portuguese, Russian, Chinese, Spanish and Hindi are priorities. Hindi still needs runtime support.
+![Brilliancy Training](images/brilliancy.png)
 
-[Contribute a translation or voice](CONTRIBUTING-LANGUAGES.md) · [Join the language discussion](https://github.com/fernandomec/chess-for-anki-community/discussions/1)
+Create your own cards from PGN or a custom position without a paid plan. New custom-position exercises need the opponent's previous move: a setup PGN fills it automatically; manual/FEN positions require a preceding FEN and move. Constructed context is labelled **Setup move**, separately from recorded history.
 
-## Feedback
+## Voices and community
 
-[Report a bug](https://github.com/fernandomec/chess-for-anki-community/issues/new?template=bug_report.yml) with a description and screenshot. Reports are public; remove personal details before posting. You can read replies and images directly on GitHub.
+Device speech is the default. [Natural English Michael narration](https://github.com/Chess-for-Anki/chess-for-anki/releases/download/v1.4.2-preview/English-Michael-Voice-Pack.zip) is an optional download. Unrecorded sample explanations can use device speech. Other natural voices are planned; Hindi still needs runtime support.
+
+[Contribute a language or voice](CONTRIBUTING-LANGUAGES.md) · [Language discussion](https://github.com/Chess-for-Anki/chess-for-anki/discussions/1) · [Report a bug](https://github.com/Chess-for-Anki/chess-for-anki/issues)
+
+Extended training packs and PRO plans are being prepared. They are not on sale and no subscription checkout is active. The free core, previously distributed material and your imported cards remain available.
 
 ## Source and compatibility
 
-The source is in [chess_for_anki](chess_for_anki). Build the extension with Python 3:
+Source is in [chess_for_anki](chess_for_anki). Build with Python 3:
 
 ```text
 python scripts/build_addon.py
 ```
 
-The output is `dist/Chess for Anki.ankiaddon`. This version was tested on Windows with Anki 26.9.4. It rehearses saved lines; a live engine does not evaluate your moves during review. Mobile compatibility has not been established.
+The output is `dist/Chess for Anki.ankiaddon`. Windows with Anki desktop 26.9.4 is the tested platform; the preview passed isolated collection, importer and board checks. Compatibility with macOS, Linux and mobile has not been established. Review rehearses saved lines without a live analysis engine.
 
-## Support
-
-[Support development](SUPPORT.md) through Pix, LivePix or cryptocurrency.
-
-Licensed under [AGPL-3.0](LICENSE). Third-party notices are in [CREDITS.md](CREDITS.md).
+[Support development](SUPPORT.md) · [AGPL-3.0 license](LICENSE) · [Credits and third-party notices](CREDITS.md)

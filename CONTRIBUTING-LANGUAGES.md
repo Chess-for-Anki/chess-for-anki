@@ -4,8 +4,8 @@ Help translate commentary, record natural narration or review language and chess
 
 ## Get started in three steps
 
-1. **Choose a language and a role.** Tell us whether you want to translate, narrate or review. If you would like help choosing a task or finding collaborators, [start a Discussion](https://github.com/fernandomec/chess-for-anki-community/discussions). This is optional.
-2. **Share a small sample.** [Open a language contribution issue](https://github.com/fernandomec/chess-for-anki-community/issues/new?template=language_pack.yml) with your language, a short translation or recording link, and the license and credits. For a review, identify the phrase and suggest a correction. Use clear chess terminology; record narration at a natural base `1x` pace so users can choose their playback speed.
+1. **Choose a language and a role.** Tell us whether you want to translate, narrate or review. If you would like help choosing a task or finding collaborators, [start a Discussion](https://github.com/Chess-for-Anki/chess-for-anki/discussions). This is optional.
+2. **Share a small sample.** [Open a language contribution issue](https://github.com/Chess-for-Anki/chess-for-anki/issues/new?template=language_pack.yml) with your language, a short translation or recording link, and the license and credits. For a review, identify the phrase and suggest a correction. Use clear chess terminology; record narration at a natural base `1x` pace so users can choose their playback speed.
 3. **Refine it together.** The maintainer will review the wording, pronunciation and rights with you before publishing a pack. Agree on the phrase list before recording a full narrator. You may share test results if you have them; untested samples are welcome. Submissions are never downloaded, installed or executed automatically.
 
 For audio or full packs, share a stable download link, preferably an asset in your own GitHub release. Paste short text samples directly into the issue. Do not attach ZIP files or programs to the issue.

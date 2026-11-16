@@ -23,7 +23,7 @@ from .note_type import create_note
 from .position_editor import PositionEditor
 
 # Opened by the "Website" button on the tool page.
-WEBSITE_URL = "https://github.com/fernandomec/chess-for-anki-community"
+WEBSITE_URL = "https://github.com/Chess-for-Anki/chess-for-anki"
 CHESS_OCR_URL = "https://helpman.komtera.lt/"  # Helpmate Analyzer image->FEN tool
 
 
@@ -551,6 +551,21 @@ class ImportDialog(QDialog):
         self.start_pgn_edit.textChanged.connect(self._on_start_pgn_changed)
         reveal_v.addWidget(self.start_pgn_edit)
 
+        reveal_v.addWidget(QLabel('Previous move - required for a position already in play'))
+        self.previous_fen_edit=QLineEdit()
+        self.previous_fen_edit.setPlaceholderText('Position before the opponent\'s last move (full FEN)')
+        reveal_v.addWidget(self.previous_fen_edit)
+        self.previous_uci_edit=QLineEdit()
+        self.previous_uci_edit.setPlaceholderText('Opponent\'s last move, e.g. e7e5 or e1g1')
+        reveal_v.addWidget(self.previous_uci_edit)
+        self.previous_source=QComboBox()
+        self.previous_source.addItem('Actual previous move','user')
+        self.previous_source.addItem('Constructed setup move','constructed')
+        reveal_v.addWidget(self.previous_source)
+        hint=QLabel('A setup PGN fills these automatically. For a manual/FEN exercise, supply a legal preceding position and move.')
+        hint.setWordWrap(True)
+        reveal_v.addWidget(hint)
+
         # Manual-edit chip (hidden until a position is set via Manual Edit):
         # a status label + Reset, mirroring the moveset box's manual chip.
         self.pos_manual_chip = QWidget()
@@ -1019,6 +1034,7 @@ class ImportDialog(QDialog):
         # Reveal the Starting Position PGN area only for a Custom position.
         self.start_pos_reveal.setVisible(custom)
         if not custom:
+            self._set_previous_context(None)
             # Switching back to Opening discards any custom position and clears
             # the typed Starting Position PGN (dissolving a Manual Edit lock).
             if self.pos_manual_mode:
@@ -1063,6 +1079,7 @@ class ImportDialog(QDialog):
         # is applied when the card is studied). Like flipping a real board:
         # a pawn on e4 stays on e4.
         if self.custom_fen:
+            self._set_previous_context(None)
             new_stm = "b" if self.black_rb.isChecked() else "w"
             self.custom_fen = self._set_fen_side_to_move(self.custom_fen, new_stm)
         # A move sequence entered for one color is invalid for the other (the
@@ -1124,6 +1141,7 @@ class ImportDialog(QDialog):
         editor = PositionEditor(self, initial_fen=self.custom_fen,
                                 player_color=player_color)
         if editor.exec():
+            self._set_previous_context(None)
             self.custom_fen = getattr(editor, "result_fen", "")
             if self.custom_fen:
                 # A board-placed position overrides any typed Starting Position
@@ -1154,6 +1172,7 @@ class ImportDialog(QDialog):
     def _exit_pos_manual_mode(self):
         """Clear the Manual Edit position and return the box to typing mode."""
         self.pos_manual_mode = False
+        self._set_previous_context(None)
         self.custom_fen = ""
         self._start_pos_source = ""
         self.pos_manual_chip.setVisible(False)
@@ -1192,6 +1211,7 @@ class ImportDialog(QDialog):
             # Importing replaces a Manual Edit position; dissolve the lock first.
             self._exit_pos_manual_mode()
         self.custom_fen = self._set_fen_side_to_move(fen, stm)
+        self._keep_previous_for_position()
         # An imported file overrides any typed Starting Position PGN.
         self._clear_start_pgn_box()
         self._start_pos_source = "import"
@@ -1240,6 +1260,7 @@ class ImportDialog(QDialog):
             # Only clear a position that itself came from typing - never wipe one
             # set via Manual Edit or Import.
             if self._start_pos_source == "pgn":
+                self._set_previous_context(None)
                 self.custom_fen = ""
                 self._start_pos_source = ""
                 self.pos_status.setText("(not set)")
@@ -1249,12 +1270,14 @@ class ImportDialog(QDialog):
         except Exception:
             fen = ""
         if not fen:
+            self._set_previous_context(None)
             self.custom_fen = ""
             self._start_pos_source = "pgn"
             self.pos_status.setText("(not set)")
             return
         stm = "b" if self.black_rb.isChecked() else "w"
         self.custom_fen = self._set_fen_side_to_move(fen, stm)
+        self._keep_previous_for_position()
         self._start_pos_source = "pgn"
         self.pos_status.setText("✓ position set")
 
@@ -1278,28 +1301,14 @@ class ImportDialog(QDialog):
         return "/".join(rows) + f" {turn}"
 
     def _fen_from_pgn(self, text):
-        import re
-        m = re.search(r'\[FEN\s+"([^"]+)"\]', text)
-        if m:
-            return m.group(1).strip()
-        # No FEN tag - play the mainline and use the resulting position.
         try:
-            from .pgn_parser import expand_variations, read_pgn_file
-            from .chess_logic import _start_board, apply_san
-        except Exception:
+            from .previous_move import setup_from_pgn
+            fen,context=setup_from_pgn(text)
+            self._set_previous_context(context)
+            return fen
+        except ValueError:
+            self._set_previous_context(None)
             return ""
-        lines = expand_variations(text)
-        if not lines or not lines[0]:
-            return ""
-        board, turn = _start_board()
-        ep = None
-        for san in lines[0]:
-            try:
-                ep = apply_san(board, turn, san, ep)
-                turn = "b" if turn == "w" else "w"
-            except Exception:
-                break          # stop at the first move we can't apply
-        return self._board_to_fen(board, turn)
 
     def _fen_from_text(self, text):
         """Return a FEN from text that may be a bare FEN, a PGN with a
@@ -1309,8 +1318,24 @@ class ImportDialog(QDialog):
         if not t:
             return ""
         if _is_valid_fen(t):
+            self._set_previous_context(None)
             return t
         return self._fen_from_pgn(t)
+
+    def _set_previous_context(self,context):
+        if not hasattr(self,'previous_fen_edit'):return
+        self.previous_fen_edit.setText(context['before_fen'] if context else '')
+        self.previous_uci_edit.setText(context['uci'] if context else '')
+        self.previous_source.setCurrentIndex(1 if context and context.get('source')=='constructed' else 0)
+
+    def _previous_context(self):
+        from . import previous_move
+        data={'schema':1,'before_fen':self.previous_fen_edit.text().strip(),'uci':self.previous_uci_edit.text().strip().lower(),'source':self.previous_source.currentData()}
+        return previous_move.validate(data,self.custom_fen)
+
+    def _keep_previous_for_position(self):
+        try:self._previous_context()
+        except ValueError:self._set_previous_context(None)
 
     def _make_pin(self, which):
         """A small check to keep this field's value for the next card. The
@@ -1364,6 +1389,7 @@ class ImportDialog(QDialog):
             if self._pinned("startpos"):
                 c["sticky_val_startpos_fen"] = (
                     self.custom_fen if self.custom_rb.isChecked() else "")
+                c['sticky_val_previous_move']=self._previous_context() if self.custom_rb.isChecked() else None
             if self._pinned("book"):
                 c["sticky_val_book"] = self.book_notes_edit.toHtml()
             if self._pinned("personal"):
@@ -1406,6 +1432,8 @@ class ImportDialog(QDialog):
                     self.deck_combo.setCurrentIndex(idx)
             if c.get("sticky_startpos") and c.get("sticky_val_startpos_fen"):
                 self._restore_custom_position(c["sticky_val_startpos_fen"])
+                self._set_previous_context(c.get('sticky_val_previous_move'))
+                self._keep_previous_for_position()
         except Exception:
             pass
 
@@ -1538,6 +1566,12 @@ class ImportDialog(QDialog):
             return
 
         start_fen = self.custom_fen if use_custom else ""
+        previous_context=''
+        if use_custom:
+            try:previous_context=self._previous_context()
+            except ValueError as error:
+                showWarning(str(error)+'\nFill the previous position and last move before adding this exercise.')
+                return
 
         # Expand any variations into separate complete lines
         try:
@@ -1609,6 +1643,7 @@ class ImportDialog(QDialog):
                 book_notes=book_notes_text,
                 personal_notes=personal_notes_text,
                 brilliant_moves=brilliant_data,
+                previous_move=previous_context,
             )
             if tag_list:
                 note.tags = list(tag_list)

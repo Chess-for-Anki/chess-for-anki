@@ -1,0 +1,279 @@
+[Event "Italian Game - prepare the centre · White"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Learner"]
+[Black "Saved line"]
+[Result "*"]
+
+1. e4 { White occupies e4, gaining central space and opening lines for the bishop and queen. } 1... e5 { Black occupies e5 and contests the centre with a pawn of its own. } 2. Nf3 { White develops the knight to f3 and attacks the pawn on e5. } 2... Nc6 { Black develops the knight to c6 and protects e5. } 3. Bc4 { White develops the bishop to c4, where it looks along the diagonal toward f7. This does not by itself create a forced attack. } 3... Bc5 { Black develops the bishop to c5, bringing a piece into play on an active diagonal. } 4. d3 { White supports e4 with d3 and opens the diagonal for the bishop on c1. } 4... Nf6 { Black develops the knight to f6 and puts pressure on e4. } 5. O-O { White castles kingside, moving the king away from the centre and bringing the rook closer to the central files. } 5... d6 { Black supports e5 with d6 and opens the other bishop's diagonal. } 6. c3 { White plays c3 to support a possible d4 advance. The pawn move also changes the squares available to the queenside knight. } 6... O-O { Black castles kingside. Both kings are now sheltered while the central pawns remain in place. } 7. Re1 { White brings the rook to e1 to support e4 and prepare central play. } 7... a6 { Black advances the a-pawn, gaining a little space and making a7 available as a retreat square for the bishop. } 8. Bb3 { White moves the bishop to b3, keeping its diagonal toward the centre and Black's kingside. } 8... Ba7 { Black retreats the bishop to a7, retaining the diagonal toward f2. } 9. Nbd2 { White develops the queenside knight to d2, where it supports e4 and can be rerouted. } 9... h6 { Black plays h6, controlling g5 and giving the king a possible escape square later. } 10. Nf1 { White reroutes the knight to f1. From there it can go toward g3 or e3 after checking the position. } 10... Be6 { Black develops the remaining bishop to e6. This is a useful stopping point for the lesson: both sides now choose a middlegame plan, rather than follow a single forced continuation. } *
+
+[Event "Italian Game - prepare the centre · Black"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Saved line"]
+[Black "Learner"]
+[Result "*"]
+
+1. e4 { White occupies e4, gaining central space and opening lines for the bishop and queen. } 1... e5 { Black occupies e5 and contests the centre with a pawn of its own. } 2. Nf3 { White develops the knight to f3 and attacks the pawn on e5. } 2... Nc6 { Black develops the knight to c6 and protects e5. } 3. Bc4 { White develops the bishop to c4, where it looks along the diagonal toward f7. This does not by itself create a forced attack. } 3... Bc5 { Black develops the bishop to c5, bringing a piece into play on an active diagonal. } 4. d3 { White supports e4 with d3 and opens the diagonal for the bishop on c1. } 4... Nf6 { Black develops the knight to f6 and puts pressure on e4. } 5. O-O { White castles kingside, moving the king away from the centre and bringing the rook closer to the central files. } 5... d6 { Black supports e5 with d6 and opens the other bishop's diagonal. } 6. c3 { White plays c3 to support a possible d4 advance. The pawn move also changes the squares available to the queenside knight. } 6... O-O { Black castles kingside. Both kings are now sheltered while the central pawns remain in place. } 7. Re1 { White brings the rook to e1 to support e4 and prepare central play. } 7... a6 { Black advances the a-pawn, gaining a little space and making a7 available as a retreat square for the bishop. } 8. Bb3 { White moves the bishop to b3, keeping its diagonal toward the centre and Black's kingside. } 8... Ba7 { Black retreats the bishop to a7, retaining the diagonal toward f2. } 9. Nbd2 { White develops the queenside knight to d2, where it supports e4 and can be rerouted. } 9... h6 { Black plays h6, controlling g5 and giving the king a possible escape square later. } 10. Nf1 { White reroutes the knight to f1. From there it can go toward g3 or e3 after checking the position. } 10... Be6 { Black develops the remaining bishop to e6. This is a useful stopping point for the lesson: both sides now choose a middlegame plan, rather than follow a single forced continuation. } *
+
+[Event "Queen's Gambit Declined - complete development · White"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Learner"]
+[Black "Saved line"]
+[Result "*"]
+
+1. d4 { White places a pawn on d4, taking central space and opening the bishop's diagonal. } 1... d5 { Black occupies d5 and prevents White from taking the entire centre without a challenge. } 2. c4 { White attacks d5 with the c-pawn. The pawn exchange is a way to influence the centre. } 2... e6 { Black supports d5 with e6 instead of taking c4. This is the Queen's Gambit Declined. } 3. Nc3 { White develops the knight to c3 and adds pressure to d5. } 3... Nf6 { Black develops the knight to f6, supporting d5 and preparing to castle. } 4. Nf3 { White develops the other knight and protects the pawn on d4. } 4... Be7 { Black brings the bishop to e7 and clears the way for kingside castling. } 5. Bg5 { White develops the bishop actively to g5. The bishop on e7 means there is no direct pin of the knight to the queen here. } 5... O-O { Black castles kingside, placing the king behind its pawns. } 6. e3 { White supports d4 with e3 and opens the diagonal for the bishop on f1. } 6... h6 { Black asks the bishop on g5 to decide whether to retreat or exchange. } 7. Bh4 { White keeps the bishop with Bh4. The bishop remains aimed along the kingside diagonal. } 7... b6 { Black prepares to develop the bishop to b7, where it can influence the central diagonal. } 8. cxd5 { White exchanges the c-pawn for the pawn on d5, beginning to clarify the centre. } 8... Nxd5 { Black recaptures with the knight, putting a piece on the central square d5. } 9. Bxe7 { White exchanges the bishop for Black's bishop on e7. } 9... Qxe7 { Black recaptures with the queen and keeps the material balance. } 10. Nxd5 { White exchanges the knight on c3 for the knight on d5. } 10... exd5 { Black recaptures with the e-pawn. The pawn structure now gives both sides a new set of central plans. } 11. Bd3 { White develops the bishop to d3, aiming toward Black's kingside and preparing to castle. } 11... Bb7 { Black completes bishop development on b7, directing it toward the centre. } 12. O-O { White castles kingside. The remaining choices concern middlegame plans and piece activity; other playable opening continuations also exist. } *
+
+[Event "Queen's Gambit Declined - complete development · Black"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Saved line"]
+[Black "Learner"]
+[Result "*"]
+
+1. d4 { White places a pawn on d4, taking central space and opening the bishop's diagonal. } 1... d5 { Black occupies d5 and prevents White from taking the entire centre without a challenge. } 2. c4 { White attacks d5 with the c-pawn. The pawn exchange is a way to influence the centre. } 2... e6 { Black supports d5 with e6 instead of taking c4. This is the Queen's Gambit Declined. } 3. Nc3 { White develops the knight to c3 and adds pressure to d5. } 3... Nf6 { Black develops the knight to f6, supporting d5 and preparing to castle. } 4. Nf3 { White develops the other knight and protects the pawn on d4. } 4... Be7 { Black brings the bishop to e7 and clears the way for kingside castling. } 5. Bg5 { White develops the bishop actively to g5. The bishop on e7 means there is no direct pin of the knight to the queen here. } 5... O-O { Black castles kingside, placing the king behind its pawns. } 6. e3 { White supports d4 with e3 and opens the diagonal for the bishop on f1. } 6... h6 { Black asks the bishop on g5 to decide whether to retreat or exchange. } 7. Bh4 { White keeps the bishop with Bh4. The bishop remains aimed along the kingside diagonal. } 7... b6 { Black prepares to develop the bishop to b7, where it can influence the central diagonal. } 8. cxd5 { White exchanges the c-pawn for the pawn on d5, beginning to clarify the centre. } 8... Nxd5 { Black recaptures with the knight, putting a piece on the central square d5. } 9. Bxe7 { White exchanges the bishop for Black's bishop on e7. } 9... Qxe7 { Black recaptures with the queen and keeps the material balance. } 10. Nxd5 { White exchanges the knight on c3 for the knight on d5. } 10... exd5 { Black recaptures with the e-pawn. The pawn structure now gives both sides a new set of central plans. } 11. Bd3 { White develops the bishop to d3, aiming toward Black's kingside and preparing to castle. } 11... Bb7 { Black completes bishop development on b7, directing it toward the centre. } 12. O-O { White castles kingside. The remaining choices concern middlegame plans and piece activity; other playable opening continuations also exist. } *
+
+[Event "Scotch Game - exchange and develop · White"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Learner"]
+[Black "Saved line"]
+[Result "*"]
+
+1. e4 { White occupies e4 and opens lines for the bishop and queen. } 1... e5 { Black meets White in the centre with e5. } 2. Nf3 { White develops the knight to f3 and attacks e5. } 2... Nc6 { Black develops the knight to c6 and defends the central pawn. } 3. d4 { White challenges the centre immediately with d4. This starts the Scotch Game. } 3... exd4 { Black exchanges the e-pawn for White's pawn on d4. } 4. Nxd4 { White recaptures with the knight and places it in the centre. } 4... Bc5 { Black develops the bishop to c5, putting pressure on the knight on d4. } 5. Be3 { White develops the bishop to e3 and gives the knight additional support. } 5... Qf6 { Black brings the queen to f6, adding pressure along the f-file and toward the centre. } 6. c3 { White supports d4 with c3 and gives the central knight a more secure base. } 6... Nge7 { Black develops the knight to e7, keeping the f-pawn free and preparing to castle. } 7. Bc4 { White develops the bishop to c4, pointing toward the kingside. } 7... Ne5 { Black brings the queenside knight to e5, gaining central activity and attacking the bishop on c4. } 8. Be2 { White retreats the bishop to e2, keeping it safe and clearing the way to castle. } 8... d6 { Black plays d6 to support the centre and open the diagonal for the remaining bishop. } 9. O-O { White castles kingside and brings the rook closer to the central files. } 9... O-O { Black castles kingside as well. Each side now has a safer king before further central play. } 10. Nd2 { White develops the last knight to d2. With the kings castled, the next lesson is to compare central breaks and improve the remaining pieces rather than memorize a supposed final opening move. } *
+
+[Event "Scotch Game - exchange and develop · Black"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Saved line"]
+[Black "Learner"]
+[Result "*"]
+
+1. e4 { White occupies e4 and opens lines for the bishop and queen. } 1... e5 { Black meets White in the centre with e5. } 2. Nf3 { White develops the knight to f3 and attacks e5. } 2... Nc6 { Black develops the knight to c6 and defends the central pawn. } 3. d4 { White challenges the centre immediately with d4. This starts the Scotch Game. } 3... exd4 { Black exchanges the e-pawn for White's pawn on d4. } 4. Nxd4 { White recaptures with the knight and places it in the centre. } 4... Bc5 { Black develops the bishop to c5, putting pressure on the knight on d4. } 5. Be3 { White develops the bishop to e3 and gives the knight additional support. } 5... Qf6 { Black brings the queen to f6, adding pressure along the f-file and toward the centre. } 6. c3 { White supports d4 with c3 and gives the central knight a more secure base. } 6... Nge7 { Black develops the knight to e7, keeping the f-pawn free and preparing to castle. } 7. Bc4 { White develops the bishop to c4, pointing toward the kingside. } 7... Ne5 { Black brings the queenside knight to e5, gaining central activity and attacking the bishop on c4. } 8. Be2 { White retreats the bishop to e2, keeping it safe and clearing the way to castle. } 8... d6 { Black plays d6 to support the centre and open the diagonal for the remaining bishop. } 9. O-O { White castles kingside and brings the rook closer to the central files. } 9... O-O { Black castles kingside as well. Each side now has a safer king before further central play. } 10. Nd2 { White develops the last knight to d2. With the kings castled, the next lesson is to compare central breaks and improve the remaining pieces rather than memorize a supposed final opening move. } *
+
+[Event "London System - develop with a plan · White"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Learner"]
+[Black "Saved line"]
+[Result "*"]
+
+1. d4 { White occupies d4 and takes central space. } 1... d5 { Black occupies d5 and contests the centre. } 2. Nf3 { White develops the kingside knight, supporting d4 and preparing to castle. } 2... Nf6 { Black develops the kingside knight to f6 and supports d5. } 3. Bf4 { White develops the bishop to f4 before placing the e-pawn on e3. } 3... e6 { Black supports d5 with e6 and opens the diagonal for the bishop on f8. } 4. e3 { White supports d4 with e3 and opens the light-squared bishop's diagonal. } 4... c5 { Black challenges d4 with c5. A familiar setup still requires attention to the opponent's central play. } 5. c3 { White adds support to d4 with c3, building a compact central structure. } 5... Nc6 { Black develops the queenside knight to c6 and increases pressure on the centre. } 6. Nbd2 { White develops the other knight to d2. It helps control e4 and leaves the c-pawn in place. } 6... Bd6 { Black develops the bishop to d6, offering an exchange of the active bishop on f4. } 7. Bg3 { White keeps that bishop by retreating to g3. } 7... O-O { Black castles kingside and moves the king away from the central tension. } 8. Bd3 { White develops the bishop to d3 and points it toward Black's kingside. } 8... b6 { Black prepares a home for the remaining bishop on b7. } 9. Qe2 { White brings the queen to e2, adding support to e4 and preparing to connect the rooks by castling. } 9... Bb7 { Black develops the bishop to b7, where it looks toward the centre. } 10. O-O { White castles kingside. The basic setup is in place; deciding whether to prepare e4 or improve a piece now depends on the position. } *
+
+[Event "London System - develop with a plan · Black"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Saved line"]
+[Black "Learner"]
+[Result "*"]
+
+1. d4 { White occupies d4 and takes central space. } 1... d5 { Black occupies d5 and contests the centre. } 2. Nf3 { White develops the kingside knight, supporting d4 and preparing to castle. } 2... Nf6 { Black develops the kingside knight to f6 and supports d5. } 3. Bf4 { White develops the bishop to f4 before placing the e-pawn on e3. } 3... e6 { Black supports d5 with e6 and opens the diagonal for the bishop on f8. } 4. e3 { White supports d4 with e3 and opens the light-squared bishop's diagonal. } 4... c5 { Black challenges d4 with c5. A familiar setup still requires attention to the opponent's central play. } 5. c3 { White adds support to d4 with c3, building a compact central structure. } 5... Nc6 { Black develops the queenside knight to c6 and increases pressure on the centre. } 6. Nbd2 { White develops the other knight to d2. It helps control e4 and leaves the c-pawn in place. } 6... Bd6 { Black develops the bishop to d6, offering an exchange of the active bishop on f4. } 7. Bg3 { White keeps that bishop by retreating to g3. } 7... O-O { Black castles kingside and moves the king away from the central tension. } 8. Bd3 { White develops the bishop to d3 and points it toward Black's kingside. } 8... b6 { Black prepares a home for the remaining bishop on b7. } 9. Qe2 { White brings the queen to e2, adding support to e4 and preparing to connect the rooks by castling. } 9... Bb7 { Black develops the bishop to b7, where it looks toward the centre. } 10. O-O { White castles kingside. The basic setup is in place; deciding whether to prepare e4 or improve a piece now depends on the position. } *
+
+[Event "Sicilian Defence - open central files · White"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Learner"]
+[Black "Saved line"]
+[Result "*"]
+
+1. e4 { White occupies e4, taking central space and opening lines for the pieces. } 1... c5 { Black plays c5, controlling d4 from the flank and entering the Sicilian Defence. } 2. Nf3 { White develops the knight to f3 and prepares a central d4 advance. } 2... d6 { Black supports the central squares with d6 and opens the bishop's diagonal. } 3. d4 { White challenges the centre with d4. } 3... cxd4 { Black exchanges the c-pawn for the pawn on d4, opening the c-file. } 4. Nxd4 { White recaptures with the knight, placing it actively in the centre. } 4... Nf6 { Black develops the knight to f6 and attacks e4. } 5. Nc3 { White develops the knight to c3 and defends e4. } 5... Nc6 { Black develops the queenside knight to c6 and increases central influence. } 6. Be2 { White develops the bishop to e2 and prepares to castle. } 6... e6 { Black supports d5 with e6 and opens the diagonal for the bishop on f8. } 7. O-O { White castles kingside, sheltering the king before further central action. } 7... Be7 { Black develops the bishop to e7 and prepares to castle too. } 8. Be3 { White develops the bishop to e3, supporting the centre and coordinating the pieces. } 8... O-O { Black castles kingside. Both sides have brought the king to safety. } 9. f4 { White advances the f-pawn to gain space and support e5. Pawn advances also leave squares behind, so further play must be calculated. } 9... a6 { Black controls b5 with a6 and prepares possible queenside expansion. } 10. Kh1 { White moves the king to h1, leaving the diagonal toward b6 and making room for future rook coordination. } 10... Qc7 { Black places the queen on c7, where it supports central and queenside play. } 11. Qe1 { White moves the queen to e1, connecting the pieces and keeping several plans available. This is a teaching transition to the middlegame, not a claim that the opening has one exact finishing point. } *
+
+[Event "Sicilian Defence - open central files · Black"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Saved line"]
+[Black "Learner"]
+[Result "*"]
+
+1. e4 { White occupies e4, taking central space and opening lines for the pieces. } 1... c5 { Black plays c5, controlling d4 from the flank and entering the Sicilian Defence. } 2. Nf3 { White develops the knight to f3 and prepares a central d4 advance. } 2... d6 { Black supports the central squares with d6 and opens the bishop's diagonal. } 3. d4 { White challenges the centre with d4. } 3... cxd4 { Black exchanges the c-pawn for the pawn on d4, opening the c-file. } 4. Nxd4 { White recaptures with the knight, placing it actively in the centre. } 4... Nf6 { Black develops the knight to f6 and attacks e4. } 5. Nc3 { White develops the knight to c3 and defends e4. } 5... Nc6 { Black develops the queenside knight to c6 and increases central influence. } 6. Be2 { White develops the bishop to e2 and prepares to castle. } 6... e6 { Black supports d5 with e6 and opens the diagonal for the bishop on f8. } 7. O-O { White castles kingside, sheltering the king before further central action. } 7... Be7 { Black develops the bishop to e7 and prepares to castle too. } 8. Be3 { White develops the bishop to e3, supporting the centre and coordinating the pieces. } 8... O-O { Black castles kingside. Both sides have brought the king to safety. } 9. f4 { White advances the f-pawn to gain space and support e5. Pawn advances also leave squares behind, so further play must be calculated. } 9... a6 { Black controls b5 with a6 and prepares possible queenside expansion. } 10. Kh1 { White moves the king to h1, leaving the diagonal toward b6 and making room for future rook coordination. } 10... Qc7 { Black places the queen on c7, where it supports central and queenside play. } 11. Qe1 { White moves the queen to e1, connecting the pieces and keeping several plans available. This is a teaching transition to the middlegame, not a claim that the opening has one exact finishing point. } *
+
+[Event "Find the forcing finish · White"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Learner"]
+[Black "Saved line"]
+[Result "*"]
+[FEN "4kb1r/p2n1ppp/4q3/4p1B1/4P3/1Q6/PPP2PPP/2KR4 w k - 0 16"]
+[SetUp "1"]
+[PreviousFEN "4kb1r/p2B1ppp/4qn2/4p1B1/4P3/1Q6/PPP2PPP/2KR4 b k - 0 15"]
+[PreviousMove "f6d7"]
+[PreviousSource "historical"]
+
+16. Qb8+ $3 { The queen gives check on b8 and invites the knight to leave d7. Calculate the rook entry before giving up the queen. } 16... Nxb8 { The knight takes the queen but vacates d7. This removes the last obstruction from the d-file. } 17. Rd8# { The rook reaches d8 with mate. The bishop on g5 protects d8, so the king cannot capture the rook. } *
+
+[Event "Keep the initiative · White"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Learner"]
+[Black "Saved line"]
+[Result "*"]
+[FEN "rnb1kb1r/pp3ppp/2p5/4q3/4n3/3Q4/PPPB1PPP/2KR1BNR w kq - 0 9"]
+[SetUp "1"]
+[PreviousFEN "rnb1kb1r/pp3ppp/2p2n2/4q3/4N3/3Q4/PPPB1PPP/2KR1BNR b kq - 1 8"]
+[PreviousMove "f6e4"]
+[PreviousSource "historical"]
+
+9. Qd8+ $3 { The checking queen offer draws the king to d8. The bishop on d2 still blocks the rook, which is why the king can legally accept it. } 9... Kxd8 { The king takes the queen on d8. White now has a way to attack it with two pieces at once. } 10. Bg5+ { The bishop leaves d2 and checks along the diagonal to d8, uncovering a rook check on the d-file at the same time. Double check must be answered by a king move. } 10... Kc7 { The king escapes to c7 in the published mating continuation. Ke8 is the other legal retreat and is answered by Rd8 mate. } 11. Bd8# { The bishop returns to d8 with mate, protected along the file by the rook. This demonstrates the finish after the resignation recorded in contemporary accounts. } *
+
+[Event "Open the final route · Black"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Saved line"]
+[Black "Learner"]
+[Result "*"]
+[FEN "2k1rb1r/ppp3pp/2n2q2/3B1b2/5P2/2P1BQ2/PP1N1P1P/2KR3R b - - 0 14"]
+[SetUp "1"]
+[PreviousFEN "2k1rb1r/ppp3pp/2n2q2/3p1b2/2B2P2/2P1BQ2/PP1N1P1P/2KR3R w - - 0 14"]
+[PreviousMove "c4d5"]
+[PreviousSource "historical"]
+
+14... Qxc3+ $3 { The queen captures on c3 with check, offering itself to the b-pawn. Removing that pawn from b2 will open the diagonal needed by the other bishop. } 15. bxc3 { The pawn accepts the queen and leaves b2. The material gain opens a direct route from a3 to the king on c1. } 15... Ba3# { The bishop enters a3 with mate. The bishop on f5 covers key escape squares, while White's own pieces obstruct the king. } *
+
+[Event "Endgame 01 - find a useful move · White"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Learner"]
+[Black "Saved line"]
+[Result "*"]
+[FEN "4k3/8/4K3/4P3/8/8/8/8 w - - 0 1"]
+[SetUp "1"]
+[PreviousFEN "3k4/8/4K3/4P3/8/8/8/8 b - - 0 1"]
+[PreviousMove "d8e8"]
+[PreviousSource "constructed"]
+
+1. Kd6 { White brings the king to d6. In a reduced ending the king can support a passer or restrict the opposing king. } *
+
+[Event "Endgame 02 - keep the result · White"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Learner"]
+[Black "Saved line"]
+[Result "*"]
+[FEN "k7/8/K7/P7/8/8/8/8 w - - 0 1"]
+[SetUp "1"]
+[PreviousFEN "1k6/8/K7/P7/8/8/8/8 b - - 0 1"]
+[PreviousMove "b8a8"]
+[PreviousSource "constructed"]
+
+1. Kb5 { White brings the king to b5. In a reduced ending the king can support a passer or restrict the opposing king. } *
+
+[Event "Endgame 03 - choose the route · Black"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Saved line"]
+[Black "Learner"]
+[Result "*"]
+[FEN "8/8/8/P3k3/8/8/8/7K b - - 0 1"]
+[SetUp "1"]
+[PreviousFEN "8/8/8/4k3/P7/8/8/7K w - - 0 1"]
+[PreviousMove "a4a5"]
+[PreviousSource "constructed"]
+
+1... Kd5 { Black brings the king to d5. In a reduced ending the king can support a passer or restrict the opposing king. } *
+
+[Event "Middlegame 01 - compare the candidates · White"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Learner"]
+[Black "Saved line"]
+[Result "*"]
+[FEN "r1bq1rk1/bpp2ppp/p1np1n2/4p3/4P3/1BPP1N2/PP3PPP/RNBQR1K1 w - - 2 9"]
+[SetUp "1"]
+[PreviousFEN "r1bq1rk1/1pp2ppp/p1np1n2/2b1p3/4P3/1BPP1N2/PP3PPP/RNBQR1K1 b - - 1 8"]
+[PreviousMove "c5a7"]
+[PreviousSource "constructed"]
+
+9. Nbd2 { White develops the knight from b1 to d2, bringing another piece into the game. } *
+
+[Event "Middlegame 02 - improve the position · Black"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Saved line"]
+[Black "Learner"]
+[Result "*"]
+[FEN "r1b2rk1/pp2qppp/2n1p3/8/3P4/2PB1N2/P4PPP/R2Q1RK1 b - - 0 12"]
+[SetUp "1"]
+[PreviousFEN "r1b2rk1/pp2qppp/2n1p3/8/3P4/2nB1N2/PP3PPP/R2Q1RK1 w - - 0 12"]
+[PreviousMove "b2c3"]
+[PreviousSource "constructed"]
+
+12... b6 { Black pushes the pawn from b7 to b6. Pawn moves change the structure permanently, so inspect the squares left behind. } *
+
+[Event "Middlegame 03 - choose a plan · White"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Learner"]
+[Black "Saved line"]
+[Result "*"]
+[FEN "rn1q1rk1/1p2bppp/p2pbn2/4p3/4P3/1NN1B3/PPP1BPPP/R2Q1RK1 w - - 6 10"]
+[SetUp "1"]
+[PreviousFEN "rnbq1rk1/1p2bppp/p2p1n2/4p3/4P3/1NN1B3/PPP1BPPP/R2Q1RK1 b - - 5 9"]
+[PreviousMove "c8e6"]
+[PreviousSource "constructed"]
+
+10. Nd5 { White moves the knight from c3 to d5, changing its reach and coordinating with the remaining pieces. The moved piece attacks knight on f6, bishop on e7. An attack alone does not mean that a capture wins material. } *
+
+[Event "Tactics 01 - find the continuation · White"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Learner"]
+[Black "Saved line"]
+[Result "*"]
+[FEN "4q1k1/5p1p/8/3N4/8/8/8/R5K1 w - - 0 1"]
+[SetUp "1"]
+[PreviousFEN "6k1/3q1p1p/8/3N4/8/8/8/R5K1 b - - 0 1"]
+[PreviousMove "d7e8"]
+[PreviousSource "constructed"]
+
+1. Nf6+ { White moves the knight from d5 to f6, changing its reach and coordinating with the remaining pieces. The moved piece attacks queen on e8, pawn on h7. An attack alone does not mean that a capture wins material. This gives check, so the opponent must first answer the attack on the king. } 1... Kf8 { Black brings the king to f8. In a reduced ending the king can support a passer or restrict the opposing king. } 2. Nxe8 { White captures the queen on e8. } *
+
+[Event "Tactics 02 - calculate the sequence · Black"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Saved line"]
+[Black "Learner"]
+[Result "*"]
+[FEN "6k1/5ppp/8/2b5/8/8/3K4/4R3 b - - 0 1"]
+[SetUp "1"]
+[PreviousFEN "6k1/5ppp/8/2b5/8/8/3K4/3R4 w - - 0 1"]
+[PreviousMove "d1e1"]
+[PreviousSource "constructed"]
+
+1... Bb4+ { Black moves the bishop from c5 to b4, changing its reach and coordinating with the remaining pieces. This gives check, so the opponent must first answer the attack on the king. } 2. Kd1 { White brings the king to d1. In a reduced ending the king can support a passer or restrict the opposing king. } 2... Bxe1 { Black captures the rook on e1. White can recapture the bishop with the king, but Black has won a rook for a bishop: a gain of the exchange, not a free rook. } *
+
+[Event "Tactics 03 - inspect the position · White"]
+[Site "Chess for Anki"]
+[Date "2026.11.16"]
+[Round "?"]
+[White "Learner"]
+[Black "Saved line"]
+[Result "*"]
+[FEN "4q1k1/5p1p/8/8/2B5/8/5PPP/4R1K1 w - - 0 1"]
+[SetUp "1"]
+[PreviousFEN "6k1/3q1p1p/8/8/2B5/8/5PPP/4R1K1 b - - 0 1"]
+[PreviousMove "d7e8"]
+[PreviousSource "constructed"]
+
+1. Rxe8+ { White captures the queen on e8. This gives check, so the opponent must first answer the attack on the king. } *

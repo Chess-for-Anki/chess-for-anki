@@ -1,70 +1,64 @@
-# Chess for Anki training guide
+# Train with Chess for Anki
 
-Chess for Anki lets you rehearse a prepared chess line on an interactive board. It supplies the opponent's next move from that line. The reviewer does not run a live engine or choose a new defence while you play.
+The 1.6.0 preview includes a separate free sample of **22 cards**, checked through isolated export, reimport and board tests. Installing the extension creates no cards; import the separate `.apkg` or create your own material.
 
-## Start with a small repertoire
+## Choose a lesson
 
-Install the add-on, then open its Home screen from **Chess for Anki** in Anki's menu. Installing the add-on does not add cards. Use **Download starter deck** to obtain the free collection, or create your own cards from PGN. Import a downloaded `.apkg` through Anki's normal import command.
+The sample has five opening lessons for both sides, plus three examples each of Brilliancy, endgames, middlegame decisions and tactics. Opening families are the Italian Game, Queen's Gambit Declined, Scotch Game, London System and Sicilian Defence.
 
-Choose one opening family with White and a response to common first moves with Black. Study the plan before adding more branches. The free collection includes a defence against Scholar's Mate; the attack is a demonstration of how to punish a specific error, not a forced win from the starting position.
+Opening lessons stop at a useful transition to a middlegame plan. There is no universal move that ends an opening. These are prepared examples with explanations, not complete repertoires. Another legal move may also be good chess.
 
-## Use the demonstration to understand a move
+The older 30-card Foundations and 60-card Starter remain available as [earlier free downloads](decks/README.md).
 
-On the first viewing, the optional demonstration waits for you to choose **Next move**. **Previous move** returns to the preceding position. Read the explanation below the board and ask what changed: central control, development, a threat, king safety, or the pawn structure.
+## Understand, then recall
 
-Use **Start practice** or **Resume practice** when ready. **Show demo** reopens the explanation during a round. Message history preserves the displayed narration and explanations for reference. Using the demonstration or a hint makes that attempt assisted; finishing an assisted attempt is different from recalling the line independently.
+Use **Next move** and **Previous move** to step through the demonstration. Read the explanation and ask what changed: development, central control, a threat, king safety or the pawn structure.
 
-The basic narrator uses an available device voice. Higher-quality voice recordings are optional downloads, separate from the add-on. A recording pack covers only the phrases and explanations it contains; newer or unmatched explanations can use device speech instead. Change playback speed in the card controls or in Settings.
+Choose **Start practice**. Select or drag a piece; the opponent supplies the next saved reply. **Show demo** reopens the explanation, and **Resume practice** returns to the attempt. Revealing a move or using a hint makes that attempt assisted.
 
-## Practise the line
+**Restart** retries now. **End round** ends an unfinished attempt and reveals the answer. **Repeat later** uses Anki's Again rating.
 
-Select a piece and its destination, or drag the piece. After a correct move, the prepared opponent reply plays automatically. A different legal move may be good chess and still differ from the repertoire being rehearsed. The response is a cue to recall this line, not an engine verdict that your move loses.
+## Starting context
 
-The opening levels limit the number of moves per side:
+Custom-position exercises show the move that led to the starting position. **Previous move** identifies recorded or user-supplied context; **Setup move** identifies a legal constructed setup, without claiming it was historically played.
 
-| Level | Moves per side |
+The setup move is not part of the solution and does not increase its depth. New custom cards require this context. A setup PGN supplies it automatically; for a FEN or manually placed position, provide the preceding full FEN, the opponent's coordinate move and the appropriate source label. Changing the position or player colour can invalidate the context.
+
+## Levels and rating
+
+| Opening level | Moves per side |
 | --- | --- |
 | Noobie | 4 |
 | Beginner | 8 |
 | Intermediate | 12 |
 | Advanced | 20 |
-| HACKER | Full stored line |
+| HACKER | Full saved line |
 
-A short line ends at its actual length. Raising the level does not create new moves. Progression requires different rehearsed lines completed at the level's depth without assistance and rated Good or Easy. Branches with the same rehearsed prefix count once at that level. Custom-position exercises use their full stored continuation rather than an opening depth.
+Short lines stop at their actual end. Custom-position exercises use the full continuation. Three different sufficiently long lines, completed without assistance and rated Good or Easy, advance the opening level. Branches with the same rehearsed prefix count once.
 
-**Restart** repeats the current attempt. **End round** ends an unfinished attempt and reveals the answer. It is not a declaration that you solved it. After revealing an answer, **Repeat later** uses Anki's Again rating.
+- **Again:** you forgot or needed to see the answer.
+- **Hard:** correct recall with substantial difficulty.
+- **Good:** correct recall with ordinary effort.
+- **Easy:** immediate, confident recall.
 
-## Rate recall honestly
+Rate independent recall. Completing the sequence after hints does not mean you recalled it unaided.
 
-The board completing a sequence does not replace your Anki rating:
+## Brilliancy and other exercises
 
-- **Again**: you could not recall the required move or needed to see the answer.
-- **Hard**: you recalled it correctly with substantial difficulty.
-- **Good**: you recalled it correctly with ordinary effort.
-- **Easy**: you recalled it immediately and confidently.
+The turquoise `!!` marks a curated key move. It is an editorial teaching annotation, not automatic analysis of every move you play. Highlight, sound and particles have separate Settings controls; sound also follows the main sound switch.
 
-Judge your independent recall, not whether the last move eventually appeared on the board. When you need a hint, study why it was needed and try again later. Avoid marking Easy just to move a difficult card out of the queue.
+Some endgame and middlegame exercises accept equivalent moves. The answer can show one model continuation without proving it is unique. Read the task and notes. A short endgame decision does not teach the entire technique.
 
-## What the free decks cover
+## Make your own cards
 
-Foundations contains 30 cards for opening plans, basic threats, short mate patterns and promotion. The earlier starter has 60 cards and remains free. Both-side repertoire cards count separately.
+Choose **Chess for Anki > Create cards / Import PGN**. Set a title, deck and playing colour. Use **Opening** for the usual position; paste PGN or use **Manual Input**.
 
-The opening cards rehearse a prepared line. Other legal moves may also be good. Scholar's Mate demonstrates how to punish a specific mistake and how to defend; it is not a forced win from the initial position. Historical examples can contain mistakes, so follow the critical comments and stronger alternatives rather than treating every recorded move as best play.
+For a custom exercise, choose your colour first and select **Custom**. Paste a setup PGN ending just before your first solution move, or use FEN/**Manual Edit** and fill the previous-move fields. Enter the solution separately in **Moveset PGN**. Only share content you have the right to distribute.
 
-## Build a repeatable routine
+Start with few new lessons. Review missed explanations, play ordinary games and inspect where a prepared line stopped being useful.
 
-Finish due reviews before adding many new lines. Use a small initial new-card allowance, then adjust it to a workload you can sustain. Review one explanation that you missed, play some ordinary games, and examine the positions where your prepared line stopped being useful.
+## Voice and help
 
-Before moving in a new position, inspect checks, captures and immediate threats for both sides. Compare candidate moves and calculate the opponent's strongest reply. In quiet positions, identify the least active piece, pawn breaks and the opposing plan. Memorising an opening sequence helps most when you also understand which changes make its next move inappropriate.
+Basic speech depends on installed device voices. Natural English narration is an optional separate import; missing recordings can use system speech. Other natural voices are planned. Adjust speed, sounds, effects and demonstrations in Settings.
 
-## Create useful cards
-
-Import PGN for a repertoire branch, or start a short exercise from a legal FEN. Give the card a clear task and keep the solution short enough to calculate. For an endgame, specify whether the goal is to win, draw, promote, or find a particular technique. For an opening, describe the plan and where the line becomes only an example.
-
-Check alternatives before treating one move as uniquely correct. If several moves preserve the result, document that fact or provide verified accepted alternatives. Keep private notes separate from shared teaching content, and distribute only material you have the right to share.
-
-## Get help or report a problem
-
-Open Settings from the **Chess for Anki** menu to change demo behaviour, narration speed, piece sounds, notation and confetti. Open **Report a bug** to describe a problem and select a screenshot. The form prepares a GitHub issue and copies the checked screenshot for you to paste into the issue. A GitHub account is needed to submit it. Review the report before submitting it and remove names, account details or other private information from screenshots. Public issues can be read by other people.
-
-The community page hosts free downloads and reports: [Chess for Anki community](https://github.com/fernandomec/chess-for-anki-community). Natural voice packs and lesson decks are installed separately so the base add-on stays small.
+[Report a problem](https://github.com/Chess-for-Anki/chess-for-anki/issues) with versions, steps and a screenshot without personal information. Extended packs and PRO are prepared but are not on sale. Creating and importing your own PGN remains part of the free core.

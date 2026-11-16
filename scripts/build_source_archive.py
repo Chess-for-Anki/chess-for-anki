@@ -21,6 +21,6 @@ The resulting dist/Chess for Anki.ankiaddon can be installed through Anki Tools 
 
 The current build scripts preserve local file modification timestamps in ZIP metadata, so archive byte hashes can differ after extraction and rebuilding; runtime files are unchanged.
 
-See LICENSE and CREDITS.md for redistribution and corresponding-source terms. Project, downloads and support: https://github.com/fernandomec/chess-for-anki-community
+See LICENSE and CREDITS.md for redistribution and corresponding-source terms. Project, downloads and support: https://github.com/Chess-for-Anki/chess-for-anki
 ''')
 print(json.dumps({'file':str(target),'bytes':target.stat().st_size,'sha256':hashlib.sha256(target.read_bytes()).hexdigest()}))

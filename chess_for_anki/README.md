@@ -1,81 +1,57 @@
-# ♟️ Chess for Anki
+# Chess for Anki
 
-Maintained by **fernandomec**.
+Practise a saved chess line on an interactive Anki card. Drag a piece or click its origin and destination; the opponent replies from that line. Maintained by **fernandomec**.
 
-Play a complete line on each flashcard. Move pieces by dragging or clicking. The opponent replies with the next move in the saved line. Use Anki's ratings to schedule the next review.
+## Get started with the 1.6.0 preview
 
-## Getting started
+The preview and its sample are available as separate downloads in [1.6.0-preview](https://github.com/Chess-for-Anki/chess-for-anki/releases/tag/v1.6.0-preview).
 
-1. In desktop Anki, open **Tools → Add-ons → Install from file…**, choose the `.ankiaddon` file and restart Anki. This guide opens on your first launch with the add-on. You can read it again under **♟️ Chess for Anki → Guide and credits**.
-2. Installation creates no cards or chess deck. Choose **Download free starter deck (.apkg)** on the Home screen, download **Chess-for-Anki-Foundations.apkg** with 30 cards, and import it through **File → Import**. The earlier free **Chess-for-Anki-Starter.apkg** with 60 cards is a separate download from the [community releases](https://github.com/fernandomec/chess-for-anki-community/releases/tag/v1.4.2-preview). Alternatively, choose **Create my own cards** to build your own deck.
-3. Open **Chess → 01 - Foundations → 01 - Openings → White → Study Now**. On your first chess card, select **Start round**. If the demo is enabled, choose **Next move** for each move or **Start practice** to play immediately.
+1. Install the `.ankiaddon` through **Tools > Add-ons > Install from file**, then restart Anki.
+2. Choose **Download free starter deck (.apkg)** on Home. Import **Chess-for-Anki-Free-Sample.apkg** through **File > Import**. Installation itself creates no cards.
+3. Open **Chess - Free Sample** and choose a lesson. Use **Next move** to inspect the demonstration, then **Start practice**.
 
-Both first-use screens have an **Open settings** button. Later, open **♟️ Chess for Anki → Settings** in Anki’s top menu. Here you can change the starting level, first-view demo, piece sounds and **Confetti on completion**. After a successful round, **Congratulations!** appears. Turning off confetti keeps the message and removes the animation.
+The sample has **22 cards**: five opening lessons for both sides, three Brilliancy, three endgames, three middlegame decisions and three tactics. The openings are Italian Game, Queen's Gambit Declined, Scotch Game, London System and Sicilian Defence. They reach a useful middlegame transition; they are not complete repertoires or forced sequences.
 
-### Play your first moves
+Foundations and Starter remain available through the [earlier free downloads](https://github.com/Chess-for-Anki/chess-for-anki/tree/downloads/decks).
 
-On the Foundations card **Italian - central break · White**, click the pawn on **e2**, then **e4**. Black replies **e7–e5**. Move your knight **g1–f3**, your bishop **f1–c4**, then your pawn **c2–c3**, waiting for Black's reply each time. At Noobie depth the round ends after Black's fourth move, **Nf6**. Other cards follow their own recorded lines.
+## Practice and recall
 
-If you forget a move, choose **End round**, then **Repeat later** on the answer side. If you want to retry immediately, use **Restart** during the attempt. After a completed round, use the arrows or click the notation to revisit the position, then choose your Anki rating.
+A correct move is followed by the saved opponent reply. Another legal move may also be good chess.
 
-### Create a practice card
+- **Show demo:** reopen the explanation.
+- **Resume practice:** return to the attempt.
+- **Restart:** retry immediately.
+- **End round:** end an unfinished attempt and reveal the answer.
+- **Repeat later:** use Anki's Again rating.
 
-Choose **Create cards / Import PGN**, select a deck under **Add to Deck**, enter a **Title**, and pick **White** and **Opening**. Paste `1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. Nc3 Nf6` in **Moveset PGN**, then click **Add**. To enter moves by playing both sides, use **Manual Input → Set**. To create a mate exercise, use **Custom → Manual Edit** to set the starting position, then enter its solution.
+Hints and demonstrations make an attempt assisted. Rate independent recall: Again for forgotten, Hard for difficult correct recall, Good for normal recall and Easy for immediate confident recall.
 
-To load a PGN file from disk, choose **Import** in the **Moveset PGN** section.
+Opening levels allow 4, 8, 12, 20 or all saved moves per side. Short lines stop at their actual end. Three different sufficiently long lines completed without assistance and rated Good or Easy advance the level. Custom exercises use the full saved continuation.
 
-## Training
+A turquoise `!!` can reward a curated key move. It is a teaching annotation, not live engine analysis. Highlight, particles and sound can be disabled separately in Settings; sound also respects **Piece sounds**.
 
-During a demonstration, every move in the earlier 60-card starter collection has an explanation of its purpose and its role in the line. That commentary follows all 551 distinct move positions across the opening lines, historic games and mate exercises. The two playing sides reuse the same explanations. Historic games include imperfect decisions by the players, so their recorded moves are discussed as played continuations.
+## Starting context and your own cards
 
-### Optional languages and spoken commentary
+**Create cards / Import PGN** remains part of the free core. Choose a deck, title and playing colour. For a normal opening, paste PGN in **Moveset PGN** or use **Manual Input**.
 
-The base add-on starts with **System voice**, using Anki's device speech synthesis. An installed system voice for the selected language is required. No natural recordings are bundled or copied to your collection on startup. English commentary text remains included as a small fallback.
+For a custom exercise, choose the colour first. Paste the moves leading to the exercise in **Starting Position PGN/FEN**, stopping after the opponent's last move. The form fills the position and previous-move context automatically.
 
-For the natural English narrator and explanations, download **English-Michael-Voice-Pack.zip** and import it under **♟️ Chess for Anki → Language packs**. This optional ZIP contains the recorded move announcements, hints and starter commentary. The saved voice speed applies to all narration.
+For FEN or **Manual Edit**, fill the preceding full FEN and the opponent's coordinate move, such as `e7e5`. Choose **Constructed setup move** for a legal composition rather than recorded history. New custom cards require context matching their starting position. Changing the position or colour can clear it.
 
-Select commentary text and narrator separately in that dialog. Basic spoken languages are English, Portuguese, Spanish, Russian, Chinese, Japanese, French and German, subject to installed system voices. Natural recordings for languages other than English are planned and are not yet available. Additional translations and voices use declarative JSON/MP3 ZIPs, without executable installers. Imported audio becomes Anki media and syncs through AnkiWeb. Import a voice ZIP in each profile where you want to use it.
+**Previous move** or **Setup move** highlights the move before the solution. It does not become an extra solution move. Existing imported cards and their scheduling are preserved.
 
-### Message history and notation
+## Speech and settings
 
-**Message history** on the board reopens move announcements, explanations and hints from the current round. It remains available when you restart the attempt or reveal the answer. Opening another card begins a new history.
+System speech requires an installed device voice. Natural [English Michael narration](https://github.com/Chess-for-Anki/chess-for-anki/releases/download/v1.4.2-preview/English-Michael-Voice-Pack.zip) is a separate optional ZIP imported through **Language packs**. Unrecorded phrases can use system speech. Other natural voices are planned; Hindi needs runtime support.
 
-Choose **Settings → Chess notation language** to use English initials (K Q R B N) or Portuguese initials (R D T B C). **Follow commentary language** uses the selected language pack. The display keeps pawn moves without a piece initial and uses 0-0 / 0-0-0 for castling. PGN files retain standard English SAN for interoperability.
+Text and narrator are selected separately. Settings also provides narration speed, first-view demo, notation, piece sounds and completion confetti.
 
-The move list, demonstration labels and history use this setting. Commentary retains the language of the installed text pack. The optional Michael recordings are English.
+## Help and compatibility
 
-### Feedback
+[Project and downloads](https://github.com/Chess-for-Anki/chess-for-anki) · [Report a problem](https://github.com/Chess-for-Anki/chess-for-anki/issues) · [Support the project](https://github.com/Chess-for-Anki/chess-for-anki/blob/downloads/SUPPORT.md)
 
-Open **♟️ Chess for Anki → Feedback / Report an issue** to describe an error and attach an image. The form shows a screenshot preview and normalizes accepted PNG, JPEG or WebP images to PNG. It does not create or send ZIP reports.
+Extended packs and PRO are being prepared; no sales checkout is active. The free core and previously distributed material remain available. Remove personal information from public bug reports.
 
-**Review and submit on GitHub** opens the project's issue page with your text prepared. If an image is attached, it is copied to the clipboard: paste it into the GitHub editor, review and submit the issue. For a very long report, the full text is copied instead; paste it first, then return to **Copy screenshot**. **View reported issues** opens the reports directly in the browser. The author can read text and view screenshots inline without downloading an archive. Posting a report requires a GitHub account; free downloads are public.
+Windows with Anki desktop 26.9.4 is the tested environment; this preview passed isolated collection, importer and board checks. macOS, Linux and mobile compatibility have not been established. Install the add-on on each desktop. Cards and media can sync through AnkiWeb.
 
-Image size/format checks, re-encoding and plain-text handling reduce risks; they are not antivirus scanning or a guarantee that arbitrary attachments posted directly on GitHub are safe. GitHub notifications and email delivery depend on the repository watch settings and the author's account preferences.
-
-- Noobie - up to 4 moves per side.
-- Beginner - up to 8 moves per side.
-- Intermediate - up to 12 moves per side.
-- Advanced - up to 20 moves per side.
-- HACKER - the entire saved line.
-
-Short lines finish at their last available move. Your selected level carries over to the next card. On desktop, three different lines completed at the requested depth without hints and rated Good or Easy promote you to the next level.
-
-**Demo on first view** opens the full line at the starting position. **Next move** reveals one move by White or Black per click. **Previous move** goes back one ply, restoring the board and the explanation for that position. During an attempt, **Show demo** reopens the line from the beginning. **Resume practice** returns to the position you were solving. Revealing a move counts as assistance for that attempt.
-
-**End round** reveals the answer after an incomplete attempt. **Repeat later** submits Again to Anki. **Restart** starts the current attempt over. The move history and arrow buttons replay moves with animation.
-
-Choose **Voice speed** beside **Voice on/off**, or open **♟️ Chess for Anki → Settings → Narration speed**. Available speeds range from 0.5× to 2×, with 1.5× as the default. The choice is saved on this computer and applies to announcements, hints and spoken explanations while preserving the pitch of recorded speech. System speech is the default; the optional natural voice falls back to system speech for unrecorded phrases.
-
-## Sync and compatibility
-
-Cards, audio and collection settings synchronize through AnkiWeb. Install Chess for Anki on each desktop to use automatic progression and collection-backed first-view tracking. The desktop add-on itself runs only in desktop Anki. Mobile rendering and audio have not been validated. This release is tested on Windows with Anki 26.09.4; macOS and Linux have not been validated.
-
-Before migrating from the separate Flashcard Chess and Chess Studio add-ons, disable those two and restart. Chess for Anki upgrades the existing Flashcard Chess note type in place, retaining its note and card IDs.
-
-If using Loadout, exclude the retired add-on folders `228541832` and `fernando_chess_studio` from mirroring on each computer to avoid reactivating them. Install this single package on your other desktop and sync Anki normally.
-
-## Support
-
-[Support the project](https://github.com/fernandomec/chess-for-anki-community/blob/downloads/SUPPORT.md)
-
-Source code is included in the add-on archive. See **CREDITS.md** and **LICENSE** for attribution and redistribution terms.
+Source is included. See **LICENSE** and **CREDITS.md** for AGPL-3.0 terms and third-party attribution.

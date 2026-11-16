@@ -172,6 +172,8 @@ for label,callback in [
     ('Create cards / Import PGN',create_cards),
     ('Home / Getting started',help_dialog),
     ('Download starter deck',import_starter),
+    ('Free deck on AnkiWeb',catalog.open_starter_page),
+    ('Training packs / PRO',catalog.open_training_packs),
     ('Settings',settings),
     ('Guide and credits',help_dialog),
     ('Language packs',language_packs.open_manager),

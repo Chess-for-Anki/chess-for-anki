@@ -22,7 +22,7 @@ def load_note_type():
     sys.modules[name] = module
     spec.loader.exec_module(module)
     module._original_build_front = module._build_front
-    module._build_front = lambda: '<div id="studio-fields">{{Brilliant Moves}}{{Position Evaluation}}</div>'
+    module._build_front = lambda: '<div id="studio-fields">{{Brilliant Moves}}{{Position Evaluation}}{{Previous Move}}</div>'
     module._build_back = lambda: "updated answer"
     module._build_css = lambda: "updated css"
     module.moves_fen_text = lambda *args: "saved positions"
@@ -88,7 +88,7 @@ class FakeModels:
     def save(self, item):
         # A copied template must never reference a missing field.
         for template in item["tmpls"]:
-            for field in ("Brilliant Moves", "Position Evaluation"):
+            for field in ("Brilliant Moves", "Position Evaluation", "Previous Move"):
                 if "{{" + field + "}}" in template["qfmt"]:
                     assert field in {entry["name"] for entry in item["flds"]}
         self.saves.append(item["id"])
@@ -146,15 +146,17 @@ class BrilliantModelTests(unittest.TestCase):
             expected = deepcopy(before)
             expected["fields"]["Brilliant Moves"] = ""
             expected["fields"]["Position Evaluation"] = ""
+            expected["fields"]["Previous Move"] = ""
             self.assertEqual(after, expected)
         self.assertEqual(unrelated, before_unrelated)
         self.assertEqual(col.models.added_fields, [(101, "Brilliant Moves"), (101, "Position Evaluation"),
-                                                  (202, "Brilliant Moves"), (202, "Position Evaluation")])
+                                                  (101, "Previous Move"), (202, "Brilliant Moves"),
+                                                  (202, "Position Evaluation"), (202, "Previous Move")])
         self.assertEqual(imported["tmpls"][0]["qfmt"], primary["tmpls"][0]["qfmt"])
         first_saves = list(col.models.saves)
         self.module.ensure_notetype(col)
         self.assertEqual(col.models.saves, first_saves)
-        self.assertEqual(len(col.models.added_fields), 4)
+        self.assertEqual(len(col.models.added_fields), 6)
 
     def test_missing_primary_migrates_imported_copy_without_moving_its_notes(self):
         imported = model(self.module, 202, "Chess for Anki+")
@@ -163,7 +165,7 @@ class BrilliantModelTests(unittest.TestCase):
         self.assertNotEqual(primary["id"], imported["id"])
         self.assertEqual(col.notes, [{"id": 502, "mid": 202,
                                       "fields": {"Title": "Keep", "Brilliant Moves": "",
-                                                 "Position Evaluation": ""}}])
+                                                 "Position Evaluation": "", "Previous Move": ""}}])
         self.assertEqual(imported["tmpls"][0]["qfmt"], primary["tmpls"][0]["qfmt"])
 
     def test_legacy_named_model_is_upgraded_in_place(self):
@@ -175,7 +177,7 @@ class BrilliantModelTests(unittest.TestCase):
         self.assertEqual(result["name"], self.module.NOTETYPE_NAME)
         self.assertEqual(len(col.models.all()), 1)
 
-    def test_intermediate_imported_schema_adds_only_missing_evaluation_field(self):
+    def test_intermediate_imported_schema_adds_only_missing_optional_fields(self):
         primary = model(self.module, 101, self.module.NOTETYPE_NAME, self.module.FIELDS)
         imported = model(self.module, 202, "Chess for Anki+",
                          self.module.LEGACY_FIELDS + ["Brilliant Moves"])
@@ -183,10 +185,10 @@ class BrilliantModelTests(unittest.TestCase):
         note = {"id": 502, "mid": 202, "fields": {"Brilliant Moves": annotation}}
         col = FakeCollection([primary, imported], [note])
         self.module.ensure_notetype(col)
-        self.assertEqual(col.models.added_fields, [(202, "Position Evaluation")])
+        self.assertEqual(col.models.added_fields, [(202, "Position Evaluation"), (202, "Previous Move")])
         self.assertEqual(note, {"id": 502, "mid": 202,
                                 "fields": {"Brilliant Moves": annotation,
-                                           "Position Evaluation": ""}})
+                                           "Position Evaluation": "", "Previous Move": ""}})
 
     def test_existing_annotations_and_custom_fields_are_not_overwritten(self):
         primary = model(self.module, 101, self.module.NOTETYPE_NAME, self.module.FIELDS)
@@ -206,6 +208,7 @@ class BrilliantModelTests(unittest.TestCase):
         plain = self.module.create_note(col, "Example", "white", ["e4", "e5"])
         self.assertEqual(plain["Brilliant Moves"], "")
         self.assertEqual(plain["Position Evaluation"], "")
+        self.assertEqual(plain["Previous Move"], "")
         for value in ({"schema": 1, "plies": [2, 1]}, '{"schema":1,"plies":[2,1]}'):
             with self.subTest(value=value):
                 note = self.module.create_note(col, "Example", "white", ["e4", "e5"],

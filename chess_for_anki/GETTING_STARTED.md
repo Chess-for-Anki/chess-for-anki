@@ -1,44 +1,39 @@
-# Start with your own deck
+# Start here
 
-Installing Chess for Anki adds the extension and its menu. It does not add a deck, cards or a natural voice pack to your collection.
+**1.6.0 preview:** the add-on and its 22-card sample are available as separate downloads. Installation adds its menu, not cards or natural recordings.
 
-## Option 1 - Download the free Foundations deck
+## Use the free sample
 
-1. Click **Download free starter deck (.apkg)** above.
-2. The button opens a direct GitHub download of **Chess-for-Anki-Foundations.apkg**, a free collection of 30 cards. The download does not require repository access.
-3. In Anki, choose **File → Import** and select the downloaded file.
-4. Open **Chess → 01 - Foundations** and start a round. Foundations covers simple opening plans, Scholar's Mate and its defence, basic mates and promotion.
+1. Choose **Download free starter deck (.apkg)** above to obtain **Chess-for-Anki-Free-Sample.apkg**.
+2. Choose **File > Import** in Anki and select the file.
+3. Open **Chess - Free Sample**. Choose a lesson, step through **Next move**, then select **Start practice**.
 
-The earlier free **Chess-for-Anki-Starter.apkg** with 60 cards remains a separate download from the [community releases](https://github.com/fernandomec/chess-for-anki-community/releases/tag/v1.4.2-preview).
+The sample has five opening lessons for both colours, plus three Brilliancy, three endgames, three middlegames and three tactics: **22 cards**. Foundations and Starter remain separate earlier free downloads.
 
-## Option 2 - Build a deck from scratch
+## Create your own cards
 
-1. Click **Create my own cards**, or open **Chess for Anki → Create cards / Import PGN**.
-2. In **Add to Deck**, type the deck name you want, such as **Chess::My repertoire**.
-3. Enter a title and choose the color you will play.
-4. Choose **Opening** for the initial position, or set a custom FEN for a puzzle or endgame.
-5. Enter a legal line in PGN notation, such as `1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5`, or use the manual board.
-6. Add your own explanation in the notes field and save the card.
-7. Study the deck. Your opponent replies automatically according to the saved line. Use the demo's previous/next buttons to inspect the line.
+Choose **Create my own cards** or **Chess for Anki > Create cards / Import PGN**. Pick a deck, title and playing colour. Use **Opening** for the standard position; enter the solution in **Moveset PGN** or use **Manual Input**.
 
-For a curated tactical exercise, set **Brilliant move numbers** to the learner's key half-moves, counted from the saved starting position, such as `1, 3`. Mark only moves you have checked and can explain. The reward appears after the correct move. Open **Settings** to disable brilliant effects or sounds. The paid-content catalogue is still being prepared; these controls do not activate a subscription.
+For a custom position, choose your colour first. A setup PGN in **Starting Position PGN/FEN** supplies the position and previous move automatically. It should stop after the opponent's move, before the solution begins.
 
-## Basic voice or optional natural voice
+For a bare FEN or **Manual Edit**, supply the preceding full FEN and the opponent's move, such as `e7e5`. Choose actual context or **Constructed setup move**. Constructed context is shown as **Setup move**, not claimed history. Enter the solution separately. A FEN alone cannot identify its previous move.
 
-The default is **System voice**, using speech synthesis available on your device. Availability depends on installed system voices. If there is no suitable voice, the add-on shows a notice and the visible move text still works.
+## Voice and settings
 
-Open **Voices and language packs** to choose the basic spoken language or import a downloaded ZIP. The optional [English Michael pack](https://github.com/fernandomec/chess-for-anki-community/releases/download/v1.4.2-preview/English-Michael-Voice-Pack.zip) contains the recorded natural narrator. Other natural voices will be separate downloads when produced and reviewed; selecting a language does not install a voice.
+**System voice** uses an installed device voice. Natural English Michael narration is an [optional download](https://github.com/Chess-for-Anki/chess-for-anki/releases/download/v1.4.2-preview/English-Michael-Voice-Pack.zip), imported through **Language packs**. Other natural voices are planned. Missing recordings can use device speech.
 
-The text/commentary pack and the narrator can be selected separately. Download a ZIP, click **Import language pack**, then select the voice you want and save. No executable or external speech model needs to be installed. The add-on remains usable without an online service during practice.
+Open **Settings** to adjust demo behaviour, speed, sounds and brilliant-move effects. Extended packs and PRO are being prepared, with no active sales checkout. Your own PGN import remains free.
 
-# Comece com seu próprio baralho
+# Comece aqui
 
-A instalação adiciona a extensão e o menu. Nenhum baralho, card ou pacote de voz natural é instalado automaticamente.
+**Prévia 1.6.0:** o add-on e a amostra de 22 cartões estão disponíveis como downloads separados. A instalação adiciona o menu, sem criar cartões ou instalar gravações naturais.
 
-Para usar o material pronto, clique em **Baixar deck inicial gratuito (.apkg)**. O botão abre o download direto de **Chess-for-Anki-Foundations.apkg**, com 30 cartões, pelo GitHub. O download gratuito não exige convite para o repositório. Importe pelo menu **Arquivo → Importar** do Anki e abra **Chess → 01 - Foundations**. O antigo **Chess-for-Anki-Starter.apkg**, com 60 cartões, continua gratuito como download separado nas [versões da comunidade](https://github.com/fernandomec/chess-for-anki-community/releases/tag/v1.4.2-preview).
+1. Clique em **Baixar deck inicial gratuito (.apkg)** para obter **Chess-for-Anki-Free-Sample.apkg**.
+2. Importe pelo menu **Arquivo > Importar** do Anki.
+3. Abra **Chess - Free Sample**, escolha uma lição, avance com **Next move** e clique em **Start practice**.
 
-Para criar do zero, abra **Create cards / Import PGN**, informe o nome do baralho, um título e a cor. Escolha a posição inicial ou uma FEN personalizada. Digite a sequência em PGN ou monte-a pelo tabuleiro manual, adicione suas notas e salve.
+São cinco aberturas para ambas as cores, mais três exemplos de cada tema: Brilliancy, finais, meio-jogo e táticas. Foundations e Starter continuam como coleções gratuitas anteriores.
 
-O modo **System voice** usa a síntese de voz disponível no dispositivo. Em **Voices and language packs**, escolha o idioma básico ou importe um ZIP de voz natural. O pacote inglês Michael é opcional. Português, espanhol, russo, chinês, japonês, francês e alemão estão previstos como downloads naturais futuros; as gravações ainda precisam ser produzidas e revisadas.
+Para criar material próprio, abra **Create cards / Import PGN**. Escolha a cor antes de definir uma posição personalizada. Um PGN de preparação preenche a posição e o último lance do adversário. Para FEN ou **Manual Edit**, informe a FEN anterior completa e o lance em coordenadas, como `e7e5`. Uma preparação construída aparece como **Setup move**. A solução entra separadamente em **Moveset PGN**.
 
-Depois da importação, selecione a voz e salve. Não é necessário instalar um programa ou modelo de fala externo. Para rever a configuração depois, use **Chess for Anki → Settings** ou **Language packs**.
+A voz natural inglesa é opcional e baixada à parte. Outras gravações estão planejadas. Ajuste demonstração, velocidade e efeitos em **Settings**. A importação de PGN próprio continua gratuita; pacotes ampliados e PRO ainda não estão à venda.

@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        A short sample is enough to start. See the [language contribution guide](https://github.com/fernandomec/chess-for-anki-community/blob/downloads/CONTRIBUTING-LANGUAGES.md) for help and the optional pack format.
+        A short sample is enough to start. See the [language contribution guide](https://github.com/Chess-for-Anki/chess-for-anki/blob/downloads/CONTRIBUTING-LANGUAGES.md) for help and the optional pack format.
 
         This issue is public. Paste text or link to audio; do not attach ZIP files or programs. Submissions are reviewed before publication and are never installed or executed automatically. Only English natural narration is available today; Hindi is planned and still needs runtime support.
   - type: dropdown
@@ -55,7 +55,7 @@ body:
     attributes:
       label: Related Discussion (optional)
       description: Link an existing Discussion if you have one. Starting one is not required.
-      placeholder: https://github.com/fernandomec/chess-for-anki-community/discussions/...
+      placeholder: https://github.com/Chess-for-Anki/chess-for-anki/discussions/...
   - type: textarea
     id: review
     attributes:
