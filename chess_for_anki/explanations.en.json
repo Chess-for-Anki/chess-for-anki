@@ -1,0 +1,3053 @@
+{
+  "schema": 1,
+  "id": "starter-en",
+  "language": "en",
+  "name": "English · Starter explanations",
+  "version": "1.0.0",
+  "lines": [
+    {
+      "title": "Italian Game: Giuoco Pianissimo",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bc4",
+        "Bc5",
+        "Nc3",
+        "Nf6",
+        "O-O",
+        "O-O",
+        "d3"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White claims central space and opens diagonals for the queen and bishop. This makes rapid development possible."
+        },
+        {
+          "san": "e5",
+          "text": "Black matches White's central presence and opens a diagonal for the f8 bishop. The pawn also controls d4."
+        },
+        {
+          "san": "Nf3",
+          "text": "The knight develops toward the centre and attacks the e5 pawn. Black must consider how to defend it."
+        },
+        {
+          "san": "Nc6",
+          "text": "The knight develops while defending e5. Black meets the threat without moving the queen early."
+        },
+        {
+          "san": "Bc4",
+          "text": "The bishop develops to an active diagonal pointing at f7, a pawn initially defended only by the king."
+        },
+        {
+          "san": "Bc5",
+          "text": "Black develops the bishop toward f2 and clears f8 for kingside castling. Both sides now have active minor pieces."
+        },
+        {
+          "san": "Nc3",
+          "text": "White develops the queenside knight and reinforces e4 and d5. This is a quiet development choice in this line."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops with pressure on e4 and clears g8 for castling. Central pawn defence remains important."
+        },
+        {
+          "san": "O-O",
+          "text": "White puts the king behind its pawns and brings the rook toward the centre. Development can continue with less king exposure."
+        },
+        {
+          "san": "O-O",
+          "text": "Black also secures the king and activates the h8 rook. Both sides can now prepare central operations."
+        },
+        {
+          "san": "d3",
+          "text": "The pawn supports e4 and opens the c1 bishop's diagonal. White keeps a stable centre before choosing a pawn break."
+        }
+      ]
+    },
+    {
+      "title": "Scotch Game: Classical Variation, Blackburne Attack",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "d4",
+        "exd4",
+        "Nxd4",
+        "Bc5",
+        "Be3",
+        "Qf6",
+        "c3",
+        "Nge7",
+        "Qd2"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White occupies the centre and frees the king's bishop. The opening aims for active development."
+        },
+        {
+          "san": "e5",
+          "text": "Black claims an equal share of the centre and prepares to develop the f8 bishop."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops a knight with an attack on e5, asking Black to defend the central pawn."
+        },
+        {
+          "san": "Nc6",
+          "text": "Black develops the b8 knight and protects e5 at the same time."
+        },
+        {
+          "san": "d4",
+          "text": "White challenges e5 immediately with the d-pawn. This central break seeks open lines and active pieces."
+        },
+        {
+          "san": "exd4",
+          "text": "Black removes White's d-pawn, temporarily giving up the e5 foothold and opening the centre."
+        },
+        {
+          "san": "Nxd4",
+          "text": "White recaptures with the knight, placing a developed piece centrally without bringing the queen out."
+        },
+        {
+          "san": "Bc5",
+          "text": "Black develops the bishop with pressure on the knight on d4. The central knight now needs support."
+        },
+        {
+          "san": "Be3",
+          "text": "The bishop develops and adds another defender to d4. It also prepares to meet exchanges on that square."
+        },
+        {
+          "san": "Qf6",
+          "text": "The queen joins the pressure on d4 and looks toward f2. White must coordinate development with defence."
+        },
+        {
+          "san": "c3",
+          "text": "The c-pawn supports the knight on d4 and limits Black's central piece activity. The b1 knight will need another route."
+        },
+        {
+          "san": "Nge7",
+          "text": "Black develops the g8 knight while keeping the f-pawn free and supporting future central play. Castling is closer."
+        },
+        {
+          "san": "Qd2",
+          "text": "The queen connects with the bishop on e3 and helps coordinate the centre. White prepares to complete development."
+        }
+      ]
+    },
+    {
+      "title": "Ruy Lopez: Closed, Chigorin Defense, Panov System",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bb5",
+        "a6",
+        "Ba4",
+        "Nf6",
+        "O-O",
+        "Be7",
+        "Re1",
+        "b5",
+        "Bb3",
+        "d6",
+        "c3",
+        "O-O",
+        "h3",
+        "Na5",
+        "Bc2",
+        "c5",
+        "d4",
+        "Qc7",
+        "Nbd2",
+        "cxd4",
+        "cxd4"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White gains central space and opens lines for development."
+        },
+        {
+          "san": "e5",
+          "text": "Black contests the centre with e5 and opens the f8 bishop's diagonal."
+        },
+        {
+          "san": "Nf3",
+          "text": "The knight develops and attacks e5, creating an immediate central question."
+        },
+        {
+          "san": "Nc6",
+          "text": "Black develops a knight and defends e5."
+        },
+        {
+          "san": "Bb5",
+          "text": "The bishop puts pressure on c6, the knight defending e5. This is the central idea of the Ruy Lopez."
+        },
+        {
+          "san": "a6",
+          "text": "Black asks the bishop to choose between exchanging and retreating, gaining useful queenside space."
+        },
+        {
+          "san": "Ba4",
+          "text": "White preserves the bishop and maintains pressure along the a4-e8 diagonal."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops the kingside knight with pressure on e4 and prepares to castle."
+        },
+        {
+          "san": "O-O",
+          "text": "White safeguards the king before further central activity. The h1 rook joins the game."
+        },
+        {
+          "san": "Be7",
+          "text": "Black develops the bishop and prepares kingside castling, choosing the closed Ruy Lopez setup."
+        },
+        {
+          "san": "Re1",
+          "text": "The rook supports e4, so White can maintain the centre while moving the bishop and c-pawn."
+        },
+        {
+          "san": "b5",
+          "text": "Black gains queenside space and attacks the bishop, forcing White to spend a tempo relocating it."
+        },
+        {
+          "san": "Bb3",
+          "text": "The bishop preserves its diagonal toward f7 and stays available for later central or kingside play."
+        },
+        {
+          "san": "d6",
+          "text": "Black reinforces e5 and opens the c8 bishop's diagonal, building a stable centre."
+        },
+        {
+          "san": "c3",
+          "text": "White prepares d4 and creates a retreat square on c2 for the light-squared bishop."
+        },
+        {
+          "san": "O-O",
+          "text": "Black secures the king before the centre opens. The f8 rook can support central play."
+        },
+        {
+          "san": "h3",
+          "text": "White prevents a bishop or knight from using g4 and gives the king a possible escape square. It costs a development tempo."
+        },
+        {
+          "san": "Na5",
+          "text": "Black attacks the bishop on b3 and clears c6 for the c-pawn's advance."
+        },
+        {
+          "san": "Bc2",
+          "text": "White keeps the bishop pair and places this bishop behind the intended central pawn expansion."
+        },
+        {
+          "san": "c5",
+          "text": "Black strikes at d4 and gains queenside space. The knight manoeuvre made room for this pawn break."
+        },
+        {
+          "san": "d4",
+          "text": "White establishes the intended central duo on d4 and e4, challenging Black's space immediately."
+        },
+        {
+          "san": "Qc7",
+          "text": "The queen supports the centre and adds pressure on e5's surrounding squares while connecting the back-rank pieces."
+        },
+        {
+          "san": "Nbd2",
+          "text": "White develops the last knight toward the centre and supports e4. A later f1 route can improve its kingside influence."
+        },
+        {
+          "san": "cxd4",
+          "text": "Black exchanges on d4, reducing White's central pawn duo and opening the c-file."
+        },
+        {
+          "san": "cxd4",
+          "text": "White recaptures with the c-pawn, restoring pawns on d4 and e4 while opening the c-file for rook activity."
+        }
+      ]
+    },
+    {
+      "title": "Caro-Kann Defense: Classical Variation, Seirawan Variation",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "c6",
+        "d4",
+        "d5",
+        "Nd2",
+        "dxe4",
+        "Nxe4",
+        "Bf5",
+        "Ng3",
+        "Bg6",
+        "h4",
+        "h6",
+        "Nf3",
+        "Nd7",
+        "h5",
+        "Bh7",
+        "Bd3",
+        "Bxd3",
+        "Qxd3",
+        "Ngf6",
+        "Bd2",
+        "e6",
+        "O-O-O",
+        "Bd6"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White occupies the centre and opens the bishop's diagonal."
+        },
+        {
+          "san": "c6",
+          "text": "Black prepares d5 with support from c6, challenging the centre while keeping the c8 bishop's diagonal available."
+        },
+        {
+          "san": "d4",
+          "text": "White establishes a broad pawn centre and makes Black's planned d5 break urgent."
+        },
+        {
+          "san": "d5",
+          "text": "Black challenges e4 with a pawn supported by c6. This is the Caro-Kann's main central operation."
+        },
+        {
+          "san": "Nd2",
+          "text": "White develops the b1 knight to support e4. This route avoids placing it on c3 before the central exchange."
+        },
+        {
+          "san": "dxe4",
+          "text": "Black removes the e4 pawn and temporarily releases central tension."
+        },
+        {
+          "san": "Nxe4",
+          "text": "White recaptures with the knight, developing a piece centrally and keeping the d4 pawn."
+        },
+        {
+          "san": "Bf5",
+          "text": "Black develops the bishop actively before playing e6, with an attack on the knight on e4."
+        },
+        {
+          "san": "Ng3",
+          "text": "The knight retreats while attacking the bishop on f5. White gains time to reposition the piece."
+        },
+        {
+          "san": "Bg6",
+          "text": "Black preserves the bishop and keeps it outside the future e6 pawn chain."
+        },
+        {
+          "san": "h4",
+          "text": "White gains kingside space and prepares h5 to question the bishop's retreat squares."
+        },
+        {
+          "san": "h6",
+          "text": "Black creates h7 as a possible retreat square for the bishop. The h-pawn also controls g5."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops another knight, supports d4 and prepares to connect the king with safer squares."
+        },
+        {
+          "san": "Nd7",
+          "text": "Black develops the queenside knight while supporting future kingside development and the e5 break."
+        },
+        {
+          "san": "h5",
+          "text": "White advances with an attack on the bishop, gaining more space but committing the h-pawn."
+        },
+        {
+          "san": "Bh7",
+          "text": "The bishop uses the retreat square prepared by h6 and stays on the long diagonal."
+        },
+        {
+          "san": "Bd3",
+          "text": "White develops the bishop toward h7, challenging Black's active bishop directly."
+        },
+        {
+          "san": "Bxd3",
+          "text": "Black trades the light-squared bishops, reducing White's potential pressure on h7."
+        },
+        {
+          "san": "Qxd3",
+          "text": "The queen recaptures and keeps influence over the centre and kingside. White still needs to finish development."
+        },
+        {
+          "san": "Ngf6",
+          "text": "Black develops the g8 knight, contests central squares and clears the kingside back rank."
+        },
+        {
+          "san": "Bd2",
+          "text": "White develops the c1 bishop and clears the queenside castling route. The rooks will soon be connected."
+        },
+        {
+          "san": "e6",
+          "text": "Black strengthens the centre and opens the f8 bishop's diagonal, preparing the king's safety."
+        },
+        {
+          "san": "O-O-O",
+          "text": "White castles on the queenside. This brings a rook to d1 and makes kingside pawn play easier to pursue."
+        },
+        {
+          "san": "Bd6",
+          "text": "Black develops the remaining bishop toward White's kingside and prepares to complete king safety."
+        }
+      ]
+    },
+    {
+      "title": "French Defense: Advance Variation, Nimzowitsch System",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "e6",
+        "d4",
+        "d5",
+        "e5",
+        "c5",
+        "Nf3"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White claims central space and opens the bishop's diagonal."
+        },
+        {
+          "san": "e6",
+          "text": "Black prepares d5 with e6. This solid setup temporarily restricts the c8 bishop."
+        },
+        {
+          "san": "d4",
+          "text": "White builds a broad pawn centre before Black's challenge arrives."
+        },
+        {
+          "san": "d5",
+          "text": "Black attacks e4 with a supported central pawn, creating the French pawn structure."
+        },
+        {
+          "san": "e5",
+          "text": "White gains space and drives a wedge into Black's position. The pawn chain now depends on its base on d4."
+        },
+        {
+          "san": "c5",
+          "text": "Black attacks that base immediately. Undermining d4 can weaken the advanced pawn on e5 as well."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops the kingside knight and reinforces d4, meeting Black's pressure while preparing king safety."
+        }
+      ]
+    },
+    {
+      "title": "Queen's Gambit Declined: Orthodox Defense, Classical Variation",
+      "start_fen": "",
+      "moves": [
+        "d4",
+        "d5",
+        "c4",
+        "e6",
+        "Nc3",
+        "Nf6",
+        "Bg5",
+        "Be7",
+        "e3",
+        "O-O",
+        "Nf3",
+        "Nbd7",
+        "Rc1",
+        "c6",
+        "Bd3",
+        "dxc4",
+        "Bxc4",
+        "Nd5",
+        "Bxe7",
+        "Qxe7",
+        "O-O",
+        "Nxc3",
+        "Rxc3",
+        "e5",
+        "dxe5",
+        "Nxe5",
+        "Nxe5",
+        "Qxe5"
+      ],
+      "notes": [
+        {
+          "san": "d4",
+          "text": "White claims central space and opens a diagonal for the c1 bishop."
+        },
+        {
+          "san": "d5",
+          "text": "Black answers centrally, controlling e4 and preventing an uncontested pawn centre."
+        },
+        {
+          "san": "c4",
+          "text": "White offers the c-pawn to challenge d5 and reduce Black's central hold."
+        },
+        {
+          "san": "e6",
+          "text": "Black supports d5 and opens the f8 bishop's diagonal, accepting a temporarily restricted c8 bishop."
+        },
+        {
+          "san": "Nc3",
+          "text": "White develops the knight and adds pressure on d5."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops the knight and adds another defender to d5."
+        },
+        {
+          "san": "Bg5",
+          "text": "The bishop pins the knight on f6 to the queen on d8, increasing the pressure on the centre."
+        },
+        {
+          "san": "Be7",
+          "text": "Black develops the bishop between the pinned knight and queen, removing the pin and preparing castling."
+        },
+        {
+          "san": "e3",
+          "text": "White supports d4 and opens a diagonal for the f1 bishop."
+        },
+        {
+          "san": "O-O",
+          "text": "Black secures the king before resolving the central tension."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops the g1 knight and strengthens the centre while preparing to castle."
+        },
+        {
+          "san": "Nbd7",
+          "text": "Black develops the other knight toward the centre and supports the knight on f6."
+        },
+        {
+          "san": "Rc1",
+          "text": "The rook occupies the c-file in anticipation of central exchanges that may open it."
+        },
+        {
+          "san": "c6",
+          "text": "Black strengthens d5 and builds a compact centre, though the c8 bishop still needs a route out."
+        },
+        {
+          "san": "Bd3",
+          "text": "White develops the bishop toward h7 and completes the pieces needed for castling."
+        },
+        {
+          "san": "dxc4",
+          "text": "Black exchanges on c4, forcing White to spend a move recapturing while releasing some central tension."
+        },
+        {
+          "san": "Bxc4",
+          "text": "The bishop recaptures and returns to an active diagonal without damaging White's pawn structure."
+        },
+        {
+          "san": "Nd5",
+          "text": "Black centralizes the knight and challenges White's active pieces. The e6 and c6 pawns support d5."
+        },
+        {
+          "san": "Bxe7",
+          "text": "White trades the bishop on e7, removing a defender near Black's king before castling."
+        },
+        {
+          "san": "Qxe7",
+          "text": "Black recaptures with the queen and keeps the knight centralized on d5."
+        },
+        {
+          "san": "O-O",
+          "text": "White secures the king and connects the rooks, completing the main phase of development."
+        },
+        {
+          "san": "Nxc3",
+          "text": "Black exchanges the central knight for the knight on c3, altering which pieces control the centre."
+        },
+        {
+          "san": "Rxc3",
+          "text": "The rook recaptures on c3 and gains a possible sideways route toward the kingside. It must remain protected."
+        },
+        {
+          "san": "e5",
+          "text": "Black challenges White's central pawn with e5, seeking active play and more freedom for the c8 bishop."
+        },
+        {
+          "san": "dxe5",
+          "text": "White captures the advancing pawn, opening central lines and asking how Black will recapture."
+        },
+        {
+          "san": "Nxe5",
+          "text": "The knight recaptures on e5, gaining a central post and an attack on the bishop on c4."
+        },
+        {
+          "san": "Nxe5",
+          "text": "White exchanges the knight on e5 to reduce Black's activity in the centre."
+        },
+        {
+          "san": "Qxe5",
+          "text": "The queen recaptures on e5, where it stays active and keeps pressure on central and kingside squares."
+        }
+      ]
+    },
+    {
+      "title": "Queen's Gambit Declined: Exchange Variation, Chameleon Variation",
+      "start_fen": "",
+      "moves": [
+        "d4",
+        "Nf6",
+        "c4",
+        "e6",
+        "Nc3",
+        "d5",
+        "cxd5",
+        "exd5",
+        "Bg5",
+        "Be7",
+        "e3",
+        "O-O",
+        "Bd3",
+        "Nbd7",
+        "Qc2",
+        "Re8",
+        "Nge2",
+        "Nf8",
+        "O-O-O"
+      ],
+      "notes": [
+        {
+          "san": "d4",
+          "text": "White gains central space and frees the queen's bishop."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops flexibly and controls e4 before committing the d-pawn."
+        },
+        {
+          "san": "c4",
+          "text": "White adds pressure on d5 and expands the central pawn presence."
+        },
+        {
+          "san": "e6",
+          "text": "Black prepares d5 and opens the kingside bishop's diagonal."
+        },
+        {
+          "san": "Nc3",
+          "text": "White develops with pressure on d5 and supports a later e4 advance."
+        },
+        {
+          "san": "d5",
+          "text": "Black claims central space, reaching a Queen's Gambit Declined structure."
+        },
+        {
+          "san": "cxd5",
+          "text": "White resolves the tension by exchanging the c-pawn for Black's d-pawn."
+        },
+        {
+          "san": "exd5",
+          "text": "Black recaptures with the e-pawn, creating a symmetrical central pawn contact and opening the c8 bishop's diagonal."
+        },
+        {
+          "san": "Bg5",
+          "text": "White develops the bishop actively and pins the f6 knight to the queen."
+        },
+        {
+          "san": "Be7",
+          "text": "Black breaks the pin and clears the way for kingside castling."
+        },
+        {
+          "san": "e3",
+          "text": "White strengthens d4 and opens the f1 bishop's diagonal."
+        },
+        {
+          "san": "O-O",
+          "text": "Black secures the king before manoeuvring in the centre."
+        },
+        {
+          "san": "Bd3",
+          "text": "The bishop develops toward h7, contributing to possible kingside pressure."
+        },
+        {
+          "san": "Nbd7",
+          "text": "Black develops the queenside knight, supporting future central play and a possible route to f8."
+        },
+        {
+          "san": "Qc2",
+          "text": "The queen forms a battery with the bishop on d3, increasing attention toward h7."
+        },
+        {
+          "san": "Re8",
+          "text": "Black places the rook on the e-file, making e7 available for other piece arrangements and supporting central operations."
+        },
+        {
+          "san": "Nge2",
+          "text": "The knight develops to e2, preserving the option of advancing the f-pawn and keeping the f3 square free."
+        },
+        {
+          "san": "Nf8",
+          "text": "Black reroutes the d7 knight toward the king. From f8 it can help defend key dark squares."
+        },
+        {
+          "san": "O-O-O",
+          "text": "White castles queenside and places a rook on d1. Opposite-side castling can encourage pawn advances against the enemy king."
+        }
+      ]
+    },
+    {
+      "title": "Sicilian Defense: Najdorf Variation, English Attack",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "c5",
+        "Nf3",
+        "d6",
+        "d4",
+        "cxd4",
+        "Nxd4",
+        "Nf6",
+        "Nc3",
+        "a6",
+        "Be3",
+        "e5",
+        "Nb3",
+        "Be6",
+        "f3"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White occupies the centre and opens development lines."
+        },
+        {
+          "san": "c5",
+          "text": "Black challenges d4 from the flank, creating an unbalanced pawn structure."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops a knight and prepares the central d4 break."
+        },
+        {
+          "san": "d6",
+          "text": "Black controls e5 and prepares to develop the queenside pieces behind a flexible centre."
+        },
+        {
+          "san": "d4",
+          "text": "White opens the centre immediately and seeks rapid piece development."
+        },
+        {
+          "san": "cxd4",
+          "text": "Black exchanges the c-pawn for White's central d-pawn, creating the Sicilian's asymmetry."
+        },
+        {
+          "san": "Nxd4",
+          "text": "White recaptures with a knight and places an active piece in the centre."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops with an attack on e4, asking White to support the central pawn."
+        },
+        {
+          "san": "Nc3",
+          "text": "White develops the queenside knight and defends e4."
+        },
+        {
+          "san": "a6",
+          "text": "Black controls b5, stopping several useful piece entries and preparing queenside expansion with b5."
+        },
+        {
+          "san": "Be3",
+          "text": "White develops the bishop and supports central operations, keeping queenside castling available."
+        },
+        {
+          "san": "e5",
+          "text": "Black attacks the knight on d4 and gains central space. The d5 square becomes a long-term concern."
+        },
+        {
+          "san": "Nb3",
+          "text": "White preserves the knight while keeping it near the centre and queenside."
+        },
+        {
+          "san": "Be6",
+          "text": "Black develops the bishop toward the queenside and supports the centre before completing king safety."
+        },
+        {
+          "san": "f3",
+          "text": "White supports e4 and controls g4, keeping Black's pieces from harassing the bishop on e3 as easily."
+        }
+      ]
+    },
+    {
+      "title": "Sicilian Defense: Dragon Variation, Yugoslav Attack, Modern Line",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "c5",
+        "Nf3",
+        "d6",
+        "d4",
+        "cxd4",
+        "Nxd4",
+        "Nf6",
+        "Nc3",
+        "g6",
+        "Be3",
+        "Bg7",
+        "f3",
+        "Nc6",
+        "Qd2",
+        "O-O",
+        "O-O-O"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White gains central space and frees the kingside bishop."
+        },
+        {
+          "san": "c5",
+          "text": "Black contests d4 from the flank, aiming for asymmetrical central play."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops and prepares d4 to open the centre."
+        },
+        {
+          "san": "d6",
+          "text": "Black controls e5 and supports a flexible central setup."
+        },
+        {
+          "san": "d4",
+          "text": "White strikes in the centre and opens lines for the minor pieces."
+        },
+        {
+          "san": "cxd4",
+          "text": "Black trades the c-pawn for White's d-pawn, opening the c-file."
+        },
+        {
+          "san": "Nxd4",
+          "text": "White recaptures with the knight and occupies d4 actively."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops the knight and attacks e4."
+        },
+        {
+          "san": "Nc3",
+          "text": "White brings another knight into play and defends the e4 pawn."
+        },
+        {
+          "san": "g6",
+          "text": "Black prepares to fianchetto the bishop. The long diagonal will become a major source of activity."
+        },
+        {
+          "san": "Be3",
+          "text": "White develops the bishop and keeps open the option of queenside castling."
+        },
+        {
+          "san": "Bg7",
+          "text": "The bishop takes the long diagonal, pressuring the centre and looking toward the queenside."
+        },
+        {
+          "san": "f3",
+          "text": "White reinforces e4 and controls g4, supporting the bishop and a potential kingside pawn advance."
+        },
+        {
+          "san": "Nc6",
+          "text": "Black develops the queenside knight and adds pressure on d4."
+        },
+        {
+          "san": "Qd2",
+          "text": "The queen connects with the bishop on e3 and clears d1 for queenside castling."
+        },
+        {
+          "san": "O-O",
+          "text": "Black secures the king and brings the rook toward the centre."
+        },
+        {
+          "san": "O-O-O",
+          "text": "White castles to the opposite side and places the rook on d1. Both sides can consider attacking where the opposing king lives."
+        }
+      ]
+    },
+    {
+      "title": "Slav Defense: Czech Variation",
+      "start_fen": "",
+      "moves": [
+        "d4",
+        "d5",
+        "c4",
+        "c6",
+        "Nf3",
+        "Nf6",
+        "Nc3",
+        "dxc4",
+        "a4",
+        "Bf5"
+      ],
+      "notes": [
+        {
+          "san": "d4",
+          "text": "White claims central space and opens the c1 bishop's diagonal."
+        },
+        {
+          "san": "d5",
+          "text": "Black occupies d5 and controls e4."
+        },
+        {
+          "san": "c4",
+          "text": "White challenges the d5 pawn, offering a flank pawn to disturb Black's centre."
+        },
+        {
+          "san": "c6",
+          "text": "Black reinforces d5 with c6 while keeping the c8 bishop's diagonal open."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops the kingside knight and increases central control."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops symmetrically and reinforces d5."
+        },
+        {
+          "san": "Nc3",
+          "text": "White develops the queenside knight and adds pressure to d5 and e4."
+        },
+        {
+          "san": "dxc4",
+          "text": "Black captures on c4, temporarily winning a pawn while releasing the d5 tension."
+        },
+        {
+          "san": "a4",
+          "text": "White prevents b5 from easily supporting the captured pawn on c4. This prepares a more convenient recovery of that pawn."
+        },
+        {
+          "san": "Bf5",
+          "text": "Black develops the bishop outside the pawn chain before playing e6. The bishop immediately influences e4."
+        }
+      ]
+    },
+    {
+      "title": "London System, with Be2",
+      "start_fen": "",
+      "moves": [
+        "d4",
+        "Nf6",
+        "Nf3",
+        "g6",
+        "Bf4",
+        "Bg7",
+        "e3",
+        "d6",
+        "h3",
+        "c5",
+        "Be2"
+      ],
+      "notes": [
+        {
+          "san": "d4",
+          "text": "White claims central space while opening the dark-squared bishop's diagonal."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops flexibly and controls e4."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops a knight to support d4 and prepare king safety."
+        },
+        {
+          "san": "g6",
+          "text": "Black prepares the kingside fianchetto and pressure on the long diagonal."
+        },
+        {
+          "san": "Bf4",
+          "text": "White develops the bishop outside the intended e3 pawn chain, where it retains useful scope."
+        },
+        {
+          "san": "Bg7",
+          "text": "Black places the bishop on the long diagonal, challenging White's centre from a distance."
+        },
+        {
+          "san": "e3",
+          "text": "White supports d4 and opens the f1 bishop's diagonal without blocking the developed bishop on f4."
+        },
+        {
+          "san": "d6",
+          "text": "Black controls e5 and prepares to develop the queenside pieces."
+        },
+        {
+          "san": "h3",
+          "text": "White gives the bishop on f4 a retreat square on h2 and restricts a knight or bishop entry on g4."
+        },
+        {
+          "san": "c5",
+          "text": "Black challenges d4 with the c-pawn, seeking active central play against the London structure."
+        },
+        {
+          "san": "Be2",
+          "text": "White develops the remaining bishop and prepares kingside castling, completing a solid setup."
+        }
+      ]
+    },
+    {
+      "title": "King's Indian Defense: Orthodox Variation, Aronin-Taimanov Defense",
+      "start_fen": "",
+      "moves": [
+        "d4",
+        "Nf6",
+        "c4",
+        "g6",
+        "Nc3",
+        "Bg7",
+        "e4",
+        "d6",
+        "Nf3",
+        "O-O",
+        "Be2",
+        "e5",
+        "O-O",
+        "Nc6"
+      ],
+      "notes": [
+        {
+          "san": "d4",
+          "text": "White gains central space and opens the c1 bishop's diagonal."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops and controls e4, delaying a central pawn commitment."
+        },
+        {
+          "san": "c4",
+          "text": "White expands the central pawn presence and controls d5."
+        },
+        {
+          "san": "g6",
+          "text": "Black prepares a bishop fianchetto to challenge the centre from the long diagonal."
+        },
+        {
+          "san": "Nc3",
+          "text": "White develops the queenside knight and supports e4."
+        },
+        {
+          "san": "Bg7",
+          "text": "Black develops the bishop to its intended diagonal, pointing toward the queenside through the centre."
+        },
+        {
+          "san": "e4",
+          "text": "White occupies e4, establishing a broad centre supported by the c3 knight."
+        },
+        {
+          "san": "d6",
+          "text": "Black controls e5 and supports a later central break with the e-pawn."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops the kingside knight and reinforces d4 and e5."
+        },
+        {
+          "san": "O-O",
+          "text": "Black secures the king before challenging White's central space."
+        },
+        {
+          "san": "Be2",
+          "text": "White develops the bishop to a safe square and prepares kingside castling."
+        },
+        {
+          "san": "e5",
+          "text": "Black strikes at d4 with e5, challenging White's space and opening the c8 bishop's diagonal."
+        },
+        {
+          "san": "O-O",
+          "text": "White safeguards the king before deciding how to resolve the central tension."
+        },
+        {
+          "san": "Nc6",
+          "text": "Black develops the queenside knight and increases the pressure on d4, inviting White to clarify the centre."
+        }
+      ]
+    },
+    {
+      "title": "Petrov's Defense: Classical Attack",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nf6",
+        "Nxe5",
+        "d6",
+        "Nf3",
+        "Nxe4",
+        "d4"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White claims central space and opens development lines."
+        },
+        {
+          "san": "e5",
+          "text": "Black matches White's central pawn and opens the f8 bishop's diagonal."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops the knight while attacking e5."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black counterattacks e4 instead of defending e5 directly. This reciprocal pressure defines the Petrov."
+        },
+        {
+          "san": "Nxe5",
+          "text": "White captures the e5 pawn, testing Black's ability to regain central material."
+        },
+        {
+          "san": "d6",
+          "text": "Black attacks the advanced knight first. Chasing it back makes the later capture on e4 safer."
+        },
+        {
+          "san": "Nf3",
+          "text": "The knight retreats to a developed square, preserving White's temporary extra pawn."
+        },
+        {
+          "san": "Nxe4",
+          "text": "Black regains the e4 pawn and restores material balance, although the knight has become a central target."
+        },
+        {
+          "san": "d4",
+          "text": "White occupies d4 and opens the c1 bishop's diagonal, gaining space while preparing to challenge the advanced knight."
+        }
+      ]
+    },
+    {
+      "title": "Scandinavian Defense: Main Line",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "d5",
+        "exd5",
+        "Qxd5",
+        "Nc3",
+        "Qa5"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White gains central space and opens the kingside bishop's diagonal."
+        },
+        {
+          "san": "d5",
+          "text": "Black challenges e4 immediately, accepting that early central exchanges may bring the queen out."
+        },
+        {
+          "san": "exd5",
+          "text": "White captures the central pawn, testing Black's chosen recapture."
+        },
+        {
+          "san": "Qxd5",
+          "text": "The queen recaptures on d5 and restores material balance, but it can become a target for development."
+        },
+        {
+          "san": "Nc3",
+          "text": "White develops a knight with an attack on the queen, gaining activity with tempo."
+        },
+        {
+          "san": "Qa5",
+          "text": "The queen leaves the attack and stays active along the fifth rank and the a5-e1 diagonal."
+        }
+      ]
+    },
+    {
+      "title": "English Opening: King's English Variation, Four Knights Variation",
+      "start_fen": "",
+      "moves": [
+        "c4",
+        "e5",
+        "Nc3",
+        "Nf6",
+        "Nf3",
+        "Nc6",
+        "d4",
+        "exd4",
+        "Nxd4",
+        "Bb4",
+        "Bg5",
+        "h6",
+        "Bh4",
+        "Bxc3+",
+        "bxc3",
+        "Ne5"
+      ],
+      "notes": [
+        {
+          "san": "c4",
+          "text": "White controls d5 from the flank and keeps both central pawns flexible."
+        },
+        {
+          "san": "e5",
+          "text": "Black claims central space and controls d4, inviting an English structure with reversed central roles."
+        },
+        {
+          "san": "Nc3",
+          "text": "White develops the queenside knight and increases pressure on d5."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops a knight and controls central squares."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops the kingside knight and adds pressure on e5."
+        },
+        {
+          "san": "Nc6",
+          "text": "Black develops the other knight and defends e5, completing the four-knights setup."
+        },
+        {
+          "san": "d4",
+          "text": "White challenges the e5 pawn directly and seeks to open central lines."
+        },
+        {
+          "san": "exd4",
+          "text": "Black captures the central pawn and releases the e5 square."
+        },
+        {
+          "san": "Nxd4",
+          "text": "White recaptures with the knight, establishing a central piece."
+        },
+        {
+          "san": "Bb4",
+          "text": "Black develops the bishop with a pin on the c3 knight, placing pressure on White's queenside coordination."
+        },
+        {
+          "san": "Bg5",
+          "text": "White develops the bishop and pins the f6 knight to Black's queen, creating a pin of its own."
+        },
+        {
+          "san": "h6",
+          "text": "Black asks White's bishop to declare its intentions and creates space near the king at the cost of a pawn move."
+        },
+        {
+          "san": "Bh4",
+          "text": "White keeps the pin and preserves the bishop."
+        },
+        {
+          "san": "Bxc3+",
+          "text": "Black exchanges bishop for knight on c3 with check, forcing a response and changing White's pawn structure."
+        },
+        {
+          "san": "bxc3",
+          "text": "White recaptures with the b-pawn, gaining central pawn presence and opening the b-file, while accepting doubled c-pawns."
+        },
+        {
+          "san": "Ne5",
+          "text": "Black centralizes the c6 knight on e5, where it attacks c4 and looks toward d3 and f3."
+        }
+      ]
+    },
+    {
+      "title": "Nimzo-Indian Defense",
+      "start_fen": "",
+      "moves": [
+        "d4",
+        "Nf6",
+        "c4",
+        "e6",
+        "Nc3",
+        "Bb4"
+      ],
+      "notes": [
+        {
+          "san": "d4",
+          "text": "White claims central space and opens the c1 bishop's diagonal."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops flexibly and controls e4."
+        },
+        {
+          "san": "c4",
+          "text": "White expands the centre and controls d5."
+        },
+        {
+          "san": "e6",
+          "text": "Black prepares d5 and opens the f8 bishop's diagonal."
+        },
+        {
+          "san": "Nc3",
+          "text": "White develops the knight and supports an eventual e4 advance."
+        },
+        {
+          "san": "Bb4",
+          "text": "Black pins the knight on c3 to the king, making e4 harder to achieve and offering an exchange that could double White's c-pawns."
+        }
+      ]
+    },
+    {
+      "title": "Vienna Game: Stanley Variation, Frankenstein-Dracula Variation",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "e5",
+        "Nc3",
+        "Nf6",
+        "Bc4",
+        "Nxe4",
+        "Qh5",
+        "Nd6",
+        "Bb3",
+        "Nc6",
+        "Nb5",
+        "g6",
+        "Qf3",
+        "f5",
+        "Qd5",
+        "Qe7",
+        "Nxc7+",
+        "Kd8",
+        "Nxa8",
+        "b6"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White claims central space and opens the f1 bishop's diagonal."
+        },
+        {
+          "san": "e5",
+          "text": "Black answers centrally and opens development lines."
+        },
+        {
+          "san": "Nc3",
+          "text": "White develops the queenside knight, defending e4 while keeping the f-pawn free."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops the knight with pressure on e4."
+        },
+        {
+          "san": "Bc4",
+          "text": "White develops the bishop toward f7, adding attacking possibilities near Black's king."
+        },
+        {
+          "san": "Nxe4",
+          "text": "Black captures e4, testing a tactical line in which White can use early queen activity against the exposed kingside."
+        },
+        {
+          "san": "Qh5",
+          "text": "White brings the queen toward f7 and e5. This active move creates threats but exposes the queen to attacks."
+        },
+        {
+          "san": "Nd6",
+          "text": "Black retreats the knight to d6, controlling f7 and interfering with White's direct queen-and-bishop pressure."
+        },
+        {
+          "san": "Bb3",
+          "text": "White preserves the bishop on its diagonal and waits for the central position to clarify."
+        },
+        {
+          "san": "Nc6",
+          "text": "Black develops a knight and increases central control while the king remains uncastled."
+        },
+        {
+          "san": "Nb5",
+          "text": "White jumps into b5, adding pressure on c7 and d6. The knight and queen create concrete threats."
+        },
+        {
+          "san": "g6",
+          "text": "Black attacks the queen on h5 with a pawn, gaining time while weakening dark squares near the king."
+        },
+        {
+          "san": "Qf3",
+          "text": "White preserves the queen and directs it along the f-file toward f7."
+        },
+        {
+          "san": "f5",
+          "text": "Black advances the f-pawn, blocking that file and claiming space, but exposing the king's position further."
+        },
+        {
+          "san": "Qd5",
+          "text": "The queen centralizes with an attack on b7 and the centre, maintaining tactical pressure."
+        },
+        {
+          "san": "Qe7",
+          "text": "Black puts the queen on e7, defending key points and preparing to meet the knight's intrusion."
+        },
+        {
+          "san": "Nxc7+",
+          "text": "White captures c7 with check. The knight also attacks the rook on a8, making this a fork."
+        },
+        {
+          "san": "Kd8",
+          "text": "Black moves the king out of check and gives up the right to castle. The rook on a8 remains attacked."
+        },
+        {
+          "san": "Nxa8",
+          "text": "White takes the rook on a8, gaining material but placing the knight far from an easy escape."
+        },
+        {
+          "san": "b6",
+          "text": "Black opens the c8 bishop's diagonal and restricts the knight's escape via c7. Activity and the trapped knight complicate the material count."
+        }
+      ]
+    },
+    {
+      "title": "Dutch Defense: Stonewall Variation, Chekhover Variation",
+      "start_fen": "",
+      "moves": [
+        "d4",
+        "f5",
+        "c4",
+        "Nf6",
+        "g3",
+        "e6",
+        "Bg2",
+        "Be7",
+        "Nf3",
+        "O-O",
+        "O-O",
+        "d5",
+        "Nc3",
+        "c6",
+        "Qc2",
+        "Qe8",
+        "Bg5"
+      ],
+      "notes": [
+        {
+          "san": "d4",
+          "text": "White occupies the centre and opens the queen's bishop's diagonal."
+        },
+        {
+          "san": "f5",
+          "text": "Black controls e4 with the f-pawn and announces a Dutch structure, while weakening the king's diagonal."
+        },
+        {
+          "san": "c4",
+          "text": "White expands central influence and prepares to challenge Black's pawn structure."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops a knight to support the central dark squares."
+        },
+        {
+          "san": "g3",
+          "text": "White prepares a kingside fianchetto to oppose Black's centre from a distance."
+        },
+        {
+          "san": "e6",
+          "text": "Black supports a future d5 advance and opens the f8 bishop's diagonal."
+        },
+        {
+          "san": "Bg2",
+          "text": "The bishop develops onto the long diagonal, pointing toward b7 through the centre."
+        },
+        {
+          "san": "Be7",
+          "text": "Black develops the bishop and clears the route for castling."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops the kingside knight and reinforces d4 and e5."
+        },
+        {
+          "san": "O-O",
+          "text": "Black secures the king before building the Stonewall centre."
+        },
+        {
+          "san": "O-O",
+          "text": "White castles and brings a rook toward the centre."
+        },
+        {
+          "san": "d5",
+          "text": "Black establishes the Stonewall pawn chain. It controls e4 firmly but leaves e5 as a potential White outpost."
+        },
+        {
+          "san": "Nc3",
+          "text": "White develops the queenside knight and increases control over d5 and e4."
+        },
+        {
+          "san": "c6",
+          "text": "Black supports d5 and completes the central pawn chain, though the c8 bishop has limited immediate scope."
+        },
+        {
+          "san": "Qc2",
+          "text": "The queen moves toward the centre and supports coordination between the rooks and minor pieces."
+        },
+        {
+          "san": "Qe8",
+          "text": "Black prepares to bring the queen toward the kingside while supporting the central structure."
+        },
+        {
+          "san": "Bg5",
+          "text": "White develops the bishop actively and challenges the knight on f6, an important defender of Black's central and kingside squares."
+        }
+      ]
+    },
+    {
+      "title": "Catalan Opening: Closed, Main Line",
+      "start_fen": "",
+      "moves": [
+        "d4",
+        "Nf6",
+        "c4",
+        "e6",
+        "Nf3",
+        "d5",
+        "g3",
+        "Be7",
+        "Bg2",
+        "O-O",
+        "O-O",
+        "Nbd7",
+        "Qc2",
+        "c6",
+        "Bf4",
+        "b6",
+        "Nbd2",
+        "Bb7",
+        "e4",
+        "dxe4",
+        "Nxe4",
+        "Nxe4",
+        "Qxe4"
+      ],
+      "notes": [
+        {
+          "san": "d4",
+          "text": "White claims central space and opens the c1 bishop's diagonal."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops flexibly and controls e4."
+        },
+        {
+          "san": "c4",
+          "text": "White challenges d5 and expands central influence."
+        },
+        {
+          "san": "e6",
+          "text": "Black prepares the central d5 advance and opens the kingside bishop's diagonal."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops the kingside knight and reinforces d4."
+        },
+        {
+          "san": "d5",
+          "text": "Black occupies d5, directly contesting White's centre."
+        },
+        {
+          "san": "g3",
+          "text": "White prepares to fianchetto the light-squared bishop, the central feature of the Catalan."
+        },
+        {
+          "san": "Be7",
+          "text": "Black develops the bishop and prepares castling."
+        },
+        {
+          "san": "Bg2",
+          "text": "White develops the bishop to the long diagonal, applying pressure toward the queenside through the centre."
+        },
+        {
+          "san": "O-O",
+          "text": "Black safeguards the king before settling the central tension."
+        },
+        {
+          "san": "O-O",
+          "text": "White castles and connects the king with a more secure pawn shelter."
+        },
+        {
+          "san": "Nbd7",
+          "text": "Black develops the queenside knight and supports the centre, choosing a closed setup."
+        },
+        {
+          "san": "Qc2",
+          "text": "The queen supports the centre and helps coordinate the planned e4 break."
+        },
+        {
+          "san": "c6",
+          "text": "Black supports d5 with c6, accepting a temporarily restricted c8 bishop."
+        },
+        {
+          "san": "Bf4",
+          "text": "White develops the dark-squared bishop outside the centre and puts pressure on c7."
+        },
+        {
+          "san": "b6",
+          "text": "Black prepares a queenside fianchetto to give the c8 bishop a working diagonal."
+        },
+        {
+          "san": "Nbd2",
+          "text": "White develops the queenside knight and reinforces e4, preparing the central expansion."
+        },
+        {
+          "san": "Bb7",
+          "text": "Black develops the bishop onto the long diagonal and adds pressure on the centre."
+        },
+        {
+          "san": "e4",
+          "text": "White plays the prepared central break, challenging d5 and opening lines for the pieces."
+        },
+        {
+          "san": "dxe4",
+          "text": "Black captures e4 to reduce White's central space and force a recapture."
+        },
+        {
+          "san": "Nxe4",
+          "text": "White recaptures with the knight, placing it actively in the centre."
+        },
+        {
+          "san": "Nxe4",
+          "text": "Black exchanges the f6 knight for the centralized knight, reducing White's immediate piece activity."
+        },
+        {
+          "san": "Qxe4",
+          "text": "The queen recaptures on e4 and remains centrally active. The pawn tension has given way to an open central position."
+        }
+      ]
+    },
+    {
+      "title": "Pirc Defense: Austrian Attack, Unzicker Attack, Bronstein Variation",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "d6",
+        "d4",
+        "Nf6",
+        "Nc3",
+        "g6",
+        "f4",
+        "Bg7",
+        "Nf3",
+        "O-O",
+        "e5",
+        "Nfd7",
+        "h4"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White occupies the centre and opens lines for development."
+        },
+        {
+          "san": "d6",
+          "text": "Black prepares a flexible setup with control of e5, delaying the central confrontation."
+        },
+        {
+          "san": "d4",
+          "text": "White establishes two central pawns and gains more space."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops a knight with pressure on e4."
+        },
+        {
+          "san": "Nc3",
+          "text": "White defends e4 and develops the queenside knight."
+        },
+        {
+          "san": "g6",
+          "text": "Black prepares to develop the bishop on the long diagonal, targeting White's broad centre."
+        },
+        {
+          "san": "f4",
+          "text": "White supports e5 and prepares a space-gaining pawn advance, committing to an ambitious centre."
+        },
+        {
+          "san": "Bg7",
+          "text": "Black develops the bishop and adds long-range pressure toward d4 and the queenside."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops the kingside knight and supports the centre, bringing castling closer."
+        },
+        {
+          "san": "O-O",
+          "text": "Black secures the king before trying to undermine White's centre."
+        },
+        {
+          "san": "e5",
+          "text": "White gains space and attacks the f6 knight. The centre advances, but its base must remain defended."
+        },
+        {
+          "san": "Nfd7",
+          "text": "Black preserves the knight and reroutes it toward squares that can challenge White's advanced centre."
+        },
+        {
+          "san": "h4",
+          "text": "White gains kingside space and prepares h5 to challenge the g6 pawn shelter. King safety must be considered before opening more files."
+        }
+      ]
+    },
+    {
+      "title": "Benko Gambit Accepted: King Walk Variation",
+      "start_fen": "",
+      "moves": [
+        "d4",
+        "Nf6",
+        "c4",
+        "c5",
+        "d5",
+        "b5",
+        "cxb5",
+        "a6",
+        "bxa6",
+        "g6",
+        "Nc3",
+        "Bxa6",
+        "Nf3",
+        "d6",
+        "e4",
+        "Bxf1",
+        "Kxf1",
+        "Bg7",
+        "g3",
+        "O-O",
+        "Kg2"
+      ],
+      "notes": [
+        {
+          "san": "d4",
+          "text": "White occupies the centre and opens the dark-squared bishop's diagonal."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops flexibly and controls e4."
+        },
+        {
+          "san": "c4",
+          "text": "White adds central space with the c-pawn."
+        },
+        {
+          "san": "c5",
+          "text": "Black challenges d4 with the c-pawn, seeking an unbalanced centre."
+        },
+        {
+          "san": "d5",
+          "text": "White advances past the pawn challenge, gaining space and restricting Black's pieces."
+        },
+        {
+          "san": "b5",
+          "text": "Black offers the b-pawn to draw White's c-pawn away and open queenside files for the rooks."
+        },
+        {
+          "san": "cxb5",
+          "text": "White accepts the offered pawn and moves a central pawn toward the flank."
+        },
+        {
+          "san": "a6",
+          "text": "Black offers another pawn to open the a- and b-files and activate the queenside pieces."
+        },
+        {
+          "san": "bxa6",
+          "text": "White accepts the second pawn, temporarily increasing the material advantage while moving farther from the centre."
+        },
+        {
+          "san": "g6",
+          "text": "Black prepares the bishop's long diagonal and gives priority to activity over immediate pawn recovery."
+        },
+        {
+          "san": "Nc3",
+          "text": "White develops the queenside knight and reinforces the central squares."
+        },
+        {
+          "san": "Bxa6",
+          "text": "The bishop recaptures on a6, removing White's advanced pawn and taking an active diagonal toward f1."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops a knight and supports d4 and e5 while preparing king safety."
+        },
+        {
+          "san": "d6",
+          "text": "Black supports central play and opens the f8 bishop's route toward g7."
+        },
+        {
+          "san": "e4",
+          "text": "White establishes a broad centre with e4, seeking to use the extra pawn and space."
+        },
+        {
+          "san": "Bxf1",
+          "text": "Black exchanges its active bishop for the undeveloped bishop on f1, forcing White's king to recapture."
+        },
+        {
+          "san": "Kxf1",
+          "text": "White regains the bishop but loses castling rights. The king must find shelter by walking to the kingside."
+        },
+        {
+          "san": "Bg7",
+          "text": "Black develops the bishop onto the long diagonal, where it pressures the centre and queenside."
+        },
+        {
+          "san": "g3",
+          "text": "White prepares a sheltered square on g2 for the king and controls f4 and h4."
+        },
+        {
+          "san": "O-O",
+          "text": "Black castles, bringing a rook into play and securing the king before queenside activity."
+        },
+        {
+          "san": "Kg2",
+          "text": "White moves the king behind the g-pawn, completing the planned walk to safety after losing castling rights."
+        }
+      ]
+    },
+    {
+      "title": "Alekhine Defense: Four Pawns Attack, Tartakower Variation",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "Nf6",
+        "e5",
+        "Nd5",
+        "d4",
+        "d6",
+        "c4",
+        "Nb6",
+        "f4",
+        "dxe5",
+        "fxe5",
+        "Nc6",
+        "Be3",
+        "Bf5",
+        "Nc3",
+        "e6",
+        "Nf3",
+        "Qd7",
+        "Be2",
+        "O-O-O",
+        "O-O",
+        "Be7"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White occupies the centre and opens development lines."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black attacks e4 with a knight, inviting White to advance pawns that may later become targets."
+        },
+        {
+          "san": "e5",
+          "text": "White gains space with tempo by attacking the knight."
+        },
+        {
+          "san": "Nd5",
+          "text": "The knight stays centralized on d5, where White can continue to challenge it with pawns."
+        },
+        {
+          "san": "d4",
+          "text": "White supports the e5 pawn and builds a broad central pawn chain."
+        },
+        {
+          "san": "d6",
+          "text": "Black attacks the advanced pawn chain with d6, seeking to undermine White's space."
+        },
+        {
+          "san": "c4",
+          "text": "White gains more space and attacks the knight on d5."
+        },
+        {
+          "san": "Nb6",
+          "text": "The knight preserves itself on b6 and keeps pressure on central and queenside squares."
+        },
+        {
+          "san": "f4",
+          "text": "White builds the four-pawn centre, reinforcing e5 but leaving many pawns to defend."
+        },
+        {
+          "san": "dxe5",
+          "text": "Black exchanges the d6 pawn for White's advanced e5 pawn, challenging the centre's stability."
+        },
+        {
+          "san": "fxe5",
+          "text": "White recaptures with the f-pawn and restores a pawn on e5, opening the f-file."
+        },
+        {
+          "san": "Nc6",
+          "text": "Black develops the b8 knight and adds pressure to d4 and e5."
+        },
+        {
+          "san": "Be3",
+          "text": "White develops the bishop and reinforces d4, defending the centre that the opening has built."
+        },
+        {
+          "san": "Bf5",
+          "text": "Black develops the bishop outside the e-pawn structure and influences central squares."
+        },
+        {
+          "san": "Nc3",
+          "text": "White develops the queenside knight, supporting e4 and d5 while keeping the centre defended."
+        },
+        {
+          "san": "e6",
+          "text": "Black supports the centre and opens the f8 bishop's diagonal."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops the kingside knight and reinforces d4, preparing castling."
+        },
+        {
+          "san": "Qd7",
+          "text": "Black develops the queen and clears the queenside castling route."
+        },
+        {
+          "san": "Be2",
+          "text": "White develops the remaining bishop and prepares kingside castling."
+        },
+        {
+          "san": "O-O-O",
+          "text": "Black castles queenside and brings a rook to the d-file, increasing pressure on White's pawn centre."
+        },
+        {
+          "san": "O-O",
+          "text": "White castles kingside. With kings on opposite wings, both central breaks and pawn attacks become important."
+        },
+        {
+          "san": "Be7",
+          "text": "Black develops the final bishop, connects the rooks and prepares to improve piece coordination against the centre."
+        }
+      ]
+    },
+    {
+      "title": "Four Knights Game: Halloween Gambit, Plasma Variation",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Nc3",
+        "Nf6",
+        "Nxe5",
+        "Nxe5",
+        "d4",
+        "Nc6",
+        "d5",
+        "Ne5",
+        "f4",
+        "Ng6",
+        "e5",
+        "Ng8",
+        "d6",
+        "cxd6",
+        "exd6",
+        "Qf6",
+        "Nb5",
+        "Rb8"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White gains central space and opens development lines."
+        },
+        {
+          "san": "e5",
+          "text": "Black mirrors the central pawn and frees the kingside bishop."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops a knight with pressure on e5."
+        },
+        {
+          "san": "Nc6",
+          "text": "Black develops and protects e5."
+        },
+        {
+          "san": "Nc3",
+          "text": "White develops the other knight and reinforces e4."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops the second knight, completing the four-knights setup."
+        },
+        {
+          "san": "Nxe5",
+          "text": "Critical review: Bb5 is the stronger candidate found by Stockfish 19 in this position. The recorded Nxe5 belongs to the historical or speculative example and should not be memorised as best play. Compare the alternative before continuing.",
+          "review_override": true
+        },
+        {
+          "san": "Nxe5",
+          "text": "Black accepts the sacrifice and occupies e5 with a knight. Material now favours Black."
+        },
+        {
+          "san": "d4",
+          "text": "White attacks the knight on e5 and opens the c1 bishop's diagonal, beginning the pawn chase."
+        },
+        {
+          "san": "Nc6",
+          "text": "Black retreats the knight to safety on c6."
+        },
+        {
+          "san": "d5",
+          "text": "White advances with an attack on that knight, gaining more central space."
+        },
+        {
+          "san": "Ne5",
+          "text": "The knight returns to e5, where White can attack it with the f-pawn."
+        },
+        {
+          "san": "f4",
+          "text": "White gains space and attacks e5 again, continuing the compensation for the sacrificed knight."
+        },
+        {
+          "san": "Ng6",
+          "text": "Black retreats the knight toward the kingside, keeping the extra material."
+        },
+        {
+          "san": "e5",
+          "text": "White advances with an attack on the other knight, the one on f6."
+        },
+        {
+          "san": "Ng8",
+          "text": "Black retreats that knight to its original square. The extra piece has come at the cost of several development tempi."
+        },
+        {
+          "san": "d6",
+          "text": "White advances a central pawn into d6, creating an advanced threat that interferes with Black's development."
+        },
+        {
+          "san": "cxd6",
+          "text": "Black eliminates that advanced pawn, trying to reduce White's central space and threats."
+        },
+        {
+          "san": "exd6",
+          "text": "White recaptures with the e-pawn, restoring the advanced pawn on d6 and opening the e-file."
+        },
+        {
+          "san": "Qf6",
+          "text": "The queen becomes active with pressure on d6 and the kingside. Black seeks coordination and tactical counterplay."
+        },
+        {
+          "san": "Nb5",
+          "text": "White brings the c3 knight toward c7 and d6, creating threats near Black's uncastled king and queenside rook."
+        },
+        {
+          "san": "Rb8",
+          "text": "Critical review: Nxf4 is the stronger candidate found by Stockfish 19 in this position. The recorded Rb8 belongs to the historical or speculative example and should not be memorised as best play. Compare the alternative before continuing.",
+          "review_override": true
+        }
+      ]
+    },
+    {
+      "title": "The Immortal Game",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "e5",
+        "f4",
+        "exf4",
+        "Bc4",
+        "Qh4+",
+        "Kf1",
+        "b5",
+        "Bxb5",
+        "Nf6",
+        "Nf3",
+        "Qh6",
+        "d3",
+        "Nh5",
+        "Nh4",
+        "Qg5",
+        "Nf5",
+        "c6",
+        "g4",
+        "Nf6",
+        "Rg1",
+        "cxb5",
+        "h4",
+        "Qg6",
+        "h5",
+        "Qg5",
+        "Qf3",
+        "Ng8",
+        "Bxf4",
+        "Qf6",
+        "Nc3",
+        "Bc5",
+        "Nd5",
+        "Qxb2",
+        "Bd6",
+        "Bxg1",
+        "e5",
+        "Qxa1+",
+        "Ke2",
+        "Na6",
+        "Nxg7+",
+        "Kd8",
+        "Qf6+",
+        "Nxf6",
+        "Be7#"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White occupies the centre and opens lines for the king's bishop."
+        },
+        {
+          "san": "e5",
+          "text": "Black matches the central pawn and frees the f8 bishop."
+        },
+        {
+          "san": "f4",
+          "text": "White offers the f-pawn to distract Black's e-pawn and build an attacking initiative. This also exposes the king's diagonal."
+        },
+        {
+          "san": "exf4",
+          "text": "Black accepts the gambit, gaining a pawn but moving its e-pawn away from central control."
+        },
+        {
+          "san": "Bc4",
+          "text": "White develops the bishop toward f7, prioritizing rapid activity over immediate pawn recovery."
+        },
+        {
+          "san": "Qh4+",
+          "text": "Black gives check along the diagonal weakened by f4, forcing White to address king safety."
+        },
+        {
+          "san": "Kf1",
+          "text": "White moves the king to f1 and gives up castling rights, keeping the minor pieces free for development."
+        },
+        {
+          "san": "b5",
+          "text": "Black offers a queenside pawn to divert White's bishop and gain time attacking it later."
+        },
+        {
+          "san": "Bxb5",
+          "text": "White accepts the pawn and takes the bishop away from its initial diagonal toward f7."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops the knight and brings central and kingside squares under control."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops with an attack on the queen on h4, gaining time to improve piece activity."
+        },
+        {
+          "san": "Qh6",
+          "text": "The queen avoids the knight's attack and keeps pressure along the kingside."
+        },
+        {
+          "san": "d3",
+          "text": "White supports e4 and opens the c1 bishop's diagonal, preparing further development."
+        },
+        {
+          "san": "Nh5",
+          "text": "Black sends the knight toward g3 and f4, seeking activity near White's exposed king."
+        },
+        {
+          "san": "Nh4",
+          "text": "White attacks the queen on h6 with the knight. The developing attack gains another tempo."
+        },
+        {
+          "san": "Qg5",
+          "text": "Black relocates the queen and keeps an eye on the kingside, where White's pawns can also attack it."
+        },
+        {
+          "san": "Nf5",
+          "text": "White centralizes the knight on f5, attacks g7 and gains influence near Black's king."
+        },
+        {
+          "san": "c6",
+          "text": "Black attacks the bishop on b5 and tries to expand on the queenside."
+        },
+        {
+          "san": "g4",
+          "text": "White advances the g-pawn to support the knight on f5 and attack the h5 knight."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black retreats the knight, preserving material while White gains kingside space."
+        },
+        {
+          "san": "Rg1",
+          "text": "White moves the rook to the g-file, supporting the pawn attack and possible pressure on g7."
+        },
+        {
+          "san": "cxb5",
+          "text": "Critical review: h5 is the stronger candidate found by Stockfish 19 in this position. The recorded cxb5 belongs to the historical or speculative example and should not be memorised as best play. Compare the alternative before continuing.",
+          "review_override": true
+        },
+        {
+          "san": "h4",
+          "text": "White gains kingside space and prepares h5 to chase Black's queen."
+        },
+        {
+          "san": "Qg6",
+          "text": "The queen moves away from the advancing pawns while keeping access to the queenside."
+        },
+        {
+          "san": "h5",
+          "text": "White attacks the queen with the h-pawn, gaining another tempo for the attack."
+        },
+        {
+          "san": "Qg5",
+          "text": "The queen retreats to g5, where White can continue developing with threats."
+        },
+        {
+          "san": "Qf3",
+          "text": "White activates the queen toward the centre and kingside, coordinating with the knight on f5."
+        },
+        {
+          "san": "Ng8",
+          "text": "Black retreats the f6 knight to g8. This reduces development while freeing the queen's diagonal."
+        },
+        {
+          "san": "Bxf4",
+          "text": "White recovers the gambit pawn with the bishop and brings the last bishop into active play."
+        },
+        {
+          "san": "Qf6",
+          "text": "Black centralizes the queen and targets b2 on the long diagonal. The king remains in the centre."
+        },
+        {
+          "san": "Nc3",
+          "text": "White develops the b1 knight and supports central activity, continuing to mobilize the pieces."
+        },
+        {
+          "san": "Bc5",
+          "text": "Critical review: g5 is the stronger candidate found by Stockfish 19 in this position. The recorded Bc5 belongs to the historical or speculative example and should not be memorised as best play. Compare the alternative before continuing.",
+          "review_override": true
+        },
+        {
+          "san": "Nd5",
+          "text": "Critical review: d4 is the stronger candidate found by Stockfish 19 in this position. The recorded Nd5 belongs to the historical or speculative example and should not be memorised as best play. Compare the alternative before continuing.",
+          "review_override": true
+        },
+        {
+          "san": "Qxb2",
+          "text": "Black captures b2 with the queen, attacking the rook on a1 and chasing material on the queenside."
+        },
+        {
+          "san": "Bd6",
+          "text": "Critical review: d4 is the stronger candidate found by Stockfish 19 in this position. The recorded Bd6 belongs to the historical or speculative example and should not be memorised as best play. Compare the alternative before continuing.",
+          "review_override": true
+        },
+        {
+          "san": "Bxg1",
+          "text": "Critical review: Qxa1+ is the stronger candidate found by Stockfish 19 in this position. The recorded Bxg1 belongs to the historical or speculative example and should not be memorised as best play. Compare the alternative before continuing.",
+          "review_override": true
+        },
+        {
+          "san": "e5",
+          "text": "Critical review: Re1 is the stronger candidate found by Stockfish 19 in this position. The recorded e5 belongs to the historical or speculative example and should not be memorised as best play. Compare the alternative before continuing.",
+          "review_override": true
+        },
+        {
+          "san": "Qxa1+",
+          "text": "Black takes the second rook on a1 with check. The queen is far from the king it may need to defend."
+        },
+        {
+          "san": "Ke2",
+          "text": "White moves out of check while preserving the attacking pieces and their coordination."
+        },
+        {
+          "san": "Na6",
+          "text": "Critical review: Ba6 is the stronger candidate found by Stockfish 19 in this position. The recorded Na6 belongs to the historical or speculative example and should not be memorised as best play. Compare the alternative before continuing.",
+          "review_override": true
+        },
+        {
+          "san": "Nxg7+",
+          "text": "White captures g7 with check, removing a pawn near the king and forcing another response."
+        },
+        {
+          "san": "Kd8",
+          "text": "Black moves the king to d8, where the surrounding minor pieces will determine its escape squares."
+        },
+        {
+          "san": "Qf6+",
+          "text": "White offers the queen with check. The point is to lure Black's g8 knight away from defending e7."
+        },
+        {
+          "san": "Nxf6",
+          "text": "Black takes the queen with the knight, removing it from g8 and allowing the mating bishop move."
+        },
+        {
+          "san": "Be7#",
+          "text": "The bishop delivers mate on e7. White's two knights and two bishops cover the king's escapes, completing the sacrificial attack."
+        }
+      ]
+    },
+    {
+      "title": "The Evergreen Game",
+      "start_fen": "",
+      "moves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bc4",
+        "Bc5",
+        "b4",
+        "Bxb4",
+        "c3",
+        "Ba5",
+        "d4",
+        "exd4",
+        "O-O",
+        "d3",
+        "Qb3",
+        "Qf6",
+        "e5",
+        "Qg6",
+        "Re1",
+        "Nge7",
+        "Ba3",
+        "b5",
+        "Qxb5",
+        "Rb8",
+        "Qa4",
+        "Bb6",
+        "Nbd2",
+        "Bb7",
+        "Ne4",
+        "Qf5",
+        "Bxd3",
+        "Qh5",
+        "Nf6+",
+        "gxf6",
+        "exf6",
+        "Rg8",
+        "Rad1",
+        "Qxf3",
+        "Rxe7+",
+        "Nxe7",
+        "Qxd7+",
+        "Kxd7",
+        "Bf5+",
+        "Ke8",
+        "Bd7+",
+        "Kf8",
+        "Bxe7#"
+      ],
+      "notes": [
+        {
+          "san": "e4",
+          "text": "White claims central space and opens lines for development."
+        },
+        {
+          "san": "e5",
+          "text": "Black answers centrally and frees the f8 bishop."
+        },
+        {
+          "san": "Nf3",
+          "text": "White develops a knight with an attack on e5."
+        },
+        {
+          "san": "Nc6",
+          "text": "Black develops and defends e5."
+        },
+        {
+          "san": "Bc4",
+          "text": "White develops the bishop toward f7, aiming at Black's initially vulnerable kingside pawn."
+        },
+        {
+          "san": "Bc5",
+          "text": "Black develops its bishop toward f2 and prepares king safety."
+        },
+        {
+          "san": "b4",
+          "text": "White offers the b-pawn to gain time on Black's bishop and accelerate central development. This is the Evans Gambit."
+        },
+        {
+          "san": "Bxb4",
+          "text": "Black accepts the offered pawn and places the bishop where c3 can attack it with tempo."
+        },
+        {
+          "san": "c3",
+          "text": "White attacks the bishop and prepares d4, building a pawn centre while gaining development time."
+        },
+        {
+          "san": "Ba5",
+          "text": "Black retreats the bishop and keeps an eye along the a5-e1 diagonal."
+        },
+        {
+          "san": "d4",
+          "text": "White builds the central pawn duo and challenges e5, seeking open lines for the developed pieces."
+        },
+        {
+          "san": "exd4",
+          "text": "Black captures d4, releasing central tension and forcing White to decide between recapture and continued development."
+        },
+        {
+          "san": "O-O",
+          "text": "White castles, prioritizing king safety and rook activity over immediate recovery of the pawn."
+        },
+        {
+          "san": "d3",
+          "text": "Black advances the captured pawn to d3, creating a cramping presence in White's position."
+        },
+        {
+          "san": "Qb3",
+          "text": "The queen moves to b3, forming pressure with the bishop on c4 against f7 and attacking b7."
+        },
+        {
+          "san": "Qf6",
+          "text": "Black develops the queen to defend key points and contest White's threats."
+        },
+        {
+          "san": "e5",
+          "text": "White advances e5 with an attack on the queen on f6, gaining space and another tempo."
+        },
+        {
+          "san": "Qg6",
+          "text": "Black retreats the queen while maintaining kingside influence and defence."
+        },
+        {
+          "san": "Re1",
+          "text": "White puts the rook on the open e-file, aiming at Black's uncastled king."
+        },
+        {
+          "san": "Nge7",
+          "text": "Black develops the knight to e7, adding a defender and moving toward castling."
+        },
+        {
+          "san": "Ba3",
+          "text": "The bishop develops to a3 and cuts along the diagonal toward e7 and f8. Black's king has fewer comfortable options."
+        },
+        {
+          "san": "b5",
+          "text": "Critical review: d5 is the stronger candidate found by Stockfish 19 in this position. The recorded b5 belongs to the historical or speculative example and should not be memorised as best play. Compare the alternative before continuing.",
+          "review_override": true
+        },
+        {
+          "san": "Qxb5",
+          "text": "White captures the pawn and keeps the queen active near Black's queenside."
+        },
+        {
+          "san": "Rb8",
+          "text": "Black brings the rook to b8 with an attack on the queen, gaining activity on the open file."
+        },
+        {
+          "san": "Qa4",
+          "text": "The queen escapes along the fourth rank, keeping central and queenside influence."
+        },
+        {
+          "san": "Bb6",
+          "text": "Black repositions the bishop to b6, preserving it and retaining the diagonal toward f2."
+        },
+        {
+          "san": "Nbd2",
+          "text": "White develops the remaining knight toward the centre, reinforcing the attacking force."
+        },
+        {
+          "san": "Bb7",
+          "text": "Black develops the c8 bishop onto the long diagonal toward White's king."
+        },
+        {
+          "san": "Ne4",
+          "text": "White centralizes the knight on e4 and attacks the queen on g6, improving the piece with tempo."
+        },
+        {
+          "san": "Qf5",
+          "text": "Critical review: d2 is the stronger candidate found by Stockfish 19 in this position. The recorded Qf5 belongs to the historical or speculative example and should not be memorised as best play. Compare the alternative before continuing.",
+          "review_override": true
+        },
+        {
+          "san": "Bxd3",
+          "text": "White removes the advanced pawn on d3 and activates the bishop on a useful attacking diagonal."
+        },
+        {
+          "san": "Qh5",
+          "text": "Black moves the queen toward h5, keeping pressure near White's king and away from the central knight."
+        },
+        {
+          "san": "Nf6+",
+          "text": "Critical review: Ng3 is the stronger candidate found by Stockfish 19 in this position. The recorded Nf6+ belongs to the historical or speculative example and should not be memorised as best play. Compare the alternative before continuing.",
+          "review_override": true
+        },
+        {
+          "san": "gxf6",
+          "text": "Black accepts the knight and opens the g-file, while weakening squares near its own king."
+        },
+        {
+          "san": "exf6",
+          "text": "White recaptures with the e-pawn, placing a pawn on f6 and opening the e-file against the king."
+        },
+        {
+          "san": "Rg8",
+          "text": "Black activates the rook on the opened g-file and creates threats against White's kingside."
+        },
+        {
+          "san": "Rad1",
+          "text": "White brings the a1 rook to the open d-file. Coordination against the central king takes priority over immediate defence."
+        },
+        {
+          "san": "Qxf3",
+          "text": "Critical review: Rxg2+ is the stronger candidate found by Stockfish 19 in this position. The recorded Qxf3 belongs to the historical or speculative example and should not be memorised as best play. Compare the alternative before continuing.",
+          "review_override": true
+        },
+        {
+          "san": "Rxe7+",
+          "text": "White captures e7 with check, sacrificing a rook to remove a blocker around Black's king."
+        },
+        {
+          "san": "Nxe7",
+          "text": "Critical review: Kd8 is the stronger candidate found by Stockfish 19 in this position. The recorded Nxe7 belongs to the historical or speculative example and should not be memorised as best play. Compare the alternative before continuing.",
+          "review_override": true
+        },
+        {
+          "san": "Qxd7+",
+          "text": "White sacrifices the queen on d7 with check, drawing the king onto the open d-file."
+        },
+        {
+          "san": "Kxd7",
+          "text": "Black captures the queen with the king, entering the mating net created by White's remaining pieces."
+        },
+        {
+          "san": "Bf5+",
+          "text": "White gives check with the bishop and controls the diagonal through d7. The king is driven back toward e8."
+        },
+        {
+          "san": "Ke8",
+          "text": "Black retreats the king along its remaining route."
+        },
+        {
+          "san": "Bd7+",
+          "text": "White gives another bishop check, keeping the king confined and maintaining the forcing sequence."
+        },
+        {
+          "san": "Kf8",
+          "text": "Black moves the king to f8, where White can finish with a capture on e7."
+        },
+        {
+          "san": "Bxe7#",
+          "text": "The bishop captures the knight on e7 with mate. The rook on d1 and bishop on a3 cooperate to cut off the king's escapes."
+        }
+      ]
+    },
+    {
+      "title": "The Game of the Century",
+      "start_fen": "",
+      "moves": [
+        "Nf3",
+        "Nf6",
+        "c4",
+        "g6",
+        "Nc3",
+        "Bg7",
+        "d4",
+        "O-O",
+        "Bf4",
+        "d5",
+        "Qb3",
+        "dxc4",
+        "Qxc4",
+        "c6",
+        "e4",
+        "Nbd7",
+        "Rd1",
+        "Nb6",
+        "Qc5",
+        "Bg4",
+        "Bg5",
+        "Na4",
+        "Qa3",
+        "Nxc3",
+        "bxc3",
+        "Nxe4",
+        "Bxe7",
+        "Qb6",
+        "Bc4",
+        "Nxc3",
+        "Bc5",
+        "Rfe8+",
+        "Kf1",
+        "Be6",
+        "Bxb6",
+        "Bxc4+",
+        "Kg1",
+        "Ne2+",
+        "Kf1",
+        "Nxd4+",
+        "Kg1",
+        "Ne2+",
+        "Kf1",
+        "Nc3+",
+        "Kg1",
+        "axb6",
+        "Qb4",
+        "Ra4",
+        "Qxb6",
+        "Nxd1",
+        "h3",
+        "Rxa2",
+        "Kh2",
+        "Nxf2",
+        "Re1",
+        "Rxe1",
+        "Qd8+",
+        "Bf8",
+        "Nxe1",
+        "Bd5",
+        "Nf3",
+        "Ne4",
+        "Qb8",
+        "b5",
+        "h4",
+        "h5",
+        "Ne5",
+        "Kg7",
+        "Kg1",
+        "Bc5+",
+        "Kf1",
+        "Ng3+",
+        "Ke1",
+        "Bb4+",
+        "Kd1",
+        "Bb3+",
+        "Kc1",
+        "Ne2+",
+        "Kb1",
+        "Nc3+",
+        "Kc1",
+        "Rc2#"
+      ],
+      "notes": [
+        {
+          "san": "Nf3",
+          "text": "White develops the kingside knight, controlling central squares while keeping the pawn structure flexible."
+        },
+        {
+          "san": "Nf6",
+          "text": "Black develops symmetrically and controls e4."
+        },
+        {
+          "san": "c4",
+          "text": "White gains space on the queenside and controls d5."
+        },
+        {
+          "san": "g6",
+          "text": "Black prepares a kingside fianchetto and long-diagonal pressure."
+        },
+        {
+          "san": "Nc3",
+          "text": "White develops the queenside knight and increases control of d5 and e4."
+        },
+        {
+          "san": "Bg7",
+          "text": "Black places the bishop on the long diagonal, ready to pressure the centre."
+        },
+        {
+          "san": "d4",
+          "text": "White occupies d4, establishing a substantial central pawn presence."
+        },
+        {
+          "san": "O-O",
+          "text": "Black castles early, securing the king before the centre opens."
+        },
+        {
+          "san": "Bf4",
+          "text": "White develops the dark-squared bishop outside the central pawn chain."
+        },
+        {
+          "san": "d5",
+          "text": "Black challenges White's centre directly with d5, seeking active central play."
+        },
+        {
+          "san": "Qb3",
+          "text": "The queen targets b7 and adds pressure on d5, but early queen moves can cost development time."
+        },
+        {
+          "san": "dxc4",
+          "text": "Black captures c4, temporarily winning a pawn and drawing White's queen away from b7."
+        },
+        {
+          "san": "Qxc4",
+          "text": "White recaptures with the queen, restoring material balance but exposing it to future attacks."
+        },
+        {
+          "san": "c6",
+          "text": "Black controls d5 and prepares queenside development behind a compact centre."
+        },
+        {
+          "san": "e4",
+          "text": "White occupies e4 and establishes a broad centre, seeking to restrict Black's pieces."
+        },
+        {
+          "san": "Nbd7",
+          "text": "Black develops the queenside knight and prepares a useful route through b6."
+        },
+        {
+          "san": "Rd1",
+          "text": "White places the rook on the d-file, supporting the centre while the king remains uncastled."
+        },
+        {
+          "san": "Nb6",
+          "text": "Black attacks the queen on c4 with the knight, gaining a development tempo."
+        },
+        {
+          "san": "Qc5",
+          "text": "The queen steps away while remaining active near Black's queenside."
+        },
+        {
+          "san": "Bg4",
+          "text": "Black develops the bishop to g4, putting pressure on the knight on f3 and its connection to White's king."
+        },
+        {
+          "san": "Bg5",
+          "text": "White repositions the bishop actively, but the king and queenside pieces still require coordination."
+        },
+        {
+          "san": "Na4",
+          "text": "Black sends the knight to a4, where it attacks the queen on c5 and the knight on c3. Concrete threats gain time."
+        },
+        {
+          "san": "Qa3",
+          "text": "White saves the queen, leaving the knight on c3 exposed to capture."
+        },
+        {
+          "san": "Nxc3",
+          "text": "Black exchanges its advanced knight for the c3 knight, disrupting White's central pawn structure."
+        },
+        {
+          "san": "bxc3",
+          "text": "White recaptures with the b-pawn, opening the b-file and accepting doubled c-pawns."
+        },
+        {
+          "san": "Nxe4",
+          "text": "Black captures the e4 pawn with the knight, centralizing it and uncovering the g7 bishop's diagonal."
+        },
+        {
+          "san": "Bxe7",
+          "text": "White captures the pawn on e7 with the bishop, winning material while leaving the king in the centre."
+        },
+        {
+          "san": "Qb6",
+          "text": "Black activates the queen on b6, applying pressure along the diagonal toward White's king and queenside."
+        },
+        {
+          "san": "Bc4",
+          "text": "White develops the bishop toward f7 and brings the last minor piece into play."
+        },
+        {
+          "san": "Nxc3",
+          "text": "Black captures c3 with the knight, removing a central pawn and attacking the rook on d1."
+        },
+        {
+          "san": "Bc5",
+          "text": "White attacks the queen on b6 with the bishop, attempting to gain time against Black's active queen."
+        },
+        {
+          "san": "Rfe8+",
+          "text": "Black gives check on the open e-file, forcing White's king to respond before the queen threat is resolved."
+        },
+        {
+          "san": "Kf1",
+          "text": "White moves the king to f1, losing castling rights and leaving it vulnerable to forcing piece play."
+        },
+        {
+          "san": "Be6",
+          "text": "Black offers the queen by moving the bishop to e6. The bishop move prepares checking combinations and attacks the bishop on c4."
+        },
+        {
+          "san": "Bxb6",
+          "text": "Critical review: Qxc3 is the stronger candidate found by Stockfish 19 in this position. The recorded Bxb6 belongs to the historical or speculative example and should not be memorised as best play. Compare the alternative before continuing.",
+          "review_override": true
+        },
+        {
+          "san": "Bxc4+",
+          "text": "Black captures the bishop on c4 with check. The checking bishop forces a king move before White can consolidate the extra queen."
+        },
+        {
+          "san": "Kg1",
+          "text": "White steps to g1, seeking safety behind the kingside pawns."
+        },
+        {
+          "san": "Ne2+",
+          "text": "Black gives check with the knight on e2, forcing the king back and improving the knight's tactical reach."
+        },
+        {
+          "san": "Kf1",
+          "text": "White returns to f1 to escape the knight check."
+        },
+        {
+          "san": "Nxd4+",
+          "text": "Black captures d4 with check, gaining another pawn and forcing the king to move again."
+        },
+        {
+          "san": "Kg1",
+          "text": "White retreats to g1, trying to end the sequence of checks."
+        },
+        {
+          "san": "Ne2+",
+          "text": "Black repeats the knight check on e2, keeping the initiative and the king under pressure."
+        },
+        {
+          "san": "Kf1",
+          "text": "White moves back to f1, remaining exposed to the knight's forcing play."
+        },
+        {
+          "san": "Nc3+",
+          "text": "Black gives check on c3, simultaneously attacking the rook on d1 and coordinating with the bishops."
+        },
+        {
+          "san": "Kg1",
+          "text": "White moves to g1, leaving the rook and the bishop on b6 vulnerable."
+        },
+        {
+          "san": "axb6",
+          "text": "Black captures the bishop on b6 with the a-pawn. The queen sacrifice has now recovered substantial material."
+        },
+        {
+          "san": "Qb4",
+          "text": "White centralizes the queen and looks for targets and defensive activity."
+        },
+        {
+          "san": "Ra4",
+          "text": "Black activates the rook along the fourth rank and attacks the queen on b4."
+        },
+        {
+          "san": "Qxb6",
+          "text": "White moves the queen to b6 and captures another pawn, seeking counterplay despite the exposed king."
+        },
+        {
+          "san": "Nxd1",
+          "text": "Black captures the rook on d1 with the knight, winning the material that earlier forks had targeted."
+        },
+        {
+          "san": "h3",
+          "text": "White advances h3 to create room and limit Black's pieces near the king."
+        },
+        {
+          "san": "Rxa2",
+          "text": "Black captures a2 with the rook, adding a pawn and taking control of the second rank."
+        },
+        {
+          "san": "Kh2",
+          "text": "White moves the king to h2, trying to escape the back-rank confinement."
+        },
+        {
+          "san": "Nxf2",
+          "text": "Black captures f2 with the knight, removing a pawn near White's king and keeping tactical pressure."
+        },
+        {
+          "san": "Re1",
+          "text": "White places the remaining rook on e1, challenging Black's rook on e8 and seeking exchanges."
+        },
+        {
+          "san": "Rxe1",
+          "text": "Black exchanges rooks on e1, simplifying while keeping the initiative."
+        },
+        {
+          "san": "Qd8+",
+          "text": "White gives check with the queen on d8, seeking forcing play before recapturing the rook."
+        },
+        {
+          "san": "Bf8",
+          "text": "Black interposes the bishop on f8, answering the check and preserving the king's shelter."
+        },
+        {
+          "san": "Nxe1",
+          "text": "White recaptures the rook with the knight, completing the exchange sequence."
+        },
+        {
+          "san": "Bd5",
+          "text": "Black centralizes the other bishop on d5, where it controls long diagonals and works with the remaining pieces."
+        },
+        {
+          "san": "Nf3",
+          "text": "White repositions the knight to f3, covering defensive squares and keeping the queen active."
+        },
+        {
+          "san": "Ne4",
+          "text": "Black centralizes the knight on e4, pressuring f2, g3, c3 and d2."
+        },
+        {
+          "san": "Qb8",
+          "text": "White activates the queen on b8, looking for checks and queenside targets."
+        },
+        {
+          "san": "b5",
+          "text": "Black advances the b-pawn, gaining space and supporting the bishop's future activity."
+        },
+        {
+          "san": "h4",
+          "text": "White creates space with h4, seeking room for the king and possible counterplay."
+        },
+        {
+          "san": "h5",
+          "text": "Black fixes the kingside structure with h5, restricting White's pawn advances."
+        },
+        {
+          "san": "Ne5",
+          "text": "White centralizes the knight on e5, searching for active squares and counterplay."
+        },
+        {
+          "san": "Kg7",
+          "text": "Black improves the king's safety and connects it more closely to the remaining pieces."
+        },
+        {
+          "san": "Kg1",
+          "text": "Critical review: Nxg6 is the stronger candidate found by Stockfish 19 in this position. The recorded Kg1 belongs to the historical or speculative example and should not be memorised as best play. Compare the alternative before continuing.",
+          "review_override": true
+        },
+        {
+          "san": "Bc5+",
+          "text": "Black gives check with the bishop on c5, beginning a coordinated king chase."
+        },
+        {
+          "san": "Kf1",
+          "text": "Critical review: Kh2 is the stronger candidate found by Stockfish 19 in this position. The recorded Kf1 belongs to the historical or speculative example and should not be memorised as best play. Compare the alternative before continuing.",
+          "review_override": true
+        },
+        {
+          "san": "Ng3+",
+          "text": "Black checks with the knight on g3, continuing to drive the king toward the centre."
+        },
+        {
+          "san": "Ke1",
+          "text": "White steps to e1, where Black's bishops can continue the pursuit."
+        },
+        {
+          "san": "Bb4+",
+          "text": "Black gives check with the bishop on b4, using the long diagonal through e1."
+        },
+        {
+          "san": "Kd1",
+          "text": "White moves the king to d1, escaping that bishop's diagonal."
+        },
+        {
+          "san": "Bb3+",
+          "text": "Black gives check with the other bishop on b3, controlling the diagonal through d1."
+        },
+        {
+          "san": "Kc1",
+          "text": "White moves the king to c1, still unable to settle behind a pawn shelter."
+        },
+        {
+          "san": "Ne2+",
+          "text": "Black checks with the knight on e2, driving the king farther toward the queenside."
+        },
+        {
+          "san": "Kb1",
+          "text": "White moves the king to b1, continuing along the narrowing escape route."
+        },
+        {
+          "san": "Nc3+",
+          "text": "Black gives check with the knight on c3, coordinating with the bishops and rook."
+        },
+        {
+          "san": "Kc1",
+          "text": "White moves to c1, reaching the final square of the king chase."
+        },
+        {
+          "san": "Rc2#",
+          "text": "Black delivers mate with the rook on c2. The bishops and knight cover escape and capture squares, completing the coordinated attack."
+        }
+      ]
+    },
+    {
+      "title": "Find mate in one · Back-rank mate",
+      "start_fen": "6k1/5ppp/8/8/8/8/5PPP/4R1K1 w - - 0 1",
+      "moves": [
+        "Re8#"
+      ],
+      "notes": [
+        {
+          "san": "Re8#",
+          "text": "The rook invades the eighth rank with mate. Black's own pawns block its king's escape, and the rook controls the whole rank."
+        }
+      ]
+    },
+    {
+      "title": "Find mate in one · Back-rank mate",
+      "start_fen": "4r1k1/5ppp/8/8/8/8/5PPP/6K1 b - - 0 1",
+      "moves": [
+        "Re1#"
+      ],
+      "notes": [
+        {
+          "san": "Re1#",
+          "text": "The rook invades the first rank with mate. White's pawns restrict its king, leaving no escape from the rook's horizontal attack."
+        }
+      ]
+    },
+    {
+      "title": "Find mate in one · Smothered mate",
+      "start_fen": "6rk/6pp/8/6N1/8/8/8/6K1 w - - 0 1",
+      "moves": [
+        "Nf7#"
+      ],
+      "notes": [
+        {
+          "san": "Nf7#",
+          "text": "The knight gives mate on f7. Its attack jumps over blockers while Black's own pieces surround the king, creating a smothered mate."
+        }
+      ]
+    },
+    {
+      "title": "Find mate in one · Smothered mate",
+      "start_fen": "6k1/8/8/8/6n1/8/6PP/6RK b - - 0 1",
+      "moves": [
+        "Nf2#"
+      ],
+      "notes": [
+        {
+          "san": "Nf2#",
+          "text": "The knight gives mate on f2. White's king is trapped by its own pieces and cannot escape the knight's jumping attack."
+        }
+      ]
+    },
+    {
+      "title": "Find mate in one · Queen and king coordination",
+      "start_fen": "7k/8/5K2/8/8/8/8/6Q1 w - - 0 1",
+      "moves": [
+        "Qg7#"
+      ],
+      "notes": [
+        {
+          "san": "Qg7#",
+          "text": "The queen delivers mate beside the king. White's king protects the queen, so Black cannot capture it, and the queen covers the remaining escapes."
+        }
+      ]
+    },
+    {
+      "title": "Find mate in one · Queen and king coordination",
+      "start_fen": "6q1/8/8/8/8/5k2/8/7K b - - 0 1",
+      "moves": [
+        "Qg2#"
+      ],
+      "notes": [
+        {
+          "san": "Qg2#",
+          "text": "The queen moves next to the opposing king with mate. Black's king protects the queen while it controls the escape squares."
+        }
+      ]
+    },
+    {
+      "title": "Find mate in one · Rook and king coordination",
+      "start_fen": "7k/5K2/8/8/8/8/8/R7 w - - 0 1",
+      "moves": [
+        "Rh1#"
+      ],
+      "notes": [
+        {
+          "san": "Rh1#",
+          "text": "The rook checks along the first rank. White's king restricts the opposing king's exits, completing a rook-and-king mating net."
+        }
+      ]
+    },
+    {
+      "title": "Find mate in one · Rook and king coordination",
+      "start_fen": "r7/8/8/8/8/8/5k2/7K b - - 0 1",
+      "moves": [
+        "Rh8#"
+      ],
+      "notes": [
+        {
+          "san": "Rh8#",
+          "text": "The rook checks along the eighth rank. Black's king controls the adjacent escape squares, so White's king has no legal reply."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+name: Language contribution
+description: Share a translation, narration sample or language review
+title: "[Language] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A short sample is enough to start. See the [language contribution guide](https://github.com/fernandomec/chess-for-anki-community/blob/downloads/CONTRIBUTING-LANGUAGES.md) for help and the optional pack format.
+
+        This issue is public. Paste text or link to audio; do not attach ZIP files or programs. Submissions are reviewed before publication and are never installed or executed automatically. Only English natural narration is available today; Hindi is planned and still needs runtime support.
+  - type: dropdown
+    id: locale
+    attributes:
+      label: Language and locale
+      options:
+        - en-US - English
+        - pt-BR - Portuguese (Brazil)
+        - ru-RU - Russian
+        - zh-CN - Chinese (Simplified, China)
+        - es-ES - Spanish (Spain)
+        - hi-IN - Hindi (India), planned runtime support
+        - fr-FR - French (France)
+        - de-DE - German
+        - ja-JP - Japanese
+        - Another locale (describe below)
+    validations:
+      required: true
+  - type: dropdown
+    id: role
+    attributes:
+      label: Contribution type
+      multiple: true
+      options:
+        - Text translation
+        - Natural narration or dubbing
+        - Language or pronunciation review
+    validations:
+      required: true
+  - type: textarea
+    id: submission
+    attributes:
+      label: Sample or download link
+      description: Paste a short translation, suggest a correction or link to a recording. Say what it covers and any known gaps. For a full pack, include its version and ZIP SHA-256 checksum. Do not post credentials or attach archives or programs.
+    validations:
+      required: true
+  - type: textarea
+    id: rights
+    attributes:
+      label: License, speaker consent and credits
+      description: State the redistribution license and requested credits. Confirm that you own or may redistribute the submitted material and that recorded speakers consent to public distribution. Disclose any voice-generation service. Do not include paid pack content, reference books, private recordings, Anki profiles or personal documents.
+    validations:
+      required: true
+  - type: input
+    id: discussion
+    attributes:
+      label: Related Discussion (optional)
+      description: Link an existing Discussion if you have one. Starting one is not required.
+      placeholder: https://github.com/fernandomec/chess-for-anki-community/discussions/...
+  - type: textarea
+    id: review
+    attributes:
+      label: Review or test notes (optional)
+      description: Share language review or playback checks if available. For Anki tests, include the Anki and add-on versions. Untested samples are welcome.
+      placeholder: "Language review: ...\nPlayback: untested.\nKnown issues: ..."

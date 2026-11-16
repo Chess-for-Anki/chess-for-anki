@@ -1,0 +1,688 @@
+<style>
+  #cot-manual, #cot-manual * { box-sizing: border-box; margin: 0; padding: 0; }
+  #cot-manual {
+    background: #262421;
+    color: #bababa;
+    font-family: "Noto Sans", -apple-system, "Segoe UI", sans-serif;
+    -webkit-user-select: none; user-select: none;
+    touch-action: manipulation;
+    max-width: 460px; margin: 0 auto; padding: 10px;
+  }
+
+  /* ── Board ── */
+  table.board { border-collapse: collapse; margin: 0 auto; }
+  table.board td.sq {
+    width: 50px; height: 50px; padding: 0; position: relative;
+    text-align: center; vertical-align: middle; cursor: pointer;
+  }
+  td.light { background-color: __SQ_LIGHT__; }
+  td.dark  { background-color: __SQ_DARK__; }
+  td.light, td.dark { background-image: __TEXTURE_BG__; background-size: 100% 100%; }
+  td.sel   { box-shadow: inset 0 0 0 4px rgba(155,199,0,0.85); }
+  td.lastmove { background: rgba(155,199,0,0.41); }
+  td.lastmove.dark { background: rgba(155,199,0,0.55); }
+  /* King in check / checkmate: red radial glow under the piece. A
+     background-image, so it layers over any square/lastmove color. */
+  td.check { background-image: radial-gradient(circle at center,
+      rgba(255, 20, 20, 0.65) 0%, rgba(220, 10, 10, 0.45) 40%,
+      rgba(180, 0, 0, 0.12) 72%, rgba(180, 0, 0, 0) 100%); }
+  td.sq .pc { position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 46px; height: 46px; pointer-events: none; }
+  td.sq svg { width: 46px; height: 46px; display: block; }
+  /* legal-move dots */
+  td.dest::after {
+    content: ""; position: absolute; left: 50%; top: 50%;
+    width: 16px; height: 16px; border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.22);
+  }
+  td.dest.occupied::after {
+    width: 100%; height: 100%; border-radius: 0;
+    background: none; box-shadow: inset 0 0 0 5px rgba(0,0,0,0.22);
+  }
+  td.coord { width: 18px; height: 18px; color: #d9d2c8; font-size: 11px;
+             text-align: center; background: transparent; cursor: default; }
+
+  /* ── Status / turn line ── */
+  #status { text-align: center; font-size: 13px; color: #9b9b9b; margin: 8px 0 4px; min-height: 18px; }
+  #status b { color: #cfcabf; }
+  #status b.side-w { color: __SQ_LIGHT__; font-weight: 700; }
+  #status b.side-b { color: __SQ_DARK__; font-weight: 700; }
+
+  /* ── PGN display ── */
+  #pgn-wrap {
+    margin-top: 10px; background: #302e2b; border: 1px solid #3d3a37;
+    border-radius: 6px; padding: 8px 10px; min-height: 54px;
+    font-size: 14px; line-height: 1.7; color: #c9c4ba;
+  }
+  #pgn-empty { color: #6f6c66; font-style: italic; }
+  .pgnlock { color: #cfcabf; font-weight: 600; }
+  .pgnmove {
+    cursor: pointer; padding: 1px 3px; border-radius: 3px;
+    display: inline-block;
+  }
+  .pgnmove:hover { background: #3f3c39; }
+  .pgnmove.current { background: #4a6327; color: #fff; }
+  .pgnvar { color: #9a958c; }
+
+
+  /* ── Promotion picker ── */
+  #promo-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.55);
+    display: none; align-items: center; justify-content: center; z-index: 60;
+  }
+  #promo-box { background: #302e2b; border: 1px solid #4a6327; border-radius: 8px; padding: 14px; text-align: center; }
+  #promo-box .ttl { font-size: 14px; color: #cfcabf; margin-bottom: 10px; }
+  #promo-box .opts { display: flex; gap: 8px; }
+  .promo-pc {
+    width: 54px; height: 54px; background: #f0d9b5; border: 2px solid #b58863;
+    border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+  .promo-pc:hover { border-color: #9bc700; }
+  .promo-pc svg { width: 46px; height: 46px; }
+
+  /* ── Instructions header ── */
+  #cot-help {
+    font-size: 12px; color: #8f8b84; line-height: 1.5;
+    margin: 0 auto 10px; max-width: 420px; text-align: center;
+  }
+  #cot-help b { color: #b3aea6; }
+
+  /* ── Move navigation buttons ── */
+  #nav-row { display: flex; justify-content: center; gap: 10px; margin-top: 8px; }
+  .nav-btn {
+    background: #302e2b; color: #c9c4ba; border: 1px solid #3d3a37;
+    border-radius: 6px; padding: 6px 22px; font-size: 18px; line-height: 1;
+    cursor: pointer; min-width: 70px;
+  }
+  .nav-btn:hover:not(:disabled) { background: #3f3c39; border-color: #4a6327; }
+  .nav-btn:disabled { opacity: 0.4; cursor: default; }
+
+  /* ── Drag ghost (piece following the cursor) ── */
+  .drag-ghost {
+    position: fixed; width: 50px; height: 50px; margin-left: -25px;
+    margin-top: -25px; pointer-events: none; z-index: 70; opacity: 0.92;
+  }
+  .drag-ghost svg { width: 50px; height: 50px; display: block; }
+  /* Origin square while dragging: fade the piece + gray the square (drag only,
+     not click). No ring, no dots. Desktop has no size change. */
+  td.sq.drag-origin .pc { opacity: 0.3; }
+  td.sq.drag-origin::after {
+    content: ""; position: absolute; inset: 0;
+    background: rgba(90, 90, 90, 0.30); pointer-events: none;
+  }
+</style>
+
+<div id="cot-manual">
+  <div id="cot-help">
+    <b>To move:</b> click a piece and then a legal square, or drag it.<br>
+    Step through the moves with the <b>← →</b> arrow keys, by clicking a move
+    in the notation, or with the buttons below it.
+  </div>
+  <div id="board-host"></div>
+  <div id="status"></div>
+  <div id="pgn-wrap"><span id="pgn-empty">No moves yet - play a move on the board.</span></div>
+  <div id="nav-row">
+    <button type="button" class="nav-btn" id="nav-back" title="Previous move (←)">&#8592;</button>
+    <button type="button" class="nav-btn" id="nav-fwd" title="Next move (→)">&#8594;</button>
+  </div>
+</div>
+
+<div id="promo-overlay">
+  <div id="promo-box">
+    <div class="ttl">Promote to:</div>
+    <div class="opts" id="promo-opts"></div>
+  </div>
+</div>
+
+<script>/*__CHESS_MIN_JS__*/</script>
+<script>/*__PIECES_JS__*/</script>
+<script>
+(function () {
+  "use strict";
+
+  var START_FEN = "__START_FEN__";          // "" => standard opening
+  var PLAYER_COLOR = "__PLAYER_COLOR__";     // "white" | "black"
+  var INITIAL_MOVES = "__INITIAL_MOVES__";   // prior line to restore, or ""
+  var SOUND_ENABLED = __SOUND_ENABLED__;     // true | false
+  var MOVE_SRC = "__MOVE_SRC__";             // data: URI or ""
+  var CAPTURE_SRC = "__CAPTURE_SRC__";       // data: URI or ""
+  var CHECK_SRC = "__CHECK_SRC__";           // data: URI or ""
+  var CASTLE_SRC = "__CASTLE_SRC__";         // data: URI or ""
+  var MATE_SRC = "__MATE_SRC__";             // data: URI or ""
+  var PIECE_SET = "__PIECE_SET__";           // cburnett|letters|wooden|blank|blindfold
+  var FILES = ["a","b","c","d","e","f","g","h"];
+
+  var _cotMove = null, _cotCap = null, _cotChk = null, _cotCas = null, _cotMate = null;
+  /* Sound priority mirrors online boards (and the review card):
+     checkmate > check > capture > castling > plain move; a special sound only
+     claims the move if its file is bundled (a "#" falls back to the check
+     sound if no mate file, and so on), so nothing can go silent. */
+  function soundKindFor(san) {
+    var s = san || "";
+    if (MATE_SRC && /#\s*$/.test(s)) return "mate";
+    if (CHECK_SRC && /[+#]\s*$/.test(s)) return "check";
+    if (s.indexOf("x") >= 0) return "capture";
+    if (CASTLE_SRC && /^[O0]-[O0](-[O0])?/.test(s)) return "castle";
+    return "move";
+  }
+  function playMoveSound(san) {
+    try {
+      if (!SOUND_ENABLED) return;
+      var kind = soundKindFor(san);
+      var src = kind === "mate" ? MATE_SRC
+              : kind === "check" ? CHECK_SRC
+              : kind === "capture" ? CAPTURE_SRC
+              : kind === "castle" ? CASTLE_SRC : MOVE_SRC;
+      if (!src) return;
+      var a = kind === "mate"    ? (_cotMate || (_cotMate = new Audio(src)))
+            : kind === "check"   ? (_cotChk  || (_cotChk  = new Audio(src)))
+            : kind === "capture" ? (_cotCap  || (_cotCap  = new Audio(src)))
+            : kind === "castle"  ? (_cotCas  || (_cotCas  = new Audio(src)))
+                                 : (_cotMove || (_cotMove = new Audio(src)));
+      a.currentTime = 0;
+      a.play().catch(function () {});
+    } catch (e) {}
+  }
+
+  function newGame() {
+    return START_FEN ? new Chess(START_FEN) : new Chess();
+  }
+
+  // ── Move tree ──
+  // node = { id, san, fen, parent, children:[] }; children[0] is mainline.
+  var idCounter = 0;
+  var nodeById = {};
+  function makeNode(san, fen, parent) {
+    var n = { id: (++idCounter), san: san, fen: fen, parent: parent, children: [] };
+    nodeById[n.id] = n;
+    return n;
+  }
+
+  var startFenStr = newGame().fen();
+  /* White plays ply 1 unless we start from a custom Black-to-move position. */
+  var FIRST_IS_WHITE = (startFenStr.split(" ")[1] !== "b");
+  var root = makeNode(null, startFenStr, null);
+  var current = root;
+  var lastMove = null;   // {from, to} for highlight
+
+  // ── Board rendering ──
+  function pieceSVG(code) {
+    if (typeof COT_pieceSVG === "function") return COT_pieceSVG(code, PIECE_SET);
+    var inner = (typeof CHESS_PIECES !== "undefined" && CHESS_PIECES[code]) || "";
+    return '<svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg">' + inner + '</svg>';
+  }
+  function fenToGrid(fen) {
+    // returns map "e4" -> "wP" etc.
+    var pos = fen.split(" ")[0];
+    var rows = pos.split("/");   // rows[0]=rank8
+    var map = {};
+    for (var r = 0; r < 8; r++) {
+      var rank = 8 - r, file = 0;
+      var rowStr = rows[r];
+      for (var i = 0; i < rowStr.length; i++) {
+        var ch = rowStr[i];
+        if (/\d/.test(ch)) { file += parseInt(ch, 10); }
+        else {
+          var color = (ch === ch.toUpperCase()) ? "w" : "b";
+          var code = color + ch.toUpperCase();
+          map[FILES[file] + rank] = code;
+          file++;
+        }
+      }
+    }
+    return map;
+  }
+
+  var selected = null;     // selected square name
+  var legalForSel = [];    // legal dest names for selected
+
+  function checkSquareOf(fen) {
+    /* King square of the side in check in this position (or null) - drives
+       the red check/checkmate glow, for either color. */
+    try {
+      var t = new Chess(fen);
+      if (!t || !t.inCheck || !t.inCheck()) return null;
+      var kingCh = t.turnColor() === "w" ? "K" : "k";
+      var rows = fen.split(" ")[0].split("/");
+      for (var r = 0; r < 8; r++) {
+        var file = 0;
+        for (var i = 0; i < rows[r].length; i++) {
+          var ch = rows[r].charAt(i);
+          if (ch >= "1" && ch <= "8") { file += parseInt(ch, 10); continue; }
+          if (ch === kingCh)
+            return String.fromCharCode(97 + file) + (8 - r);
+          file++;
+        }
+      }
+    } catch (e) {}
+    return null;
+  }
+  function render() {
+    var fen = current.fen;
+    var chkSq = checkSquareOf(fen);
+    var grid = fenToGrid(fen);
+    var flip = (PLAYER_COLOR === "black");
+    var host = document.getElementById("board-host");
+    host.innerHTML = "";
+
+    var table = document.createElement("table");
+    table.className = "board";
+
+    var rankOrder = flip ? [1,2,3,4,5,6,7,8] : [8,7,6,5,4,3,2,1];
+    var fileOrder = flip ? [7,6,5,4,3,2,1,0] : [0,1,2,3,4,5,6,7];
+
+    for (var ri = 0; ri < 8; ri++) {
+      var rank = rankOrder[ri];
+      var tr = document.createElement("tr");
+      var rc = document.createElement("td");
+      rc.className = "coord"; rc.textContent = rank;
+      tr.appendChild(rc);
+
+      for (var fi = 0; fi < 8; fi++) {
+        var file = fileOrder[fi];
+        var name = FILES[file] + rank;
+        var td = document.createElement("td");
+        var isLight = ((file + rank) % 2 === 0);
+        var isCheckSq = (chkSq && name === chkSq);
+        td.className = "sq " + (isLight ? "light" : "dark");
+        td.setAttribute("data-sq", name);
+
+        if (isCheckSq) td.className += " check";
+        if (lastMove && (lastMove.from === name || lastMove.to === name)) {
+          td.className += " lastmove";
+        }
+        if (selected === name) td.className += " sel";
+        if (legalForSel.indexOf(name) !== -1) {
+          td.className += " dest" + (grid[name] ? " occupied" : "");
+        }
+
+        if (grid[name]) {
+          var span = document.createElement("span");
+          span.className = "pc";
+          span.innerHTML = pieceSVG(grid[name]);
+          td.appendChild(span);
+        }
+        tr.appendChild(td);
+      }
+      table.appendChild(tr);
+    }
+    // file labels
+    var fr = document.createElement("tr");
+    fr.appendChild(document.createElement("td"));
+    for (var f2 = 0; f2 < 8; f2++) {
+      var fc = document.createElement("td");
+      fc.className = "coord"; fc.textContent = FILES[fileOrder[f2]];
+      fr.appendChild(fc);
+    }
+    table.appendChild(fr);
+    host.appendChild(table);
+
+    wireBoardEvents();
+    renderStatus(fen);
+    renderPgn();
+    updateNavButtons();
+  }
+
+  function renderStatus(fen) {
+    var turn = fen.split(" ")[1];
+    var el = document.getElementById("status");
+    if (turn === "w") {
+      el.innerHTML = '<b class="side-w">White</b> to move';
+    } else {
+      el.innerHTML = '<b class="side-b">Black</b> to move';
+    }
+  }
+
+  // ── Interaction ──
+  function ownPieceAt(name, fen) {
+    var g = newGame(); g.load(fen);
+    var p = g.pieceAt(name);
+    var turn = fen.split(" ")[1];
+    return (p && p.color === turn) ? p : null;
+  }
+
+  function selectSquare(name) {
+    var g = newGame(); g.load(current.fen);
+    selected = name;
+    legalForSel = g.legalDests(name);
+    render();
+  }
+  function clearSelection() { selected = null; legalForSel = []; }
+
+  function wireBoardEvents() {
+    var tds = document.querySelectorAll("td.sq");
+    for (var i = 0; i < tds.length; i++) {
+      tds[i].addEventListener("mousedown", onMouseDown);
+    }
+  }
+
+  function sqOf(el) {
+    while (el && !(el.getAttribute && el.getAttribute("data-sq"))) el = el.parentNode;
+    return el ? el.getAttribute("data-sq") : null;
+  }
+
+  // A tap (mouse press + release without dragging) drives click-to-move.
+  function handleTap(name) {
+    if (!name) return;
+    if (selected) {
+      if (name === selected) { clearSelection(); render(); return; }   // cancel
+      if (legalForSel.indexOf(name) !== -1) { tryMove(selected, name); return; }
+      if (ownPieceAt(name, current.fen)) { selectSquare(name); return; }  // reselect
+      clearSelection(); render();                                        // illegal: reject silently
+      return;
+    }
+    if (ownPieceAt(name, current.fen)) selectSquare(name);
+  }
+
+  // Both click-to-move and drag run through mouse events (HTML5 drag-and-drop
+  // is unreliable inside QtWebEngine, so we don't use it).
+  var press = null;  // { sq, x0, y0, moved, dragging, ghost, code, canDrag }
+  function onMouseDown(e) {
+    if (e.button !== 0) return;                 // left button only
+    var name = sqOf(e.target);
+    if (!name) return;
+    press = { sq: name, x0: e.clientX, y0: e.clientY, moved: false,
+              dragging: false, ghost: null, code: null, canDrag: false };
+    if (ownPieceAt(name, current.fen)) {
+      press.canDrag = true;
+      press.code = fenToGrid(current.fen)[name];
+    }
+    e.preventDefault();                         // suppress native image drag
+  }
+  function markDragOrigin(sq) {
+    removeDragOrigin();
+    var td = document.querySelector('td.sq[data-sq="' + sq + '"]');
+    if (td) td.classList.add("drag-origin");
+  }
+  function removeDragOrigin() {
+    var els = document.querySelectorAll("td.sq.drag-origin");
+    for (var i = 0; i < els.length; i++) els[i].classList.remove("drag-origin");
+  }
+  function onMouseMove(e) {
+    if (!press) return;
+    if (!press.moved) {
+      if (Math.abs(e.clientX - press.x0) + Math.abs(e.clientY - press.y0) < 6) return;
+      press.moved = true;
+      if (press.canDrag) {
+        press.dragging = true;
+        /* Drag: only the faded origin square + the floating piece - no
+           selection ring and no legal-move dots (those are for click-to-move).
+           Clear the highlight classes in place; do NOT rebuild the board mid-
+           drag (replacing the element the gesture started on makes Qt's
+           WebEngine stop delivering the rest of the drag). */
+        clearSelection();
+        var hl = document.querySelectorAll("td.sq.sel, td.sq.dest, td.sq.occupied");
+        for (var k = 0; k < hl.length; k++) hl[k].classList.remove("sel", "dest", "occupied");
+        markDragOrigin(press.sq);
+        var g = document.createElement("div");
+        g.className = "drag-ghost";
+        g.innerHTML = pieceSVG(press.code);
+        document.body.appendChild(g);
+        press.ghost = g;
+      }
+    }
+    if (press.dragging && press.ghost) {
+      press.ghost.style.left = e.clientX + "px";
+      press.ghost.style.top = e.clientY + "px";
+    }
+  }
+  function onMouseUp(e) {
+    if (!press) return;
+    var p = press; press = null;
+    if (p.ghost && p.ghost.parentNode) p.ghost.parentNode.removeChild(p.ghost);
+    removeDragOrigin();
+    if (p.dragging) {
+      var el = document.elementFromPoint(e.clientX, e.clientY);
+      var to = el ? sqOf(el) : null;
+      if (to && to !== p.sq) tryMove(p.sq, to);
+      else render();                            // dropped back / off-board
+      return;
+    }
+    handleTap(p.sq);                            // no drag → treat as a tap
+  }
+  document.addEventListener("mousemove", onMouseMove);
+  document.addEventListener("mouseup", onMouseUp);
+
+  // ── Moving ──
+  function isPromotion(from, to) {
+    var g = newGame(); g.load(current.fen);
+    var p = g.pieceAt(from);
+    if (!p || p.type !== "p") return false;
+    var toRank = parseInt(to[1], 10);
+    return (p.color === "w" && toRank === 8) || (p.color === "b" && toRank === 1);
+  }
+
+  function tryMove(from, to) {
+    // validate legality first (so we don't pop promotion on an illegal move)
+    var g = newGame(); g.load(current.fen);
+    if (g.legalDests(from).indexOf(to) === -1) {
+      clearSelection(); render();   // illegal: reject silently
+      return;
+    }
+    if (isPromotion(from, to)) {
+      askPromotion(function (pp) { commitMove(from, to, pp); });
+    } else {
+      commitMove(from, to, null);
+    }
+  }
+
+  function commitMove(from, to, promo) {
+    var g = newGame(); g.load(current.fen);
+    var res = g.moveFromTo(from, to, promo);
+    if (!res) { clearSelection(); render(); return; }   // illegal: reject silently
+    // follow existing child if same SAN, else create a branch
+    var next = null;
+    for (var i = 0; i < current.children.length; i++) {
+      if (current.children[i].san === res.san) { next = current.children[i]; break; }
+    }
+    if (!next) { next = makeNode(res.san, res.fen, current); current.children.push(next); }
+    current = next;
+    lastMove = { from: from, to: to };
+    clearSelection();
+    playMoveSound(res.san);
+    render();
+  }
+
+  // ── Promotion picker ──
+  function askPromotion(cb) {
+    var turn = current.fen.split(" ")[1];
+    var opts = document.getElementById("promo-opts");
+    var overlay = document.getElementById("promo-overlay");
+    opts.innerHTML = "";
+    var done = false;
+    function finish(choice, e) {
+      if (e) { e.preventDefault(); e.stopPropagation(); }
+      if (done) return;
+      done = true;
+      overlay.style.display = "none";
+      overlay.onmousedown = null; overlay.ontouchstart = null;
+      if (choice) cb(choice);
+      else { clearSelection(); render(); }   // cancelled: let them retry
+    }
+    ["q","r","b","n"].forEach(function (t) {
+      var div = document.createElement("div");
+      div.className = "promo-pc";
+      div.innerHTML = pieceSVG(turn + t.toUpperCase());
+      function choose(e) { finish(t, e); }
+      div.addEventListener("click", choose);
+      div.addEventListener("touchend", choose);
+      opts.appendChild(div);
+    });
+    /* Click/tap outside the box cancels the pending move. The box itself
+       stops the event so taps inside don't count as "outside". */
+    var box = document.getElementById("promo-box");
+    if (box) {
+      box.onmousedown = function (e) { e.stopPropagation(); };
+      box.ontouchstart = function (e) { e.stopPropagation(); };
+    }
+    overlay.onmousedown = function (e) { finish(null, e); };
+    overlay.ontouchstart = function (e) { finish(null, e); };
+    overlay.style.display = "flex";
+  }
+
+
+  // ── PGN tree display ──
+  function numberLabel(depth, forceNum) {
+    // depth is 1-based ply. White moves on odd depth when White is first,
+    // on even depth when Black is first (custom Black-to-move position).
+    var white = FIRST_IS_WHITE ? (depth % 2 === 1) : (depth % 2 === 0);
+    var moveNo = FIRST_IS_WHITE ? Math.ceil(depth / 2)
+                                : (Math.floor(depth / 2) + 1);
+    if (white) return moveNo + ". ";
+    return forceNum ? (moveNo + "... ") : "";
+  }
+  function moveSpan(node) {
+    var cls = "pgnmove" + (node === current ? " current" : "");
+    return '<span class="' + cls + '" data-id="' + node.id + '">' + node.san + "</span> ";
+  }
+  function renderNodes(nodes, depth, forceNum) {
+    if (!nodes || !nodes.length) return "";
+    var m0 = nodes[0];
+    var html = numberLabel(depth, forceNum) + moveSpan(m0);
+    var hadVar = false;
+    for (var i = 1; i < nodes.length; i++) {
+      hadVar = true;
+      html += '<span class="pgnvar">(' + renderNodes([nodes[i]], depth, true) + ")</span> ";
+    }
+    var cont = renderNodes(m0.children, depth + 1, hadVar);
+    if (cont) html += cont;
+    return html;
+  }
+  function renderPgn() {
+    var wrap = document.getElementById("pgn-wrap");
+    if (!root.children.length) {
+      // For a Black-to-move start, show a locked "1…" cue (mirrors the typed-PGN box).
+      var lead = FIRST_IS_WHITE ? "" : '<span class="pgnlock">1\u2026 </span>';
+      wrap.innerHTML = lead + '<span id="pgn-empty">No moves yet - play a move on the board.</span>';
+      return;
+    }
+    // When Black moves first, force the opening "1…" prefix onto the first move.
+    wrap.innerHTML = renderNodes(root.children, 1, !FIRST_IS_WHITE);
+    var spans = wrap.querySelectorAll(".pgnmove");
+    for (var i = 0; i < spans.length; i++) {
+      spans[i].addEventListener("click", function (e) {
+        var id = parseInt(e.target.getAttribute("data-id"), 10);
+        var n = nodeById[id];
+        goToNode(n, n ? (n.san || "") : "");
+      });
+    }
+    var cur = wrap.querySelector(".pgnmove.current");
+    if (cur && cur.scrollIntoView) cur.scrollIntoView({ block: "nearest" });
+  }
+
+  // ── Navigation ──
+  function recomputeLastMove() {
+    // Derive highlight from the move leading into `current` (parent->current).
+    lastMove = null;
+    if (current.parent) {
+      // replay parent fen + find from/to by diffing isn't trivial; skip precise
+      // highlight on navigation (only set it on fresh moves). Clear is fine.
+    }
+  }
+  function goToNode(node, sanForSound) {
+    if (!node) return;
+    if (sanForSound !== undefined && sanForSound !== null)
+      playMoveSound(sanForSound);
+    current = node;
+    clearSelection();
+    recomputeLastMove();
+    render();
+  }
+  function goBack() {
+    /* Play the ARRIVAL node's move - the one that is now the last move - not
+       the move being retracted (which would echo a check/capture that is no
+       longer on the board). At the start there is no incoming move, so an
+       empty san gives the plain move click. */
+    if (current.parent) goToNode(current.parent, current.parent.san || "");
+  }
+  function goForward() {
+    if (current.children.length) {
+      var c = current.children[0];
+      goToNode(c, c.san || "");
+    }
+  }
+
+  function updateNavButtons() {
+    var back = document.getElementById("nav-back");
+    var fwd = document.getElementById("nav-fwd");
+    if (back) back.disabled = !current.parent;
+    if (fwd) fwd.disabled = !current.children.length;
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") { goBack(); e.preventDefault(); }
+    else if (e.key === "ArrowRight") { goForward(); e.preventDefault(); }
+  });
+  (function wireNav() {
+    var back = document.getElementById("nav-back");
+    var fwd = document.getElementById("nav-fwd");
+    if (back) back.addEventListener("click", goBack);
+    if (fwd) fwd.addEventListener("click", goForward);
+  })();
+
+  // ── Public API (read by Python) ──
+  function serializeContinuation(nodes) {
+    if (!nodes || !nodes.length) return "";
+    var m0 = nodes[0];
+    var out = m0.san;
+    for (var i = 1; i < nodes.length; i++) out += " (" + variation(nodes[i]) + ")";
+    var cont = serializeContinuation(m0.children);
+    if (cont) out += " " + cont;
+    return out;
+  }
+  function variation(node) {
+    var out = node.san;
+    var c = serializeContinuation(node.children);
+    if (c) out += " " + c;
+    return out;
+  }
+  window.getPGN = function () { return serializeContinuation(root.children); };
+  window.hasMoves = function () { return root.children.length > 0; };
+  window.resetBoard = function () {
+    root.children = [];
+    current = root;
+    lastMove = null;
+    clearSelection();
+    render();
+  };
+
+  // ── Restore a previously-entered line ──
+  // Inverse of serializeContinuation(): rebuild the move tree from the saved
+  // string (space-separated SANs, variations in parentheses, no move numbers).
+  // Every move is re-validated through the engine, so a stray/garbled token just
+  // ends that branch rather than corrupting anything.
+  function loadInitialMoves(str) {
+    str = (str || "").trim();
+    if (!str) return;
+    var toks = str.replace(/\(/g, " ( ").replace(/\)/g, " ) ")
+                  .split(/\s+/).filter(function (t) { return t.length; });
+
+    function apply(i, parent) {
+      if (i >= toks.length || toks[i] === ")") return i;
+      var san = toks[i]; i++;
+      var g = null, res = null;
+      try { g = new Chess(parent.fen); res = g.move(san); } catch (e) { res = null; }
+      if (!res) return i;                       // illegal/garbled: stop this branch
+      var node = makeNode(res.san || san, g.fen(), parent);
+      parent.children.push(node);
+      while (i < toks.length && toks[i] === "(") {   // sibling variations
+        i = apply(i + 1, parent);
+        if (i < toks.length && toks[i] === ")") i++;
+      }
+      return apply(i, node);                    // continuation of this move
+    }
+
+    try { apply(0, root); } catch (e) {}
+    // Land at the end of the mainline so the user simply keeps going.
+    var n = root;
+    while (n.children.length) n = n.children[0];
+    current = n;
+  }
+
+  // ── Init ──
+  loadInitialMoves(INITIAL_MOVES);
+  render();
+})();
+</script>
