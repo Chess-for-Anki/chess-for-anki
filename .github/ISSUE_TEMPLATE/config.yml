@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Contribute a language or voice
+    url: https://github.com/fernandomec/chess-for-anki-community/discussions
+    about: Coordinate translations, narration and language reviews with other contributors.
+  - name: Language pack contribution guide
+    url: https://github.com/fernandomec/chess-for-anki-community/blob/downloads/CONTRIBUTING-LANGUAGES.md
+    about: Read the format, current language status and review process before submitting a pack.

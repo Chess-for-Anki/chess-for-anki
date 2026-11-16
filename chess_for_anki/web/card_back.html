@@ -1,0 +1,8 @@
+<!-- DOM marker placed before the FrontSide replacement below, so the front
+     script can reliably detect it is rendering the answer side and switch to
+     review mode. A plain element (not a window variable) is used because
+     AnkiMobile reuses the same page across cards, which would otherwise let a
+     window variable leak into later question sides. -->
+<div id="chessline-back" hidden></div>
+
+{{FrontSide}}

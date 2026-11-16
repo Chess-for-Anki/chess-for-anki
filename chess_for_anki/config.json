@@ -1,0 +1,13 @@
+{
+  "sound_enabled": true,
+  "confetti_enabled": true,
+  "narration_rate": 1.5,
+  "voice_pack": "system",
+  "voice_language": "en-US",
+  "board_color": "#799459",
+  "piece_set": "wooden",
+  "board_texture": "soft",
+  "toggle_one_key": "n",
+  "toggle_all_key": ",",
+  "board_light": "#eeeccd"
+}

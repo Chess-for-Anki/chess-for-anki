@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.apkg binary
+*.mp3 binary
+*.png binary
+*.jpg binary
+*.zip binary
+*.ankiaddon binary

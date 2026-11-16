@@ -1,0 +1,505 @@
+/* ═══════════════════════════════════════════════════════
+   Chess Line Trainer - Card Styles (Lichess-flavoured board)
+   ═══════════════════════════════════════════════════════ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body.card-body, .card {
+  font-family: "Noto Sans", -apple-system, "Segoe UI", sans-serif;
+  background: #262421;          /* lichess dark page bg */
+  color: #bababa;
+  /* Disable double-tap-to-zoom and other tap gestures on mobile so quick
+     taps to step through moves don't accidentally zoom the card. */
+  touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+}
+
+#card-root {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 6px;
+}
+
+/* ── Header ── */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #302e2c;
+  border-radius: 6px;
+}
+
+.opening-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ededed;
+  letter-spacing: 0.01em;
+}
+
+.color-badge {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 3px 11px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.color-badge.white { background: #f0f0f0; color: #2a2a2a; }
+.color-badge.black { background: #3d3a37; color: #d0d0d0; }
+
+/* ── Board ── */
+.board-wrap {
+  display: flex;
+  justify-content: center;
+  position: relative;   /* anchors the #mistake-flash overlay */
+}
+
+.chess-table {
+  table-layout: fixed;       /* every square stays the same size regardless of
+                                whether it holds a piece (fixes iOS auto-layout
+                                squishing empty rows/columns) */
+  border-collapse: collapse;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.4);
+}
+
+.sq {
+  width: 54px;
+  height: 54px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+}
+
+/* Lichess "brown" default theme square colors */
+.sq-light { background: var(--cot-light, #f0d9b5); }
+.sq-dark  { background: var(--cot-dark, #b58863); }
+
+.piece {
+  position: absolute;        /* out of flow: the piece can't stretch the cell,
+                                so empty and occupied squares stay equal height */
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+.piece-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Coordinates, lichess-style: small, tucked, low-contrast */
+.coord {
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 0.66rem;
+  font-weight: 600;
+  color: #9b9b9b;
+  background: #262421;
+  user-select: none;
+}
+.file-coord { height: 14px; }
+
+/* ── Move list ── */
+.move-list-wrap {
+  background: #302e2c;
+  border-radius: 6px;
+  padding: 9px 12px;
+  max-height: 92px;
+  overflow-y: auto;
+}
+
+.move-list {
+  font-family: "Roboto Mono", "Menlo", "Consolas", monospace;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  word-break: break-word;
+}
+
+.mn { color: #6f6f6f; margin-right: 1px; }
+
+.mv {
+  color: #9c9c9c;
+  padding: 1px 4px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+}
+.mv:not(.mv-last):hover { background: #3d3a37; color: #e8e8e8; }
+.mv-played { color: #d6d6d6; }
+.mv-last {
+  background: #629924;        /* lichess green highlight */
+  color: #ffffff;
+  font-weight: 700;
+  transition: none;           /* never fade in/out; avoids a hover flicker */
+}
+.mv-last:hover { background: #629924; color: #ffffff; }
+
+/* Side-line (player's own derivations on the answer side; display only) */
+.mv-side { color: #b6ab8e; font-style: italic; }
+.mv-side.mv-last { color: #ffffff; font-style: normal; }
+.pgn-paren { color: #6f6f6f; }
+
+/* ── Controls ── */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 2px 0;
+}
+
+.ctrl-btn {
+  background: #3d3a37;
+  color: #d6d6d6;
+  border: none;
+  border-radius: 5px;
+  width: 46px;
+  height: 42px;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: background 0.14s, transform 0.08s;
+}
+.ctrl-btn:hover:not(:disabled) { background: #4a4744; }
+.ctrl-btn:active:not(:disabled) { transform: scale(0.94); }
+.ctrl-btn:disabled { opacity: 0.3; cursor: default; }
+
+.analyze-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  padding: 0 15px;
+  background: #3d3a37;
+  color: #9bc700;              /* board's move-highlight green, solid */
+  border-radius: 5px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.14s, transform 0.08s;
+  -webkit-tap-highlight-color: transparent;
+}
+.analyze-btn:hover { background: #4a4744; color: #9bc700; }
+.analyze-btn:active { transform: scale(0.94); }
+/* AnkiMobile (iOS) styles a:link / a:visited, and those pseudo-class selectors
+   outrank a bare class - turning the button blue between taps. Pin the color
+   in every link state with higher specificity (and !important, in case the
+   app's own rule uses it). Desktop is unaffected. */
+a.analyze-btn, a.analyze-btn:link, a.analyze-btn:visited,
+a.analyze-btn:hover, a.analyze-btn:focus, a.analyze-btn:active {
+  color: #9bc700 !important;
+  text-decoration: none !important;
+}
+
+.move-counter {
+  font-family: "Roboto Mono", "Menlo", monospace;
+  font-size: 0.92rem;
+  color: #9b9b9b;
+  min-width: 58px;
+  text-align: center;
+}
+
+/* ── Footer ── */
+.hint {
+  text-align: center;
+  font-size: 0.76rem;
+  color: #6a6a6a;
+  padding-bottom: 2px;
+}
+
+/* ── Mode visibility (attempt = question side, review = answer side) ── */
+#card-root.attempt-mode .move-list-wrap,
+#card-root.attempt-mode .controls,
+#card-root.attempt-mode .note-section,
+#card-root.attempt-mode #review-hint { display: none !important; }
+#card-root.review-mode #attempt-hint,
+#card-root.review-mode #mobile-flip-hint { display: none !important; }
+
+/* ── Green prompt on the question side ── */
+.attempt-hint {
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #a3d160;
+  margin-top: 4px;
+  padding: 6px 0 2px;
+}
+
+/* ── Result bar (above the board on conclusion) ── */
+.result-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.result-bar.correct   { background: #1f3b16; border: 1px solid #4a6327; color: #a3d160; }
+.result-bar.incorrect { background: #3b1c1c; border: 1px solid #7a3b3b; color: #e79292; }
+/* Mistakes Limit: the perpetual gray counter shares .result-bar's box exactly,
+   so it is pixel-identical in size to the red/green bars it becomes. Only the
+   numerator turns red while mistakes accrue. */
+.result-bar.pending   { background: #34312e; border: 1px solid #4a4744; color: #a9a6a2;
+                        gap: 0; }  /* the counter span + "/N" text are separate
+                                      flex items; without this the flex gap
+                                      wedges 8px between "2" and "/3" */
+.result-bar.pending #mistake-count.bad { color: #e79292; }
+
+/* Momentary center-of-board rejection notice (non-final mistakes only).
+   Non-interactive; fades via opacity so it never blocks a retry. */
+#mistake-flash {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(30, 12, 12, 0.88);
+  border: 1px solid #7a3b3b;
+  color: #e79292;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  z-index: 5;
+}
+#mistake-flash.show { opacity: 1; }
+
+/* ── Interaction highlights ── */
+.sq.sel { box-shadow: inset 0 0 0 4px rgba(155,199,0,0.85); }
+/* King in check / checkmate: red radial glow under the piece, either color.
+   background-image layers over the square color and any lastmove tint. */
+.sq.check { background-image: radial-gradient(circle at center,
+    rgba(255, 20, 20, 0.65) 0%, rgba(220, 10, 10, 0.45) 40%,
+    rgba(180, 0, 0, 0.12) 72%, rgba(180, 0, 0, 0) 100%); }
+
+.sq.lastmove::before {
+  content: ""; position: absolute; inset: 0;
+  background: rgba(155,199,0,0.38); pointer-events: none;
+}
+.sq.dest::after {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  width: 32%; height: 32%; border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.22); pointer-events: none;
+}
+.sq.dest.occupied::after {
+  width: 100%; height: 100%; border-radius: 0;
+  background: none; box-shadow: inset 0 0 0 5px rgba(0,0,0,0.22);
+}
+
+/* ── Drag ghost (size is set inline; iOS enlarges it) ── */
+.drag-ghost {
+  position: fixed; pointer-events: none; z-index: 70; opacity: 0.95;
+}
+.drag-ghost svg { width: 100%; height: 100%; display: block; }
+
+/* ── Origin square while a piece is being dragged (drag only, not click):
+   fade the piece and gray the square. No ring, no dots. ── */
+.sq.drag-origin .piece { opacity: 0.3; }
+.sq.drag-origin::after {
+  content: ""; position: absolute; inset: 0;
+  background: rgba(90, 90, 90, 0.30); pointer-events: none;
+}
+
+/* ── Promotion picker ── */
+#promo-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.55);
+  display: none; align-items: center; justify-content: center; z-index: 80;
+}
+#promo-box {
+  background: #302e2b; border: 1px solid #4a6327;
+  border-radius: 8px; padding: 14px; text-align: center;
+}
+#promo-box .ttl { font-size: 0.86rem; color: #cfcabf; margin-bottom: 10px; }
+#promo-box .opts { display: flex; gap: 8px; }
+.promo-pc {
+  width: 54px; height: 54px;
+  background: var(--cot-light, #f0d9b5); border: 2px solid var(--cot-dark, #b58863);
+  border-radius: 6px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.promo-pc:hover { border-color: #9bc700; }
+.promo-pc svg { width: 46px; height: 46px; }
+
+/* ── Scrollbar ── */
+.move-list-wrap::-webkit-scrollbar { width: 6px; }
+.move-list-wrap::-webkit-scrollbar-track { background: #262421; }
+.move-list-wrap::-webkit-scrollbar-thumb { background: #4a4744; border-radius: 3px; }
+
+/* ── Responsive ── */
+@media (max-width: 430px) {
+  .sq { width: 40px; height: 40px; }
+}
+
+/* ── Notes sections (Book Notes / Personal Notes) ──
+   On the answer side these start minimized and toggle open/closed when the
+   label is tapped. They are the only collapsible sections. */
+.note-section {
+  margin-top: 14px;
+  background: #302e2c;
+  border-radius: 6px;
+  border-left: 3px solid #629924;
+  padding: 10px 14px;
+  text-align: left;
+}
+.note-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+  margin-bottom: 5px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+}
+.note-arrow {
+  display: inline-block;
+  width: 0.9em;
+  margin-right: 4px;
+  color: #629924;
+  font-size: 0.9em;
+}
+.note-arrow::before { content: "\25BE"; }            /* ▾ open */
+.note-section.collapsed .note-arrow::before { content: "\25B8"; }  /* ▸ closed */
+.note-section.collapsed .note-label { margin-bottom: 0; }
+.note-section.collapsed .note-body { display: none; }
+.note-body {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #d6d6d6;
+  white-space: pre-wrap;   /* preserve the user's line breaks */
+  word-break: break-word;
+}
+
+/* ── Disabled card (fields hand-edited into an inconsistent state) ── */
+#disabled-banner {
+  display: none;
+  color: #b00020;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.45;
+  padding: 12px 14px;
+  margin: 10px 6px;
+  border: 2px solid #e5484d;
+  border-radius: 8px;
+  background: #ffe3e3;
+}
+.disabled-mode #board { opacity: 0.4; pointer-events: none; filter: grayscale(0.55); }
+.disabled-mode .move-list-wrap,
+.disabled-mode .controls,
+.disabled-mode #attempt-hint,
+.disabled-mode #review-hint,
+.disabled-mode #mobile-flip-hint,
+.disabled-mode #result-bar { display: none !important; }
+
+/* Chess Studio: compact controls and physical Staunton set. */
+#card-root {max-width:580px; padding:10px; gap:8px;}
+.sq {width:62px;height:62px;}
+.studio-controls {display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;color:#d8ded2;}
+.studio-controls select,.studio-controls button {background:#363d32;color:#f0eedc;border:1px solid #606b53;border-radius:5px;padding:7px;font:inherit;}
+.studio-controls button {cursor:pointer;}
+.studio-depth-count {font-size:12px;color:#b9c6ae;}
+.studio-credit {font-size:10px;color:#8d9387;text-align:center;}
+.studio-credit a {color:inherit;}
+.board-wrap {padding:5px;background:#50422f;border-radius:5px;box-shadow:0 5px 18px #0005;}
+.opening-title {font-size:16px;}
+.piece svg {transform:scale(1.18);transform-origin:center;}
+@media(max-width:600px){.sq {width:10.5vw;height:10.5vw;}#card-root{padding:4px;}}
+/* Match the warm white surface of Anki Design while keeping the board independent of its text theme. */
+html:has(#card-root), html:has(#card-root) body.card, body:has(#card-root) {
+  color-scheme: light !important;
+  background: #f7f6f1 !important;
+  color: #26362d !important;
+  --rf-paper:#f7f6f1; --rf-ink:#26362d; --rf-muted:#59645c;
+}
+html:has(#card-root) #qa {width:100%;max-width:760px!important;margin-inline:auto!important;box-sizing:border-box;padding:clamp(8px,2vh,22px) 12px!important;}
+#card-root {width:min(100%,620px);margin:auto;max-width:100%;gap:10px;padding:12px 14px 20px;
+  color:#27362d;text-align:left;font:15px/1.4 "Segoe UI",Arial,sans-serif;letter-spacing:0;}
+#card-root * {font-family:inherit;}
+#card-root .card-header {padding:0 2px 4px;background:transparent;color:inherit;gap:12px;}
+#card-root .opening-title {color:#24332c;font-size:clamp(21px,3vw,30px);font-weight:640;line-height:1.15;letter-spacing:-.035em;}
+#card-root .opening-title small {display:block;font-size:15px;font-weight:450;color:#55665a;letter-spacing:0;margin-top:4px;}
+#card-root .color-badge {font:600 13px/1.3 "Segoe UI",sans-serif;padding:6px 10px;border-radius:20px;border:1px solid #c9cec5;}
+#card-root .color-badge.white {background:#fff;color:#26362d;}
+#card-root .color-badge.black {background:#303a34;color:white;}
+#card-root .studio-controls {display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:0 2px;color:#526157;font-size:13px;}
+#card-root .studio-controls select,#card-root .studio-controls button,#card-root .ctrl-btn,#card-root .analyze-btn {
+  border:1px solid #c4cbbc;border-radius:7px;background:#fff;color:#2e4433;padding:7px 10px;box-shadow:none;font:600 13px/1.35 "Segoe UI",sans-serif;}
+#card-root .studio-controls select {margin-left:4px;}
+#card-root .studio-demo-option {display:flex;align-items:center;gap:5px;cursor:pointer;}
+#card-root .studio-demo-option input {accent-color:#37593e;}
+#card-root .studio-depth-count {color:#57665a;font-size:12px;}
+#card-root .board-wrap {background:transparent;padding:0;box-shadow:none;justify-content:center;}
+#card-root #board {max-width:100%;padding:5px;background:#e6e8dc;border:1px solid #c6cbbd;border-radius:8px;}
+#card-root .chess-table {width:auto!important;margin:0;box-shadow:none;border:0;}
+#card-root .sq {width:clamp(16px,min(10.7vw,7.25vh),66px)!important;height:clamp(16px,min(10.7vw,7.25vh),66px)!important;border:0;padding:0;}
+#card-root .sq-light {background-color:#eeeccf;background-image:none;}
+#card-root .sq-dark {background-color:#809662;background-image:none;}
+#card-root .sq.lastmove {background-color:#c8ca83;}
+#card-root .sq-dark.lastmove {background-color:#a1ac69;}
+#card-root .sq.sel {box-shadow:inset 0 0 0 3px #315c36;}
+#card-root .coord {background:#e6e8dc;color:#4b5d46;font:600 11px/1 "Segoe UI",sans-serif;}
+#card-root .piece svg {width:100%;height:100%;transform:translateY(-5%) scale(1.08);}
+.drag-ghost svg {transform:translateY(-11%) scale(1.2);filter:drop-shadow(0 4px 3px #26312555);animation:studio-lift 125ms ease-out both;}
+@keyframes studio-lift {from {transform:translateY(-5%) scale(1.08);} to {transform:translateY(-11%) scale(1.2);}}
+@media(prefers-reduced-motion:reduce){.drag-ghost svg{animation:none;transform:translateY(-5%) scale(1.08);}}
+#card-root .result-bar {order:3;min-height:0;margin:0;padding:5px 10px;font-size:13px;align-self:center;width:auto;}
+#card-root .result-bar.pending {border:0;color:#59675c;background:transparent;}
+#card-root .result-bar.pending:has(#mistake-count:not(.bad)) {display:none!important;}
+#card-root .result-bar.correct {background:#e4f1dc;color:#305430;border:1px solid #bad1b6;}
+#card-root .result-bar.incorrect,#card-root #mistake-count.bad {color:#922f26;background:#fff1eb;}
+#card-root .attempt-hint,#card-root .hint {color:#475b4b;background:transparent;font-size:14px;text-align:center;}
+#card-root .move-list-wrap,#card-root .note-section {background:#fff;border:1px solid #d7ddcf;border-radius:8px;color:#2c3a31;padding:10px 14px;}
+#card-root .mn,#card-root .mv,#card-root .move-counter,#card-root .note-label {color:#4b5c50;}
+#card-root .mv-last {background:#37593e;color:#fff;}
+#card-root .note-body {font-size:15px;line-height:1.55;color:#334739;}
+#card-root .ctrl-btn:disabled {color:#7b877d;background:#f1f2ec;}
+#card-root .controls {justify-content:center;gap:12px;}
+@media(max-width:500px){#card-root {padding:4px;gap:8px;}#card-root .studio-controls {gap:5px;}#card-root .studio-depth-count {display:none;}}
+.studio-first-round { box-sizing: border-box; max-width: 36rem; margin: 2rem auto; padding: 1.5rem; background: #f8f7f2; color: #25362e; border: 1px solid #b9c6b8; border-radius: 12px; text-align: left; line-height: 1.5; }
+.studio-first-round h2 { margin: 0 0 .75rem; }
+.studio-first-round button { padding: .6rem 1.2rem; background: #315440; color: white; border: 0; border-radius: 6px; cursor: pointer; }
+#card-root[hidden] { display: none !important; }
+.demo-actions {display:flex; gap:.5rem; justify-content:center;}
+.demo-actions:not(:has(button:not([hidden]))) {display:none;}
+.demo-actions button {background:#365b43;color:#fff;border:0;border-radius:6px;padding:.55rem .9rem;cursor:pointer;font:inherit;}
+.demo-actions button:disabled {opacity:.58;cursor:default;}
+#card-root .board-wrap {position:relative;}
+#studio-celebration:not([hidden]) {position:absolute;inset:0;z-index:5;display:grid;place-items:center;overflow:hidden;pointer-events:none;}
+#studio-celebration strong {position:relative;z-index:1;border-radius:8px;padding:.55em .9em;background:#244c38;color:white;font-size:clamp(18px,4vw,32px);}
+#studio-celebration i {position:absolute;top:-12px;width:7px;height:12px;animation:studio-confetti 1.25s ease-in forwards;}
+@keyframes studio-confetti {to {top:105%;transform:translateX(var(--drift)) rotate(440deg);}}
+@media(prefers-reduced-motion:reduce) {#studio-celebration i {display:none;}}
+@media(max-width:500px) {#card-root:has(#studio-demo-next:not([hidden])) .studio-depth-count {display:inline;}}
+#studio-explanation:not([hidden]) {display:block;background:#fff;border:1px solid #d7ddcf;border-radius:8px;padding:10px 14px;color:#2b4133;font-size:14px;line-height:1.45;}
+#studio-explanation p {margin-top:5px;}
+.studio-messages {display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;}
+#studio-history-toggle {padding:6px 10px;background:#fff;color:#314a37;border:1px solid #c6cbbd;border-radius:6px;font:inherit;cursor:pointer;}
+#studio-last-message {font-size:14px;color:#294b34;}
+#studio-history:not([hidden]) {display:block;flex-basis:100%;max-height:240px;overflow-y:auto;overscroll-behavior:contain;background:#fff;border:1px solid #d7ddcf;border-radius:8px;padding:10px 16px;}
+#studio-history-list {padding-left:1.4em;color:#2b4133;font-size:14px;line-height:1.45;}
+#studio-history-list li {padding:5px 0;}
+#studio-history-list p {margin:4px 0 7px;}
+.studio-audio-rate {display:inline-flex;align-items:center;gap:5px;font-size:13px;color:#526157;}
+.studio-audio-rate select {font:inherit;}
+#studio-explanation strong {color:#244c38;}
+#card-root:has(#studio-demo-next:not([hidden])) .sq {width:clamp(16px,min(10.7vw,5.8vh),60px)!important;height:clamp(16px,min(10.7vw,5.8vh),60px)!important;}

@@ -1,0 +1,1898 @@
+<div id="card-root"><div id="studio-fields" hidden aria-hidden="true"><span id="studio-moves">{{MovesPGN}}</span><span id="studio-side">{{PlayerColor}}</span><span id="studio-fen">{{StartFEN}}</span></div>
+  <div class="card-header">
+    <div class="opening-title">{{Title}}</div>
+    <div class="color-badge" id="color-badge"></div>
+  </div>
+
+<div class="studio-controls"><label>Level <select id="studio-depth"><option value="8">Noobie · 4 moves each</option><option value="16">Beginner · 8 moves each</option><option value="24">Intermediate · 12 moves each</option><option value="40">Advanced · 20 moves each</option><option value="all">HACKER · full line</option></select></label><button type="button" id="studio-voice">Voice on</button><button id="studio-restart" type="button">Restart</button><button id="studio-end" type="button">End round</button><button id="studio-repeat" type="button">Repeat later</button><label class="studio-demo-option"><input type="checkbox" id="studio-demo"> Demo on first view</label><button id="studio-demo-skip" type="button" hidden>Skip demo</button><span class="studio-depth-count" id="studio-depth-count"></span></div>
+  <div class="demo-actions">
+    <button type="button" id="studio-show-demo" hidden>Show demo</button>
+    <button type="button" id="studio-demo-prev" hidden>← Previous move</button>
+    <button type="button" id="studio-demo-next" hidden>Next move →</button>
+  </div>
+  <label class="studio-audio-rate"><span id="studio-speed-label">Voice speed</span>
+    <select id="studio-audio-rate" aria-labelledby="studio-speed-label">
+      <option value="0.5">0.5×</option><option value="0.75">0.75×</option>
+      <option value="1">1×</option><option value="1.25">1.25×</option>
+      <option value="1.5">1.5×</option><option value="1.75">1.75×</option><option value="2">2×</option>
+    </select>
+  </label>
+  <div id="result-bar" class="result-bar" style="display:none;"></div>
+  <div id="disabled-banner"></div>
+
+  <div class="board-wrap">
+    <div id="board"></div>
+    <div id="studio-celebration" hidden role="status"><strong>Congratulations!</strong></div>
+    <div id="mistake-flash">Different move - follow this line</div>
+  </div>
+
+  <div class="move-list-wrap">
+    <div id="move-list" class="move-list"></div>
+  </div>
+
+  <div class="controls">
+    <button class="ctrl-btn" id="btn-prev" title="Previous move (&larr; key)">&#9664;</button>
+    <div class="move-counter" id="move-counter">&ndash; / &ndash;</div>
+    <button class="ctrl-btn" id="btn-next" title="Next move (&rarr; key)">&#9654;</button>
+    <a class="analyze-btn" id="btn-analyze" target="_blank" rel="noopener"
+       title="Open this line in the Lichess analysis board" style="display:none">Analyze</a>
+  </div>
+
+  <section id="studio-explanation" hidden aria-live="polite">
+    <strong id="studio-explanation-move">The idea behind the move</strong>
+    <p id="studio-explanation-text"></p>
+  </section>
+  <div class="studio-messages">
+    <p id="studio-last-message" hidden aria-live="polite"></p>
+    <button id="studio-history-toggle" type="button" aria-expanded="false" aria-controls="studio-history">Message history</button>
+    <section id="studio-history" hidden><ol id="studio-history-list"></ol></section>
+  </div>
+
+  <!-- Green prompt on the QUESTION side (desktop + mobile). Hidden on the
+       answer side. Replaces the old "tap the bottom to rate" hint. -->
+  <div id="attempt-hint" class="attempt-hint" style="display:none;">
+    Select a piece, then its destination.
+  </div>
+  <!-- Review hint on the ANSWER side only. -->
+  <div id="review-hint" class="hint" style="display:none;">
+    Step through with &larr; &rarr; (or click a move). Drag pieces to explore.
+    Rate yourself below when done.
+  </div>
+  <!-- Shown on mobile AFTER the attempt concludes (we can't flip the card from
+       JS on AnkiMobile), telling the user to tap to see the answer. -->
+  <div id="mobile-flip-hint" class="attempt-hint" style="display:none;">
+    Tap the bottom of the screen to rate difficulty
+  </div>
+
+  {{#Book Notes}}
+  <div class="note-section" data-note="book">
+    <div class="note-label" data-note-toggle><span class="note-arrow"></span>Idea behind the line</div>
+    <div class="note-body">{{Book Notes}}</div>
+  </div>
+  {{/Book Notes}}
+  {{#Personal Notes}}
+  <div class="note-section" data-note="personal">
+    <div class="note-label" data-note-toggle><span class="note-arrow"></span>Personal Notes</div>
+    <div class="note-body">{{Personal Notes}}</div>
+  </div>
+  {{/Personal Notes}}
+
+  <!-- Promotion picker -->
+  <div id="promo-overlay">
+    <div id="promo-box">
+      <div class="ttl">Promote to&hellip;</div>
+      <div class="opts" id="promo-opts"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+var studioPristineMarkup = document.getElementById("card-root").outerHTML;
+(function studioBoot() {
+  /* ── Anki field values ─────────────────────────────────────── */
+  var movesStr     = document.getElementById("studio-moves").textContent;
+  var PLAYER_COLOR = document.getElementById("studio-side").textContent.trim().toLowerCase();
+  var START_FEN    = document.getElementById("studio-fen").textContent.trim();
+  var MOVES = movesStr.trim() ? movesStr.trim().split(/\s+/) : [];
+
+  var PLAYER_LETTER = (PLAYER_COLOR === "black") ? "b" : "w";
+  var BOARD_FLIP    = (PLAYER_COLOR === "black");
+  /* Who plays ply 0? White, unless we start from a custom Black-to-move
+     position. (A standard opening always has White move first, even for a
+     Black repertoire card.) Drives PGN move numbering / the "1..." prefix. */
+  var FIRST_IS_WHITE = !(START_FEN && START_FEN.split(/\s+/)[1] === "b");
+  var FILES = ["a","b","c","d","e","f","g","h"];
+
+  /* Are we rendering the answer side? The back template inserts this marker
+     ahead of the FrontSide replacement. A DOM marker (not a window var) is used
+     because AnkiMobile reuses the page across cards. */
+  var IS_ANSWER = !!document.getElementById("chessline-back");
+  var cardDisabled = false;   // true if the card's fields were edited inconsistently
+
+  var levelNames={'8':'Noobie','16':'Beginner','24':'Intermediate','40':'Advanced','all':'Hacker'};
+  var stateNode=document.getElementById('studio-state');
+  var nativeState=stateNode && stateNode.dataset.card;
+  var stateKey='chess-studio-repertoire-level-v1';
+  var state={level:'8',wins:[]};
+  try {
+    var loaded=JSON.parse(nativeState?stateNode.textContent:localStorage.getItem(stateKey));
+    if(loaded && levelNames[loaded.level] && Array.isArray(loaded.wins))state=loaded;
+  } catch(e){}
+  if(window._studioRestartState){
+    state=window._studioRestartState;
+    delete window._studioRestartState;
+  }
+  function command(action,value){
+    if(nativeState && typeof pycmd==='function')pycmd('studio-level:'+JSON.stringify({card:nativeState,action:action,value:value}));
+  }
+  function changeLevel(value){
+    if(value===state.level)return;
+    state={level:value,wins:[]};
+    if(nativeState){command('select',value);stateNode.textContent=JSON.stringify(state);}
+    try {localStorage.setItem(stateKey,JSON.stringify(state));} catch(e){}
+  }
+  var studioDepth=START_FEN?'all':state.level;
+  var roundAssisted=!!window._studioRestartAssisted;
+  delete window._studioRestartAssisted;
+  var fullMoves=MOVES.slice();
+  var fullLength=MOVES.length;
+  var identity=PLAYER_COLOR+'|'+movesStr;
+  if(IS_ANSWER && window._cotResult && window._cotResult.identity===identity)studioDepth=window._cotResult.depth;
+  if(studioDepth!=='all')MOVES=MOVES.slice(0,Number(studioDepth));
+  var depthSelect=document.getElementById('studio-depth');
+  depthSelect.value=studioDepth;depthSelect.disabled=IS_ANSWER;
+  if(START_FEN)depthSelect.parentNode.style.display='none';
+  var progressText=document.getElementById('studio-depth-count');
+  progressText.textContent=START_FEN?'Find the best continuation':
+    Math.ceil(MOVES.length/2)+' white / '+Math.floor(MOVES.length/2)+' black'+(studioDepth!=='all'?' · '+state.wins.length+'/3 lines mastered':'');
+  progressText.title='Finish three different lines at the full level depth without a hint. Rate each Good or Easy.';
+  var endButton=document.getElementById('studio-end');
+  var repeatButton=document.getElementById('studio-repeat');
+  endButton.hidden=IS_ANSWER;
+  repeatButton.hidden=!IS_ANSWER;
+  repeatButton.onclick=function(){
+    if(typeof pycmd==='function'){repeatButton.disabled=true;pycmd('ease1');}
+    else if(typeof buttonAnswerEase1==='function')buttonAnswerEase1();
+    else repeatButton.textContent='Choose Again (1) below';
+  };
+  function studioRestart() {
+    if (window._cotCleanup) window._cotCleanup();
+    window._studioRestartState=state;
+    window._studioRestartAssisted=roundAssisted;
+    window._studioRestartDemoEnabled=demoOption.checked;
+    window._studioKeepMessages=true;
+    window._studioRestartNarrationRate=narrationRate;
+    document.getElementById('card-root').outerHTML=studioPristineMarkup;
+    studioBoot();
+  }
+  depthSelect.addEventListener('change',function(){
+    changeLevel(this.value);
+    studioRestart();
+  });
+  var restartButton=document.getElementById('studio-restart');
+  restartButton.style.display=IS_ANSWER?'none':'';
+  restartButton.addEventListener('click',studioRestart);
+
+  /* ── Per-card teardown ─────────────────────────────────────────
+     The webview is reused across cards (especially on AnkiMobile), so document/
+     window listeners and pending timers from the PREVIOUS card would otherwise
+     linger and keep firing on the next one - re-rendering stale board/PGN state
+     into the fresh card (e.g. a prior card's notation bleeding in, or a fresh
+     move getting clobbered). We tear down the previous card before wiring ours,
+     and register a teardown the next card will call. All global listeners and
+     timeouts go through bindGlobal()/setT() so they are tracked. */
+  if (window._cotCleanup) { try { window._cotCleanup(); } catch (e) {} }
+  var _cotBound = [], _cotTimers = [];
+  function bindGlobal(target, type, fn, opts) {
+    target.addEventListener(type, fn, opts);
+    _cotBound.push([target, type, fn, opts]);
+  }
+  function setT(fn, ms) { var id = setTimeout(fn, ms); _cotTimers.push(id); return id; }
+  window._cotCleanup = function () {
+    for (var i = 0; i < _cotBound.length; i++) {
+      try { _cotBound[i][0].removeEventListener(_cotBound[i][1], _cotBound[i][2], _cotBound[i][3]); }
+      catch (e) {}
+    }
+    for (var j = 0; j < _cotTimers.length; j++) { try { clearTimeout(_cotTimers[j]); } catch (e) {} }
+    _cotBound = []; _cotTimers = [];
+  };
+
+  /* ── Colour badge ──────────────────────────────────────────── */
+  var badge = document.getElementById("color-badge");
+  if (badge) {
+    badge.textContent = PLAYER_COLOR === "white" ? "\u2654 White" : "\u265A Black";
+    badge.className   = "color-badge " + PLAYER_COLOR;
+  }
+
+  var titleNode=document.querySelector('#card-root .opening-title');
+  var title=titleNode.textContent.replace(/ · (White|Black)$/i,'');
+  var split=title.indexOf(': ');
+  titleNode.textContent=split>=0?title.slice(0,split):title;
+  if(split>=0){var variant=document.createElement('small');variant.textContent=title.slice(split+2);titleNode.appendChild(variant);}
+  badge.textContent='Play as '+(PLAYER_COLOR==='white'?'White':'Black');
+  var notationLanguage=CFA_NOTATION.language(CFA_NOTATION_LANGUAGE,
+    typeof CFA_COMMENTARY==='object'?CFA_COMMENTARY.language:'en');
+  var notationLabels=CFA_NOTATION.languages[notationLanguage];
+  var historyKey=PLAYER_COLOR+'|'+START_FEN+'|'+movesStr;
+  var messages=window._cfaMessageHistory;
+  if(!messages || messages.key!==historyKey || (!IS_ANSWER && !window._studioKeepMessages))
+    messages={key:historyKey,entries:[],open:false};
+  delete window._studioKeepMessages;
+  window._cfaMessageHistory=messages;
+  var historyToggle=document.getElementById('studio-history-toggle');
+  var historyPanel=document.getElementById('studio-history');
+  var historyList=document.getElementById('studio-history-list');
+  var lastMessage=document.getElementById('studio-last-message');
+  function renderMessageHistory(){
+    historyToggle.textContent=notationLabels.history+' ('+messages.entries.length+')';
+    historyToggle.setAttribute('aria-expanded',String(messages.open));
+    historyPanel.hidden=!messages.open;
+    historyList.replaceChildren();
+    if(!messages.entries.length){
+      var empty=document.createElement('li');empty.textContent=notationLabels.empty;historyList.appendChild(empty);
+    }
+    messages.entries.forEach(function(entry){
+      var item=document.createElement('li');
+      var heading=document.createElement('strong');
+      heading.textContent=entry.san?CFA_NOTATION.label(entry.san,entry.side,entry.ply,START_FEN,notationLanguage):entry.heading;
+      item.appendChild(heading);
+      if(entry.text){var paragraph=document.createElement('p');paragraph.textContent=CFA_NOTATION.text(entry.text,notationLanguage);item.appendChild(paragraph);}
+      historyList.appendChild(item);
+    });
+    var latest=messages.entries[messages.entries.length-1];
+    lastMessage.hidden=!latest;
+    if(latest)lastMessage.textContent=latest.san?CFA_NOTATION.label(latest.san,latest.side,latest.ply,START_FEN,notationLanguage):latest.text || latest.heading;
+  }
+  function rememberMessage(entry){
+    messages.entries.push(entry);
+    renderMessageHistory();
+    if(messages.open)historyPanel.scrollTop=historyPanel.scrollHeight;
+  }
+  historyToggle.onclick=function(){messages.open=!messages.open;renderMessageHistory();};
+  renderMessageHistory();
+  var allowedNarrationRates=[0.5,0.75,1,1.25,1.5,1.75,2];
+  var narrationRate=Number(nativeState?stateNode.dataset.speed:CFA_NARRATION_RATE);
+  if(!nativeState){
+    try {var savedRate=Number(localStorage.getItem('chess-studio-narration-rate'));if(allowedNarrationRates.includes(savedRate))narrationRate=savedRate;} catch(e){}
+  }
+  if(allowedNarrationRates.includes(window._studioRestartNarrationRate))narrationRate=window._studioRestartNarrationRate;
+  delete window._studioRestartNarrationRate;
+  if(!allowedNarrationRates.includes(narrationRate))narrationRate=1.5;
+  var speedSelect=document.getElementById('studio-audio-rate');
+  document.getElementById('studio-speed-label').textContent=notationLanguage==='pt'?'Velocidade da voz':'Voice speed';
+  speedSelect.value=String(narrationRate);
+  // Place the selector beside the voice toggle after the card markup is ready.
+  var voiceRateLabel=document.querySelector('.studio-audio-rate');
+  document.getElementById('studio-voice').after(voiceRateLabel);
+  function setNarrationSpeed(audio){
+    audio.defaultPlaybackRate=narrationRate;
+    audio.playbackRate=narrationRate;
+    audio.preservesPitch=true;
+  }
+  speedSelect.onchange=function(){
+    var rate=Number(this.value);
+    if(!allowedNarrationRates.includes(rate))return;
+    narrationRate=rate;
+    if(nativeState)stateNode.dataset.speed=String(rate);
+    try {localStorage.setItem('chess-studio-narration-rate',String(rate));} catch(e){}
+    command('audio-rate',rate);
+    setNarrationSpeed(studioPlayer.audio);
+    setNarrationSpeed(studioPlayer.hint);
+  };
+var narrator=typeof CFA_NARRATION==='object'?CFA_NARRATION:{id:'system',language:'en-US',clips:{},translations:{}};
+var studioFiles=narrator.clips || {};
+var studioPlayer=window.chessStudioNarrator;
+if (!studioPlayer) {
+  studioPlayer=window.chessStudioNarrator={audio:new Audio(),queue:[],busy:false,played:0,lastError:''};
+  setNarrationSpeed(studioPlayer.audio);
+  studioPlayer.next=function(){
+    var player=this;
+    if(player.hintActive || player.busy || !player.queue.length) return;
+    player.busy=true;
+    player.audio.src=player.queue.shift();
+    var promise=player.audio.play();
+    if(promise) promise.catch(function(err){
+      if(err.name==='AbortError')return;
+      player.lastError=err.name;
+      if(err.name==='NotAllowedError'){
+        player.queue.unshift(player.audio.getAttribute('src'));player.busy=false;
+      } else {player.busy=false;player.next();}
+    });
+  };
+  studioPlayer.audio.onplaying=function(){studioPlayer.played++;studioPlayer.lastError='';};
+  studioPlayer.audio.onended=function(){studioPlayer.busy=false;studioPlayer.next();};
+  studioPlayer.hint=new Audio();
+  setNarrationSpeed(studioPlayer.hint);
+  studioPlayer.finishHint=function(){
+    if(!this.hintActive)return;
+    this.hintActive=false;
+    if(this.busy && this.audio.paused && !this.audio.ended){
+      this.audio.play().catch(function(){studioPlayer.busy=false;studioPlayer.next();});
+    }else this.next();
+  };
+  studioPlayer.hint.onended=studioPlayer.hint.onerror=function(){studioPlayer.finishHint();};
+  studioPlayer.playHint=function(file){
+    if(this.hintActive && this.hint.getAttribute('src')===file)return;
+    this.hintActive=true;
+    this.audio.pause();
+    this.hint.src=file;
+    this.hint.play().catch(function(err){if(err.name!=='AbortError')studioPlayer.finishHint();});
+  };
+  studioPlayer.stop=function(){this.queue=[];this.hintActive=false;this.hint.pause();this.audio.pause();this.audio.removeAttribute('src');this.audio.load();this.busy=false;};
+}
+setNarrationSpeed(studioPlayer.audio);
+setNarrationSpeed(studioPlayer.hint);
+function systemSpeak(text,interrupt,language){
+  var locale=language || narrator.language || 'en-US';
+  var locales={en:'en-US',pt:'pt-BR',es:'es-ES',ru:'ru-RU',zh:'zh-CN',ja:'ja-JP',fr:'fr-FR',de:'de-DE'};
+  locale=locales[locale] || locale;
+  if(nativeState && typeof pycmd==='function'){
+    command('speech',{text:text,language:locale,rate:narrationRate,interrupt:!!interrupt});
+  }else if(window.speechSynthesis){
+    if(interrupt)window.speechSynthesis.cancel();
+    var extra=new SpeechSynthesisUtterance(text);
+    extra.lang=locale;extra.rate=narrationRate;window.speechSynthesis.speak(extra);
+  }
+}
+function voiceCommand(operation,text){
+  if(operation==='stop'){
+    studioPlayer.stop();
+    if(window.speechSynthesis)window.speechSynthesis.cancel();
+    command('speech-stop',null);
+    return;
+  }
+  var files=[];
+  if(studioFiles[text])files.push(studioFiles[text]);
+  else {
+    // For a move explored outside the repertoire, use the same recorded voice.
+    var parts=text.replace(/[.,]/g,'').match(/(?:[A-H] (?:one|two|three|four|five|six|seven|eight)\b|takes on|promotes to|castles kingside|castles queenside|\S+)/g)||[];
+    if(parts.every(function(s){return !!studioFiles[s];}))files=parts.map(function(s){return studioFiles[s];});
+    else {
+      systemSpeak(CFA_SPEECH.text(text,narrator.language,narrator.translations));
+      return;
+    }
+  }
+  studioPlayer.queue.push.apply(studioPlayer.queue,files);studioPlayer.next();
+}
+bindGlobal(document,'pointerdown',function(){studioPlayer.next();},true);
+function speak(text) { if (voiceEnabled) voiceCommand('say',text); }
+function speakMove(san,side,ply) {
+  if (!san) return;
+  rememberMessage({san:san,side:side,ply:ply || 0});
+  var pieces={K:'king',Q:'queen',R:'rook',B:'bishop',N:'knight'};
+  var names=['one','two','three','four','five','six','seven','eight'];
+  function square(s){return s[0].toUpperCase()+' '+names[Number(s[1])-1];}
+  var suffix=san.endsWith('#')?', checkmate':san.endsWith('+')?', check':'';
+  var plain=san.replace(/[+#?!]+$/g,'');
+  var phrase;
+  if (/^O-O(?:-O)?$/.test(plain)) phrase=plain==='O-O'?'castles kingside':'castles queenside';
+  else {
+    var m=/^([KQRBN]?)([a-h]?[1-8]?)(x?)([a-h][1-8])(?:=([QRBN]))?$/.exec(plain);
+    if (!m) return;
+    var origin=m[2].length===2?square(m[2]):m[2].toUpperCase();
+    phrase=(pieces[m[1]] || 'pawn')+(origin?' from '+origin:'')+
+      (m[3]?' takes on ':' to ')+square(m[4])+(m[5]?', promotes to '+pieces[m[5]]:'');
+  }
+  speak((side==='w'?'White':'Black')+', '+phrase+suffix+'.');
+}
+var voiceEnabled=true;
+try {voiceEnabled=localStorage.getItem('chess-studio-voice')!=='off';} catch(e){}
+var voiceButton=document.getElementById('studio-voice');
+function voiceLabel(){
+  voiceButton.textContent=voiceEnabled?'Voice on':'Voice off';
+  voiceButton.setAttribute('aria-pressed',String(voiceEnabled));
+}
+voiceLabel();
+voiceButton.onclick=function(){
+  voiceEnabled=!voiceEnabled;voiceLabel();
+  try {localStorage.setItem('chess-studio-voice',voiceEnabled?'on':'off');} catch(e){}
+  if (!voiceEnabled) voiceCommand('stop'); else speak('Narrator on.');
+};
+function announceRound() {
+  voiceCommand('stop');
+  speak(title+'.');
+  if(!START_FEN)speak(levelNames[studioDepth]+' level.');
+  if(startStep===1) speakMove(MOVES[0],'w',0);
+}
+var expectedHintMove=function(){return '';};
+function incorrectMove() {
+  if(!IS_ANSWER)roundAssisted=true;
+  var san=expectedHintMove()||'';
+  var hintByPiece={N:'Try a knight.',B:'Try a bishop.',R:'Try a rook.',Q:'Try the queen.',K:'Try the king.',O:'Try the king.'};
+  var message=san?(hintByPiece[san[0]]||'Try a pawn.'):'Illegal move.';
+  rememberMessage({heading:notationLabels.hint,text:message});
+  var flash=document.getElementById('mistake-flash');
+  flash.textContent=message;
+  flash.classList.add('show');
+  setT(function(){flash.classList.remove('show');},850);
+  if(voiceEnabled){
+    if(studioFiles[message])studioPlayer.playHint(studioFiles[message]);
+    else {voiceCommand('stop');systemSpeak(CFA_SPEECH.text(message,narrator.language,narrator.translations),true);}
+  }
+}
+
+var demoOption=document.getElementById('studio-demo');
+var skipDemo=document.getElementById('studio-demo-skip');
+var showDemo=document.getElementById('studio-show-demo');
+var nextDemo=document.getElementById('studio-demo-next');
+var previousDemo=document.getElementById('studio-demo-prev');
+var explanationPanel=document.getElementById('studio-explanation');
+var explanationTitle=document.getElementById('studio-explanation-move');
+var explanationText=document.getElementById('studio-explanation-text');
+var commentary=typeof CFA_COMMENTARY==='object'?CFA_COMMENTARY:{language:'en',lines:[]};
+var commentaryLine=commentary.lines.find(function(line){
+  return line.start_fen.trim()===START_FEN && line.moves.join(' ')===fullMoves.join(' ');
+});
+// Lesson commentary is declarative JSON stored with the note, never executable code.
+var inlineNode=document.querySelector('.cfa-commentary-data');
+if(!commentaryLine && inlineNode && inlineNode.textContent.length<=1600000){
+  try{
+    var inlineLine=JSON.parse(inlineNode.textContent);
+    if(inlineLine && inlineLine.start_fen===START_FEN && Array.isArray(inlineLine.moves) && inlineLine.moves.join(' ')===fullMoves.join(' ') && Array.isArray(inlineLine.notes) && inlineLine.notes.length===fullMoves.length && /^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$/.test(inlineLine.language) && inlineLine.notes.every(function(n,i){return n && n.san===fullMoves[i] && typeof n.text==='string' && n.text.length>0 && n.text.length<=2500 && !n.audio;}))commentaryLine=inlineLine;
+  }catch(e){}
+}
+var commentaryLanguage=commentaryLine && commentaryLine.language || commentary.language;
+var equivalentFinal=commentaryLine && Array.isArray(commentaryLine.accepted_final) && commentaryLine.accepted_final.length<=218 ? commentaryLine.accepted_final.filter(function(s){return typeof s==='string' && /^[a-zA-Z0-9=+#-]{1,20}$/.test(s);}) : [];
+var demoKey='chess-studio-first-demo-v1';
+var demoState={enabled:true,seen:[]};
+try {
+  var savedDemo=JSON.parse(localStorage.getItem(demoKey));
+  if(savedDemo && Array.isArray(savedDemo.seen))demoState=savedDemo;
+}catch(e){}
+if(nativeState)demoState.enabled=stateNode.dataset.demo!=='off';
+if(typeof window._studioRestartDemoEnabled==='boolean'){
+  demoState.enabled=window._studioRestartDemoEnabled;
+  delete window._studioRestartDemoEnabled;
+}
+demoOption.checked=demoState.enabled;
+var firstView=nativeState?stateNode.dataset.first==='yes':demoState.seen.indexOf(identity)<0;
+// Restarting this question should not replay an introduction already started.
+if(window._studioDemoStarted===identity)firstView=false;
+var shouldDemo=!IS_ANSWER && firstView && demoOption.checked && fullMoves.length>0;
+var demoRunning=false;
+function saveDemo(){
+  try {localStorage.setItem(demoKey,JSON.stringify(demoState));}catch(e){}
+}
+demoOption.onchange=function(){
+  demoState.enabled=this.checked;
+  if(nativeState){stateNode.dataset.demo=this.checked?'on':'off';command('demo-toggle',this.checked);}
+  saveDemo();
+  if(demoRunning && !this.checked)finishDemo(false);
+};
+var practiceProgress=progressText.textContent;
+var resumePractice=null;
+function finishDemo(endRound){
+  if(!demoRunning)return;
+  demoRunning=false;
+  skipDemo.hidden=true;
+  voiceCommand('stop');
+  nextDemo.hidden=true;
+  previousDemo.hidden=true;
+  explanationPanel.hidden=true;
+  depthSelect.disabled=false;
+  restartButton.disabled=false;
+  inputLocked=false;
+  progressText.textContent=practiceProgress;
+  if(resumePractice)resumePractice();else setupAttempt();
+  if(endRound)endButton.click();
+}
+function setupDemo(){
+  var game=newGameAt(startFen());
+  var positions=[game.fen()];
+  var step=0;
+  demoRunning=true;
+  window._studioDemoStarted=identity;
+  if(nativeState){stateNode.dataset.first='no';command('demo-seen',true);}
+  if(demoState.seen.indexOf(identity)<0)demoState.seen.push(identity);
+  saveDemo();
+  inputLocked=true;
+  depthSelect.disabled=true;
+  restartButton.disabled=true;
+  document.getElementById('card-root').className='attempt-mode';
+  document.getElementById('attempt-hint').style.display='none';
+  showDemo.hidden=true;
+  nextDemo.hidden=false;
+  nextDemo.disabled=false;
+  previousDemo.hidden=false;
+  previousDemo.disabled=true;
+  explanationPanel.hidden=false;
+  explanationTitle.textContent='The plan, one move at a time';
+  explanationText.textContent='Choose Next move to see the position and read the idea behind each move.';
+  skipDemo.hidden=false;
+  skipDemo.textContent=resumePractice?'Resume practice':'Start practice';
+  skipDemo.onclick=function(){finishDemo(false);};
+  endButton.onclick=function(){finishDemo(true);};
+  voiceCommand('stop');
+  speak(title+'.');
+  if(!START_FEN)speak(levelNames[studioDepth]+' level.');
+  renderBoard(game.fen(),{});
+  progressText.textContent='Demo · 0 / '+fullMoves.length+' moves';
+  function describePosition(){
+    voiceCommand('stop');
+    previousDemo.disabled=step===0;
+    nextDemo.disabled=step===fullMoves.length;
+    if(step===0){
+      explanationTitle.textContent='The plan, one move at a time';
+      explanationText.textContent='Choose Next move to see the position and read the idea behind each move.';
+      progressText.textContent='Demo · 0 / '+fullMoves.length+' moves';
+      return;
+    }
+    var san=fullMoves[step-1];
+    var side=positions[step-1].split(' ')[1];
+    speakMove(san,side,step-1);
+    var note=commentaryLine && commentaryLine.notes[step-1];
+    explanationTitle.textContent=CFA_NOTATION.label(san,side,step-1,START_FEN,notationLanguage);
+    explanationText.textContent=note?CFA_NOTATION.text(note.text,notationLanguage):'This custom line has no move commentary yet. Import a matching language pack to add explanations.';
+    if(note){messages.entries[messages.entries.length-1].text=note.text;renderMessageHistory();}
+    if(voiceEnabled && note){
+      if(narrator.id!=='system' && note.audio && commentaryLanguage.split('-')[0]===narrator.language.split('-')[0]){
+        studioPlayer.queue.push(note.audio);
+        studioPlayer.next();
+      }else systemSpeak(note.text,false,commentaryLanguage);
+    }
+    progressText.textContent='Demo · '+step+' / '+fullMoves.length+' moves · '+CFA_NOTATION.san(san,notationLanguage);
+  }
+  previousDemo.onclick=function(){
+    if(!demoRunning || step===0)return;
+    var undone=fullMoves[step-1];
+    game=newGameAt(positions[--step]);
+    var lastMove=step?fenDiff(positions[step-1],game.fen()):null;
+    renderBoard(game.fen(),{lastMove:lastMove});
+    slideMove(game.fen(),undone,true);
+    playMoveSound(undone);
+    describePosition();
+  };
+  nextDemo.onclick=function(){
+    if(!demoRunning || step>=fullMoves.length)return;
+    roundAssisted=true;
+    var before=game.fen();
+    var san=fullMoves[step++];
+    game.move(san);
+    positions[step]=game.fen();
+    renderBoard(game.fen(),{lastMove:fenDiff(before,game.fen())});
+    slideMove(before,san,false);
+    playMoveSound(san);
+    describePosition();
+  };
+}
+
+  /* ── Engine helpers ────────────────────────────────────────── */
+  function newGameAt(fen) {
+    var g = (typeof Chess !== "undefined") ? new Chess() : null;
+    if (g && fen) g.load(fen);
+    return g;
+  }
+  function startFen() {
+    return START_FEN || "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+  }
+
+  /* ── Card integrity ("parens patriae") ─────────────────────────
+     Anki lets users edit a note's fields directly (Browse, or the in-review
+     Edit button). Editing the color or a custom position can leave the card in
+     an inconsistent state it can't sensibly play - most easily by flipping the
+     color on a custom position without fixing the FEN's side-to-move. We detect
+     that here and disable the card instead of letting it misbehave. Pure field
+     checks (no engine dependency), so there are no false positives on cards the
+     tool created. Runs on both the question and answer sides. */
+  function cardConsistencyError() {
+    if (PLAYER_COLOR !== "white" && PLAYER_COLOR !== "black") return true;
+    if (START_FEN) {
+      var parts = START_FEN.split(/\s+/);
+      if (parts.length < 2) return true;                   // not a real FEN
+      if (parts[1] !== "w" && parts[1] !== "b") return true;
+      if (parts[1] !== PLAYER_LETTER) return true;         // color flipped, FEN not
+      if (parts[0].split("/").length !== 8) return true;   // malformed board
+    }
+    // Every move must replay legally from the start position; a hand-edited
+    // illegal/typo'd move trips this. (The card already relies on .move() for
+    // these same SANs, so a legitimate line never false-flags.)
+    if (MOVES.length && typeof Chess !== "undefined") {
+      try {
+        var g = newGameAt(startFen());
+        if (!g) return false;                              // engine missing: don't flag
+        for (var i = 0; i < MOVES.length; i++) {
+          if (!g.move(MOVES[i])) return true;
+        }
+      } catch (e) { return true; }
+    }
+    return false;
+  }
+
+  /* ── FEN → display grid keyed by square name ───────────────── */
+  function fenToGrid(fen) {
+    var pos = fen.split(" ")[0];
+    var rows = pos.split("/");          /* rows[0]=rank8 .. rows[7]=rank1 */
+    var grid = {};
+    for (var r = 0; r < 8; r++) {        /* r=0 -> rank1 */
+      var row = rows[7 - r], col = 0;
+      for (var i = 0; i < row.length; i++) {
+        var ch = row[i];
+        if (ch >= "1" && ch <= "8") { col += parseInt(ch, 10); }
+        else {
+          var color = (ch === ch.toUpperCase()) ? "w" : "b";
+          grid[FILES[col] + (r + 1)] = color + ch.toUpperCase();
+          col++;
+        }
+      }
+    }
+    return grid;
+  }
+
+  /* Which two squares changed between two positions (for last-move
+     highlight). Prefers the king for castling. Returns {from,to} names. */
+  function fenDiff(beforeFen, afterFen) {
+    var a = fenToGrid(beforeFen), b = fenToGrid(afterFen);
+    var froms = [], tos = [];
+    var all = {};
+    Object.keys(a).forEach(function (k){ all[k] = 1; });
+    Object.keys(b).forEach(function (k){ all[k] = 1; });
+    Object.keys(all).forEach(function (sq) {
+      var pa = a[sq] || null, pb = b[sq] || null;
+      if (pa === pb) return;
+      if (pa && !pb) froms.push({ sq: sq, code: pa });
+      else if (!pa && pb) tos.push({ sq: sq, code: pb });
+      else { froms.push({ sq: sq, code: pa }); tos.push({ sq: sq, code: pb }); }
+    });
+    function pick(list) {
+      if (!list.length) return null;
+      for (var i = 0; i < list.length; i++)
+        if (list[i].code && list[i].code[1] === "K") return list[i].sq;
+      return list[0].sq;
+    }
+    return { from: pick(froms), to: pick(tos) };
+  }
+
+  /* ── Piece SVG ─────────────────────────────────────────────── */
+  function pieceSVG(code) {
+    var set = (typeof COT_PIECE_SET !== "undefined") ? COT_PIECE_SET : "cburnett";
+    if (typeof COT_pieceSVG === "function") return COT_pieceSVG(code, set);
+    var inner = (typeof CHESS_PIECES !== "undefined" && CHESS_PIECES[code]) || "";
+    return '<svg viewBox="0 0 45 45" class="piece-svg">' + inner + '</svg>';
+  }
+
+  /* ── Board renderer (shared by both modes) ─────────────────── */
+  var boardEl = document.getElementById("board");
+  function checkSquareOf(fen) {
+    /* If the side to move is in check in this position, return its king's
+       square name ("e8") so the renderer can add the red glow; else null.
+       In a legal position only the side to move can be in check, so this
+       covers both check and checkmate, for either color, including custom
+       starting positions that begin in check. */
+    try {
+      var t = newGameAt(fen);
+      if (!t || !t.inCheck || !t.inCheck()) return null;
+      var kingCh = t.turnColor() === "w" ? "K" : "k";
+      var rows = fen.split(" ")[0].split("/");
+      for (var r = 0; r < 8; r++) {          // rows[0] is rank 8
+        var file = 0;
+        for (var i = 0; i < rows[r].length; i++) {
+          var ch = rows[r].charAt(i);
+          if (ch >= "1" && ch <= "8") { file += parseInt(ch, 10); continue; }
+          if (ch === kingCh)
+            return String.fromCharCode(97 + file) + (8 - r);
+          file++;
+        }
+      }
+    } catch (e) {}
+    return null;
+  }
+  function renderBoard(fen, opts) {
+    opts = opts || {};
+    var selected = opts.selected || null;
+    var dests = opts.dests || [];
+    var lm = opts.lastMove || null;
+    var chkSq = checkSquareOf(fen);
+    if (!boardEl) return;
+    boardEl.innerHTML = "";
+    var grid = fenToGrid(fen);
+    var rankOrder = BOARD_FLIP ? [0,1,2,3,4,5,6,7] : [7,6,5,4,3,2,1,0];
+    var fileOrder = BOARD_FLIP ? [7,6,5,4,3,2,1,0] : [0,1,2,3,4,5,6,7];
+
+    var table = document.createElement("table");
+    table.className = "chess-table";
+
+    for (var ri = 0; ri < 8; ri++) {
+      var gr = rankOrder[ri];
+      var tr = document.createElement("tr");
+      var rankTd = document.createElement("td");
+      rankTd.className = "coord rank-coord";
+      rankTd.textContent = gr + 1;
+      tr.appendChild(rankTd);
+
+      for (var fi = 0; fi < 8; fi++) {
+        var gf = fileOrder[fi];
+        var name = FILES[gf] + (gr + 1);
+        var td = document.createElement("td");
+        var light = (gr + gf) % 2 === 1;
+        td.className = "sq " + (light ? "sq-light" : "sq-dark");
+        td.setAttribute("data-sq", name);
+        var piece = grid[name];
+        if (selected === name) td.className += " sel";
+        if (dests.indexOf(name) !== -1)
+          td.className += piece ? " dest occupied" : " dest";
+        if (lm && (name === lm.from || name === lm.to)) td.className += " lastmove";
+        if (chkSq && name === chkSq) td.className += " check";
+        if (piece) {
+          var span = document.createElement("span");
+          span.className = "piece";
+          span.innerHTML = pieceSVG(piece);
+          td.appendChild(span);
+        }
+        tr.appendChild(td);
+      }
+      table.appendChild(tr);
+    }
+
+    var fileRow = document.createElement("tr");
+    fileRow.appendChild(Object.assign(document.createElement("td"),
+      { className: "coord" }));
+    for (var k = 0; k < 8; k++) {
+      var ftd = document.createElement("td");
+      ftd.className = "coord file-coord";
+      ftd.textContent = FILES[fileOrder[k]];
+      fileRow.appendChild(ftd);
+    }
+    table.appendChild(fileRow);
+    boardEl.appendChild(table);
+    wireBoardEvents();
+  }
+
+  /* ── Sounds ──────────────────────────────────────────────────
+     HTMLAudioElement.play() has noticeable first-play latency (and on iOS,
+     latency on every play), so we decode the move/capture clips into the Web
+     Audio API once and fire them through buffer sources (zero latency, can
+     overlap). Decoded buffers + the AudioContext are cached on `window` so they
+     survive across cards instead of being rebuilt each time. We fall back to
+     HTMLAudio only if Web Audio is unavailable or a buffer hasn't decoded yet. */
+  function _b64ToArrayBuffer(dataUri) {
+    var comma = dataUri.indexOf(",");
+    var b64 = comma >= 0 ? dataUri.slice(comma + 1) : dataUri;
+    var bin = atob(b64), n = bin.length, bytes = new Uint8Array(n);
+    for (var i = 0; i < n; i++) bytes[i] = bin.charCodeAt(i);
+    return bytes.buffer;
+  }
+  function getAudio() {
+    if (window._cotAudio) return window._cotAudio;
+    var a = { ctx: null, gain: null,
+              moveBuf: null, capBuf: null, chkBuf: null, casBuf: null, mateBuf: null,
+              moveEl: null, capEl: null, chkEl: null, casEl: null, mateEl: null,
+              mistakeEl: null, mistakeBuf: null,
+              last: null, lastTs: 0 };
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (AC) {
+      try {
+        a.ctx = new AC();
+        /* A single shared gain node with a little headroom (< 1.0) so that if
+           two short clips ever overlap they sum without clipping into harsh
+           distortion. */
+        a.gain = a.ctx.createGain();
+        a.gain.gain.value = 0.8;
+        a.gain.connect(a.ctx.destination);
+        var mv = (typeof COT_MOVE_SRC !== "undefined") ? COT_MOVE_SRC : "";
+        var cp = (typeof COT_CAPTURE_SRC !== "undefined") ? COT_CAPTURE_SRC : "";
+        var ck = (typeof COT_CHECK_SRC !== "undefined") ? COT_CHECK_SRC : "";
+        var cs = (typeof COT_CASTLE_SRC !== "undefined") ? COT_CASTLE_SRC : "";
+        var mt = (typeof COT_MATE_SRC !== "undefined") ? COT_MATE_SRC : "";
+        if (mv) a.ctx.decodeAudioData(_b64ToArrayBuffer(mv),
+                  function (b) { a.moveBuf = b; }, function () {});
+        if (cp) a.ctx.decodeAudioData(_b64ToArrayBuffer(cp),
+                  function (b) { a.capBuf = b; }, function () {});
+        if (ck) a.ctx.decodeAudioData(_b64ToArrayBuffer(ck),
+                  function (b) { a.chkBuf = b; }, function () {});
+        if (cs) a.ctx.decodeAudioData(_b64ToArrayBuffer(cs),
+                  function (b) { a.casBuf = b; }, function () {});
+        if (mt) a.ctx.decodeAudioData(_b64ToArrayBuffer(mt),
+                  function (b) { a.mateBuf = b; }, function () {});
+        var msk = (typeof COT_MISTAKE_SRC !== "undefined") ? COT_MISTAKE_SRC : "";
+        if (msk) a.ctx.decodeAudioData(_b64ToArrayBuffer(msk),
+                  function (b) { a.mistakeBuf = b; }, function () {});
+      } catch (e) { a.ctx = null; a.gain = null; }
+    }
+    window._cotAudio = a;
+    return a;
+  }
+  function unlockAudio() {
+    try {
+      var a = getAudio();
+      if (a.ctx && a.ctx.state === "suspended") a.ctx.resume();
+    } catch (e) {}
+  }
+  /* Which sound does a SAN get? Priority mirrors online boards:
+     checkmate ("#") > check ("+") > capture ("x") > castling > plain move -
+     each special sound only claims the move if its file is actually bundled,
+     otherwise the SAN falls through to the next kind (a "#" with no mate file
+     plays the check sound, and so on), so a missing file can never silence
+     anything. (Castling can give check or mate but never capture, so every
+     SAN lands in exactly one kind.) */
+  function soundKindFor(san) {
+    var s = san || "";
+    var mt = (typeof COT_MATE_SRC !== "undefined") ? COT_MATE_SRC : "";
+    var ck = (typeof COT_CHECK_SRC !== "undefined") ? COT_CHECK_SRC : "";
+    var cs = (typeof COT_CASTLE_SRC !== "undefined") ? COT_CASTLE_SRC : "";
+    if (mt && /#\s*$/.test(s)) return "mate";
+    if (ck && /[+#]\s*$/.test(s)) return "check";
+    if (s.indexOf("x") >= 0) return "capture";
+    if (cs && /^[O0]-[O0](-[O0])?/.test(s)) return "castle";
+    return "move";
+  }
+  function playMoveSound(san) {
+    if (typeof COT_SOUND_ENABLED === "undefined" || !COT_SOUND_ENABLED) return;
+    var kind = soundKindFor(san);
+    var a = getAudio();
+    if (a.ctx && a.gain) {
+      var buf = kind === "mate" ? a.mateBuf
+              : kind === "check" ? a.chkBuf
+              : kind === "capture" ? a.capBuf
+              : kind === "castle" ? a.casBuf : a.moveBuf;
+      if (buf) {
+        /* Throttle: collapse machine-gun replays (e.g. holding an arrow key)
+           that would otherwise stack dozens of overlapping sources. */
+        var now = Date.now();
+        if (now - a.lastTs < 30) return;
+        a.lastTs = now;
+        try {
+          if (a.ctx.state === "suspended") a.ctx.resume();
+          /* Stop any clip still playing so rapid navigation can't pile sources
+             on top of each other (the cause of the harsh/warped audio). */
+          if (a.last) {
+            try { a.last.onended = null; a.last.stop(); a.last.disconnect(); } catch (e) {}
+            a.last = null;
+          }
+          var s = a.ctx.createBufferSource();
+          s.buffer = buf; s.connect(a.gain);
+          s.onended = function () { try { s.disconnect(); } catch (e) {} if (a.last === s) a.last = null; };
+          s.start(0);
+          a.last = s;
+          return;
+        } catch (e) {}
+      }
+    }
+    /* fallback while a buffer is still decoding, or no Web Audio */
+    try {
+      var src = kind === "mate"
+                  ? (typeof COT_MATE_SRC !== "undefined" ? COT_MATE_SRC : "")
+              : kind === "check"
+                  ? (typeof COT_CHECK_SRC !== "undefined" ? COT_CHECK_SRC : "")
+              : kind === "capture"
+                  ? (typeof COT_CAPTURE_SRC !== "undefined" ? COT_CAPTURE_SRC : "")
+              : kind === "castle"
+                  ? (typeof COT_CASTLE_SRC !== "undefined" ? COT_CASTLE_SRC : "")
+                  : (typeof COT_MOVE_SRC !== "undefined" ? COT_MOVE_SRC : "");
+      if (!src) return;
+      var el = kind === "mate"    ? (a.mateEl || (a.mateEl = new Audio(src)))
+             : kind === "check"   ? (a.chkEl  || (a.chkEl  = new Audio(src)))
+             : kind === "capture" ? (a.capEl  || (a.capEl  = new Audio(src)))
+             : kind === "castle"  ? (a.casEl  || (a.casEl  = new Audio(src)))
+                                  : (a.moveEl || (a.moveEl = new Audio(src)));
+      el.currentTime = 0; el.play().catch(function () {});
+    } catch (e) {}
+  }
+  function pieceCount(fen) { return (fen.split(" ")[0].match(/[a-zA-Z]/g) || []).length; }
+  function sqName(sq) { return String.fromCharCode(97 + (sq & 15)) + ((sq >> 4) + 1); }
+  /* Apply a stored SAN through moveFromTo(), which computes the CANONICAL
+     notation with "+"/"#" (move() only returns coordinates). A parser game
+     turns the SAN into squares; the real game applies them. Falls back to
+     plain move() so a garbled token behaves exactly as before. */
+  function applyCanonical(parserGame, realGame, raw) {
+    var c = parserGame ? parserGame.move(raw) : null;
+    if (c && realGame)
+      return realGame.moveFromTo(sqName(c.from), sqName(c.to), c.promo);
+    return realGame ? realGame.move(raw) : null;
+  }
+  /* Audio is initialized lazily - on the first user interaction (unlockAudio)
+     or the first sound - never at render time. This avoids creating a Web Audio
+     context on every card render, which is wasteful in the reviewer and, more
+     importantly, in Anki's editor preview (it re-renders on each keystroke and
+     would otherwise spin up a new context each time). */
+
+  /* ── Promotion picker ──────────────────────────────────────── */
+  function isPromotion(fen, from, to) {
+    var g = newGameAt(fen); if (!g) return false;
+    var p = g.pieceAt(from);
+    if (!p || p.type !== "p") return false;
+    var toRank = parseInt(to[1], 10);
+    return (p.color === "w" && toRank === 8) || (p.color === "b" && toRank === 1);
+  }
+  /* The promotion picker is driven from the board's own capture-phase touch
+     and mouse handlers (see promoHitTest below), NOT from per-button event
+     listeners. Those listeners never worked reliably on iOS: the document's
+     capture-phase touch handlers run FIRST and route the tap as a board
+     gesture before a button could see it (which is why tap-then-swipe was
+     the only thing that worked - a swipe made the board handler bail). By
+     resolving the choice inside that same capture handler, a plain tap is
+     handled instantly and smoothly. promoState holds the open picker. */
+  var promoState = null;   // { cb, resolved } while the overlay is open
+
+  function askPromotion(turn, cb) {
+    var opts = document.getElementById("promo-opts");
+    var overlay = document.getElementById("promo-overlay");
+    if (!opts || !overlay) { cb("q"); return; }
+    opts.innerHTML = "";
+    ["q","r","b","n"].forEach(function (t) {
+      var div = document.createElement("div");
+      div.className = "promo-pc";
+      div.setAttribute("data-promo", t);   // hit-tested by promoHitTest
+      div.innerHTML = pieceSVG(turn + t.toUpperCase());
+      opts.appendChild(div);
+    });
+    overlay.style.display = "flex";
+    promoState = { cb: cb, resolved: false };
+  }
+  function promoFinish(choice) {
+    /* choice = "q"/"r"/"b"/"n" to promote, or null to CANCEL (tap/click
+       outside the box): the pending move is abandoned and the board reset so
+       the user can choose a different move. */
+    if (!promoState || promoState.resolved) return true;
+    promoState.resolved = true;
+    var overlay = document.getElementById("promo-overlay");
+    if (overlay) overlay.style.display = "none";
+    var cb = promoState.cb;
+    promoState = null;
+    if (choice) cb(choice);
+    else { clearSelection(); draw(); }   // cancelled: unlock, let them retry
+    return true;
+  }
+  function promoHitTest(x, y) {
+    /* Called from the board's press handlers while the overlay is open.
+       Returns true if the event was consumed (always, when open): a tap on a
+       piece promotes; a tap anywhere else cancels. */
+    if (!promoState) return false;
+    var el = document.elementFromPoint(x, y);
+    while (el && el !== document.body) {
+      if (el.getAttribute && el.getAttribute("data-promo")) {
+        return promoFinish(el.getAttribute("data-promo"));
+      }
+      if (el.id === "promo-box") return true;   // inside the box, not a piece
+      el = el.parentNode;
+    }
+    return promoFinish(null);   // outside the box -> cancel
+  }
+
+  /* ══════════════════════════════════════════════════════════════
+     Shared interaction layer (click-to-move + drag), parameterised
+     by the active Mode (attempt vs review). Works with mouse + touch.
+     ══════════════════════════════════════════════════════════════ */
+  var Mode = null;            // set below depending on side
+  var selected = null;        // selected square name
+  var legalForSel = [];       // legal dest names for the selection
+  var inputLocked = false;    // true while opponent reply / conclusion runs
+  var frontConcluded = false; // true once the question-side attempt has finished
+
+  function ownPieceAt(name) {
+    var fen = Mode.getFen();
+    var g = newGameAt(fen); if (!g) return null;
+    var p = g.pieceAt(name);
+    return (p && p.color === g.turnColor()) ? p : null;
+  }
+  /* Toggle selection / legal-dest highlights on the EXISTING squares instead
+     of re-rendering the whole board. Rebuilding the board mid-drag removes the
+     <td> the touch is bound to, which breaks dragging on iOS. */
+  function applyHighlights(sel, dests) {
+    var tds = document.querySelectorAll("td.sq");
+    for (var i = 0; i < tds.length; i++) {
+      var td = tds[i], nm = td.getAttribute("data-sq");
+      td.classList.remove("sel", "dest", "occupied");
+      if (sel && nm === sel) td.classList.add("sel");
+      if (dests && dests.indexOf(nm) !== -1) {
+        td.classList.add("dest");
+        if (td.querySelector(".piece")) td.classList.add("occupied");
+      }
+    }
+  }
+  function selectSquare(name) {
+    var g = newGameAt(Mode.getFen()); if (!g) return;
+    selected = name;
+    legalForSel = g.legalDests(name);
+    applyHighlights(selected, legalForSel);
+  }
+  function clearSelection() {
+    selected = null; legalForSel = [];
+    applyHighlights(null, []);
+  }
+
+  function handleTap(name) {
+    if (inputLocked || !name) return;
+    if (selected) {
+      if (name === selected) { clearSelection(); draw(); return; }
+      if (legalForSel.indexOf(name) !== -1) { requestMove(selected, name); return; }
+      if (ownPieceAt(name)) { selectSquare(name); return; }
+      incorrectMove(); clearSelection(); draw(); return;
+    }
+    if (ownPieceAt(name)) selectSquare(name);
+  }
+
+  function requestMove(from, to) {
+    var fen = Mode.getFen();
+    var g = newGameAt(fen); if (!g) return;
+    if (g.legalDests(from).indexOf(to) === -1) {  incorrectMove();
+      clearSelection(); draw(); return;
+    }
+    if (isPromotion(fen, from, to)) {
+      var turn = fen.split(" ")[1];
+      askPromotion(turn, function (pp) { Mode.onMove(from, to, pp); });
+    } else {
+      Mode.onMove(from, to, null);
+    }
+  }
+
+  /* pointer/drag plumbing (mouse + touch share the press state + commit
+     logic, but are wired separately so iOS synthetic-mouse events can't
+     double-fire). Dragging is allowed with the mouse everywhere, and with
+     touch only on the question side (the answer side scrolls instead). */
+  function sqOf(el) {
+    while (el && !(el.getAttribute && el.getAttribute("data-sq"))) el = el.parentNode;
+    return el ? el.getAttribute("data-sq") : null;
+  }
+  function closestAttr(node, attr) {
+    while (node && node.getAttribute) {
+      if (node.hasAttribute && node.hasAttribute(attr)) return node;
+      node = node.parentNode;
+    }
+    return null;
+  }
+  function closestId(node, id) {
+    while (node) { if (node.id === id) return node; node = node.parentNode; }
+    return null;
+  }
+
+  var press = null;          // { sq, x0, y0, moved, dragging, ghost, code, canDrag }
+  function beginPress(x, y, sq, allowDrag) {
+    press = { sq: sq, x0: x, y0: y, moved: false, dragging: false,
+              ghost: null, code: null, canDrag: false };
+    if (sq && !inputLocked && allowDrag) {
+      var own = ownPieceAt(sq);
+      if (own) { press.canDrag = true; press.code = fenToGrid(Mode.getFen())[sq]; }
+    }
+  }
+  function markDragOrigin(sq) {
+    removeDragOrigin();
+    var td = document.querySelector('td.sq[data-sq="' + sq + '"]');
+    if (td) td.classList.add("drag-origin");
+  }
+  function removeDragOrigin() {
+    var els = document.querySelectorAll("td.sq.drag-origin");
+    for (var i = 0; i < els.length; i++) els[i].classList.remove("drag-origin");
+  }
+  function movePress(x, y) {
+    if (!press) return false;
+    if (!press.moved) {
+      if (Math.abs(x - press.x0) + Math.abs(y - press.y0) < 8) return false;
+      press.moved = true;
+      if (press.canDrag) {
+        press.dragging = true;
+        /* While dragging we show only the faded origin square + the floating
+           piece - no selection ring and no legal-move dots (those are for the
+           click-to-move variant). */
+        clearSelection();
+        markDragOrigin(press.sq);
+        var sqEl = document.querySelector('td.sq[data-sq="' + press.sq + '"]');
+        var base = sqEl ? sqEl.getBoundingClientRect().width : 52;
+        /* Desktop: ghost matches the piece size. iOS: enlarge ~1.4x. */
+        var gsz = Math.round(IS_TOUCH ? base * 1.4 : base);
+        var g = document.createElement("div");
+        g.className = "drag-ghost";
+        g.style.width = gsz + "px"; g.style.height = gsz + "px";
+        g.style.marginLeft = (-gsz / 2) + "px"; g.style.marginTop = (-gsz / 2) + "px";
+        g.innerHTML = pieceSVG(press.code);
+        document.body.appendChild(g);
+        press.ghost = g;
+      }
+    }
+    if (press.dragging && press.ghost) {
+      press.ghost.style.left = x + "px";
+      press.ghost.style.top = y + "px";
+    }
+    return press.dragging;
+  }
+  function settleDrag(p, to, x, y) {
+    if (to && to !== p.sq) requestMove(p.sq, to); else draw();
+    if (promoState || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var grid=fenToGrid(Mode.getFen());
+    var landed=(grid[p.sq]===p.code) ? p.sq : to;
+    var cell=boardEl.querySelector('[data-sq="'+landed+'"]');
+    var piece=cell && cell.querySelector('.piece');
+    if (!piece || !piece.animate) return;
+    var rect=cell.getBoundingClientRect();
+    var dx=x-rect.left-rect.width/2;
+    var dy=y-rect.top-rect.height/2-rect.height*.06;
+    piece.animate([
+      {transform:'translate('+dx+'px,'+dy+'px) scale(1.12)'},
+      {transform:'translate(0,0) scale(1)'}
+    ], {duration:160, easing:'cubic-bezier(.22,.72,.3,1)'});
+  }
+  function slideMove(before,san,reverse) {
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var parsed=newGameAt(before).move(san);
+    if(!parsed) return;
+    function slide(from,to) {
+      var start=boardEl.querySelector('[data-sq="'+(reverse?to:from)+'"]');
+      var end=boardEl.querySelector('[data-sq="'+(reverse?from:to)+'"]');
+      var piece=end && end.querySelector('.piece');
+      if(!start||!piece||!piece.animate) return;
+      var a=start.getBoundingClientRect(), b=end.getBoundingClientRect();
+      piece.style.zIndex='2';
+      var motion=piece.animate([{transform:'translate('+(a.left-b.left)+'px,'+(a.top-b.top)+'px)'},{transform:'translate(0,0)'}],
+          {duration:245,easing:'cubic-bezier(.22,.65,.3,1)'});
+      motion.onfinish=function(){piece.style.zIndex='';};
+    }
+    var from=sqName(parsed.from),to=sqName(parsed.to);
+    slide(from,to);
+    if(parsed.castle)slide((parsed.castle==='k'?'h':'a')+from[1],(parsed.castle==='k'?'f':'d')+from[1]);
+  }
+  function clearGhost() {
+    if (press && press.ghost && press.ghost.parentNode)
+      press.ghost.parentNode.removeChild(press.ghost);
+    /* safety net: remove any orphaned ghost left by an interrupted gesture
+       (this is what caused the "stuck after-image" on iOS) */
+    var stray = document.querySelectorAll(".drag-ghost");
+    for (var i = 0; i < stray.length; i++)
+      if (stray[i].parentNode) stray[i].parentNode.removeChild(stray[i]);
+    removeDragOrigin();
+  }
+  function endPress() { var p = press; press = null; return p; }
+
+  /* ── Mouse (desktop) ── */
+  var lastTouchTs = 0;
+  function mouseGuard() { return (Date.now() - lastTouchTs) < 700; }
+  function onMouseDown(e) {
+    if (cardDisabled) return;
+    /* Picker open: swallow the press; the choice/cancel resolves on mouseup
+       so the entire click is consumed as one unit (resolving on mousedown
+       left the matching mouseup to re-enter board logic and wedge). */
+    if (promoState) { e.preventDefault(); e.stopPropagation(); return; }
+    if (e.button !== 0 || mouseGuard()) return;
+    unlockAudio();
+    beginPress(e.clientX, e.clientY, sqOf(e.target), true);
+    e.preventDefault();
+  }
+  bindGlobal(document, "mousemove", function (e) {
+    if (cardDisabled || promoState || mouseGuard()) return;
+    movePress(e.clientX, e.clientY);
+  });
+  bindGlobal(document, "mouseup", function (e) {
+    if (cardDisabled) return;
+    /* Picker open: a click on a piece promotes, elsewhere cancels. Resolved
+       here (not on mousedown) so the whole click is one atomic action. */
+    if (promoState) {
+      promoHitTest(e.clientX, e.clientY);
+      e.preventDefault(); e.stopPropagation();
+      return;
+    }
+    if (mouseGuard() || !press) return;
+    clearGhost();
+    var p = endPress();
+    if (p.dragging) {
+      var el = document.elementFromPoint(e.clientX, e.clientY);
+      var to = el ? sqOf(el) : null;
+      settleDrag(p, to, e.clientX, e.clientY);
+      return;
+    }
+    handleTap(p.sq);
+  });
+
+  /* ── Touch (mobile) ──
+     We handle taps/drags ourselves and call preventDefault to keep AnkiMobile's
+     own tap-zone gestures (which flip / advance the card) from firing on
+     in-webview taps, so the only place that flips/rates is the native bar at the
+     very bottom of the screen. PGN moves and the nav arrows are dispatched here
+     directly, because preventDefault suppresses the synthetic click they'd
+     otherwise need. Drag is enabled only on the question side; the answer side
+     gets plain scrolling + tap-to-move. */
+  var IS_TOUCH = ("ontouchstart" in window) || (navigator.maxTouchPoints > 0);
+  function firstTouch(e) {
+    return (e.changedTouches && e.changedTouches[0]) ||
+           (e.touches && e.touches[0]) || null;
+  }
+  function frontBoardTouch() { return press && press.sq && !IS_ANSWER && !inputLocked; }
+
+  bindGlobal(document, "touchstart", function (e) {
+    lastTouchTs = Date.now();
+    if(e.target.closest && e.target.closest('.studio-controls,.demo-actions,.studio-first-round,.studio-messages'))return;
+    /* A disabled card takes no input; let native scroll / show-answer / rating
+       gestures pass through untouched. */
+    if (cardDisabled) return;
+    /* Promotion picker open: resolve it right here in the capture phase - a
+       tap on a piece promotes, a tap outside cancels - before any board
+       gesture logic runs. This is what makes a plain tap work on iOS. */
+    if (promoState) {
+      var pt = firstTouch(e);
+      if (pt) promoHitTest(pt.clientX, pt.clientY);
+      e.preventDefault(); e.stopPropagation();
+      return;
+    }
+    /* Once the question-side attempt is over, swallow every in-webview touch
+       (start/move/end) so AnkiMobile's tap-to-flip gesture can't fire from a
+       stray tap - the only thing that flips/rates is the native bottom bar,
+       whose touches never reach this document. */
+    if (!IS_ANSWER && frontConcluded) { e.preventDefault(); return; }
+    unlockAudio();
+    var t = firstTouch(e); if (!t) return;
+    var el = document.elementFromPoint(t.clientX, t.clientY) || t.target;
+    var sq = sqOf(el);
+    beginPress(t.clientX, t.clientY, sq, !IS_ANSWER);   // drag only on question side
+    if (frontBoardTouch()) e.preventDefault();          // board move: no scroll/zoom
+  }, { capture: true, passive: false });
+
+  bindGlobal(document, "touchmove", function (e) {
+    if (cardDisabled) return;
+    if (promoState) { e.preventDefault(); e.stopPropagation(); return; }
+    if (!IS_ANSWER && frontConcluded) { e.preventDefault(); return; }
+    var t = firstTouch(e); if (!t) return;
+    var dragging = movePress(t.clientX, t.clientY);
+    if (dragging || frontBoardTouch()) e.preventDefault();   // keep board still
+  }, { capture: true, passive: false });
+
+  bindGlobal(document, "touchend", function (e) {
+    lastTouchTs = Date.now();
+    if (cardDisabled) return;
+    /* Picker open: the selection/cancel already happened on touchstart;
+       just swallow the end so no board logic or card flip runs. */
+    if (promoState) { e.preventDefault(); e.stopPropagation(); return; }
+    if (!IS_ANSWER && frontConcluded) { e.preventDefault(); e.stopPropagation(); return; }
+    var t = firstTouch(e);
+    if (!press) return;
+    clearGhost();
+    var p = endPress();
+    var x = t ? t.clientX : p.x0, y = t ? t.clientY : p.y0;
+
+    /* completed a drag (question side only) */
+    if (p.dragging) {
+      var el = document.elementFromPoint(x, y);
+      var to = el ? sqOf(el) : null;
+      settleDrag(p, to, x, y);
+      e.preventDefault(); e.stopPropagation();
+      return;
+    }
+    /* a scroll/swipe (moved without dragging a piece): let it be */
+    if (p.moved) return;
+
+    /* a tap: route it ourselves */
+    var tgt = document.elementFromPoint(x, y) || null;
+    var noteLbl = closestAttr(tgt, "data-note-toggle");
+    if (noteLbl && IS_ANSWER) {
+      toggleNote(closestAttr(noteLbl, "data-note"));
+      e.preventDefault(); e.stopPropagation(); return;
+    }
+    var ni = closestAttr(tgt, "data-ni");
+    if (ni && IS_ANSWER) {
+      Review.byNi(parseInt(ni.getAttribute("data-ni"), 10));
+      e.preventDefault(); e.stopPropagation(); return;
+    }
+    if (IS_ANSWER && closestId(tgt, "btn-prev")) { Review.left();  e.preventDefault(); e.stopPropagation(); return; }
+    if (IS_ANSWER && closestId(tgt, "btn-next")) { Review.right(); e.preventDefault(); e.stopPropagation(); return; }
+    /* Analyze link: trigger the <a> ourselves (so Anki/AnkiMobile opens it
+       externally) and swallow the tap so it doesn't also flip/rate the card. */
+    if (IS_ANSWER && closestId(tgt, "btn-analyze")) {
+      var az = document.getElementById("btn-analyze");
+      if (az) { try { az.click(); } catch (e2) {} }
+      e.preventDefault(); e.stopPropagation(); return;
+    }
+    if (p.sq && !inputLocked) {
+      handleTap(p.sq);
+      e.preventDefault(); e.stopPropagation(); return;
+    }
+    /* empty space / header: suppress AnkiMobile's flip gesture so only the
+       native bottom bar can flip or rate the card. */
+    e.preventDefault(); e.stopPropagation();
+  }, { capture: true, passive: false });
+
+  bindGlobal(document, "touchcancel", function () {
+    if (!press) return;
+    clearGhost();
+    endPress();
+    draw();
+  }, { capture: true, passive: false });
+
+  function wireBoardEvents() {
+    if (IS_TOUCH) return;   // touch is handled at the document level
+    var tds = document.querySelectorAll("td.sq");
+    for (var i = 0; i < tds.length; i++)
+      tds[i].addEventListener("mousedown", onMouseDown);
+  }
+
+  /* ── Result bar + reveal answer ────────────────────────────── */
+  function celebrate() {
+    var banner = document.getElementById('studio-celebration');
+    banner.hidden = false;
+    if (!COT_CONFETTI_ENABLED || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var colors = ['#e8ac32','#3d9269','#d96653','#467abe','#935da9'];
+    for (var i = 0; i < 40; i++) {
+      var piece = document.createElement('i');
+      piece.setAttribute('aria-hidden','true');
+      piece.style.left = Math.random()*100+'%';
+      piece.style.backgroundColor = colors[i % colors.length];
+      piece.style.setProperty('--drift', (Math.random()-.5)*95+'px');
+      piece.style.animationDelay = Math.random()*.24+'s';
+      banner.appendChild(piece);
+    }
+  }
+  function showResult(success, msg) {
+    var bar = document.getElementById("result-bar");
+    if (!bar) return;
+    bar.className = "result-bar " + (success ? "correct" : "incorrect");
+    bar.textContent = msg || (success ? "Line complete - rate your unaided recall"
+                                      : "\u2717 Mistakes limit reached");
+    bar.style.display = "flex";
+    var ah = document.getElementById("attempt-hint");
+    if (ah) ah.style.display = "none";
+  }
+  function revealAnswer() {
+    if (typeof pycmd === "function") { pycmd("ans"); return true; }
+    if (typeof window.pycmd === "function") { window.pycmd("ans"); return true; }
+    return false;   // AnkiMobile: can't flip from JS; user taps instead
+  }
+
+  /* ── Start ply: for Black standard-opening cards White has already
+        played move 1, so the line starts one ply in. ─────────────── */
+  var startStep = 0, minStep = 0;
+  if (PLAYER_COLOR === "black" && !START_FEN && MOVES.length >= 1) {
+    startStep = 1; minStep = 1;
+  }
+
+  function fenForStep(step) {
+    var g = newGameAt(startFen()) || null;
+    if (!g) return startFen();
+    g.load(startFen());
+    for (var i = 0; i < step; i++) { if (MOVES[i]) g.move(MOVES[i]); }
+    return g.fen();
+  }
+
+  function draw() { ActiveDraw(); }   // set by the active mode
+  var ActiveDraw = function () {};
+
+  /* ══════════════════════════════════════════════════════════════
+     ATTEMPT MODE (question side)
+     ══════════════════════════════════════════════════════════════ */
+  function setupAttempt() {
+    document.getElementById("card-root").className = "attempt-mode";
+    var ah = document.getElementById("attempt-hint");
+    if (ah) ah.style.display = "block";
+    // Clear any persisted result from a previous card so a manual flip (no
+    // attempt) won't show a stale Correct/Incorrect bar on the answer side.
+    try { window._cotResult = null; } catch (e) {}
+    frontConcluded = false;
+
+    var game = newGameAt(startFen());
+    if (game) { game.load(startFen()); for (var i = 0; i < startStep; i++) if (MOVES[i]) game.move(MOVES[i]); }
+    var attemptStep = startStep; expectedHintMove=function(){return MOVES[attemptStep];};
+    var lastMove = null;
+    var alternateFinish = null;
+    var concluded = false;
+    Mode = {
+      getFen: function () { return game ? game.fen() : startFen(); },
+      lastMove: function () { return lastMove; },
+      onMove: attemptMove
+    };
+    ActiveDraw = function () {
+      renderBoard(Mode.getFen(), { selected: selected, dests: legalForSel, lastMove: lastMove });
+    };
+
+    function endAttempt(){
+      if(concluded)return;
+      var step=attemptStep+(inputLocked?1:0);
+      conclude(false,step);
+    }
+    resumePractice=function(){
+      showDemo.hidden=false;
+      endButton.onclick=endAttempt;
+      if(ah)ah.style.display='block';
+      ActiveDraw();
+    };
+    showDemo.hidden=false;
+    endButton.onclick=endAttempt;
+    showDemo.onclick=function(){
+      if(inputLocked || concluded || promoState)return;
+      clearSelection();
+      setupDemo();
+    };
+    function conclude(success, endStep) {
+      if(concluded)return;
+      endButton.disabled=true;
+      concluded = true;
+      showDemo.hidden=true;
+      frontConcluded = true;
+      inputLocked = true;
+      clearSelection();
+      ActiveDraw();
+      var clean=success && !roundAssisted;
+      var counts=clean && !START_FEN && studioDepth!=='all' && fullLength>=Number(studioDepth);
+      var msg=!success?'Round ended early':roundAssisted?'Line complete with hints':'Line complete without hints';
+      if(alternateFinish)msg+=' · Equivalent finish accepted; answer shows a model line';
+      showResult(clean,msg);
+      if(success)celebrate();
+      if(nativeState)command('finish',counts?studioDepth:null);
+      // Persist the result + the position reached so the answer side can show
+      // the same bar and start the board where the attempt left off. Survives
+      // the flip because Anki reuses the page (window) across question/answer.
+      try {
+        window._cotResult = { key:movesStr, identity:identity, success:clean, message:msg, depth:studioDepth, step:endStep };
+      } catch (e) {}
+      // Desktop: flip to the answer side ourselves after a short beat.
+      var ua = navigator.userAgent || "";
+      var onMobile = IS_TOUCH || /Mobile|Android|iPhone|iPad|iPod/i.test(ua);
+      if (!onMobile) {
+        setT(revealAnswer, success ? 1700 : 750);
+      } else {
+        // Mobile: we can't reliably flip from JS on AnkiMobile, so point the
+        // user at the native bar at the very bottom of the screen (the only
+        // place that flips or rates). We do NOT relax the in-webview tap
+        // suppression, so the flip area stays restricted to that bottom bar.
+        setT(function () {
+          var mh = document.getElementById("mobile-flip-hint");
+          if (mh) mh.style.display = "block";
+        }, success ? 900 : 800);
+      }
+    }
+
+    function attemptMove(from, to, promo) {
+      if (concluded || inputLocked) return;
+      if (attemptStep >= MOVES.length) return;
+      var fen = Mode.getFen();
+      var tester = newGameAt(fen); if (!tester) return;
+      var res = tester.moveFromTo(from, to, promo);
+      if (!res) { clearSelection(); ActiveDraw(); return; }   // illegal: ignore
+
+      // expected resulting position for this ply
+      var exp = newGameAt(fen);
+      var ok = false;
+      if (exp) { var em = exp.move(MOVES[attemptStep]); if (em) ok = (exp.fen() === res.fen); }
+      if (!ok && START_FEN && attemptStep===MOVES.length-1 && equivalentFinal.indexOf(res.san)>=0) {ok=true;alternateFinish=res.san;}
+
+      if (!ok) {
+        clearSelection(); ActiveDraw();
+        incorrectMove();
+        return;
+      }
+      // correct - commit the player's move on the real game
+      game.moveFromTo(from, to, promo);
+      lastMove = { from: from, to: to };
+      clearSelection();
+      speakMove(alternateFinish || MOVES[attemptStep], fen.split(" ")[1],attemptStep);
+      playMoveSound(res.san);
+      ActiveDraw();
+
+      // correct - line finished on the player's move?
+      if (attemptStep + 1 >= MOVES.length) { conclude(true, MOVES.length); return; }
+
+      // auto-play the opponent's reply
+      inputLocked = true;
+      showDemo.disabled=true;
+      setT(function () {
+        if(concluded)return;
+        var before = game.fen();
+        var rmv = applyCanonical(newGameAt(before), game, MOVES[attemptStep + 1]);
+        lastMove = fenDiff(before, game.fen());
+        speakMove(MOVES[attemptStep+1], before.split(" ")[1],attemptStep+1);
+        playMoveSound((rmv && rmv.san) ? rmv.san : MOVES[attemptStep + 1]);
+        ActiveDraw();
+        if (attemptStep + 2 >= MOVES.length) { conclude(true, MOVES.length); slideMove(before,MOVES[attemptStep+1],false); return; }
+        attemptStep += 2;
+        inputLocked = false;
+        showDemo.disabled=false;
+        ActiveDraw();
+        slideMove(before,MOVES[attemptStep-1],false);
+      }, 260);
+    }
+
+    announceRound();
+
+    // Block keys that would flip the card on desktop (space / enter).
+    bindGlobal(window, "keydown", function (e) {
+      if (e.key === " " || e.code === "Space" || e.key === "Enter") {
+        if(e.target.closest && e.target.closest('button,input,select'))return;
+        e.preventDefault(); e.stopImmediatePropagation();
+      }
+    }, true);
+
+    ActiveDraw();
+  }
+
+  /* ══════════════════════════════════════════════════════════════
+     REVIEW MODE (answer side)
+     ══════════════════════════════════════════════════════════════ */
+  var Review = { byNi: function () {}, left: function () {}, right: function () {} };
+  /* ── Collapsible notes (answer side only) ─────────────────────
+     Book Notes / Personal Notes start minimized on the answer side and toggle
+     open when their label is tapped. They are the only collapsible sections;
+     the PGN/board/controls are never collapsed. */
+  function toggleNote(sec) { if (sec) sec.classList.toggle("collapsed"); }
+  function noteSec(which) {
+    return document.querySelector('.note-section[data-note="' + which + '"]');
+  }
+  function noteIsOpen(sec) { return !!sec && !sec.classList.contains("collapsed"); }
+  function openNote(sec) { if (sec) sec.classList.remove("collapsed"); }
+  function closeNote(sec) { if (sec) sec.classList.add("collapsed"); }
+  function setupNotes() {
+    var secs = document.querySelectorAll(".note-section");
+    for (var i = 0; i < secs.length; i++) {
+      secs[i].classList.add("collapsed");          // start minimized
+      var label = secs[i].querySelector(".note-label");
+      if (label) {
+        // Desktop click. (On touch, the document touchend handler routes the
+        // tap to toggleNote via the data-note attribute, so we don't double-fire.)
+        (function (s) {
+          label.addEventListener("click", function () { if (!IS_TOUCH) toggleNote(s); });
+        })(secs[i]);
+      }
+    }
+    setupNoteHotkeys();
+  }
+
+  /* ── Note hotkeys (answer side) ────────────────────────────────
+     Two configurable keys (set in the add-on's Config dialog → Tag Shortcuts;
+     defaults shown):
+       Toggle 1   (default N) : open the next still-closed notes section -
+                  Book Notes first, then Personal Notes. Once everything that
+                  exists is already open it does nothing; it never closes one.
+       Toggle All (default ,) : open both at once, or close both if both are
+                  already open.
+     The keys are injected as COT_TOGGLE_ONE_KEY / COT_TOGGLE_ALL_KEY by the
+     note-type prelude (typeof-guarded so an older template falls back safely).
+     A section only exists when its field has content, so a missing one is
+     simply skipped. The listener goes through bindGlobal so it's torn down
+     before the next card (AnkiMobile reuses the page). */
+  function setupNoteHotkeys() {
+    var oneKey = (typeof COT_TOGGLE_ONE_KEY === "string" && COT_TOGGLE_ONE_KEY)
+      ? COT_TOGGLE_ONE_KEY.toLowerCase() : "n";
+    var allKey = (typeof COT_TOGGLE_ALL_KEY === "string" && COT_TOGGLE_ALL_KEY)
+      ? COT_TOGGLE_ALL_KEY.toLowerCase() : ",";
+    bindGlobal(document, "keydown", function (e) {
+      if (e.repeat || e.ctrlKey || e.altKey || e.metaKey) return;
+      var t = e.target;
+      if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+      var k = (e.key || "").toLowerCase();
+      if (!k) return;
+      if (k === oneKey) {
+        var book = noteSec("book"), pers = noteSec("personal");
+        if (!book && !pers) return;                 // no notes; let the key pass
+        if (book && !noteIsOpen(book)) openNote(book);
+        else if (pers && !noteIsOpen(pers)) openNote(pers);
+        // else: everything already open - do nothing (never close)
+        e.preventDefault();
+      } else if (k === allKey) {
+        var secs = [];
+        var b = noteSec("book"); if (b) secs.push(b);
+        var p = noteSec("personal"); if (p) secs.push(p);
+        if (!secs.length) return;                   // no notes; let the key pass
+        var allOpen = true;
+        for (var i = 0; i < secs.length; i++) { if (!noteIsOpen(secs[i])) { allOpen = false; break; } }
+        for (var j = 0; j < secs.length; j++) { if (allOpen) closeNote(secs[j]); else openNote(secs[j]); }
+        e.preventDefault();
+      }
+    });
+  }
+
+  function setupReview() {
+    document.getElementById("card-root").className = "review-mode";
+    var rh = document.getElementById("review-hint");
+    if (rh) rh.style.display = "block";
+    setupNotes();
+
+    /* Seed from the attempt result (persisted across the flip), else the start
+       of the line. Also re-show the Correct/Incorrect bar. */
+    var seededStep = startStep, result = null;
+    try {
+      if (window._cotResult && window._cotResult.identity === identity) result = window._cotResult;
+    } catch (e) {}
+    if (result && typeof result.step === "number")
+      seededStep = Math.max(minStep, Math.min(result.step, MOVES.length));
+    if(result)showResult(result.success,result.message);else showResult(false,"Round ended early");
+
+    /* Build a move TREE. The main line is the spine (kids[0] chain); any move
+       the player makes that isn't already a child becomes a new side-line branch
+       that PERSISTS for the rest of the review (navigating away never deletes
+       it). Nothing here is ever written back to the card. */
+    var g = newGameAt(startFen()); if (g) g.load(startFen());
+    var root = { idx: -1, san: null, fen: g ? g.fen() : startFen(),
+                 parent: null, kids: [], main: true };
+    var spine = [root], node = root;
+    var gParse = newGameAt(startFen());
+    for (var i = 0; i < MOVES.length; i++) {
+      /* Store the ENGINE'S canonical san (moveFromTo computes "+"/"#"), not
+         the raw field text - so navigation sounds and the move list show
+         check/mate correctly even on cards whose Moves field lacks the
+         marks. */
+      var mv = applyCanonical(gParse, g, MOVES[i]);
+      var n = { idx: i, san: (mv && mv.san) ? mv.san : MOVES[i],
+                fen: g ? g.fen() : startFen(),
+                parent: node, kids: [], main: true };
+      node.kids.push(n); node = n; spine.push(n);
+    }
+    var minNode = spine[Math.min(minStep, spine.length - 1)];
+    var current = spine[Math.min(seededStep, spine.length - 1)];
+
+    function depthOf(n) { return n.idx + 1; }
+    function mainAncestorDepth(n) { while (n && !n.main) n = n.parent; return n ? depthOf(n) : 0; }
+    function playNodeSound(n) { if (n && n.san) playMoveSound(n.san); }
+
+    Mode = {
+      getFen: function () { return current.fen; },
+      lastMove: function () { return current.parent ? fenDiff(current.parent.fen, current.fen) : null; },
+      onMove: playUserMove
+    };
+    ActiveDraw = function () {
+      renderBoard(current.fen, { selected: selected, dests: legalForSel, lastMove: Mode.lastMove() });
+      renderPgn();
+      var c = document.getElementById("move-counter");
+      if (c) c.textContent = (current.main ? depthOf(current) : mainAncestorDepth(current)) + " / " + MOVES.length;
+      var prev = document.getElementById("btn-prev");
+      var next = document.getElementById("btn-next");
+      if (prev) prev.disabled = (depthOf(current) <= minStep);
+      if (next) next.disabled = (current.kids.length === 0);
+      var rh2 = document.getElementById("review-hint");
+      if (rh2) rh2.textContent = current.main
+        ? "Step with \u2190 \u2192 or tap a move. Move a piece to try your own line."
+        : "Side line (not saved) - \u2190 \u2192 or tap any move to navigate.";
+      updateAnalyzeHref();   // custom-start cards: link follows the shown position
+    };
+
+    function gotoNode(n) {
+      if (!n || current===n) return;
+      var reverse=current.parent===n, move=reverse?current:n;
+      current=n; clearSelection(); playNodeSound(move); ActiveDraw();
+      if(move.parent){
+        speakMove(move.san,move.parent.fen.split(' ')[1],depthOf(move)-1);
+        slideMove(move.parent.fen,move.san,reverse);
+      }
+    }
+
+    function playUserMove(from, to, promo) {
+      var gg = newGameAt(current.fen); if (!gg) return;
+      var res2 = gg.moveFromTo(from, to, promo);
+      if (!res2) { clearSelection(); ActiveDraw(); return; }   // illegal: ignore
+      var existing = null;
+      for (var k = 0; k < current.kids.length; k++)
+        if (current.kids[k].fen === res2.fen) { existing = current.kids[k]; break; }
+      if (existing) { current = existing; }
+      else {
+        current.kids.push({ idx: current.idx + 1, san: res2.san, fen: res2.fen,
+                            parent: current, kids: [], main: false });
+        current = current.kids[current.kids.length - 1];
+      }
+      clearSelection();
+      speakMove(res2.san,current.parent.fen.split(" ")[1],depthOf(current)-1);
+      playMoveSound(res2.san);
+      ActiveDraw();
+    }
+
+    function back()    { if (depthOf(current) > minStep && current.parent) gotoNode(current.parent); }
+    function forward() { if (current.kids.length) gotoNode(current.kids[0]); }
+    Review.left = back; Review.right = forward;
+
+    /* PGN with variations. Each move span carries a data-ni index into pgnNodes
+       so taps/clicks jump straight to that node. */
+    var pgnNodes = [];
+    Review.byNi = function (ni) { var n = pgnNodes[ni]; if (n) gotoNode(n); };
+
+    function renderPgn() {
+      var el = document.getElementById("move-list"); if (!el) return;
+      el.innerHTML = ""; pgnNodes = [];
+      function isWhiteIdx(idx) { return (idx % 2 === 0) === FIRST_IS_WHITE; }
+      function moveNo(idx) {
+        return FIRST_IS_WHITE ? (Math.floor(idx / 2) + 1)
+                              : (Math.floor((idx + 1) / 2) + 1);
+      }
+      function emitNum(idx) {
+        var sp = document.createElement("span"); sp.className = "mn";
+        sp.textContent = moveNo(idx) + (isWhiteIdx(idx) ? ". " : "\u2026 ");
+        el.appendChild(sp);
+      }
+      function emitMove(n, needNum) {
+        if (isWhiteIdx(n.idx)) emitNum(n.idx);        // White: always numbered "N. "
+        else if (needNum) emitNum(n.idx);             // Black: "N… " only when needed
+        var ni = pgnNodes.length; pgnNodes.push(n);
+        var s = document.createElement("span");
+        s.className = "mv" + (!n.main ? " mv-side" : "")
+                    + (n === current ? " mv-last" : "")
+                    + (n.main && n !== current ? " mv-played" : "");
+        s.textContent = CFA_NOTATION.san(n.san,notationLanguage) + " ";
+        s.setAttribute("data-ni", ni);
+        el.appendChild(s);
+      }
+      function emitParen(t) {
+        var sp = document.createElement("span"); sp.className = "pgn-paren";
+        sp.textContent = t; el.appendChild(sp);
+      }
+      function renderPos(pos, needNumMain) {
+        if (!pos.kids.length) return;
+        var main = pos.kids[0];
+        emitMove(main, needNumMain);
+        var hadVar = pos.kids.length > 1;
+        for (var v = 1; v < pos.kids.length; v++) {
+          emitParen("( ");
+          emitMove(pos.kids[v], true);
+          renderPos(pos.kids[v], false);
+          emitParen(") ");
+        }
+        renderPos(main, hadVar);
+      }
+      renderPos(root, true);
+      var last = el.querySelector(".mv-last");
+      if (last) last.scrollIntoView({ block: "nearest" });
+    }
+
+    /* Desktop clicks (touch is routed in the touch layer). */
+    var ml = document.getElementById("move-list");
+    if (ml) ml.addEventListener("click", function (e) {
+      var t = closestAttr(e.target, "data-ni");
+      if (t) gotoNode(pgnNodes[parseInt(t.getAttribute("data-ni"), 10)]);
+    });
+
+    var prev = document.getElementById("btn-prev");
+    var next = document.getElementById("btn-next");
+    if (prev) prev.addEventListener("click", back);
+    if (next) next.addEventListener("click", forward);
+    bindGlobal(document, "keydown", function (e) {
+      if (e.key === "ArrowLeft")  { unlockAudio(); back();    e.preventDefault(); }
+      if (e.key === "ArrowRight") { unlockAudio(); forward(); e.preventDefault(); }
+    });
+
+    /* "Analyze" - open the line in Lichess's analysis board (answer side only),
+       oriented to the color being studied (?color=). Cards with moves build a
+       full percent-encoded PGN - a [FEN "…"] tag for custom starts (format per
+       lichess-org/lila#11401) plus the movetext INCLUDING any side lines the
+       player has explored, serialized as PGN variations with the card's line as
+       the main line. The URL is rebuilt on every navigation step (ActiveDraw),
+       so new side lines are picked up live, and a #ply anchor opens the board
+       at the position being reviewed. Lichess numbers plies from the FEN's
+       move counters - a black-to-move start begins at ply 1, not 0 - so the
+       anchor and the move numbers are both offset by azPlyBase. */
+    var analyzeBtn = document.getElementById("btn-analyze");
+    var azActive = false;
+    var azPlyBase = 0;                 // Lichess ply of the starting position
+    if (START_FEN) {
+      var azp = START_FEN.split(/\s+/);
+      var azFm = parseInt(azp[5], 10);
+      if (!(azFm >= 1)) azFm = 1;
+      azPlyBase = (azFm - 1) * 2 + (azp[1] === "b" ? 1 : 0);
+    }
+    function azMoveTok(n, needNum) {
+      /* One movetext token. A move landing at absolute ply P was played by
+         White iff P is odd; its move number is floor((P-1)/2)+1. Black moves
+         are numbered ("N... san") at the start of lines/variations and right
+         after a variation closes; otherwise they ride the preceding number.
+         Check/mate marks ("+"/"#") are stripped: they're the two characters
+         with special URL meaning and Lichess rejects some PGN URLs containing
+         them - and Lichess re-derives the marks from the moves anyway. */
+      var P = azPlyBase + depthOf(n);
+      var white = (P % 2) === 1;
+      var num = Math.floor((P - 1) / 2) + 1;
+      var san = (n.san || "").replace(/[+#]/g, "");
+      if (white) return num + ". " + san;
+      return needNum ? num + "... " + san : san;
+    }
+    /* Which kid should azWalk treat as the trunk continuation at this node?
+       Normally kids[0] (the card's line). But Lichess can only open its board
+       on the PGN's MAIN line, so when the player clicks Analyze while standing
+       inside a side line, the path to their current position is promoted to
+       the trunk for that serialization - and the card's continuation beyond
+       the branch point rides along as a variation instead. azPathPairs is
+       rebuilt from `current` before each serialization. */
+    var azPathPairs = [];
+    function azBuildPath() {
+      azPathPairs = [];
+      var n = current;
+      while (n && n.parent) { azPathPairs.push([n.parent, n]); n = n.parent; }
+    }
+    function azTrunkKid(node) {
+      for (var i = 0; i < azPathPairs.length; i++)
+        if (azPathPairs[i][0] === node) return azPathPairs[i][1];
+      return node.kids[0];
+    }
+    function azWalk(start, needFirst) {
+      /* Serialize start's subtree: the trunk kid is the line; the remaining
+         kids are variations of that same position, in parentheses after it. */
+      var out = [], cur = start, need = needFirst;
+      while (cur.kids.length) {
+        var main = azTrunkKid(cur);
+        out.push(azMoveTok(main, need));
+        for (var k = 0; k < cur.kids.length; k++)
+          if (cur.kids[k] !== main)
+            out.push("(" + azVar(cur.kids[k]) + ")");
+        need = cur.kids.length > 1;   // re-number a black move after a ")"
+        cur = main;
+      }
+      return out.join(" ");
+    }
+    function azVar(n) {
+      var head = azMoveTok(n, true);
+      var rest = azWalk(n, false);
+      return rest ? head + " " + rest : head;
+    }
+    function analyzeExportFen(fen) {
+      var parts=(fen||'').trim().split(/\s+/);
+      if (parts.length>=6) return parts.slice(0,6).join(' ');
+      return (parts[0]||'8/8/8/8/8/8/8/8')+' '+(parts[1]==='b'?'b':'w')+' - - 0 1';
+    }
+  function updateAnalyzeHref() {
+      if (!analyzeBtn || !azActive) return;   // no-moves cards keep a static href
+      /* Promote the current line to the trunk, so the position being reviewed
+         is always on the PGN main line and therefore always anchorable. The
+         movetext ends with PGN's "unfinished game" result marker "*"
+         (URL-safe): without it, a side line on the final move leaves the
+         movetext ending in ")" - the one shape of these URLs Lichess rejects. */
+      azBuildPath();
+      var pgn = (START_FEN ? '[FEN "' + analyzeExportFen(START_FEN) + '"]' : "")
+              + azWalk(root, true) + " *";
+      var ply = azPlyBase + depthOf(current);
+      var colorWord = (PLAYER_COLOR === "black" ? "black" : "white");
+      var pgnUrl = "https://lichess.org/analysis/pgn/"
+                 + encodeURIComponent(pgn)
+                 + "?color=" + colorWord + "#" + ply;
+      /* Both card types link straight to Lichess. Custom starts carry the
+         percent-encoded [FEN "…"] tag (format per lichess-org/lila#11401);
+         the trailing "*" above keeps the movetext from ever ending in ")",
+         the one shape of these URLs Lichess rejects. */
+      analyzeBtn.href = pgnUrl;
+    }
+    (function setupAnalyze() {
+      if (!analyzeBtn) return;
+      /* Version stamp: hover (desktop) or long-press (mobile) shows which
+         add-on template this card is running - decisive when debugging. */
+      analyzeBtn.title = "Open this line in the Lichess analysis board (v1_2_29)";
+      var colorParam = "?color=" + (PLAYER_COLOR === "black" ? "black" : "white");
+      if (MOVES.length) {
+        azActive = true;
+        updateAnalyzeHref();
+      } else if (START_FEN) {
+        /* Custom start, no moves: just the position. */
+        analyzeBtn.href = "https://lichess.org/analysis/"
+                        + START_FEN.replace(/ /g, "_") + colorParam;
+      } else {
+        analyzeBtn.href = "https://lichess.org/analysis" + colorParam;
+      }
+      analyzeBtn.style.display = "";
+    })();
+
+    ActiveDraw();
+  }
+
+  /* Render a disabled card: a bold red banner and a dimmed, inert board. No
+     interaction is wired (we skip setupAttempt/setupReview), so only the native
+     controls we can't intercept - spacebar / show-answer / rating - still work. */
+  function showDisabled() {
+    cardDisabled = true;
+    var root = document.getElementById("card-root");
+    if (root) root.className = "disabled-mode";
+    var b = document.getElementById("disabled-banner");
+    if (b) {
+      b.textContent = "This card appears to be edited and no longer matches a "
+        + "valid line. Card disabled. Please delete and recreate.";
+      b.style.display = "block";
+    }
+    try { renderBoard(startFen(), {}); } catch (e) {}
+  }
+
+  /* ── Boot ──────────────────────────────────────────────────── */
+  if (cardConsistencyError()) showDisabled();
+  else if (IS_ANSWER) setupReview();
+  else {
+    var intro = document.getElementById('studio-first-round');
+    var root = document.getElementById('card-root');
+    function startRound() {
+      if (shouldDemo) setupDemo(); else setupAttempt();
+    }
+    if (intro) {
+      var panel = document.createElement('section');
+      panel.className = 'studio-first-round';
+      var pt = intro.lang === 'pt';
+      panel.innerHTML = pt
+        ? '<h2>Sua primeira rodada</h2><p>Arraste a peça ou clique na origem e no destino. O adversário responde com o próximo lance da linha.</p><p>Na demonstração, clique em <b>Next move</b> para avançar um lance. Durante o treino, <b>Show demo</b> reabre a linha e <b>Resume practice</b> volta à sua posição. Para repetir o cartão mais tarde, use <b>End round → Repeat later</b>.</p><p>Para ajustar os confetes, os sons ou a demonstração depois, abra <b>♟️ Chess for Anki → Settings</b> no menu superior.</p><button type="button">Começar</button> <button type="button" class="intro-settings">Abrir configurações</button>'
+        : '<h2>Your first round</h2><p>Drag a piece or click its starting square and then its destination. Your opponent replies with the next move in the line.</p><p>Choose <b>Next move</b> to step through the demo. During practice, <b>Show demo</b> reopens the line and <b>Resume practice</b> returns to your position. To retry the card later, choose <b>End round → Repeat later</b>.</p><p>To change confetti, sounds or demos later, open <b>♟️ Chess for Anki → Settings</b> in the top menu.</p><button type="button">Start round</button> <button type="button" class="intro-settings">Open settings</button>';
+      panel.querySelector('.intro-settings').onclick=function(){command('open-settings',null);};
+      root.before(panel);
+      root.hidden = true;
+      var start = panel.querySelector('button');
+      start.focus();
+      start.onclick = function() {
+        command('tutorial-seen', true);
+        studioPristineMarkup = studioPristineMarkup.replace(intro.outerHTML, '');
+        intro.remove();
+        root.hidden = false;
+        panel.remove();
+        startRound();
+      };
+    } else startRound();
+  }
+})();
+</script>

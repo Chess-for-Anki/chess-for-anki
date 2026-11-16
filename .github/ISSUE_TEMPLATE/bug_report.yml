@@ -1,0 +1,27 @@
+name: Bug report
+description: Report a problem with Chess for Anki
+title: "[Bug] "
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Explain what you tried, what you expected and what happened.
+    validations:
+      required: true
+  - type: textarea
+    id: report
+    attributes:
+      label: Report details
+      description: Paste the text copied by the add-on's Copy report text button.
+      render: text
+  - type: textarea
+    id: image
+    attributes:
+      label: Image
+      description: Paste the screenshot here with Ctrl+V or drag a PNG/JPEG/WebP image into this box. Please do not attach ZIP files or programs.
+  - type: input
+    id: version
+    attributes:
+      label: Anki and add-on versions
+      placeholder: "Anki 26.9.4 / Chess for Anki 1.4.2"
