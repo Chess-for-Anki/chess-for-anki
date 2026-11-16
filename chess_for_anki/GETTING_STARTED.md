@@ -21,7 +21,7 @@ The earlier free **Chess-for-Anki-Starter.apkg** with 60 cards remains a separat
 6. Add your own explanation in the notes field and save the card.
 7. Study the deck. Your opponent replies automatically according to the saved line. Use the demo's previous/next buttons to inspect the line.
 
-For a curated tactical exercise, set **Brilliant move numbers** to the learner's key half-moves, counted from the saved starting position, such as `1, 3`. Mark only moves you have checked and can explain. The reward appears after the correct move. The optional **Position Evaluation** field holds line-bound JSON engine scores; editing the line invalidates its old scores. Open **Settings** to disable brilliant effects/sounds or the evaluation bar. The paid-content catalogue is still being prepared; these controls do not activate a subscription.
+For a curated tactical exercise, set **Brilliant move numbers** to the learner's key half-moves, counted from the saved starting position, such as `1, 3`. Mark only moves you have checked and can explain. The reward appears after the correct move. Open **Settings** to disable brilliant effects or sounds. The paid-content catalogue is still being prepared; these controls do not activate a subscription.
 
 ## Basic voice or optional natural voice
 

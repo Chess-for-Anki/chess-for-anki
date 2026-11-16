@@ -23,7 +23,6 @@ DEFAULTS = {
     "brilliant_particles_enabled": True,
     "brilliant_sound_enabled": True,
     "brilliant_sound_kind": "original",
-    "evaluation_enabled": True,
     "explanation_pack": "starter-en",
     "notation_language": "auto",
     "narration_rate": 1.5,

@@ -26,7 +26,7 @@ The **Foundations** deck has 30 cards covering simple opening plans, Scholar's M
 
 ## Development preview
 
-The `develop` branch prepares version 1.5.0 with curated **Brilliancy Training**, a turquoise `!!` reward after a correct key move, independent sound/effect settings and a position evaluation bar. The bar reads Stockfish analysis prepared with a deck and follows every saved move, including demonstrations and rewinds. Positions outside the analyzed line are shown as unknown. No engine runs during a review.
+The `develop` branch prepares version 1.5.1 with curated **Brilliancy Training**, a turquoise `!!` reward after a correct key move, and independent sound/effect settings. The evaluation meter from the earlier preview has been removed.
 
 This preview is under local testing. Stable downloads above remain version 1.4.2. The extended training collection and PRO subscriptions are not on sale yet.
 

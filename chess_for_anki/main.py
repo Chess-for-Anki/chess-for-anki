@@ -115,9 +115,6 @@ def settings(*args, parent=None):
     import_sound=QPushButton('Import my brilliant move sound')
     import_sound.clicked.connect(choose_brilliant_sound)
     layout.addWidget(import_sound)
-    evaluation=QCheckBox('Position evaluation bar, when the deck includes engine analysis')
-    evaluation.setChecked(config.get_config()['evaluation_enabled'])
-    layout.addWidget(evaluation)
     packs_button = QPushButton('Language packs · Text and narration')
     packs_button.clicked.connect(lambda: language_packs.open_manager(parent=dlg))
     layout.addWidget(packs_button)
@@ -150,7 +147,6 @@ def settings(*args, parent=None):
     updated['brilliant_particles_enabled']=brilliant_particles.isChecked()
     updated['brilliant_sound_enabled']=brilliant_sound.isChecked()
     updated['brilliant_sound_kind']=sound_kind.currentData()
-    updated['evaluation_enabled']=evaluation.isChecked()
     if pending_sound:
         from pathlib import Path
         folder=Path(config.__file__).parent/'user_files'

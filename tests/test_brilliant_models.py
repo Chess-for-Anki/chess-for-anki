@@ -275,7 +275,7 @@ class BrilliantModelTests(unittest.TestCase):
         setattr(sys.modules[self.module.__package__], "config", fake)
         return fake
 
-    def test_prelude_transports_independent_brilliant_and_evaluation_preferences(self):
+    def test_prelude_transports_independent_brilliant_preferences(self):
         self.config_double({"sound_enabled": True, "brilliant_effects_enabled": False,
                             "brilliant_particles_enabled": True, "brilliant_sound_enabled": False,
                             "evaluation_enabled": False})
@@ -285,7 +285,7 @@ class BrilliantModelTests(unittest.TestCase):
         self.assertIn("COT_BRILLIANT_PARTICLES_ENABLED=true;", markup)
         self.assertIn("COT_BRILLIANT_SOUND_ENABLED=false;", markup)
         self.assertIn('COT_BRILLIANT_SRC="";', markup)
-        self.assertIn("COT_EVALUATION_ENABLED=false;", markup)
+        self.assertNotIn("COT_EVALUATION_ENABLED", markup)
 
     def test_prelude_mutes_brilliant_audio_with_global_sound_switch(self):
         fake = self.config_double({"sound_enabled": False})
@@ -305,7 +305,7 @@ class BrilliantModelTests(unittest.TestCase):
         self.module._config_prelude = lambda: "preferences"
         markup = self.module._original_build_front()
         self.assertLess(markup.index("asset:brilliant.js"), markup.index("asset:card_front.html"))
-        self.assertLess(markup.index("asset:evaluation.js"), markup.index("asset:card_front.html"))
+        self.assertNotIn("asset:evaluation.js", markup)
 
 
 if __name__ == "__main__":

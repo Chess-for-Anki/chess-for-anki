@@ -16,6 +16,8 @@ LEGACY_NOTETYPE_NAMES = ["Flashcard Chess"]
 TEMPLATE_NAME = "Chess for Anki"
 LEGACY_FIELDS = ["Title", "PlayerColor", "MovesPGN", "Book Notes",
                  "Personal Notes", "MovesFEN", "StartFEN"]
+# Retain the retired analysis field for compatibility with existing notes.
+# It is never read or rendered by the card template.
 OPTIONAL_FIELDS = ["Brilliant Moves", "Position Evaluation"]
 FIELDS = LEGACY_FIELDS + OPTIONAL_FIELDS
 
@@ -86,7 +88,6 @@ def _config_prelude() -> str:
     brilliant_effects_enabled = True
     brilliant_particles_enabled = True
     brilliant_sound_enabled = True
-    evaluation_enabled = True
     brilliant_uri = ""
     notation_language = "auto"
     narration_rate = 1.5
@@ -98,7 +99,6 @@ def _config_prelude() -> str:
         brilliant_effects_enabled = c.get("brilliant_effects_enabled", True)
         brilliant_particles_enabled = c.get("brilliant_particles_enabled", True)
         brilliant_sound_enabled = c.get("brilliant_sound_enabled", True)
-        evaluation_enabled = c.get("evaluation_enabled", True)
         notation_language = c.get("notation_language", "auto")
         if notation_language not in ("auto", "en", "pt"):
             notation_language = "auto"
@@ -139,7 +139,6 @@ def _config_prelude() -> str:
         f"var COT_BRILLIANT_PARTICLES_ENABLED={json.dumps(bool(brilliant_particles_enabled))};"
         f"var COT_BRILLIANT_SOUND_ENABLED={json.dumps(bool(brilliant_sound_enabled))};"
         f"var COT_BRILLIANT_SRC={json.dumps(brilliant_uri)};"
-        f"var COT_EVALUATION_ENABLED={json.dumps(bool(evaluation_enabled))};"
         f"var CFA_NOTATION_LANGUAGE={json.dumps(notation_language)};"
         f"var CFA_NARRATION_RATE={narration_rate};"
         f"var COT_MOVE_SRC=\"{move_uri}\";"
@@ -161,7 +160,6 @@ def _build_front() -> str:
     notation_js = _web("notation.js")
     speech_js = _web("speech.js")
     brilliant_js = _web("brilliant.js")
-    evaluation_js = _web("evaluation.js")
     css = _web("card_style.css")
     front = _web("card_front.html")
     from pathlib import Path
@@ -193,7 +191,6 @@ def _build_front() -> str:
         f"<script>{notation_js}</script>\n"
         f"<script>{speech_js}</script>\n"
         f"<script>{brilliant_js}</script>\n"
-        f"<script>{evaluation_js}</script>\n"
         f"<script>var CFA_COMMENTARY={commentary};</script>\n"
         f"<script>var CFA_NARRATION={narration};</script>\n"
         f"{front}"
