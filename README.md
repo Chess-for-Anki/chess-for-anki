@@ -4,7 +4,13 @@ Practice chess lines on an interactive board, with guided demonstrations, move e
 
 **[Download the free deck (.apkg)](https://github.com/fernandomec/chess-for-anki-community/raw/refs/heads/downloads/decks/Chess-for-Anki-Foundations.apkg)**
 
-[Get the add-on](https://github.com/fernandomec/chess-for-anki-community/releases/download/v1.4.2-preview/Chess-for-Anki.ankiaddon) · [All downloads](https://github.com/fernandomec/chess-for-anki-community/releases/tag/v1.4.2-preview) · [Watch the demo](https://github.com/fernandomec/chess-for-anki-community/releases/download/v1.4.2-preview/Chess-for-Anki-English-Demo.mp4)
+[Get the add-on](https://github.com/fernandomec/chess-for-anki-community/releases/download/v1.4.2-preview/Chess-for-Anki.ankiaddon) · [All downloads](https://github.com/fernandomec/chess-for-anki-community/releases/tag/v1.4.2-preview) · [Watch the demo](#demo)
+
+## Demo
+
+https://github.com/user-attachments/assets/8fa8f9f9-2239-409a-a14e-0fd47f1d9fbe
+
+English narration and captions. Use the player controls to turn on sound.
 
 ![Chess for Anki](images/practice.png)
 
