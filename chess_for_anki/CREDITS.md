@@ -18,6 +18,8 @@ The physical Staunton piece images are by **CubesAndPi**, from the Lichess proje
 
 Bundled piece sounds come from the Flashcard Chess distribution. The optional English narration MP3s were generated locally using **Kokoro-en-v0_19**, voice **Michael**, through Sherpa-ONNX. The speech model is distributed under Apache-2.0. Recordings are delivered as a separate voice pack; the base add-on contains neither these recordings nor the model or speech runtime.
 
+The brilliant-move celebration chime is an original synthesized sound. Its reproducible generator is included as `scripts/build_brilliant_sound.py` in the source repository. No Witty Alien, Street Fighter or other third-party voice sample is bundled. The turquoise highlight and `!!` badge are drawn in CSS and text; no Chess.com badge artwork is included.
+
 - Kokoro model and voices - https://k2-fsa.github.io/sherpa/onnx/tts/pretrained_models/kokoro.html
 
 Classic game scores are Anderssen–Kieseritzky (1851), Anderssen–Dufresne (1852), and Donald Byrne–Bobby Fischer (1956). Source links for the historical move records are included in the starter notes. Their explanatory practice notes were written for this collection.

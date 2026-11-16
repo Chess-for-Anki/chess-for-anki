@@ -3,7 +3,9 @@ from pathlib import Path
 import hashlib,zipfile,json
 root=Path(__file__).resolve().parents[1];out=root/'dist/optional';out.mkdir(parents=True,exist_ok=True)
 files=[p for p in (root/'chess_for_anki').rglob('*') if p.is_file() and not {'user_files','__pycache__'}&set(p.parts) and p.suffix!='.pyc' and p.name!='meta.json']
-files += [root/'LICENSE',root/'CREDITS.md',root/'scripts/build_addon.py',Path(__file__)]
+files += [root/'LICENSE',root/'CREDITS.md']
+files += list((root/'scripts').glob('*.py'))
+files += list((root/'tests').glob('*.py')) + list((root/'tests').glob('*.cjs'))
 target=out/'Chess-for-Anki-Source.zip'
 with zipfile.ZipFile(target,'w',zipfile.ZIP_DEFLATED) as archive:
  for path in sorted(set(files)):archive.write(path,path.relative_to(root).as_posix())

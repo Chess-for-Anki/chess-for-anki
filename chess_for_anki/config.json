@@ -1,6 +1,11 @@
 {
   "sound_enabled": true,
   "confetti_enabled": true,
+  "brilliant_effects_enabled": true,
+  "brilliant_particles_enabled": true,
+  "brilliant_sound_enabled": true,
+  "brilliant_sound_kind": "original",
+  "evaluation_enabled": true,
   "narration_rate": 1.5,
   "voice_pack": "system",
   "voice_language": "en-US",

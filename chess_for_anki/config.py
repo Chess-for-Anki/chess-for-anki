@@ -19,6 +19,11 @@ def narration_rate(value):
 DEFAULTS = {
     "sound_enabled": True,
     "confetti_enabled": True,
+    "brilliant_effects_enabled": True,
+    "brilliant_particles_enabled": True,
+    "brilliant_sound_enabled": True,
+    "brilliant_sound_kind": "original",
+    "evaluation_enabled": True,
     "explanation_pack": "starter-en",
     "notation_language": "auto",
     "narration_rate": 1.5,
@@ -329,6 +334,38 @@ def mistake_sound_uri():
     study card uses it."""
     b = _sound_b64("mistake.mp3")
     return ("data:audio/mpeg;base64," + b) if b else ""
+
+
+def brilliant_sound_uri():
+    """Embed a bundled chime or the one explicitly imported by this user.
+
+    Only fixed audio paths are read. Config values cannot select arbitrary
+    files, and custom audio remains local in the add-on's user_files folder.
+    """
+    from pathlib import Path
+    if get_config().get("brilliant_sound_kind") == "custom":
+        folder = Path(__file__).parent / "user_files"
+        for name, mime in (("brilliant-custom.mp3", "audio/mpeg"),
+                           ("brilliant-custom.wav", "audio/wav")):
+            path = folder / name
+            try:
+                if path.is_file() and path.stat().st_size <= 2 * 1024 * 1024:
+                    data = path.read_bytes()
+                    if valid_brilliant_audio(data, mime):
+                        return f"data:{mime};base64," + base64.b64encode(data).decode("ascii")
+            except OSError:
+                pass
+    encoded = _sound_b64("brilliant.mp3")
+    return "data:audio/mpeg;base64," + encoded if encoded else ""
+
+
+def valid_brilliant_audio(data, mime):
+    if not data or len(data) > 2 * 1024 * 1024:
+        return False
+    if mime == "audio/wav":
+        return len(data) >= 44 and data[:4] == b"RIFF" and data[8:12] == b"WAVE"
+    return mime == "audio/mpeg" and (data.startswith(b"ID3") or
+           (len(data) >= 2 and data[0] == 255 and data[1] & 224 == 224))
 
 
 def sound_data_uris():

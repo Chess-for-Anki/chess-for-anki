@@ -24,6 +24,12 @@ The **Foundations** deck has 30 cards covering simple opening plans, Scholar's M
 
 [Read the training guide](TRAINING-GUIDE.md) for levels, demonstrations, grading and creating cards from PGN or a custom position.
 
+## Development preview
+
+The `develop` branch prepares version 1.5.0 with curated **Brilliancy Training**, a turquoise `!!` reward after a correct key move, independent sound/effect settings and a position evaluation bar. The bar reads Stockfish analysis prepared with a deck and follows every saved move, including demonstrations and rewinds. Positions outside the analyzed line are shown as unknown. No engine runs during a review.
+
+This preview is under local testing. Stable downloads above remain version 1.4.2. The extended training collection and PRO subscriptions are not on sale yet.
+
 ## Voices and languages
 
 The add-on uses an available device voice by default. The optional [English Michael voice pack](https://github.com/fernandomec/chess-for-anki-community/releases/download/v1.4.2-preview/English-Michael-Voice-Pack.zip) adds recorded narration and explanations for the free collections. Import it from the add-on's language pack screen. Playback speed is adjustable.

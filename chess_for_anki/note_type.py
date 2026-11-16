@@ -14,13 +14,28 @@ NOTETYPE_NAME = "Chess for Anki"
 # before the rebrand keep working (the note type keeps its ID and all its notes).
 LEGACY_NOTETYPE_NAMES = ["Flashcard Chess"]
 TEMPLATE_NAME = "Chess for Anki"
-FIELDS = ["Title", "PlayerColor", "MovesPGN", "Book Notes",
-          "Personal Notes", "MovesFEN", "StartFEN"]
+LEGACY_FIELDS = ["Title", "PlayerColor", "MovesPGN", "Book Notes",
+                 "Personal Notes", "MovesFEN", "StartFEN"]
+OPTIONAL_FIELDS = ["Brilliant Moves", "Position Evaluation"]
+FIELDS = LEGACY_FIELDS + OPTIONAL_FIELDS
 
 
 def is_chess_notetype(model):
-    """Recognise imported '+' copies by schema and our template marker."""
-    return isinstance(model,dict) and set(FIELDS)=={f.get('name') for f in model.get('flds',[])} and any('id="studio-fields"' in t.get('qfmt','') for t in model.get('tmpls',[]))
+    """Recognise old/imported schemas without depending on their display name."""
+    if not isinstance(model, dict):
+        return False
+    fields, templates = model.get("flds"), model.get("tmpls")
+    if not isinstance(fields, list) or not isinstance(templates, list):
+        return False
+    if any(not isinstance(field, dict) or not isinstance(field.get("name"), str)
+           for field in fields):
+        return False
+    names = {field["name"] for field in fields}
+    return (len(names) == len(fields) and set(LEGACY_FIELDS).issubset(names)
+            and any(isinstance(template, dict)
+                    and isinstance(template.get("qfmt"), str)
+                    and 'id="studio-fields"' in template["qfmt"]
+                    for template in templates))
 
 
 def sync_compatible_models(col, primary):
@@ -29,7 +44,16 @@ def sync_compatible_models(col, primary):
     for model in col.models.all():
         if model['id']==primary['id'] or not is_chess_notetype(model):
             continue
-        changed=model.get('css')!=primary['css'] or model['tmpls'][0]['qfmt']!=primary['tmpls'][0]['qfmt'] or model['tmpls'][0]['afmt']!=primary['tmpls'][0]['afmt']
+        # Imported old decks may retain a suffixed model. Add optional fields
+        # before their template starts referencing them, keeping model,
+        # note and card IDs (and therefore scheduling) unchanged.
+        changed = False
+        names = {field["name"] for field in model["flds"]}
+        for name in OPTIONAL_FIELDS:
+            if name not in names:
+                col.models.add_field(model, col.models.new_field(name))
+                changed = True
+        changed = changed or model.get('css')!=primary['css'] or model['tmpls'][0]['qfmt']!=primary['tmpls'][0]['qfmt'] or model['tmpls'][0]['afmt']!=primary['tmpls'][0]['afmt']
         if changed:
             model['css']=primary['css']
             for field in ['qfmt','afmt']:
@@ -59,6 +83,11 @@ def _config_prelude() -> str:
     """Build a <style>/<script> prelude that themes the card (colors, texture,
     piece set) and enables the move/capture sounds, from the user's settings."""
     confetti_enabled = True
+    brilliant_effects_enabled = True
+    brilliant_particles_enabled = True
+    brilliant_sound_enabled = True
+    evaluation_enabled = True
+    brilliant_uri = ""
     notation_language = "auto"
     narration_rate = 1.5
     try:
@@ -66,6 +95,10 @@ def _config_prelude() -> str:
         c = cfg.get_config()
         narration_rate = cfg.narration_rate(c.get("narration_rate"))
         confetti_enabled = c.get("confetti_enabled", True)
+        brilliant_effects_enabled = c.get("brilliant_effects_enabled", True)
+        brilliant_particles_enabled = c.get("brilliant_particles_enabled", True)
+        brilliant_sound_enabled = c.get("brilliant_sound_enabled", True)
+        evaluation_enabled = c.get("evaluation_enabled", True)
         notation_language = c.get("notation_language", "auto")
         if notation_language not in ("auto", "en", "pt"):
             notation_language = "auto"
@@ -74,6 +107,7 @@ def _config_prelude() -> str:
         if c.get("sound_enabled", True):
             move_uri, cap_uri, chk_uri, cas_uri, mate_uri = cfg.sound_data_uris()
             mistake_uri = cfg.mistake_sound_uri()
+            brilliant_uri = cfg.brilliant_sound_uri() if brilliant_sound_enabled else ""
         else:
             move_uri, cap_uri, chk_uri, cas_uri, mate_uri = "", "", "", "", ""
             mistake_uri = ""
@@ -91,6 +125,7 @@ def _config_prelude() -> str:
     except Exception:
         light, dark, sound_on, move_uri, cap_uri = "#f0d9b5", "#b58863", "false", "", ""
         chk_uri, cas_uri, mate_uri, mistake_uri = "", "", "", ""
+        brilliant_uri = ""
         piece_set, texture = "cburnett", ""
         toggle_one, toggle_all = "n", ","
         mistakes_limit = 3
@@ -100,6 +135,11 @@ def _config_prelude() -> str:
         f"<style>:root{{--cot-light:{light};--cot-dark:{dark};}}{tex_rule}</style>\n"
         f"<script>var COT_SOUND_ENABLED={sound_on};"
         f"var COT_CONFETTI_ENABLED={json.dumps(bool(confetti_enabled))};"
+        f"var COT_BRILLIANT_EFFECTS_ENABLED={json.dumps(bool(brilliant_effects_enabled))};"
+        f"var COT_BRILLIANT_PARTICLES_ENABLED={json.dumps(bool(brilliant_particles_enabled))};"
+        f"var COT_BRILLIANT_SOUND_ENABLED={json.dumps(bool(brilliant_sound_enabled))};"
+        f"var COT_BRILLIANT_SRC={json.dumps(brilliant_uri)};"
+        f"var COT_EVALUATION_ENABLED={json.dumps(bool(evaluation_enabled))};"
         f"var CFA_NOTATION_LANGUAGE={json.dumps(notation_language)};"
         f"var CFA_NARRATION_RATE={narration_rate};"
         f"var COT_MOVE_SRC=\"{move_uri}\";"
@@ -120,6 +160,8 @@ def _build_front() -> str:
     pieces_js = _web("pieces.js")
     notation_js = _web("notation.js")
     speech_js = _web("speech.js")
+    brilliant_js = _web("brilliant.js")
+    evaluation_js = _web("evaluation.js")
     css = _web("card_style.css")
     front = _web("card_front.html")
     from pathlib import Path
@@ -150,6 +192,8 @@ def _build_front() -> str:
         f"<script>{pieces_js}</script>\n"
         f"<script>{notation_js}</script>\n"
         f"<script>{speech_js}</script>\n"
+        f"<script>{brilliant_js}</script>\n"
+        f"<script>{evaluation_js}</script>\n"
         f"<script>var CFA_COMMENTARY={commentary};</script>\n"
         f"<script>var CFA_NARRATION={narration};</script>\n"
         f"{front}"
@@ -344,14 +388,33 @@ def backfill_moves_fen(col):
 
 
 def create_note(col, title: str, player_color: str, moves: list,
-                start_fen: str = "", book_notes: str = "", personal_notes: str = ""):
+                start_fen: str = "", book_notes: str = "", personal_notes: str = "",
+                brilliant_moves="", position_evaluation=""):
+    stored_start_fen = simplify_start_fen(start_fen) or ""
+    brilliant_text = ""
+    if brilliant_moves is not None and brilliant_moves != "":
+        from . import brilliant
+        data = (brilliant.loads(brilliant_moves, len(moves))
+                if isinstance(brilliant_moves, str)
+                else brilliant.validate(brilliant_moves, len(moves)))
+        brilliant_text = brilliant.dumps(data, len(moves))
+    evaluation_text = ""
+    if position_evaluation is not None and position_evaluation != "":
+        from . import evaluation
+        context = {"start_fen": stored_start_fen, "moves": moves}
+        data = (evaluation.loads(position_evaluation, **context)
+                if isinstance(position_evaluation, str)
+                else evaluation.validate(position_evaluation, **context))
+        evaluation_text = evaluation.dumps(data, **context)
     model = ensure_notetype(col)
     note = col.new_note(model)
     note["Title"] = html.escape(title)
     note["PlayerColor"] = "black" if player_color == "black" else "white"
     note["MovesPGN"] = html.escape(" ".join(moves))
     note["MovesFEN"] = moves_fen_text(moves, start_fen)
-    note["StartFEN"] = html.escape(simplify_start_fen(start_fen) or "")
+    note["StartFEN"] = html.escape(stored_start_fen)
     note["Book Notes"] = book_notes or ""
     note["Personal Notes"] = personal_notes or ""
+    note["Brilliant Moves"] = brilliant_text
+    note["Position Evaluation"] = evaluation_text
     return note

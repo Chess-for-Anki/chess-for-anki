@@ -25,4 +25,14 @@ class ProgressTests(unittest.TestCase):
  def test_migrates_duplicate_old_full_lines(self):
   self.data[p.KEY]={'level':'8','wins':['e4 e5 Nf3 Nc6 Bc4 Bc5 d3 Nf6 O-O','e4 e5 Nf3 Nc6 Bc4 Bc5 d3 Nf6 c3']}
   self.assertEqual(len(p.state()['wins']),1)
+ def test_footer_handles_chess_and_other_cards_without_shadowing_predicate(self):
+  previous=p.is_chess
+  bottom=[];review=[]
+  p.mw.reviewer=types.SimpleNamespace(bottom=types.SimpleNamespace(web=types.SimpleNamespace(eval=bottom.append)),web=types.SimpleNamespace(eval=review.append))
+  p.is_chess=lambda card:card=='chess'
+  try:
+   p.footer('chess');p.footer('other')
+  finally:p.is_chess=previous
+  self.assertIn('Again',review[0]);self.assertIn('data-ease',bottom[0])
+  self.assertIn('remove()',review[1]);self.assertIn('remove()',bottom[1])
 if __name__=='__main__':unittest.main()

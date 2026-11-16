@@ -1,5 +1,5 @@
 from aqt import gui_hooks, mw
-from aqt.qt import QAction, QCheckBox, QComboBox, QDialog, QDialogButtonBox, QLabel, QMenu, QPushButton, QVBoxLayout
+from aqt.qt import QAction, QCheckBox, QComboBox, QDialog, QDialogButtonBox, QFileDialog, QLabel, QMenu, QPushButton, QScrollArea, QVBoxLayout, QWidget
 
 from . import catalog, config, feedback, language_packs, narration, note_type, progression
 
@@ -9,7 +9,8 @@ def profile_open():
     if not mw.col:
         return
     names=[note_type.NOTETYPE_NAME]+note_type.LEGACY_NOTETYPE_NAMES
-    if any(mw.col.models.by_name(name) for name in names):
+    if (any(mw.col.models.by_name(name) for name in names)
+            or any(note_type.is_chess_notetype(model) for model in mw.col.models.all())):
         note_type.ensure_notetype(mw.col)
     if not mw.col.get_config('chessForAnkiModularWelcomeSeen', False):
         from .faq_dialog import FaqDialog
@@ -44,7 +45,13 @@ def import_starter():
 def settings(*args, parent=None):
     dlg=QDialog(parent or mw)
     dlg.setWindowTitle('Chess for Anki · Settings')
-    layout=QVBoxLayout(dlg)
+    outer=QVBoxLayout(dlg)
+    scroll=QScrollArea(dlg)
+    scroll.setWidgetResizable(True)
+    body=QWidget()
+    layout=QVBoxLayout(body)
+    scroll.setWidget(body)
+    outer.addWidget(scroll)
     demo=mw.col.get_config(progression.DEMO_KEY,{'enabled':True,'seen':[]})
     demo_box=QCheckBox('Show step-by-step demo on first view')
     demo_box.setChecked(demo['enabled'])
@@ -67,6 +74,50 @@ def settings(*args, parent=None):
     confetti=QCheckBox('Confetti on completion')
     confetti.setChecked(config.get_config()['confetti_enabled'])
     layout.addWidget(confetti)
+    layout.addWidget(QLabel('Brilliancy Training'))
+    brilliant_effects=QCheckBox('Turquoise highlight and !! badge after a brilliant move')
+    brilliant_effects.setChecked(config.get_config()['brilliant_effects_enabled'])
+    layout.addWidget(brilliant_effects)
+    brilliant_particles=QCheckBox('Brilliant move celebration particles')
+    brilliant_particles.setChecked(config.get_config()['brilliant_particles_enabled'])
+    layout.addWidget(brilliant_particles)
+    brilliant_sound=QCheckBox('Brilliant move sound (also follows Piece sounds)')
+    brilliant_sound.setChecked(config.get_config()['brilliant_sound_enabled'])
+    layout.addWidget(brilliant_sound)
+    sound_kind=QComboBox()
+    sound_kind.addItem('Original celebration chime','original')
+    sound_kind.addItem('My imported sound','custom')
+    sound_kind.setCurrentIndex(max(0,sound_kind.findData(config.get_config()['brilliant_sound_kind'])))
+    layout.addWidget(sound_kind)
+    sound_status=QLabel('Optional: import your own MP3 or WAV, up to 2 MB.')
+    sound_status.setWordWrap(True)
+    layout.addWidget(sound_status)
+    pending_sound=[]
+    def choose_brilliant_sound():
+        from pathlib import Path
+        filename,_=QFileDialog.getOpenFileName(dlg,'Choose brilliant move sound','','Audio (*.mp3 *.wav)')
+        if not filename:
+            return
+        path=Path(filename)
+        mime='audio/wav' if path.suffix.lower()=='.wav' else 'audio/mpeg'
+        try:
+            if path.stat().st_size > 2*1024*1024:
+                raise ValueError('Sound must be 2 MB or smaller.')
+            data=path.read_bytes()
+            if not config.valid_brilliant_audio(data,mime):
+                raise ValueError('Choose a valid MP3 or WAV audio file.')
+        except (OSError,ValueError) as error:
+            sound_status.setText(str(error))
+            return
+        pending_sound[:]=[(data,'.wav' if mime=='audio/wav' else '.mp3')]
+        sound_kind.setCurrentIndex(sound_kind.findData('custom'))
+        sound_status.setText('Selected: '+path.name+' - applied when you save.')
+    import_sound=QPushButton('Import my brilliant move sound')
+    import_sound.clicked.connect(choose_brilliant_sound)
+    layout.addWidget(import_sound)
+    evaluation=QCheckBox('Position evaluation bar, when the deck includes engine analysis')
+    evaluation.setChecked(config.get_config()['evaluation_enabled'])
+    layout.addWidget(evaluation)
     packs_button = QPushButton('Language packs · Text and narration')
     packs_button.clicked.connect(lambda: language_packs.open_manager(parent=dlg))
     layout.addWidget(packs_button)
@@ -84,7 +135,8 @@ def settings(*args, parent=None):
     buttons=QDialogButtonBox(QDialogButtonBox.StandardButton.Save|QDialogButtonBox.StandardButton.Cancel)
     buttons.accepted.connect(dlg.accept)
     buttons.rejected.connect(dlg.reject)
-    layout.addWidget(buttons)
+    outer.addWidget(buttons)
+    dlg.resize(600,700)
     if dlg.exec()!=QDialog.DialogCode.Accepted:
         return
     demo['enabled']=demo_box.isChecked()
@@ -94,6 +146,20 @@ def settings(*args, parent=None):
     updated=config.get_config()
     updated['sound_enabled']=sounds.isChecked()
     updated['confetti_enabled']=confetti.isChecked()
+    updated['brilliant_effects_enabled']=brilliant_effects.isChecked()
+    updated['brilliant_particles_enabled']=brilliant_particles.isChecked()
+    updated['brilliant_sound_enabled']=brilliant_sound.isChecked()
+    updated['brilliant_sound_kind']=sound_kind.currentData()
+    updated['evaluation_enabled']=evaluation.isChecked()
+    if pending_sound:
+        from pathlib import Path
+        folder=Path(config.__file__).parent/'user_files'
+        folder.mkdir(exist_ok=True)
+        data,suffix=pending_sound[0]
+        target=folder/('brilliant-custom'+suffix)
+        target.write_bytes(data)
+        other=folder/('brilliant-custom'+('.mp3' if suffix=='.wav' else '.wav'))
+        other.unlink(missing_ok=True)
     updated['notation_language']=notation.currentData()
     updated['narration_rate']=speed.currentData()
     config.save_config(updated)
@@ -127,7 +193,7 @@ progression.register()
 def stop_audio(*args):
     narration.stop()
     if mw.reviewer.web:
-        mw.reviewer.web.eval('if(window.chessStudioNarrator)window.chessStudioNarrator.stop()')
+        mw.reviewer.web.eval('if(window.chessStudioNarrator)window.chessStudioNarrator.stop();if(window._cotCleanup)window._cotCleanup()')
 
 def stop_previous(card):
     if not note_type.is_chess_notetype(card.note_type()):

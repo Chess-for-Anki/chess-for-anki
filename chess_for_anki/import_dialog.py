@@ -715,6 +715,14 @@ class ImportDialog(QDialog):
         extra_layout.addWidget(self.personal_notes_edit)
         layout.addWidget(extra_group)
 
+        brilliant_row=QHBoxLayout()
+        brilliant_row.addWidget(QLabel('Brilliant move numbers'))
+        self.brilliant_moves_edit=QLineEdit()
+        self.brilliant_moves_edit.setPlaceholderText('Optional, e.g. 1, 3 (half-moves from this starting position)')
+        self.brilliant_moves_edit.setToolTip('Mark curated key moves, counted one half-move at a time from 1. The badge appears only after the learner plays the correct marked move.')
+        brilliant_row.addWidget(self.brilliant_moves_edit)
+        layout.addLayout(brilliant_row)
+
         # ── Status line (shows confirmation without a popup) ────
         self.status_label = QLabel("")
         self.status_label.setStyleSheet("color: #5a9a3a; font-size: 12px;")
@@ -1542,6 +1550,24 @@ class ImportDialog(QDialog):
             showWarning("No moves found in PGN. Please check the format.")
             return
 
+        brilliant_numbers=self.brilliant_moves_edit.text().strip()
+        brilliant_data=''
+        if brilliant_numbers:
+            import re
+            if not re.fullmatch(r'[0-9]+(?:\s*,\s*[0-9]+)*',brilliant_numbers):
+                showWarning('Enter brilliant half-move numbers separated by commas, such as 1, 3.')
+                return
+            from . import brilliant
+            try:
+                brilliant_data=brilliant.validate({'schema':1,'plies':[int(number.strip()) for number in brilliant_numbers.split(',')]},min(len(line) for line in lines))
+                first_side=(start_fen.split()[1] if start_fen else 'w')
+                learner='w' if player_color=='white' else 'b'
+                if any((first_side if ply%2 else ('b' if first_side=='w' else 'w')) != learner for ply in brilliant_data['plies']):
+                    raise ValueError('Mark the learner\'s moves, not the automatic replies.')
+            except ValueError as error:
+                showWarning(str(error))
+                return
+
         # ── Validate every move in every line BEFORE creating cards ──
         # If any move is illegal from the starting position, abort the
         # whole import without creating anything or clearing the form.
@@ -1582,12 +1608,14 @@ class ImportDialog(QDialog):
                 start_fen=start_fen,
                 book_notes=book_notes_text,
                 personal_notes=personal_notes_text,
+                brilliant_moves=brilliant_data,
             )
             if tag_list:
                 note.tags = list(tag_list)
             col.add_note(note, deck_id)
 
         mw.reset()
+        self.brilliant_moves_edit.clear()
 
         # Commit pin states and pinned field values now that a card was
         # actually created (nothing sticky is saved until Add).

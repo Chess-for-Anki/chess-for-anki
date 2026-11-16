@@ -129,19 +129,19 @@ def answer(reviewer, card, ease):
     mw.col.set_config(KEY,progress)
 
 def footer(card):
-    is_chess=is_chess(card)
+    chess_card=is_chess(card)
     # The theme sets the native rating text to font-size zero.
     script="""(()=>{let s=document.getElementById('studio-rating-labels');
     if(!s){s=document.createElement('style');s.id='studio-rating-labels';document.head.append(s);}
     s.textContent='#outer #middle table tr td:not(.stat2) button[data-ease]{font-size:13px!important}';})();"""
-    mw.reviewer.bottom.web.eval(script if is_chess else "document.getElementById('studio-rating-labels')?.remove()")
+    mw.reviewer.bottom.web.eval(script if chess_card else "document.getElementById('studio-rating-labels')?.remove()")
     labels="""(()=>{document.querySelectorAll('.ba-rv-ease-key').forEach(b=>{
       let label=b.querySelector('.studio-rating-label');
       if(!label){label=document.createElement('span');label.className='studio-rating-label';b.prepend(label);}
       label.textContent=['','Again','Hard','Good','Easy'][Number(b.dataset.ease)];
       label.style.cssText='display:block;font-size:13px;line-height:18px;margin-bottom:5px';
     });})();"""
-    mw.reviewer.web.eval(labels if is_chess else "document.querySelectorAll('.studio-rating-label').forEach(s=>s.remove())")
+    mw.reviewer.web.eval(labels if chess_card else "document.querySelectorAll('.studio-rating-label').forEach(s=>s.remove())")
 
 def register():
     gui_hooks.card_will_show.append(render)

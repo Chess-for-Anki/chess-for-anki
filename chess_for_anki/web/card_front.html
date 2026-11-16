@@ -1,8 +1,9 @@
-<div id="card-root"><div id="studio-fields" hidden aria-hidden="true"><span id="studio-moves">{{MovesPGN}}</span><span id="studio-side">{{PlayerColor}}</span><span id="studio-fen">{{StartFEN}}</span></div>
+<div id="card-root"><div id="studio-fields" hidden aria-hidden="true"><span id="studio-moves">{{MovesPGN}}</span><span id="studio-side">{{PlayerColor}}</span><span id="studio-fen">{{StartFEN}}</span><span id="studio-brilliant-data">{{Brilliant Moves}}</span><span id="studio-evaluation-data">{{Position Evaluation}}</span></div>
   <div class="card-header">
     <div class="opening-title">{{Title}}</div>
     <div class="color-badge" id="color-badge"></div>
   </div>
+  <p class="training-label" id="studio-training-label" hidden>Brilliancy Training</p>
 
 <div class="studio-controls"><label>Level <select id="studio-depth"><option value="8">Noobie · 4 moves each</option><option value="16">Beginner · 8 moves each</option><option value="24">Intermediate · 12 moves each</option><option value="40">Advanced · 20 moves each</option><option value="all">HACKER · full line</option></select></label><button type="button" id="studio-voice">Voice on</button><button id="studio-restart" type="button">Restart</button><button id="studio-end" type="button">End round</button><button id="studio-repeat" type="button">Repeat later</button><label class="studio-demo-option"><input type="checkbox" id="studio-demo"> Demo on first view</label><button id="studio-demo-skip" type="button" hidden>Skip demo</button><span class="studio-depth-count" id="studio-depth-count"></span></div>
   <div class="demo-actions">
@@ -20,10 +21,16 @@
   <div id="result-bar" class="result-bar" style="display:none;"></div>
   <div id="disabled-banner"></div>
 
+  <div class="board-stage">
+  <div id="studio-evaluation" class="evaluation-bar" hidden role="meter" aria-label="Position evaluation, from White's perspective" aria-valuemin="-15" aria-valuemax="15">
+    <span class="evaluation-white"></span><span class="evaluation-value">-</span>
+  </div>
   <div class="board-wrap">
     <div id="board"></div>
     <div id="studio-celebration" hidden role="status"><strong>Congratulations!</strong></div>
+    <div id="studio-brilliant" hidden aria-live="polite"><strong>!! Brilliant!</strong></div>
     <div id="mistake-flash">Different move - follow this line</div>
+  </div>
   </div>
 
   <div class="move-list-wrap">
@@ -135,6 +142,15 @@ var studioPristineMarkup = document.getElementById("card-root").outerHTML;
   var roundAssisted=!!window._studioRestartAssisted;
   delete window._studioRestartAssisted;
   var fullMoves=MOVES.slice();
+  var brilliantNode=document.getElementById('studio-brilliant-data');
+  var brilliantPlies=typeof CFA_BRILLIANT==='object'?CFA_BRILLIANT.parse(brilliantNode.textContent,fullMoves.length):[];
+  document.getElementById('studio-training-label').hidden=!brilliantPlies.length;
+  var brilliantMark=null;
+  var brilliantAudio=null;
+  var evaluationNode=document.getElementById('studio-evaluation-data');
+  var evaluationData=typeof CFA_EVALUATION==='object'?CFA_EVALUATION.parse(evaluationNode.textContent,START_FEN,fullMoves):null;
+  var evaluationPositions=null;
+  var evaluationMates={};
   var fullLength=MOVES.length;
   var identity=PLAYER_COLOR+'|'+movesStr;
   if(IS_ANSWER && window._cotResult && window._cotResult.identity===identity)studioDepth=window._cotResult.depth;
@@ -195,6 +211,7 @@ var studioPristineMarkup = document.getElementById("card-root").outerHTML;
     }
     for (var j = 0; j < _cotTimers.length; j++) { try { clearTimeout(_cotTimers[j]); } catch (e) {} }
     _cotBound = []; _cotTimers = [];
+    if(brilliantAudio){brilliantAudio.pause();brilliantAudio.removeAttribute('src');brilliantAudio=null;}
   };
 
   /* ── Colour badge ──────────────────────────────────────────── */
@@ -505,7 +522,7 @@ function setupDemo(){
   voiceCommand('stop');
   speak(title+'.');
   if(!START_FEN)speak(levelNames[studioDepth]+' level.');
-  renderBoard(game.fen(),{});
+  renderBoard(game.fen(),{ply:step});
   progressText.textContent='Demo · 0 / '+fullMoves.length+' moves';
   function describePosition(){
     voiceCommand('stop');
@@ -537,7 +554,7 @@ function setupDemo(){
     var undone=fullMoves[step-1];
     game=newGameAt(positions[--step]);
     var lastMove=step?fenDiff(positions[step-1],game.fen()):null;
-    renderBoard(game.fen(),{lastMove:lastMove});
+    renderBoard(game.fen(),{lastMove:lastMove,ply:step});
     slideMove(game.fen(),undone,true);
     playMoveSound(undone);
     describePosition();
@@ -549,7 +566,7 @@ function setupDemo(){
     var san=fullMoves[step++];
     game.move(san);
     positions[step]=game.fen();
-    renderBoard(game.fen(),{lastMove:fenDiff(before,game.fen())});
+    renderBoard(game.fen(),{lastMove:fenDiff(before,game.fen()),ply:step});
     slideMove(before,san,false);
     playMoveSound(san);
     describePosition();
@@ -652,6 +669,37 @@ function setupDemo(){
 
   /* ── Board renderer (shared by both modes) ─────────────────── */
   var boardEl = document.getElementById("board");
+  function updateEvaluation(fen,ply) {
+    var bar=document.getElementById('studio-evaluation');
+    if(!bar)return;
+    bar.hidden=!evaluationData || typeof COT_EVALUATION_ENABLED==='undefined' || !COT_EVALUATION_ENABLED;
+    if(bar.hidden)return;
+    if(evaluationPositions===null){
+      evaluationPositions=[];
+      var analysisGame=newGameAt(startFen());
+      if(analysisGame){
+        evaluationPositions[0]=analysisGame.fen();
+        for(var evalPly=0;evalPly<fullMoves.length;evalPly++){
+          if(!analysisGame.move(fullMoves[evalPly]))break;
+          evaluationPositions[evalPly+1]=analysisGame.fen();
+          if(/#$/.test(fullMoves[evalPly]))evaluationMates[evalPly+1]=analysisGame.turnColor()==='b'?'1-0':'0-1';
+        }
+      }
+    }
+    var matched=Number.isInteger(ply) && evaluationPositions[ply]===fen;
+    var score=matched?CFA_EVALUATION.scoreForPly(evaluationData,ply):null;
+    var mateResult=matched?evaluationMates[ply]:null;
+    bar.classList.toggle('board-flipped',BOARD_FLIP);
+    bar.classList.toggle('not-analyzed',!score);
+    bar.querySelector('.evaluation-white').style.height=(CFA_EVALUATION.whiteFraction(score)*100)+'%';
+    var scoreLabel=mateResult || (score?CFA_EVALUATION.scoreLabel(score):'?');
+    bar.querySelector('.evaluation-value').textContent=scoreLabel;
+    var detail=mateResult?'Checkmate '+scoreLabel:score?scoreLabel+' - '+evaluationData.engine.name+' - White perspective':'Position not analyzed';
+    bar.title=detail+'; positive favors White, negative favors Black. This is an engine estimate, not a result prediction.';
+    bar.setAttribute('aria-valuetext',detail);
+    if(score && typeof score.cp==='number')bar.setAttribute('aria-valuenow',String(Math.max(-15,Math.min(15,score.cp/100))));
+    else bar.removeAttribute('aria-valuenow');
+  }
   function checkSquareOf(fen) {
     /* If the side to move is in check in this position, return its king's
        square name ("e8") so the renderer can add the red glow; else null.
@@ -685,6 +733,7 @@ function setupDemo(){
     if (!boardEl) return;
     boardEl.innerHTML = "";
     var grid = fenToGrid(fen);
+    updateEvaluation(fen,opts.ply);
     var rankOrder = BOARD_FLIP ? [0,1,2,3,4,5,6,7] : [7,6,5,4,3,2,1,0];
     var fileOrder = BOARD_FLIP ? [7,6,5,4,3,2,1,0] : [0,1,2,3,4,5,6,7];
 
@@ -717,6 +766,12 @@ function setupDemo(){
           span.className = "piece";
           span.innerHTML = pieceSVG(piece);
           td.appendChild(span);
+        }
+        if(brilliantMark && name===brilliantMark.square && piece===brilliantMark.code && Date.now()<brilliantMark.expires && COT_BRILLIANT_EFFECTS_ENABLED){
+          td.classList.add('brilliant-square');
+          var brilliantBadge=document.createElement('span');
+          brilliantBadge.className='brilliant-badge';brilliantBadge.textContent='!!';
+          brilliantBadge.setAttribute('aria-label','Brilliant move');td.appendChild(brilliantBadge);
         }
         tr.appendChild(td);
       }
@@ -1291,6 +1346,33 @@ function setupDemo(){
   }
 
   /* ── Result bar + reveal answer ────────────────────────────── */
+  function celebrateBrilliant(ply,to,fen) {
+    if(!CFA_BRILLIANT.shouldReward(brilliantPlies,ply,{mode:IS_ANSWER||demoRunning?'review':'attempt',correct:true,canonical:!alternateBrilliantFinish,playerMove:true}))return false;
+    var piece=fenToGrid(fen)[to];
+    brilliantMark={square:to,code:piece,expires:Date.now()+2400};
+    var flash=document.getElementById('studio-brilliant');
+    flash.replaceChildren();
+    var label=document.createElement('strong');label.textContent='!! Brilliant!';flash.appendChild(label);
+    flash.hidden=!COT_BRILLIANT_EFFECTS_ENABLED && !COT_BRILLIANT_PARTICLES_ENABLED;
+    label.hidden=!COT_BRILLIANT_EFFECTS_ENABLED;
+    if(COT_BRILLIANT_PARTICLES_ENABLED && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      for(var index=0;index<28;index++){
+        var spark=document.createElement('i');spark.setAttribute('aria-hidden','true');
+        spark.style.left=(12+Math.random()*76)+'%';
+        spark.style.setProperty('--drift',(Math.random()-.5)*150+'px');
+        spark.style.setProperty('--turn',(Math.random()*400)+'deg');
+        spark.style.animationDelay=Math.random()*.15+'s';flash.appendChild(spark);
+      }
+    }
+    if(COT_SOUND_ENABLED && COT_BRILLIANT_SOUND_ENABLED && COT_BRILLIANT_SRC){
+      try{if(brilliantAudio)brilliantAudio.pause();brilliantAudio=new Audio(COT_BRILLIANT_SRC);brilliantAudio.volume=.65;brilliantAudio.play().catch(function(){});}catch(error){}
+    }
+    rememberMessage({heading:'!! Brilliant!',text:'You found the key move. Review the continuation to understand why it works.'});
+    ActiveDraw();
+    setT(function(){brilliantMark=null;flash.hidden=true;if(!demoRunning)ActiveDraw();},2400);
+    return true;
+  }
+  var alternateBrilliantFinish=false;
   function celebrate() {
     var banner = document.getElementById('studio-celebration');
     banner.hidden = false;
@@ -1355,6 +1437,7 @@ function setupDemo(){
     var game = newGameAt(startFen());
     if (game) { game.load(startFen()); for (var i = 0; i < startStep; i++) if (MOVES[i]) game.move(MOVES[i]); }
     var attemptStep = startStep; expectedHintMove=function(){return MOVES[attemptStep];};
+    var attemptPly=startStep;
     var lastMove = null;
     var alternateFinish = null;
     var concluded = false;
@@ -1364,7 +1447,7 @@ function setupDemo(){
       onMove: attemptMove
     };
     ActiveDraw = function () {
-      renderBoard(Mode.getFen(), { selected: selected, dests: legalForSel, lastMove: lastMove });
+      renderBoard(Mode.getFen(), { selected: selected, dests: legalForSel, lastMove: lastMove,ply:attemptPly });
     };
 
     function endAttempt(){
@@ -1444,12 +1527,16 @@ function setupDemo(){
         return;
       }
       // correct - commit the player's move on the real game
+      document.getElementById('mistake-flash').classList.remove('show');
       game.moveFromTo(from, to, promo);
+      attemptPly=attemptStep+1;
       lastMove = { from: from, to: to };
       clearSelection();
       speakMove(alternateFinish || MOVES[attemptStep], fen.split(" ")[1],attemptStep);
       playMoveSound(res.san);
       ActiveDraw();
+      alternateBrilliantFinish=!!alternateFinish;
+      var foundBrilliant=celebrateBrilliant(attemptStep+1,to,game.fen());
 
       // correct - line finished on the player's move?
       if (attemptStep + 1 >= MOVES.length) { conclude(true, MOVES.length); return; }
@@ -1461,6 +1548,7 @@ function setupDemo(){
         if(concluded)return;
         var before = game.fen();
         var rmv = applyCanonical(newGameAt(before), game, MOVES[attemptStep + 1]);
+        attemptPly=attemptStep+2;
         lastMove = fenDiff(before, game.fen());
         speakMove(MOVES[attemptStep+1], before.split(" ")[1],attemptStep+1);
         playMoveSound((rmv && rmv.san) ? rmv.san : MOVES[attemptStep + 1]);
@@ -1471,7 +1559,7 @@ function setupDemo(){
         showDemo.disabled=false;
         ActiveDraw();
         slideMove(before,MOVES[attemptStep-1],false);
-      }, 260);
+      }, foundBrilliant && (COT_BRILLIANT_EFFECTS_ENABLED || COT_BRILLIANT_PARTICLES_ENABLED || (COT_SOUND_ENABLED && COT_BRILLIANT_SOUND_ENABLED)) ? 1450 : 260);
     }
 
     announceRound();
@@ -1611,7 +1699,7 @@ function setupDemo(){
       onMove: playUserMove
     };
     ActiveDraw = function () {
-      renderBoard(current.fen, { selected: selected, dests: legalForSel, lastMove: Mode.lastMove() });
+      renderBoard(current.fen, { selected: selected, dests: legalForSel, lastMove: Mode.lastMove(),ply:current.main?depthOf(current):null });
       renderPgn();
       var c = document.getElementById("move-counter");
       if (c) c.textContent = (current.main ? depthOf(current) : mainAncestorDepth(current)) + " / " + MOVES.length;
