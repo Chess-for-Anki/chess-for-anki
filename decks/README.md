@@ -6,6 +6,8 @@
 
 [AnkiWeb listing](https://ankiweb.net/shared/info/1810293290) - initial public visibility may take 24 hours after sharing.
 
+Use the 1.6.0 add-on from the [GitHub release](https://github.com/Chess-for-Anki/chess-for-anki/releases/tag/v1.6.0-preview) while its AnkiWeb update is pending. Optional [natural English recordings](../VOICE-PACKS.md) are downloaded separately.
+
 This sample accompanies the **1.6.0 preview** and passed isolated export, reimport and board checks.
 
 | Lessons | Cards |

@@ -4,6 +4,8 @@ Practise chess lines on an interactive board, with move explanations, guided dem
 
 **Version 1.6.0 preview:** previous-move context, Brilliancy Training and a focused 22-card sample. Earlier public downloads remain available.
 
+For this preview, install the `.ankiaddon` from the GitHub release below. The AnkiWeb add-on listing is still on the earlier 1.4.2 build while its update is pending.
+
 **[Free sample: 22 cards (.apkg)](https://github.com/Chess-for-Anki/chess-for-anki/releases/download/v1.6.0-preview/Chess-for-Anki-Free-Sample.apkg)**
 
 [AnkiWeb deck listing](https://ankiweb.net/shared/info/1810293290). Newly shared decks have AnkiWeb's initial 24-hour visibility delay; the GitHub download is available independently.
@@ -45,7 +47,9 @@ Create your own cards from PGN or a custom position without a paid plan. New cus
 
 ## Voices and community
 
-Device speech is the default. [Natural English Michael narration](https://github.com/Chess-for-Anki/chess-for-anki/releases/download/v1.4.2-preview/English-Michael-Voice-Pack.zip) is an optional download. Unrecorded sample explanations can use device speech. Other natural voices are planned; Hindi still needs runtime support.
+Device speech is the default. [Natural English Michael for the free sample](https://github.com/Chess-for-Anki/chess-for-anki/releases/download/v1.6.0-preview/English-Michael-Free-Sample-1.6.zip) is an optional download covering the sample's explanations, move announcements and hints. Import the ZIP through **Chess for Anki > Language packs**, then choose playback speed in Settings. The recordings are at their original speed.
+
+The [earlier English pack for Starter and Foundations](https://github.com/Chess-for-Anki/chess-for-anki/releases/download/v1.4.2-preview/English-Michael-Voice-Pack.zip) remains available separately. Voices are selected per profile; choose the pack matching your lessons. Unrecorded phrases can use device speech. Other natural voices are planned; Hindi still needs runtime support. [Voice-pack guide](VOICE-PACKS.md).
 
 [Contribute a language or voice](CONTRIBUTING-LANGUAGES.md) · [Language discussion](https://github.com/Chess-for-Anki/chess-for-anki/discussions/1) · [Report a bug](https://github.com/Chess-for-Anki/chess-for-anki/issues)
 
